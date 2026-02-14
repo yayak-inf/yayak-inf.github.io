@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mengapa Pengujian Penting</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                        'brand-danger': '#ef4444', // Red 500
+                        'brand-bg': '#f0fdfa', // Teal 50
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Main Container -->
+<div class="w-[1280px] h-[720px] bg-brand-bg relative flex flex-col overflow-hidden">
+<!-- Header Section -->
+<div class="bg-brand-dark h-24 flex items-center px-12 relative z-10 shadow-lg border-b-4 border-brand-accent">
+<div class="flex-1">
+<h1 class="text-4xl font-heading font-bold text-white tracking-wide flex items-center">
+<i class="fa-solid fa-circle-exclamation mr-4 text-brand-accent"></i>
+                    Mengapa Pengujian Itu Penting?
+                </h1>
+</div>
+<!-- Decorative corner accent -->
+<div class="absolute top-0 right-0 w-32 h-full bg-brand-accent opacity-20 transform -skew-x-12 origin-top-right"></div>
+</div>
+<!-- Content Body -->
+<div class="flex-1 px-12 py-8 relative z-10 flex flex-col justify-center">
+<!-- Intro Text -->
+<div class="mb-4">
+<p class="text-xl text-brand-dark font-heading font-semibold border-l-4 border-brand-accent pl-4">
+                    Tanpa pengujian yang baik, risiko berikut dapat terjadi:
+                </p>
+</div>
+<!-- Cards Container -->
+<div class="grid grid-cols-3 gap-6 h-full items-stretch pb-2">
+<!-- Card 1: Bug Tidak Terdeteksi -->
+<div class="bg-white rounded-xl shadow-md border-t-8 border-brand-accent p-6 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-brand-accent bg-opacity-10 rounded-full flex items-center justify-center text-brand-accent mr-3 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+<i class="fa-solid fa-bug text-xl"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-dark leading-tight">Bug Tidak Terdeteksi</h3>
+</div>
+<div class="flex-1 mb-4">
+<p class="text-gray-700 font-body text-base leading-relaxed">
+<i class="fa-solid fa-triangle-exclamation text-brand-accent mr-2"></i>
+                            Kesalahan kecil bisa lolos dari pengawasan dan baru muncul saat aplikasi sudah digunakan oleh user.
+                        </p>
+</div>
+<div class="bg-orange-50 rounded-lg p-4 border border-orange-100 mt-auto">
+<!-- Ikon Besar -->
+<div class="flex justify-center mb-4">
+  <i class="fa-solid fa-bug 
+     text-7xl text-brand-accent opacity-20 
+     group-hover:opacity-30 transition-opacity">
+  </i>
+</div>
+<p class="text-sm font-bold text-brand-accent mb-1 uppercase tracking-wide">
+<i class="fa-regular fa-lightbulb mr-1"></i> Contoh:
+                        </p>
+<p class="text-gray-600 text-sm font-body italic">
+                            "Salah hitung total belanja pada aplikasi e-commerce yang merugikan penjual."
+                        </p>
+</div>
+</div>
+<!-- Card 2: Sistem Gagal -->
+<div class="bg-white rounded-xl shadow-md border-t-8 border-brand-danger p-6 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-brand-danger mr-3 group-hover:bg-brand-danger group-hover:text-white transition-colors">
+<i class="fa-solid fa-bomb text-xl"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-dark leading-tight">Sistem Gagal (Crash)</h3>
+</div>
+<div class="flex-1 mb-4">
+<p class="text-gray-700 font-body text-base leading-relaxed">
+<i class="fa-solid fa-circle-xmark text-brand-danger mr-2"></i>
+                            Aplikasi bisa berhenti mendadak (crash), hang, atau tidak dapat diakses sama sekali saat dibutuhkan.
+                        </p>
+</div>
+<div class="bg-red-50 rounded-lg p-4 border border-red-100 mt-auto">
+<!-- Ikon Besar -->
+<div class="flex justify-center mb-4">
+  <i class="fa-solid fa-bomb 
+     text-7xl text-brand-accent opacity-20 
+     group-hover:opacity-30 transition-opacity">
+  </i>
+</div>
+<p class="text-sm font-bold text-brand-danger mb-1 uppercase tracking-wide">
+<i class="fa-regular fa-lightbulb mr-1"></i> Contoh:
+                        </p>
+<p class="text-gray-600 text-sm font-body italic">
+                            "Aplikasi absensi error/down saat jam masuk kerja, menyebabkan antrian pegawai."
+                        </p>
+</div>
+</div>
+<!-- Card 3: Kerugian & Reputasi -->
+<div class="bg-white rounded-xl shadow-md border-t-8 border-brand-teal p-6 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-brand-teal bg-opacity-10 rounded-full flex items-center justify-center text-brand-teal mr-3 group-hover:bg-brand-teal group-hover:text-white transition-colors">
+<i class="fa-solid fa-arrow-trend-down text-xl"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-dark leading-tight">Kerugian &amp; Reputasi</h3>
+</div>
+<div class="flex-1 mb-4">
+<p class="text-gray-700 font-body text-base leading-relaxed">
+<i class="fa-solid fa-sack-dollar text-brand-teal mr-2"></i>
+                            Perbaikan setelah rilis jauh lebih mahal. Bug juga dapat menghancurkan kepercayaan pengguna.
+                        </p>
+</div>
+<div class="bg-teal-50 rounded-lg p-4 border border-teal-100 mt-auto">
+<!-- Ikon Besar -->
+<div class="flex justify-center mb-4">
+  <i class="fa-solid fa-arrow-trend-down 
+     text-7xl text-brand-accent opacity-20 
+     group-hover:opacity-30 transition-opacity">
+  </i>
+</div>
+<p class="text-sm font-bold text-brand-teal mb-1 uppercase tracking-wide">
+<i class="fa-regular fa-lightbulb mr-1"></i> Contoh:
+                        </p>
+<p class="text-gray-600 text-sm font-body italic">
+                            "Aplikasi bank error saat transfer → komplain massal di sosmed → reputasi menurun."
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute bottom-0 left-0 opacity-5 pointer-events-none z-0">
+<i class="fa-solid fa-triangle-exclamation text-[300px] text-brand-accent"></i>
+</div>
+<!-- Footer Strip -->
+<div class="h-3 w-full bg-brand-dark mt-auto relative z-20"></div>
+</div>
+</body>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 6.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 8.html"; // ganti sesuai file berikutnya
+    }
+</script>
+
+</html>

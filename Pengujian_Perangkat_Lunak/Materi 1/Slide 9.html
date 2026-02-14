@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pentingnya Pengujian (Bisnis &amp; Pengguna)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                        'brand-bg': '#f0fdfa', // Teal 50
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Main Container -->
+<div class="w-[1280px] h-[720px] bg-brand-bg relative flex flex-col overflow-hidden">
+<!-- Header Section -->
+<div class="bg-brand-dark h-24 flex items-center px-12 relative z-10 shadow-lg border-b-4 border-brand-teal">
+<div class="flex-1">
+<h1 class="text-4xl font-heading font-bold text-white tracking-wide flex items-center">
+<i class="fa-solid fa-briefcase mr-4 text-brand-teal-light"></i>
+                    Pentingnya Pengujian (Bisnis &amp; Pengguna)
+                </h1>
+</div>
+<!-- Decorative corner accent -->
+<div class="absolute top-0 right-0 w-32 h-full bg-brand-teal opacity-20 transform -skew-x-12 origin-top-right"></div>
+</div>
+<!-- Content Body -->
+<div class="flex-1 px-12 py-8 relative z-10 flex flex-col justify-center">
+<!-- Cards Container -->
+<div class="grid grid-cols-3 gap-6 h-full items-stretch">
+<!-- Card 1 -->
+<div class="bg-white rounded-xl shadow-md border-t-8 border-brand-teal p-6 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-brand-teal bg-opacity-10 rounded-full flex items-center justify-center text-brand-teal mr-3 group-hover:bg-brand-teal group-hover:text-white transition-colors">
+<i class="fa-solid fa-piggy-bank text-xl"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-dark leading-tight">Biaya Efektif</h3>
+</div>
+<div class="flex-1 mb-4">
+<p class="text-gray-700 font-body text-base leading-relaxed">
+<i class="fa-solid fa-hand-point-right text-brand-teal mr-2"></i>
+                            Mengurangi biaya perbaikan di masa depan. Bug ditemukan lebih awal sebelum sistem dirilis ke publik.
+                        </p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-auto">
+<!-- Ikon Besar -->
+<div class="flex justify-center mb-4">
+  <i class="fa-solid fa-piggy-bank
+     text-7xl text-brand-accent opacity-20 
+     group-hover:opacity-30 transition-opacity">
+  </i>
+</div>
+<p class="text-sm font-bold text-brand-teal mb-1 uppercase tracking-wide">
+<i class="fa-regular fa-lightbulb mr-1"></i> Contoh:
+                        </p>
+<p class="text-gray-600 text-sm font-body italic">
+                            "Memperbaiki bug saat fase testing jauh lebih murah daripada setelah aplikasi dipakai ribuan user."
+                        </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-xl shadow-md border-t-8 border-brand-accent p-6 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-brand-accent bg-opacity-10 rounded-full flex items-center justify-center text-brand-accent mr-3 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+<i class="fa-solid fa-thumbs-up text-xl"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-dark leading-tight">Kepercayaan Pengguna</h3>
+</div>
+<div class="flex-1 mb-4">
+<p class="text-gray-700 font-body text-base leading-relaxed">
+<i class="fa-solid fa-hand-point-right text-brand-accent mr-2"></i>
+                            Meningkatkan loyalitas pengguna. Aplikasi yang jarang error lebih dipercaya untuk transaksi penting.
+                        </p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-auto">
+<!-- Ikon Besar -->
+<div class="flex justify-center mb-4">
+  <i class="fa-solid fa-thumbs-up
+     text-7xl text-brand-accent opacity-20 
+     group-hover:opacity-30 transition-opacity">
+  </i>
+</div>
+<p class="text-sm font-bold text-brand-accent mb-1 uppercase tracking-wide">
+<i class="fa-regular fa-lightbulb mr-1"></i> Contoh:
+                        </p>
+<p class="text-gray-600 text-sm font-body italic">
+                            "Pengguna setia memakai aplikasi e-wallet yang stabil dan tidak pernah gagal top-up."
+                        </p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-xl shadow-md border-t-8 border-brand-teal-light p-6 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 bg-brand-teal-light bg-opacity-10 rounded-full flex items-center justify-center text-brand-teal-light mr-3 group-hover:bg-brand-teal-light group-hover:text-white transition-colors">
+<i class="fa-solid fa-building-shield text-xl"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-dark leading-tight">Reputasi Perusahaan</h3>
+</div>
+<div class="flex-1 mb-4">
+<p class="text-gray-700 font-body text-base leading-relaxed">
+<i class="fa-solid fa-hand-point-right text-brand-teal-light mr-2"></i>
+                            Menjaga citra profesionalisme. Aplikasi berkualitas mencerminkan kredibilitas perusahaan.
+                        </p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 border border-gray-100 mt-auto">
+<!-- Ikon Besar -->
+<div class="flex justify-center mb-4">
+  <i class="fa-solid fa-building-shield
+     text-7xl text-brand-accent opacity-20 
+     group-hover:opacity-30 transition-opacity">
+  </i>
+</div>
+<p class="text-sm font-bold text-brand-teal-light mb-1 uppercase tracking-wide">
+<i class="fa-regular fa-lightbulb mr-1"></i> Contoh:
+                        </p>
+<p class="text-gray-600 text-sm font-body italic">
+                            "Marketplace dengan sistem stabil lebih diminati seller dan buyer dibanding yang sering down."
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute bottom-0 left-0 opacity-5 pointer-events-none z-0">
+<i class="fa-solid fa-handshake text-[300px] text-brand-teal"></i>
+</div>
+<!-- Footer Strip -->
+<div class="h-3 w-full bg-brand-dark mt-auto relative z-20"></div>
+</div>
+</body>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 8.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 10.html"; // ganti sesuai file berikutnya
+    }
+</script>
+
+</html>

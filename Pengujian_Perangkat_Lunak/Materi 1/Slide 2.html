@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kontrak Perkuliahan</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                        'brand-bg': '#f0fdfa', // Teal 50
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Main Container -->
+<div class="w-[1280px] h-[720px] bg-brand-bg relative flex flex-col overflow-hidden">
+<!-- Header Section -->
+<div class="bg-brand-dark h-24 flex items-center px-12 relative z-10 shadow-lg border-b-4 border-brand-teal">
+<div class="flex-1">
+<h1 class="text-4xl font-heading font-bold text-white tracking-wide">
+<i class="fa-solid fa-file-contract mr-4 text-brand-teal-light"></i>Kontrak Perkuliahan
+                </h1>
+</div>
+<!-- Decorative corner accent -->
+<div class="absolute top-0 right-0 w-32 h-full bg-brand-teal opacity-20 transform -skew-x-12 origin-top-right"></div>
+</div>
+<!-- Content Body -->
+<div class="flex-1 flex px-16 py-10 relative">
+<!-- Decorative Background Element -->
+<div class="absolute bottom-0 right-0 opacity-5 pointer-events-none">
+<i class="fa-solid fa-clipboard-check text-[400px] text-brand-teal"></i>
+</div>
+<!-- Left Column: Introduction Text -->
+<div class="w-1/3 flex flex-col justify-center pr-8 z-10">
+<div class="bg-white p-8 rounded-xl shadow-lg border-l-8 border-brand-accent">
+<p class="text-2xl font-heading font-semibold text-brand-dark mb-4">
+                        Penting!
+                    </p>
+<p class="text-lg font-body text-gray-600 leading-relaxed">
+                        Kontrak perkuliahan ini menjadi kesepakatan bersama antara dosen dan mahasiswa selama satu semester ke depan.
+                    </p>
+<div class="mt-6 flex items-center text-brand-teal font-bold">
+<i class="fa-solid fa-info-circle mr-2"></i>
+<span>Harap diperhatikan dengan saksama</span>
+</div>
+</div>
+</div>
+<!-- Right Column: List of Points -->
+<div class="w-2/3 flex flex-col justify-center pl-8 z-10">
+<div class="space-y-6">
+<!-- Point 1 -->
+<div class="group flex items-center bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:translate-x-2 transition-all duration-300 border border-gray-100">
+<div class="flex-shrink-0 w-14 h-14 bg-brand-teal bg-opacity-10 rounded-full flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+<i class="fa-solid fa-bullseye text-2xl"></i>
+</div>
+<div class="ml-6">
+<h3 class="text-xl font-heading font-bold text-brand-dark mb-1 group-hover:text-brand-teal transition-colors">Tujuan Pembelajaran</h3>
+<p class="text-gray-600 font-body text-base">Capaian pembelajaran mata kuliah</p>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="group flex items-center bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:translate-x-2 transition-all duration-300 border border-gray-100">
+<div class="flex-shrink-0 w-14 h-14 bg-brand-teal bg-opacity-10 rounded-full flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+<i class="fa-solid fa-chalkboard-user text-2xl"></i>
+</div>
+<div class="ml-6">
+<h3 class="text-xl font-heading font-bold text-brand-dark mb-1 group-hover:text-brand-teal transition-colors">Metode Perkuliahan</h3>
+<p class="text-gray-600 font-body text-base">Strategi dan pendekatan pembelajaran</p>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="group flex items-center bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:translate-x-2 transition-all duration-300 border border-gray-100">
+<div class="flex-shrink-0 w-14 h-14 bg-brand-teal bg-opacity-10 rounded-full flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+<i class="fa-solid fa-star-half-stroke text-2xl"></i>
+</div>
+<div class="ml-6">
+<h3 class="text-xl font-heading font-bold text-brand-dark mb-1 group-hover:text-brand-teal transition-colors">Sistem Penilaian</h3>
+<p class="text-gray-600 font-body text-base">Komponen dan bobot evaluasi</p>
+</div>
+</div>
+<!-- Point 4 -->
+<div class="group flex items-center bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:translate-x-2 transition-all duration-300 border border-gray-100">
+<div class="flex-shrink-0 w-14 h-14 bg-brand-teal bg-opacity-10 rounded-full flex items-center justify-center text-brand-teal group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300">
+<i class="fa-solid fa-scale-balanced text-2xl"></i>
+</div>
+<div class="ml-6">
+<h3 class="text-xl font-heading font-bold text-brand-dark mb-1 group-hover:text-brand-teal transition-colors">Aturan &amp; Tata Tertib</h3>
+<p class="text-gray-600 font-body text-base">Disiplin dan etika perkuliahan</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Strip -->
+<div class="h-3 w-full bg-brand-dark"></div>
+</div>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 1.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 3.html"; // ganti sesuai file berikutnya
+    }
+</script>
+
+</body>
+</html>

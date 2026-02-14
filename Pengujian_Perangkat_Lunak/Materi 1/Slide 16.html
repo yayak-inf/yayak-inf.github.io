@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Diskusi Kelas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                        'brand-bg': '#f0fdfa', // Teal 50
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Main Container -->
+<div class="w-[1280px] h-[720px] bg-brand-bg relative flex flex-col overflow-hidden">
+<!-- Header Section -->
+<div class="bg-brand-dark h-24 flex items-center px-12 relative z-10 shadow-lg border-b-4 border-brand-teal">
+<div class="flex-1">
+<h1 class="text-4xl font-heading font-bold text-white tracking-wide flex items-center">
+<i class="fa-solid fa-comments mr-4 text-brand-teal-light"></i>
+                    Diskusi Kelas
+                </h1>
+</div>
+<!-- Decorative corner accent -->
+<div class="absolute top-0 right-0 w-32 h-full bg-brand-teal opacity-20 transform -skew-x-12 origin-top-right"></div>
+</div>
+<!-- Content Body -->
+<div class="flex-1 px-12 py-8 relative z-10 flex flex-col">
+<!-- Instruction Box -->
+<div class="bg-white rounded-lg shadow-sm border-l-8 border-brand-teal p-5 mb-6 flex items-start">
+<div class="bg-brand-teal bg-opacity-10 p-3 rounded-full mr-4 flex-shrink-0">
+<i class="fa-solid fa-lightbulb text-2xl text-brand-teal"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-brand-dark mb-1">Instruksi Diskusi</h3>
+<p class="text-gray-600 font-body text-base">
+                        Diskusikan pertanyaan berikut secara individu atau kelompok kecil, kemudian sampaikan pendapat kalian. Fokus pada pemahaman konsep dan pengalaman nyata.
+                    </p>
+</div>
+</div>
+<!-- Questions Grid -->
+<div class="flex-1 grid grid-cols-2 gap-6 relative z-10">
+<!-- Left Column (3 Questions) -->
+<div class="space-y-4">
+<!-- Q1 -->
+<div class="bg-white rounded-lg shadow-md p-4 flex items-start hover:shadow-lg transition-shadow border border-gray-100">
+<div class="flex-shrink-0 w-10 h-10 bg-brand-dark text-white rounded-lg flex items-center justify-center font-heading font-bold mr-4 shadow-sm">1</div>
+<div>
+<p class="font-heading font-bold text-brand-dark text-lg mb-1">Mitos "Testing Tidak Penting"</p>
+<p class="text-gray-600 font-body text-sm">Menurut kalian, mengapa pengujian perangkat lunak sering dianggap tidak penting atau dikesampingkan dalam pengembangan aplikasi?</p>
+</div>
+</div>
+<!-- Q2 -->
+<div class="bg-white rounded-lg shadow-md p-4 flex items-start hover:shadow-lg transition-shadow border border-gray-100">
+<div class="flex-shrink-0 w-10 h-10 bg-brand-dark text-white rounded-lg flex items-center justify-center font-heading font-bold mr-4 shadow-sm">2</div>
+<div>
+<p class="font-heading font-bold text-brand-dark text-lg mb-1">Pengalaman Nyata Bug</p>
+<p class="text-gray-600 font-body text-sm">Pernahkah kalian mengalami bug pada aplikasi populer? Sebutkan aplikasinya dan jelaskan dampak bug tersebut bagi kalian sebagai pengguna.</p>
+</div>
+</div>
+<!-- Q3 -->
+<div class="bg-white rounded-lg shadow-md p-4 flex items-start hover:shadow-lg transition-shadow border border-gray-100">
+<div class="flex-shrink-0 w-10 h-10 bg-brand-dark text-white rounded-lg flex items-center justify-center font-heading font-bold mr-4 shadow-sm">3</div>
+<div>
+<p class="font-heading font-bold text-brand-dark text-lg mb-1">Ilusi "Normal"</p>
+<p class="text-gray-600 font-body text-sm">Apakah aplikasi yang terlihat berjalan normal sudah pasti bebas dari bug? Berikan alasan logis dan contoh sederhana.</p>
+</div>
+</div>
+</div>
+<!-- Right Column (2 Questions & Illustration) -->
+<div class="flex flex-col space-y-4">
+<!-- Q4 -->
+<div class="bg-white rounded-lg shadow-md p-4 flex items-start hover:shadow-lg transition-shadow border border-gray-100">
+<div class="flex-shrink-0 w-10 h-10 bg-brand-dark text-white rounded-lg flex items-center justify-center font-heading font-bold mr-4 shadow-sm">4</div>
+<div>
+<p class="font-heading font-bold text-brand-dark text-lg mb-1">Waktu Penemuan Bug</p>
+<p class="text-gray-600 font-body text-sm">Mana yang lebih baik: menemukan bug sebelum aplikasi dirilis atau setelah digunakan pengguna? Mengapa demikian?</p>
+</div>
+</div>
+<!-- Q5 -->
+<div class="bg-white rounded-lg shadow-md p-4 flex items-start hover:shadow-lg transition-shadow border border-gray-100">
+<div class="flex-shrink-0 w-10 h-10 bg-brand-dark text-white rounded-lg flex items-center justify-center font-heading font-bold mr-4 shadow-sm">5</div>
+<div>
+<p class="font-heading font-bold text-brand-dark text-lg mb-1">Tester vs Developer</p>
+<p class="text-gray-600 font-body text-sm">Apakah peran software tester bisa sepenuhnya digantikan oleh developer yang menguji kodenya sendiri? Jelaskan pendapat kalian.</p>
+</div>
+</div>
+<!-- Decorative/Call to Action Area -->
+<div class="flex-1 bg-brand-teal bg-opacity-5 rounded-xl border border-dashed border-brand-teal flex items-center justify-center relative overflow-hidden group">
+<div class="absolute inset-0 bg-brand-teal opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+<div class="text-center p-6 relative z-10">
+<i class="fa-solid fa-people-group text-5xl text-brand-teal mb-3 opacity-80"></i>
+<p class="font-heading font-bold text-brand-dark text-xl">Waktunya Berdiskusi!</p>
+<p class="text-gray-500 font-body text-sm mt-1">Sampaikan pendapatmu dengan percaya diri</p>
+</div>
+<!-- Background decoration -->
+<div class="absolute -bottom-8 -right-8 text-brand-teal opacity-5 rotate-12">
+<i class="fa-solid fa-comment-dots text-9xl"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Strip -->
+<div class="h-3 w-full bg-brand-dark mt-auto relative z-20 mt-6"></div>
+</div>
+<!-- Background Elements -->
+<div class="absolute bottom-0 left-0 opacity-5 pointer-events-none z-0">
+<i class="fa-regular fa-comments text-[350px] text-brand-dark"></i>
+</div>
+</div>
+</body>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-white font-heading font-semibold transition"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 15.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 16.html"; // ganti sesuai file berikutnya
+    }
+</script>
+
+</html>

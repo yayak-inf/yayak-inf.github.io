@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sistem Penilaian</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                        'brand-bg': '#f0fdfa', // Teal 50
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Main Container -->
+<div class="w-[1280px] h-[720px] bg-brand-bg relative flex flex-col overflow-hidden">
+<!-- Header Section -->
+<div class="bg-brand-dark h-24 flex items-center px-12 relative z-10 shadow-lg border-b-4 border-brand-teal">
+<div class="flex-1">
+<h1 class="text-4xl font-heading font-bold text-white tracking-wide">
+<i class="fa-solid fa-star-half-stroke mr-4 text-brand-teal-light"></i>Sistem Penilaian
+                </h1>
+</div>
+<!-- Decorative corner accent -->
+<div class="absolute top-0 right-0 w-32 h-full bg-brand-teal opacity-20 transform -skew-x-12 origin-top-right"></div>
+</div>
+<!-- Content Body -->
+<div class="flex-1 flex flex-col px-16 py-10 relative z-10">
+<!-- Intro Text -->
+<div class="mb-8">
+<p class="text-xl font-body text-gray-600">Komponen penilaian yang digunakan dalam mata kuliah ini terdiri dari empat aspek utama:</p>
+</div>
+<!-- Grid Container -->
+<div class="grid grid-cols-2 gap-8 flex-1">
+<!-- Card 1: Kehadiran & Partisipasi -->
+<div class="bg-white rounded-xl shadow-md border-l-8 border-brand-teal p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-start h-full">
+<div class="flex-shrink-0 bg-brand-bg p-4 rounded-full mr-5 group-hover:bg-brand-teal group-hover:bg-opacity-10 transition-colors">
+<i class="fa-solid fa-user-check text-4xl text-brand-teal"></i>
+</div>
+<div class="flex flex-col justify-between h-full w-full">
+<div>
+<h3 class="text-2xl font-heading font-bold text-brand-dark mb-2">Kehadiran &amp; Partisipasi</h3>
+<p class="text-gray-600 font-body">Keaktifan dalam diskusi kelas dan kehadiran minimal 75% dalam perkuliahan.</p>
+</div>
+<div class="mt-4 flex items-center justify-end">
+<span class="px-3 py-1 bg-brand-teal text-white text-sm font-bold rounded-full">Bobot: 10%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Tugas & Praktikum -->
+<div class="bg-white rounded-xl shadow-md border-l-8 border-brand-teal-light p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-start h-full">
+<div class="flex-shrink-0 bg-brand-bg p-4 rounded-full mr-5 group-hover:bg-brand-teal-light group-hover:bg-opacity-10 transition-colors">
+<i class="fa-solid fa-laptop-code text-4xl text-brand-teal-light"></i>
+</div>
+<div class="flex flex-col justify-between h-full w-full">
+<div>
+<h3 class="text-2xl font-heading font-bold text-brand-dark mb-2">Tugas &amp; Praktikum</h3>
+<p class="text-gray-600 font-body">Pengerjaan tugas individu, laporan praktikum, dan implementasi pengujian.</p>
+</div>
+<div class="mt-4 flex items-center justify-end">
+<span class="px-3 py-1 bg-brand-teal-light text-brand-dark text-sm font-bold rounded-full">Bobot: 30%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: UTS -->
+<div class="bg-white rounded-xl shadow-md border-l-8 border-brand-accent p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-start h-full">
+<div class="flex-shrink-0 bg-brand-bg p-4 rounded-full mr-5 group-hover:bg-brand-accent group-hover:bg-opacity-10 transition-colors">
+<i class="fa-solid fa-file-pen text-4xl text-brand-accent"></i>
+</div>
+<div class="flex flex-col justify-between h-full w-full">
+<div>
+<h3 class="text-2xl font-heading font-bold text-brand-dark mb-2">Ujian Tengah Semester</h3>
+<p class="text-gray-600 font-body">Evaluasi tertulis mengenai konsep dasar dan teori pengujian perangkat lunak.</p>
+</div>
+<div class="mt-4 flex items-center justify-end">
+<span class="px-3 py-1 bg-brand-accent text-white text-sm font-bold rounded-full">Bobot: 30%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 4: UAS -->
+<div class="bg-white rounded-xl shadow-md border-l-8 border-red-500 p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
+<div class="flex items-start h-full">
+<div class="flex-shrink-0 bg-brand-bg p-4 rounded-full mr-5 group-hover:bg-red-500 group-hover:bg-opacity-10 transition-colors">
+<i class="fa-solid fa-award text-4xl text-red-500"></i>
+</div>
+<div class="flex flex-col justify-between h-full w-full">
+<div>
+<h3 class="text-2xl font-heading font-bold text-brand-dark mb-2">Ujian Akhir Semester</h3>
+<p class="text-gray-600 font-body">Proyek akhir pengujian aplikasi lengkap atau ujian tertulis komprehensif.</p>
+</div>
+<div class="mt-4 flex items-center justify-end">
+<span class="px-3 py-1 bg-red-500 text-white text-sm font-bold rounded-full">Bobot: 30%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Strip -->
+<div class="h-3 w-full bg-brand-dark"></div>
+</div>
+</body>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 3.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 5.html"; // ganti sesuai file berikutnya
+    }
+</script>
+
+</html>

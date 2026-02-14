@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dampak Bug Terhadap Sistem</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                        'brand-bg': '#f0fdfa', // Teal 50
+                        'alert-red': '#ef4444', // Red 500
+                        'alert-orange': '#f97316', // Orange 500
+                        'alert-yellow': '#eab308', // Yellow 500
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Main Container -->
+<div class="w-[1280px] h-[720px] bg-brand-bg relative flex flex-col overflow-hidden">
+<!-- Header Section -->
+<div class="bg-brand-dark h-24 flex items-center px-12 relative z-10 shadow-lg border-b-4 border-brand-teal">
+<div class="flex-1">
+<h1 class="text-4xl font-heading font-bold text-white tracking-wide flex items-center">
+<i class="fa-solid fa-triangle-exclamation mr-4 text-brand-accent"></i>
+                    Dampak Bug Terhadap Sistem
+                </h1>
+</div>
+<!-- Decorative corner accent -->
+<div class="absolute top-0 right-0 w-32 h-full bg-brand-teal opacity-20 transform -skew-x-12 origin-top-right"></div>
+</div>
+<!-- Content Body -->
+<div class="flex-1 px-12 py-10 relative z-10 flex flex-col justify-center">
+<!-- Intro Text (Optional) -->
+<div class="mb-8 text-center">
+<p class="text-xl text-gray-700 font-body font-semibold">
+                    Bug yang tidak terdeteksi dapat menyebabkan kerusakan serius pada sistem aplikasi:
+                </p>
+</div>
+<!-- Cards Container -->
+<div class="grid grid-cols-3 gap-8 h-full items-stretch pb-4">
+<!-- Card 1: Critical Impact (Red) -->
+<div class="bg-white rounded-xl shadow-lg border-t-8 border-alert-red p-6 flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative overflow-hidden">
+<!-- Background Icon -->
+<div class="absolute -right-6 -bottom-6 text-alert-red opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+<i class="fa-solid fa-burst text-9xl"></i>
+</div>
+<div class="flex flex-col items-center mb-6 text-center z-10">
+<div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center text-alert-red mb-4 group-hover:bg-alert-red group-hover:text-white transition-colors shadow-sm ring-4 ring-red-50">
+<i class="fa-solid fa-bomb text-4xl"></i>
+</div>
+<h3 class="text-2xl font-heading font-bold text-brand-dark leading-tight">System Crash</h3>
+<div class="w-16 h-1 bg-alert-red rounded-full mt-3"></div>
+</div>
+<div class="flex-1 mb-6 text-center z-10">
+<p class="text-gray-700 font-body text-lg leading-relaxed">
+                            Aplikasi berhenti bekerja secara mendadak atau mengalami error fatal yang tidak dapat dipulihkan.
+                        </p>
+</div>
+<div class="bg-red-50 rounded-lg p-4 border border-red-100 mt-auto z-10 relative">
+<div class="absolute -left-1 top-4 w-2 h-8 bg-alert-red rounded-r-lg"></div>
+<p class="text-sm font-bold text-alert-red mb-1 uppercase tracking-wide pl-2">
+<i class="fa-solid fa-circle-exclamation mr-1"></i> Contoh Nyata:
+                        </p>
+<p class="text-gray-700 text-sm font-body italic pl-2">
+                            "Aplikasi force close saat pengguna mencoba membuka menu profil tertentu."
+                        </p>
+</div>
+</div>
+<!-- Card 2: High Impact (Orange) -->
+<div class="bg-white rounded-xl shadow-lg border-t-8 border-alert-orange p-6 flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative overflow-hidden">
+<!-- Background Icon -->
+<div class="absolute -right-6 -bottom-6 text-alert-orange opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+<i class="fa-solid fa-database text-9xl"></i>
+</div>
+<div class="flex flex-col items-center mb-6 text-center z-10">
+<div class="w-20 h-20 bg-orange-50 rounded-full flex items-center justify-center text-alert-orange mb-4 group-hover:bg-alert-orange group-hover:text-white transition-colors shadow-sm ring-4 ring-orange-50">
+<i class="fa-solid fa-file-circle-xmark text-4xl"></i>
+</div>
+<h3 class="text-2xl font-heading font-bold text-brand-dark leading-tight">Data Korup</h3>
+<div class="w-16 h-1 bg-alert-orange rounded-full mt-3"></div>
+</div>
+<div class="flex-1 mb-6 text-center z-10">
+<p class="text-gray-700 font-body text-lg leading-relaxed">
+                            Integritas data terganggu, menyebabkan informasi menjadi tidak valid, rusak, atau hilang permanen.
+                        </p>
+</div>
+<div class="bg-orange-50 rounded-lg p-4 border border-orange-100 mt-auto z-10 relative">
+<div class="absolute -left-1 top-4 w-2 h-8 bg-alert-orange rounded-r-lg"></div>
+<p class="text-sm font-bold text-alert-orange mb-1 uppercase tracking-wide pl-2">
+<i class="fa-solid fa-triangle-exclamation mr-1"></i> Contoh Nyata:
+                        </p>
+<p class="text-gray-700 text-sm font-body italic pl-2">
+                            "Data transaksi pembayaran pengguna tidak tersimpan di database setelah checkout."
+                        </p>
+</div>
+</div>
+<!-- Card 3: Medium Impact (Yellow) -->
+<div class="bg-white rounded-xl shadow-lg border-t-8 border-alert-yellow p-6 flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group relative overflow-hidden">
+<!-- Background Icon -->
+<div class="absolute -right-6 -bottom-6 text-alert-yellow opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+<i class="fa-solid fa-gauge-high text-9xl"></i>
+</div>
+<div class="flex flex-col items-center mb-6 text-center z-10">
+<div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center text-alert-yellow mb-4 group-hover:bg-alert-yellow group-hover:text-white transition-colors shadow-sm ring-4 ring-yellow-50">
+<i class="fa-solid fa-stopwatch text-4xl"></i>
+</div>
+<h3 class="text-2xl font-heading font-bold text-brand-dark leading-tight">Penurunan Performa</h3>
+<div class="w-16 h-1 bg-alert-yellow rounded-full mt-3"></div>
+</div>
+<div class="flex-1 mb-6 text-center z-10">
+<p class="text-gray-700 font-body text-lg leading-relaxed">
+                            Sistem menjadi lambat, tidak responsif, atau memakan resource berlebihan yang mengganggu pengalaman.
+                        </p>
+</div>
+<div class="bg-yellow-50 rounded-lg p-4 border border-yellow-100 mt-auto z-10 relative">
+<div class="absolute -left-1 top-4 w-2 h-8 bg-alert-yellow rounded-r-lg"></div>
+<p class="text-sm font-bold text-alert-yellow mb-1 uppercase tracking-wide pl-2">
+<i class="fa-solid fa-circle-info mr-1"></i> Contoh Nyata:
+                        </p>
+<p class="text-gray-700 text-sm font-body italic pl-2">
+                            "Loading halaman dashboard membutuhkan waktu lebih dari 10 detik untuk tampil."
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute bottom-0 left-0 opacity-5 pointer-events-none z-0">
+<i class="fa-solid fa-bug-slash text-[300px] text-brand-dark"></i>
+</div>
+<!-- Footer Strip -->
+<div class="h-3 w-full bg-brand-dark mt-auto relative z-20"></div>
+</div>
+</body>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-white font-heading font-semibold transition"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 12.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 14.html"; // ganti sesuai file berikutnya
+    }
+</script>
+
+</html>
