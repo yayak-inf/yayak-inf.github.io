@@ -2,24 +2,41 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Beranda Mata Kuliah</title>
+    <title>Portal Mata Kuliah | Informatika</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-    <header class="header">
-        <h1>📚 Beranda Mata Kuliah</h1>
-        <p>Pilih mata kuliah dan pertemuan yang ingin dipelajari</p>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <h2>📘 Informatika</h2>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Mata Kuliah</a></li>
+            <li><a href="#">Tentang</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO / PROFILE -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Portal Pembelajaran Informatika</h1>
+            <p>Materi perkuliahan, slide, dan pembahasan setiap pertemuan<br>
+               Disusun rapi & mudah diakses mahasiswa</p>
+        </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main class="container">
 
-        <!-- CARD MATA KULIAH -->
+        <!-- CARD -->
         <section class="course-card">
-            <h2>Kompleksitas Algoritma</h2>
+            <h2>📊 Kompleksitas Algoritma</h2>
+            <p class="course-desc">
+                Mempelajari analisis efisiensi algoritma menggunakan kompleksitas waktu dan ruang.
+            </p>
             <div class="meeting-grid">
-                <!-- Pertemuan 1 - 16 -->
                 <a href="Kompleksitas/Materi1/Slide 1.html" class="meeting">1</a>
                 <a href="#" class="meeting">2</a>
                 <a href="#" class="meeting">3</a>
@@ -39,9 +56,11 @@
             </div>
         </section>
 
-        <!-- CONTOH MATA KULIAH LAIN -->
         <section class="course-card">
-            <h2>Pengujian Perangkat Lunak</h2>
+            <h2>🧪 Pengujian Perangkat Lunak</h2>
+            <p class="course-desc">
+                Membahas teknik pengujian software untuk menjamin kualitas dan keandalan sistem.
+            </p>
             <div class="meeting-grid">
                 <a href="Pengujian_Perangkat_Lunak/Materi 1/Slide 1.html" class="meeting">1</a>
                 <a href="#" class="meeting">2</a>
@@ -62,11 +81,12 @@
             </div>
         </section>
 
-     
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        <p>© 2026 Sistem Pembelajaran Informatika</p>
+        <p>© 2026 | Portal Pembelajaran Informatika</p>
+        <small>Didesain seperti website pribadi dosen 👨‍🏫</small>
     </footer>
 
 </body>
