@@ -1,93 +1,102 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Portal Mata Kuliah | Informatika</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+<meta charset="UTF-8">
+<title>Portal Mata Kuliah | Informatika</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <h2>📘 Informatika</h2>
-        <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Mata Kuliah</a></li>
-            <li><a href="#">Tentang</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+    <h2>📘 Informatika</h2>
+</nav>
 
-    <!-- HERO / PROFILE -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Portal Pembelajaran Informatika</h1>
-            <p>Materi perkuliahan, slide, dan pembahasan setiap pertemuan<br>
-               Disusun rapi & mudah diakses mahasiswa</p>
+<header class="hero">
+    <h1>Portal Pembelajaran Informatika</h1>
+    <p>Klik mata kuliah untuk melihat daftar pertemuan</p>
+</header>
+
+<main class="container">
+
+    <!-- CARD 1 -->
+    <div class="course">
+        <button class="course-btn">
+            📊 Kompleksitas Algoritma
+            <span>+</span>
+        </button>
+
+        <div class="course-content">
+            <div class="meeting-grid">
+                <a href="Kompleksitas/Materi1/Slide 1.html">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#">11</a>
+                <a href="#">12</a>
+                <a href="#">13</a>
+                <a href="#">14</a>
+                <a href="#">15</a>
+                <a href="#">16</a>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <!-- MAIN CONTENT -->
-    <main class="container">
+    <!-- CARD 2 -->
+    <div class="course">
+        <button class="course-btn">
+            🧪 Pengujian Perangkat Lunak
+            <span>+</span>
+        </button>
 
-        <!-- CARD -->
-        <section class="course-card">
-            <h2>📊 Kompleksitas Algoritma</h2>
-            <p class="course-desc">
-                Mempelajari analisis efisiensi algoritma menggunakan kompleksitas waktu dan ruang.
-            </p>
+        <div class="course-content">
             <div class="meeting-grid">
-                <a href="Kompleksitas/Materi1/Slide 1.html" class="meeting">1</a>
-                <a href="#" class="meeting">2</a>
-                <a href="#" class="meeting">3</a>
-                <a href="#" class="meeting">4</a>
-                <a href="#" class="meeting">5</a>
-                <a href="#" class="meeting">6</a>
-                <a href="#" class="meeting">7</a>
-                <a href="#" class="meeting">8</a>
-                <a href="#" class="meeting">9</a>
-                <a href="#" class="meeting">10</a>
-                <a href="#" class="meeting">11</a>
-                <a href="#" class="meeting">12</a>
-                <a href="#" class="meeting">13</a>
-                <a href="#" class="meeting">14</a>
-                <a href="#" class="meeting">15</a>
-                <a href="#" class="meeting">16</a>
+                <a href="Pengujian_Perangkat_Lunak/Materi 1/Slide 1.html">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#">11</a>
+                <a href="#">12</a>
+                <a href="#">13</a>
+                <a href="#">14</a>
+                <a href="#">15</a>
+                <a href="#">16</a>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section class="course-card">
-            <h2>🧪 Pengujian Perangkat Lunak</h2>
-            <p class="course-desc">
-                Membahas teknik pengujian software untuk menjamin kualitas dan keandalan sistem.
-            </p>
-            <div class="meeting-grid">
-                <a href="Pengujian_Perangkat_Lunak/Materi 1/Slide 1.html" class="meeting">1</a>
-                <a href="#" class="meeting">2</a>
-                <a href="#" class="meeting">3</a>
-                <a href="#" class="meeting">4</a>
-                <a href="#" class="meeting">5</a>
-                <a href="#" class="meeting">6</a>
-                <a href="#" class="meeting">7</a>
-                <a href="#" class="meeting">8</a>
-                <a href="#" class="meeting">9</a>
-                <a href="#" class="meeting">10</a>
-                <a href="#" class="meeting">11</a>
-                <a href="#" class="meeting">12</a>
-                <a href="#" class="meeting">13</a>
-                <a href="#" class="meeting">14</a>
-                <a href="#" class="meeting">15</a>
-                <a href="#" class="meeting">16</a>
-            </div>
-        </section>
+</main>
 
-    </main>
+<footer class="footer">
+    © 2026 Portal Informatika
+</footer>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2026 | Portal Pembelajaran Informatika</p>
-        <small>Didesain seperti website pribadi dosen 👨‍🏫</small>
-    </footer>
+<script>
+const buttons = document.querySelectorAll(".course-btn");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const content = btn.nextElementSibling;
+        content.classList.toggle("active");
+
+        btn.classList.toggle("open");
+        btn.querySelector("span").textContent =
+            content.classList.contains("active") ? "−" : "+";
+    });
+});
+</script>
 
 </body>
 </html>
