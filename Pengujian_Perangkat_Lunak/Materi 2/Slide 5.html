@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Apa Itu STLC</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Slide Container -->
+<!-- Slide Container -->
+<div class="w-[1280px] h-[720px] 
+bg-[radial-gradient(circle_at_center,_#0f172a,_#020617)]
+text-white relative flex flex-col overflow-hidden">
+
+<!-- Decorative Background Elements -->
+
+<!-- Radial Spotlight Tengah -->
+<div class="absolute inset-0 
+bg-gradient-to-tr from-brand-teal via-transparent to-transparent
+opacity-10 z-0"></div>
+
+<!-- Thin Diagonal Line -->
+<div class="absolute top-[-200px] left-1/2 w-[2px] h-[1200px] 
+bg-gradient-to-b from-transparent via-brand-teal to-transparent
+opacity-20 rotate-12 z-0"></div>
+
+<!-- Dot Pattern Subtle -->
+<div class="absolute inset-0 opacity-5 z-0"
+     style="background-image: radial-gradient(#14b8a6 1px, transparent 1px);
+            background-size: 40px 40px;">
+</div>
+
+<!-- Small Glow Circle Bottom Center -->
+<div class="absolute bottom-[-120px] left-1/2 -translate-x-1/2 
+w-[400px] h-[400px] 
+bg-brand-teal opacity-10 rounded-full blur-3xl z-0"></div>
+
+<!-- Header Section -->
+<div class="px-16 pt-12 pb-2 z-10 flex items-end justify-between">
+<div class="max-w-3xl">
+<p class="text-brand-teal-light font-heading font-bold uppercase tracking-widest text-sm mb-2">
+<i class="fa-solid fa-graduation-cap mr-2"></i>Pertemuan 2
+                </p>
+<h1 class="text-5xl font-heading font-extrabold text-white leading-tight">
+                    Apa Itu <span class="text-brand-teal">STLC?</span>
+</h1>
+<p class="text-gray-300 font-body text-xl mt-2 font-light tracking-wide">Software Testing Life Cycle</p>
+<div class="w-24 h-1.5 bg-brand-accent rounded-full mt-4"></div>
+</div>
+<!-- Optional Header Icon/Number -->
+<div class="opacity-20">
+<i class="fa-solid fa-rotate-right text-7xl text-brand-teal-light"></i>
+</div>
+</div>
+<!-- Main Content: Grid Layout -->
+<div class="flex-1 px-16 py-8 z-10 flex items-center justify-center">
+<div class="grid grid-cols-2 gap-x-12 gap-y-8 w-full max-w-6xl">
+<!-- Card 1: Definisi -->
+<div class="group bg-white bg-opacity-5 border border-brand-teal border-opacity-20 rounded-2xl p-6 flex items-start gap-5 hover:bg-opacity-10 hover:border-brand-teal-light transition duration-300 shadow-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-brand-teal bg-opacity-20 rounded-xl flex items-center justify-center text-brand-teal-light group-hover:bg-brand-teal group-hover:text-white transition duration-300">
+<i class="fa-solid fa-book-open text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-teal-light transition">Definisi Dasar</h3>
+<p class="text-gray-300 font-body leading-relaxed text-sm">
+                            Serangkaian tahapan sistematis yang dilakukan selama proses pengujian untuk memastikan perangkat lunak bebas dari bug dan memenuhi standar kualitas.
+                        </p>
+</div>
+</div>
+<!-- Card 2: Terstruktur -->
+<div class="group bg-white bg-opacity-5 border border-brand-teal border-opacity-20 rounded-2xl p-6 flex items-start gap-5 hover:bg-opacity-10 hover:border-brand-teal-light transition duration-300 shadow-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-brand-teal bg-opacity-20 rounded-xl flex items-center justify-center text-brand-teal-light group-hover:bg-brand-teal group-hover:text-white transition duration-300">
+<i class="fa-solid fa-list-check text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-teal-light transition">Proses Terstruktur</h3>
+<p class="text-gray-300 font-body leading-relaxed text-sm">
+                            Memastikan pengujian dilakukan secara terstruktur dan terencana, bukan aktivitas acak (ad-hoc), guna menjamin konsistensi hasil.
+                        </p>
+</div>
+</div>
+<!-- Card 3: Manajemen -->
+<div class="group bg-white bg-opacity-5 border border-brand-teal border-opacity-20 rounded-2xl p-6 flex items-start gap-5 hover:bg-opacity-10 hover:border-brand-teal-light transition duration-300 shadow-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-brand-teal bg-opacity-20 rounded-xl flex items-center justify-center text-brand-teal-light group-hover:bg-brand-teal group-hover:text-white transition duration-300">
+<i class="fa-solid fa-network-wired text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-teal-light transition">Manajemen Tahapan</h3>
+<p class="text-gray-300 font-body leading-relaxed text-sm">
+                            Mengatur aktivitas spesifik, <em>deliverables</em> (dokumen hasil), dan kriteria keluar (exit criteria) yang harus dipenuhi di setiap tahap sebelum lanjut.
+                        </p>
+</div>
+</div>
+<!-- Card 4: Tujuan -->
+<div class="group bg-white bg-opacity-5 border border-brand-teal border-opacity-20 rounded-2xl p-6 flex items-start gap-5 hover:bg-opacity-10 hover:border-brand-teal-light transition duration-300 shadow-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-brand-teal bg-opacity-20 rounded-xl flex items-center justify-center text-brand-teal-light group-hover:bg-brand-teal group-hover:text-white transition duration-300">
+<i class="fa-solid fa-shield-halved text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-teal-light transition">Jaminan Kualitas</h3>
+<p class="text-gray-300 font-body leading-relaxed text-sm">
+                            Bertujuan untuk meningkatkan kualitas produk, mengurangi risiko kegagalan sistem pasca-rilis, dan meningkatkan kepercayaan pengguna.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Strip -->
+<div class="absolute bottom-0 w-full h-3 bg-brand-teal"></div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-8 text-gray-500 font-heading font-bold text-xl opacity-60">05</div>
+</div>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 4.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 6.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

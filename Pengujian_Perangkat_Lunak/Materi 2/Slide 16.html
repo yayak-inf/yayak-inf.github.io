@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contoh Kasus: Sistem Tiket</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Slide Container -->
+<div class="w-[1280px] h-[720px] bg-brand-dark text-white relative flex flex-col overflow-hidden">
+<!-- Decorative Background Elements -->
+<div class="absolute top-0 right-0 w-[600px] h-full bg-brand-teal opacity-5 skew-x-12 transform origin-bottom-left z-0"></div>
+<div class="absolute bottom-[-100px] left-[-100px] w-[300px] h-[300px] bg-brand-accent opacity-5 rounded-full blur-3xl z-0"></div>
+<!-- Icon Background Watermark -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-[0.02] z-0 pointer-events-none">
+<i class="fa-solid fa-plane-departure text-[500px]"></i>
+</div>
+<!-- Header Section -->
+<div class="px-16 pt-10 pb-4 z-10 relative">
+<div class="flex items-center gap-4 mb-2">
+<div class="w-12 h-1 bg-brand-accent rounded-full"></div>
+<p class="text-brand-accent font-heading font-bold uppercase tracking-widest text-sm">
+                    Studi Kasus Nyata
+                </p>
+</div>
+<h1 class="text-4xl font-heading font-extrabold text-white">
+                Sistem <span class="text-brand-teal-light">Pemesanan Tiket Online</span>
+</h1>
+<p class="text-gray-400 font-body text-base mt-2 max-w-2xl">
+                Bagaimana Verification dan Validation diterapkan dalam pengembangan fitur booking tiket pesawat/kereta?
+            </p>
+</div>
+<!-- Main Content Grid -->
+<div class="flex-1 px-16 py-4 z-10 grid grid-cols-2 gap-8 items-start">
+<!-- Left Column: Verification -->
+<div class="bg-brand-dark bg-opacity-80 backdrop-blur-sm border border-brand-teal border-opacity-30 rounded-2xl p-6 flex flex-col h-full shadow-lg relative overflow-hidden group hover:border-brand-teal-light transition duration-300">
+<!-- Label Badge -->
+<div class="absolute top-0 right-0 bg-brand-teal bg-opacity-20 text-brand-teal-light font-heading font-bold text-[10px] px-3 py-1 rounded-bl-xl border-l border-b border-brand-teal border-opacity-30 uppercase tracking-wider">
+                    Build It Right
+                </div>
+<!-- Header -->
+<div class="flex items-center gap-4 mb-6 pb-4 border-b border-gray-700">
+<div class="w-12 h-12 bg-brand-teal rounded-lg flex items-center justify-center shadow-lg transform rotate-3 group-hover:rotate-0 transition duration-300">
+<i class="fa-solid fa-magnifying-glass-chart text-white text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white">Verification</h3>
+<p class="text-xs text-gray-400 font-body">Review Statis &amp; Inspeksi Dokumen</p>
+</div>
+</div>
+<!-- List Content -->
+<div class="space-y-5 flex-1">
+<!-- Item 1 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-teal bg-opacity-10 flex items-center justify-center mt-0.5">
+<i class="fa-solid fa-file-contract text-brand-teal-light text-sm"></i>
+</div>
+<div>
+<p class="text-white font-heading font-semibold text-sm mb-1">Review Kebutuhan (SRS)</p>
+<p class="text-gray-400 font-body text-xs leading-relaxed">
+                                Memeriksa kelengkapan logika alur pencarian, aturan pemilihan kursi, dan skenario diskon.
+                            </p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-teal bg-opacity-10 flex items-center justify-center mt-0.5">
+<i class="fa-solid fa-sitemap text-brand-teal-light text-sm"></i>
+</div>
+<div>
+<p class="text-white font-heading font-semibold text-sm mb-1">Review Desain</p>
+<p class="text-gray-400 font-body text-xs leading-relaxed">
+                                Validasi skema database untuk stok tiket dan wireframe antarmuka pengguna (UI/UX).
+                            </p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-teal bg-opacity-10 flex items-center justify-center mt-0.5">
+<i class="fa-solid fa-code text-brand-teal-light text-sm"></i>
+</div>
+<div>
+<p class="text-white font-heading font-semibold text-sm mb-1">Code Review</p>
+<p class="text-gray-400 font-body text-xs leading-relaxed">
+                                Mengecek kualitas kode pada modul validasi input dan keamanan transaksi pembayaran.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Validation -->
+<div class="bg-brand-dark bg-opacity-80 backdrop-blur-sm border border-brand-accent border-opacity-30 rounded-2xl p-6 flex flex-col h-full shadow-lg relative overflow-hidden group hover:border-brand-accent transition duration-300">
+<!-- Label Badge -->
+<div class="absolute top-0 right-0 bg-brand-accent bg-opacity-20 text-brand-accent font-heading font-bold text-[10px] px-3 py-1 rounded-bl-xl border-l border-b border-brand-accent border-opacity-30 uppercase tracking-wider">
+                    Build The Right Thing
+                </div>
+<!-- Header -->
+<div class="flex items-center gap-4 mb-6 pb-4 border-b border-gray-700">
+<div class="w-12 h-12 bg-brand-accent rounded-lg flex items-center justify-center shadow-lg transform -rotate-3 group-hover:rotate-0 transition duration-300">
+<i class="fa-solid fa-rocket text-brand-dark text-xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white">Validation</h3>
+<p class="text-xs text-gray-400 font-body">Testing Dinamis &amp; Eksekusi</p>
+</div>
+</div>
+<!-- List Content -->
+<div class="space-y-5 flex-1">
+<!-- Item 1 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-accent bg-opacity-10 flex items-center justify-center mt-0.5">
+<i class="fa-solid fa-laptop-medical text-brand-accent text-sm"></i>
+</div>
+<div>
+<p class="text-white font-heading font-semibold text-sm mb-1">Simulasi Pemesanan</p>
+<p class="text-gray-400 font-body text-xs leading-relaxed">
+                                Melakukan booking tiket secara end-to-end dari pencarian hingga konfirmasi pesanan.
+                            </p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-accent bg-opacity-10 flex items-center justify-center mt-0.5">
+<i class="fa-regular fa-credit-card text-brand-accent text-sm"></i>
+</div>
+<div>
+<p class="text-white font-heading font-semibold text-sm mb-1">Uji Pembayaran</p>
+<p class="text-gray-400 font-body text-xs leading-relaxed">
+                                Menguji berbagai skenario pembayaran: sukses, saldo kurang, timeout, dan kartu ditolak.
+                            </p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-accent bg-opacity-10 flex items-center justify-center mt-0.5">
+<i class="fa-solid fa-envelope-circle-check text-brand-accent text-sm"></i>
+</div>
+<div>
+<p class="text-white font-heading font-semibold text-sm mb-1">Pastikan E-Ticket Terkirim</p>
+<p class="text-gray-400 font-body text-xs leading-relaxed">
+                                Memverifikasi email masuk berisi E-Ticket dengan data penumpang dan jadwal yang benar.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Strip -->
+<div class="absolute bottom-0 w-full h-3 bg-brand-teal"></div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-8 text-gray-500 font-heading font-bold text-xl opacity-60">16</div>
+</div>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 15.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 17.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

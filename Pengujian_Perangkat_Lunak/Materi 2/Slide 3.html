@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Definisi Pengujian</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Slide Container -->
+<!-- Slide Container -->
+<div class="w-[1280px] h-[720px] 
+bg-gradient-to-tr from-brand-dark via-slate-900 to-brand-dark
+text-white relative flex flex-col overflow-hidden">
+
+<!-- Decorative Background Elements -->
+
+<!-- Horizontal Gradient Line -->
+<div class="absolute top-1/2 left-0 w-full h-[4px] 
+bg-gradient-to-r from-transparent via-brand-teal to-transparent
+opacity-30 z-0"></div>
+
+<!-- Vertical Accent Line -->
+<div class="absolute top-0 left-24 w-[3px] h-full 
+bg-gradient-to-b from-brand-teal to-transparent
+opacity-20 z-0"></div>
+
+<!-- Glow Circle Kanan Atas -->
+<div class="absolute -top-24 -right-24 w-[420px] h-[420px] 
+bg-gradient-to-bl from-brand-teal to-emerald-400
+opacity-15 
+rounded-full blur-3xl z-0"></div>
+
+<!-- Small Accent Circle Kiri Bawah -->
+<div class="absolute bottom-[-80px] left-[-80px] w-[250px] h-[250px] 
+bg-gradient-to-tr from-brand-teal to-cyan-400
+opacity-10 
+rounded-full blur-2xl z-0"></div>
+
+
+<!-- Header Section -->
+<div class="px-16 pt-12 pb-2 z-10 flex items-end justify-between">
+<div class="max-w-3xl">
+<p class="text-brand-teal-light font-heading font-bold uppercase tracking-widest text-sm mb-2">
+<i class="fa-solid fa-graduation-cap mr-2"></i>Pertemuan 2
+                </p>
+<h1 class="text-5xl font-heading font-extrabold text-white leading-tight">
+                    Definisi <span class="text-brand-teal">Pengujian</span>
+</h1>
+<div class="w-24 h-1.5 bg-brand-accent rounded-full mt-4"></div>
+</div>
+<!-- Optional Header Icon/Number -->
+<div class="opacity-20">
+<i class="fa-solid fa-magnifying-glass-chart text-7xl text-brand-teal-light"></i>
+</div>
+</div>
+<!-- Main Content: Grid Layout -->
+<div class="flex-1 px-16 py-8 z-10 flex items-center justify-center">
+<div class="grid grid-cols-2 gap-x-12 gap-y-8 w-full max-w-6xl">
+<!-- Card 1: Evaluasi Kualitas -->
+<div class="group bg-white bg-opacity-5 border border-brand-teal border-opacity-20 rounded-2xl p-6 flex items-start gap-5 hover:bg-opacity-10 hover:border-brand-teal-light transition duration-300 shadow-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-brand-teal bg-opacity-20 rounded-xl flex items-center justify-center text-brand-teal-light group-hover:bg-brand-teal group-hover:text-white transition duration-300">
+<i class="fa-solid fa-list-check text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-teal-light transition">Evaluasi Kualitas</h3>
+<p class="text-gray-300 font-body leading-relaxed text-sm">
+                            Proses sistematis untuk mengevaluasi kualitas sebuah perangkat lunak atau sistem secara menyeluruh dan terukur.
+                        </p>
+</div>
+</div>
+<!-- Card 2: Menemukan Bug -->
+<div class="group bg-white bg-opacity-5 border border-brand-teal border-opacity-20 rounded-2xl p-6 flex items-start gap-5 hover:bg-opacity-10 hover:border-brand-teal-light transition duration-300 shadow-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-brand-teal bg-opacity-20 rounded-xl flex items-center justify-center text-brand-teal-light group-hover:bg-brand-teal group-hover:text-white transition duration-300">
+<i class="fa-solid fa-bug text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-teal-light transition">Menemukan Defect</h3>
+<p class="text-gray-300 font-body leading-relaxed text-sm">
+                            Bertujuan utama untuk mengidentifikasi bug, kesalahan logika, atau cacat program sebelum dirilis ke pengguna.
+                        </p>
+</div>
+</div>
+<!-- Card 3: Sesuai Kebutuhan -->
+<div class="group bg-white bg-opacity-5 border border-brand-teal border-opacity-20 rounded-2xl p-6 flex items-start gap-5 hover:bg-opacity-10 hover:border-brand-teal-light transition duration-300 shadow-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-brand-teal bg-opacity-20 rounded-xl flex items-center justify-center text-brand-teal-light group-hover:bg-brand-teal group-hover:text-white transition duration-300">
+<i class="fa-solid fa-users-viewfinder text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-teal-light transition">Kesesuaian Kebutuhan</h3>
+<p class="text-gray-300 font-body leading-relaxed text-sm">
+                            Memastikan sistem yang dibangun berjalan sesuai dengan spesifikasi kebutuhan (requirements) pengguna.
+                        </p>
+</div>
+</div>
+<!-- Card 4: Important Note (Styled differently) -->
+<div class="group bg-brand-accent bg-opacity-10 border border-brand-accent border-opacity-40 rounded-2xl p-6 flex items-start gap-5 hover:bg-opacity-20 hover:border-brand-accent transition duration-300 shadow-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-brand-accent bg-opacity-20 rounded-xl flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-brand-dark transition duration-300">
+<i class="fa-solid fa-star text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-heading font-bold text-white mb-2 group-hover:text-brand-accent transition">Catatan Penting</h3>
+<p class="text-gray-200 font-body leading-relaxed text-sm italic">
+                            "Pengujian bukan hanya sekadar mencari kesalahan, tetapi sebuah usaha untuk <strong class="text-brand-accent">memastikan kualitas</strong> produk."
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Strip -->
+<div class="absolute bottom-0 w-full h-3 bg-brand-teal"></div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-8 text-gray-500 font-heading font-bold text-xl opacity-60">03</div>
+</div>
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 2.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 4.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>
