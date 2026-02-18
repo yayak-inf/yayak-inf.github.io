@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .header-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        .circle-bg {
+            position: absolute;
+            right: -100px;
+            bottom: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: #F1F8E9;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .dots-pattern {
+            position: absolute;
+            top: 120px;
+            left: 40px;
+            width: 100px;
+            height: 100px;
+            background-image: radial-gradient(#A8D08D 2px, transparent 2px);
+            background-size: 15px 15px;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 50px 80px 30px 80px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background-color: #E8F5E9;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .icon-container i {
+            font-size: 40px;
+            color: #2D5016;
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+            line-height: 1.1;
+        }
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Main Content Layout */
+        .content-wrapper {
+            display: flex;
+            padding: 10px 80px 50px 80px;
+            gap: 50px;
+            flex: 1;
+            z-index: 10;
+        }
+
+        /* Left Column: Definition & Process */
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .definition-card {
+            background-color: white;
+            border-left: 6px solid #4A7C2F;
+            padding: 25px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .card-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #4A7C2F;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .definition-text {
+            font-size: 24px;
+            color: #333;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .process-flow {
+            background-color: #F8FCF5;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #E0E0E0;
+        }
+        .flow-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #2D5016;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .flow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .flow-line {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            right: 30px;
+            height: 4px;
+            background-color: #E0E0E0;
+            z-index: 1;
+        }
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100px;
+        }
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #E0E0E0;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        .step.active .step-circle {
+            background-color: #4A7C2F;
+            box-shadow: 0 0 0 4px #DCEDC8;
+        }
+        .step.completed .step-circle {
+            background-color: #8BC34A;
+        }
+        .step-label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Right Column: Example Visual */
+        .right-column {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .browser-window {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #E0E0E0;
+            display: flex;
+            flex-direction: column;
+            height: 380px;
+        }
+        .browser-header {
+            background-color: #F1F3F4;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background-color: #FF5F56; }
+        .yellow { background-color: #FFBD2E; }
+        .green { background-color: #27C93F; }
+        
+        .address-bar {
+            flex: 1;
+            background-color: white;
+            height: 24px;
+            border-radius: 4px;
+            margin-left: 10px;
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            border: 1px solid #E0E0E0;
+        }
+
+        .app-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+        }
+        
+        /* E-commerce Mockup Elements */
+        .app-nav {
+            height: 40px;
+            background-color: #2D5016;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            justify-content: space-between;
+        }
+        .nav-logo { width: 80px; height: 12px; background-color: rgba(255,255,255,0.3); border-radius: 2px; }
+        .nav-items { display: flex; gap: 10px; }
+        .nav-item { width: 40px; height: 10px; background-color: rgba(255,255,255,0.2); border-radius: 2px; }
+        
+        .app-hero {
+            height: 100px;
+            background-color: #E8F5E9;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .product-card {
+            height: 80px;
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 4px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .p-img { width: 100%; height: 40px; background-color: #E0E0E0; border-radius: 2px; }
+        .p-line { width: 80%; height: 6px; background-color: #E0E0E0; border-radius: 2px; }
+        
+        /* Testing Overlays */
+        .test-badge {
+            position: absolute;
+            background-color: rgba(45, 80, 22, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid #A8D08D;
+        }
+        .test-badge i { color: #A8D08D; }
+        
+        .badge-1 { top: 70px; left: 30px; }
+        .badge-2 { top: 180px; right: 40px; }
+        .badge-3 { bottom: 30px; left: 50%; transform: translateX(-50%); }
+
+        .example-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+            color: #555;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="header-accent"></div>
+<div class="circle-bg"></div>
+<div class="dots-pattern"></div>
+<!-- Header -->
+<div class="header-section">
+<div class="icon-container">
+<i class="fas fa-cubes"></i>
+</div>
+<div>
+<h1 class="slide-title">System Testing</h1>
+<p class="slide-subtitle">Pengujian Sistem Secara Menyeluruh</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left Column -->
+<div class="left-column">
+<!-- Definition -->
+<div class="definition-card">
+<div class="card-label">Definisi</div>
+<p class="definition-text">
+                    Pengujian terhadap <strong>keseluruhan sistem</strong> sebagai satu kesatuan yang utuh (End-to-End).
+                </p>
+</div>
+<!-- Process Flow -->
+<div class="process-flow">
+<div class="flow-title">
+<i class="fas fa-history"></i> Kapan Dilakukan?
+                </div>
+<div class="flow-steps">
+<div class="flow-line"></div>
+<!-- Step 1 -->
+<div class="step completed">
+<div class="step-circle"><i class="fas fa-check"></i></div>
+<div class="step-label">Unit Test</div>
+</div>
+<!-- Step 2 -->
+<div class="step completed">
+<div class="step-circle"><i class="fas fa-check"></i></div>
+<div class="step-label">Integration</div>
+</div>
+<!-- Step 3 (Active) -->
+<div class="step active">
+<div class="step-circle">3</div>
+<div class="step-label">System Test</div>
+</div>
+</div>
+<div style="margin-top: 15px; text-align: center;">
+<p style="font-size: 14px; color: #444; margin: 0;">Dilakukan setelah seluruh modul terintegrasi.</p>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="right-column">
+<!-- Browser Visual -->
+<div class="browser-window">
+<div class="browser-header">
+<div class="browser-dots">
+<div class="dot red"></div>
+<div class="dot yellow"></div>
+<div class="dot green"></div>
+</div>
+<div class="address-bar">
+                        https://tokoonline.com/home
+                    </div>
+</div>
+<div class="app-content">
+<!-- App Mockup -->
+<div class="app-nav">
+<div class="nav-logo"></div>
+<div class="nav-items">
+<div class="nav-item"></div>
+<div class="nav-item"></div>
+</div>
+</div>
+<div class="app-hero">
+<div style="color: #2D5016; font-family: Poppins; font-weight: 700;">BANNER PROMO</div>
+</div>
+<div class="product-grid">
+<div class="product-card"><div class="p-img"></div><div class="p-line"></div></div>
+<div class="product-card"><div class="p-img"></div><div class="p-line"></div></div>
+<div class="product-card"><div class="p-img"></div><div class="p-line"></div></div>
+</div>
+<!-- Overlays -->
+<div class="test-badge badge-1">
+<i class="fas fa-search"></i> Search Function
+                    </div>
+<div class="test-badge badge-2">
+<i class="fas fa-shopping-cart"></i> Cart Flow
+                    </div>
+<div class="test-badge badge-3">
+<i class="fas fa-credit-card"></i> Payment Gateway
+                    </div>
+</div>
+</div>
+<p class="example-caption">Contoh: Menguji seluruh fitur aplikasi e-commerce sebelum rilis.</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">6</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 5.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 7.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

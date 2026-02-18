@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Usability Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        .right-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #F1F8E9;
+            border-bottom-left-radius: 100%;
+            z-index: 0;
+        }
+        .left-circle {
+            position: absolute;
+            bottom: 50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            border: 15px solid #E8F5E9;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 40px 80px 10px 80px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #2D5016;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(45, 80, 22, 0.2);
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+            line-height: 1.1;
+        }
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            flex: 1;
+            padding: 20px 80px 40px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        /* Definition Card */
+        .def-card {
+            background-color: #fff;
+            border-left: 6px solid #4A7C2F;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .def-quote {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 40px;
+            color: #E8F5E9;
+        }
+        .def-text {
+            font-size: 20px;
+            color: #333;
+            line-height: 1.5;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Focus Areas Container */
+        .focus-container {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .focus-card {
+            flex: 1;
+            background-color: white;
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 6px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Card Colors */
+        .card-ui { border-top-color: #4A7C2F; }
+        .card-nav { border-top-color: #6B9F4D; }
+        .card-comfort { border-top-color: #A8D08D; }
+
+        .focus-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .icon-ui { background-color: #F1F8E9; color: #4A7C2F; }
+        .icon-nav { background-color: #F9FBE7; color: #6B9F4D; }
+        .icon-comfort { background-color: #E8F5E9; color: #2D5016; }
+
+        .focus-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #2D5016;
+            margin-bottom: 10px;
+        }
+
+        .focus-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* Example Section */
+        .example-box {
+            background-color: #2D5016;
+            border-radius: 12px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            box-shadow: 0 8px 15px rgba(45, 80, 22, 0.2);
+            margin-top: 10px;
+        }
+        
+        .example-content {
+            flex: 1;
+        }
+        .example-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: #A8D08D;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .example-question {
+            font-size: 20px;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .example-visual {
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .btn-checkout {
+            background-color: #4A7C2F;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .cursor-pointer {
+            position: absolute;
+            bottom: -15px;
+            right: -10px;
+            color: #333;
+            font-size: 20px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="top-bar"></div>
+<div class="right-shape"></div>
+<div class="left-circle"></div>
+<!-- Header -->
+<div class="header-section">
+<div class="header-icon">
+<i class="fas fa-hand-pointer"></i>
+</div>
+<div>
+<h1 class="slide-title">Usability Testing</h1>
+<p class="slide-subtitle">Pengujian Kemudahan Penggunaan</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Definition -->
+<div class="def-card">
+<i class="fas fa-quote-right def-quote"></i>
+<p class="def-text">
+                Pengujian untuk mengukur sejauh mana aplikasi dapat digunakan oleh pengguna tertentu untuk mencapai tujuan tertentu dengan <strong>efektivitas, efisiensi, dan kepuasan</strong> (User Experience).
+            </p>
+</div>
+<!-- Focus Areas -->
+<div class="focus-container">
+<!-- Focus 1: UI -->
+<div class="focus-card card-ui">
+<div class="focus-icon-box icon-ui">
+<i class="fas fa-desktop"></i>
+</div>
+<h3 class="focus-title">Tampilan Antarmuka</h3>
+<p class="focus-desc">Apakah layout rapi, warna konsisten, dan elemen visual mudah dipahami?</p>
+</div>
+<!-- Focus 2: Navigation -->
+<div class="focus-card card-nav">
+<div class="focus-icon-box icon-nav">
+<i class="fas fa-compass"></i>
+</div>
+<h3 class="focus-title">Navigasi</h3>
+<p class="focus-desc">Apakah alur perpindahan halaman logis dan menu mudah ditemukan?</p>
+</div>
+<!-- Focus 3: Comfort -->
+<div class="focus-card card-comfort">
+<div class="focus-icon-box icon-comfort">
+<i class="fas fa-smile"></i>
+</div>
+<h3 class="focus-title">Kenyamanan</h3>
+<p class="focus-desc">Apakah pengguna merasa nyaman dan intuitif saat menggunakan aplikasi?</p>
+</div>
+</div>
+<!-- Example -->
+<div class="example-box">
+<div class="example-content">
+<span class="example-label">Contoh Pertanyaan Pengujian</span>
+<p class="example-question">"Apakah user mudah menemukan tombol checkout?"</p>
+</div>
+<div class="example-visual">
+<div style="font-size: 14px; color: #555; margin-right: 10px;">Cart Page</div>
+<div class="btn-checkout">
+                    Checkout
+                    <i class="fas fa-mouse-pointer cursor-pointer"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">12</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 11.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 13.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

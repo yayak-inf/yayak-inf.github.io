@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ringkasan Klasifikasi</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        .right-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: #F1F8E9;
+            border-radius: 0 0 0 100%;
+            z-index: 0;
+        }
+        .bg-icon {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            font-size: 300px;
+            color: rgba(45, 80, 22, 0.03);
+            transform: rotate(15deg);
+            z-index: 0;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 40px 80px 20px 80px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #2D5016;
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+        }
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            flex: 1;
+            padding: 20px 80px 50px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        /* Table Styles */
+        .summary-table-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+            background-color: white;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .summary-table th {
+            background-color: #2D5016;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 20px 30px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary-table td {
+            padding: 25px 30px;
+            font-size: 20px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+
+        .summary-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .summary-table tr:nth-child(even) {
+            background-color: #F8FCF5; /* Very light green */
+        }
+
+        /* Category Column Styling */
+        .category-cell {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            color: #2D5016;
+            width: 300px;
+        }
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #E8F5E9;
+            color: #4A7C2F;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        /* Content Tags */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag {
+            background-color: white;
+            border: 1px solid #A8D08D;
+            color: #2D5016;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tag i {
+            font-size: 14px;
+            color: #4A7C2F;
+        }
+
+        .description-text {
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="top-bar"></div>
+<div class="right-shape"></div>
+<i class="fas fa-list-alt bg-icon"></i>
+<!-- Header -->
+<div class="header-section">
+<div class="header-icon">
+<i class="fas fa-table"></i>
+</div>
+<div>
+<h1 class="slide-title">Ringkasan Klasifikasi</h1>
+<p class="slide-subtitle">Ikhtisar Jenis Pengujian Perangkat Lunak</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<div class="summary-table-container">
+<table class="summary-table">
+<thead>
+<tr>
+<th style="width: 35%;">Kategori</th>
+<th>Jenis Testing</th>
+</tr>
+</thead>
+<tbody>
+<!-- Row 1: Level Testing -->
+<tr>
+<td>
+<div class="category-cell">
+<div class="category-icon">
+<i class="fas fa-layer-group"></i>
+</div>
+<span>Level Testing</span>
+</div>
+</td>
+<td>
+<div class="tag-container">
+<div class="tag"><i class="fas fa-cube"></i> Unit</div>
+<div class="tag"><i class="fas fa-cubes"></i> Integration</div>
+<div class="tag"><i class="fas fa-server"></i> System</div>
+<div class="tag"><i class="fas fa-check-circle"></i> Acceptance</div>
+</div>
+</td>
+</tr>
+<!-- Row 2: Functional -->
+<tr>
+<td>
+<div class="category-cell">
+<div class="category-icon">
+<i class="fas fa-cogs"></i>
+</div>
+<span>Functional</span>
+</div>
+</td>
+<td>
+<p class="description-text" style="margin: 0; font-size: 20px;">
+<i class="fas fa-arrow-right" style="color: #4A7C2F; margin-right: 10px;"></i>
+                                    Pengujian fungsi fitur sesuai requirement
+                                </p>
+</td>
+</tr>
+<!-- Row 3: Non-Functional -->
+<tr>
+<td>
+<div class="category-cell">
+<div class="category-icon">
+<i class="fas fa-tachometer-alt"></i>
+</div>
+<span>Non-Functional</span>
+</div>
+</td>
+<td>
+<div class="tag-container">
+<div class="tag"><i class="fas fa-bolt"></i> Performance</div>
+<div class="tag"><i class="fas fa-shield-alt"></i> Security</div>
+<div class="tag"><i class="fas fa-user-check"></i> Usability</div>
+</div>
+</td>
+</tr>
+<!-- Row 4: Tambahan -->
+<tr>
+<td>
+<div class="category-cell">
+<div class="category-icon">
+<i class="fas fa-plus-circle"></i>
+</div>
+<span>Tambahan</span>
+</div>
+</td>
+<td>
+<div class="tag-container">
+<div class="tag"><i class="fas fa-history"></i> Regression</div>
+<div class="tag"><i class="fas fa-fire"></i> Smoke</div>
+<div class="tag"><i class="fas fa-check-double"></i> Sanity</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">16</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 15.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 17.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

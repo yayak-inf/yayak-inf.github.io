@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cover Slide</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0f172a', // Slate 900
+                        'brand-teal': '#0d9488', // Teal 600
+                        'brand-teal-light': '#2dd4bf', // Teal 400
+                        'brand-accent': '#f59e0b', // Amber 500
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 m-0 p-0 overflow-hidden">
+<!-- Slide Container -->
+<div class="w-[1280px] h-[720px] bg-brand-dark text-white relative flex overflow-hidden">
+<!-- Decorative Background Elements -->
+<div class="absolute top-0 right-0 w-[500px] h-full bg-brand-teal opacity-10 skew-x-12 transform origin-bottom-left z-0"></div>
+<div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-teal opacity-5 rounded-full -translate-x-1/2 translate-y-1/2 z-0"></div>
+<!-- Content Wrapper -->
+<div class="flex-1 flex flex-row items-center justify-between px-20 relative z-10">
+<!-- Left Column: Text Content -->
+<div class="flex flex-col space-y-8 max-w-2xl">
+<!-- Badge -->
+<div>
+<p class="inline-block px-4 py-2 bg-brand-teal text-white text-sm font-heading font-bold uppercase tracking-wider rounded-md shadow-lg">
+                        Pertemuan 3
+                    </p>
+</div>
+<!-- Titles -->
+<div class="space-y-2">
+<h1 class="text-6xl font-heading font-extrabold leading-tight tracking-tight text-white">
+                        Pengujian <br/>
+<span class="text-brand-teal-light">Perangkat Lunak</span>
+</h1>
+<p class="text-2xl font-body text-gray-300 font-light pt-2">
+                       Jenis-jenis Pengujian Perangkat Lunak
+                    </p>
+</div>
+<!-- Divider -->
+<div class="w-32 h-2 bg-brand-accent rounded-full"></div>
+<!-- Footer Info -->
+<div class="flex flex-col space-y-2 pt-4">
+<div class="flex items-center space-x-3 text-gray-300">
+<i class="fa-solid fa-graduation-cap text-brand-teal-light text-xl"></i>
+<p class="text-xl font-heading font-semibold">Program Studi: Informatika</p>
+</div>
+<div class="flex items-center space-x-3 text-gray-300">
+<i class="fa-solid fa-calendar-check text-brand-teal-light text-xl"></i>
+<p class="text-xl font-heading font-semibold">Semester: 6</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Composition -->
+<div class="flex items-center justify-center relative">
+<!-- Main Circle Background -->
+<div class="w-[450px] h-[450px] bg-white bg-opacity-5 rounded-full flex items-center justify-center border-2 border-brand-teal border-opacity-20 relative">
+<!-- Floating Icons Orbiting -->
+<div class="absolute top-10 left-10 bg-brand-dark p-4 rounded-xl shadow-2xl border border-brand-teal-light">
+<i class="fa-solid fa-bug text-4xl text-red-500"></i>
+</div>
+<div class="absolute bottom-16 right-0 bg-brand-dark p-4 rounded-xl shadow-2xl border border-brand-teal-light">
+<i class="fa-solid fa-magnifying-glass-chart text-4xl text-brand-accent"></i>
+</div>
+<div class="absolute top-1/2 -right-8 bg-brand-dark p-4 rounded-xl shadow-2xl border border-brand-teal-light transform -translate-y-1/2">
+<i class="fa-solid fa-list-check text-4xl text-blue-400"></i>
+</div>
+<!-- Central Visual -->
+<div class="text-center z-10">
+<i class="fa-solid fa-vial-circle-check text-9xl text-brand-teal-light drop-shadow-2xl"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Bottom Strip -->
+<div class="absolute bottom-0 w-full h-3 bg-brand-teal"></div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-white font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 1.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 2.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

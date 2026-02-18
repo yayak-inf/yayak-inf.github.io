@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smoke Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        
+        .smoke-bg-icon {
+            position: absolute;
+            top: -20px;
+            right: -50px;
+            font-size: 400px;
+            color: #f0fdf4;
+            opacity: 0.6;
+            z-index: 0;
+            transform: rotate(-10deg);
+        }
+
+        .bottom-accent {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40%;
+            height: 15px;
+            background-color: #4A7C2F;
+            border-top-left-radius: 20px;
+            z-index: 20;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 50px 80px 30px 80px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon-box {
+            background-color: #E8F5E9;
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2D5016;
+            font-size: 32px;
+        }
+
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+            font-weight: 600;
+            padding-left: 90px;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            flex: 1;
+            padding: 0 80px 60px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            z-index: 10;
+        }
+
+        /* Definition Card */
+        .definition-card {
+            background-color: #fff;
+            border-left: 8px solid #4A7C2F;
+            padding: 30px 40px;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .def-text {
+            font-size: 24px;
+            color: #333;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .def-highlight {
+            font-weight: 700;
+            color: #2D5016;
+        }
+
+        /* Visualization Area */
+        .visual-area {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .flow-container {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #F9FAFB;
+            padding: 20px 30px;
+            border-radius: 12px;
+            border: 1px dashed #A8D08D;
+        }
+
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-circle {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border: 2px solid #4A7C2F;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #4A7C2F;
+            margin-bottom: 10px;
+            z-index: 2;
+        }
+
+        .step-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .connector-line {
+            flex: 1;
+            height: 3px;
+            background-color: #A8D08D;
+            margin: 0 15px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .connector-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -5px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid #A8D08D;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+
+        /* Note Card */
+        .note-card {
+            flex: 1.2;
+            background-color: #2D5016;
+            color: white;
+            border-radius: 16px;
+            padding: 25px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(45, 80, 22, 0.3);
+            overflow: hidden;
+        }
+
+        .note-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .note-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+        }
+
+        .note-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #A8D08D;
+        }
+
+        .note-text {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="top-accent"></div>
+<i class="fas fa-smog smoke-bg-icon"></i>
+<div class="bottom-accent"></div>
+<!-- Header -->
+<div class="header-section">
+<h1 class="slide-title">
+<div class="icon-box">
+<i class="fas fa-fire-extinguisher"></i>
+</div>
+                Smoke Testing
+            </h1>
+<p class="slide-subtitle">Verifikasi Kesehatan Dasar Sistem</p>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Definition -->
+<div class="definition-card">
+<p class="def-text">
+                    Pengujian dasar untuk memastikan <span class="def-highlight">sistem stabil</span> dan fungsi-fungsi kritis dapat berjalan sebelum dilakukan pengujian lebih lanjut yang lebih mendalam.
+                </p>
+</div>
+<!-- Visual & Note Area -->
+<div class="visual-area">
+<!-- Simple Process Flow -->
+<div class="flow-container">
+<div class="flow-step">
+<div class="step-circle" style="background-color: #E8F5E9;">
+<i class="fas fa-code"></i>
+</div>
+<span class="step-label">Build</span>
+</div>
+<div class="connector-line"></div>
+<div class="flow-step">
+<div class="step-circle" style="border-color: #2D5016; background-color: #2D5016; color: white; box-shadow: 0 0 15px rgba(45,80,22,0.4);">
+<i class="fas fa-filter"></i>
+</div>
+<span class="step-label" style="font-weight: 700; color: #2D5016;">Smoke Test</span>
+</div>
+<div class="connector-line"></div>
+<div class="flow-step">
+<div class="step-circle">
+<i class="fas fa-search"></i>
+</div>
+<span class="step-label">Detail Test</span>
+</div>
+</div>
+<!-- Note Card -->
+<div class="note-card">
+<div class="note-header">
+<i class="fas fa-info-circle" style="font-size: 24px; color: #A8D08D;"></i>
+<span class="note-title">Catatan Penting</span>
+</div>
+<p class="note-text">
+                        "Biasanya dilakukan di <strong>awal build</strong> (setelah deployment) untuk memutuskan apakah build tersebut layak diuji lebih lanjut atau harus ditolak (reject)."
+                    </p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">14</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 13.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 15.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

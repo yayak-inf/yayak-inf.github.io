@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Klasifikasi Berdasarkan Level</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Decorative Elements */
+        .corner-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 250px;
+            background-color: #E8F5E9;
+            border-bottom-left-radius: 100%;
+            z-index: 0;
+        }
+        .bottom-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: #2D5016;
+            z-index: 10;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 50px 80px 20px 80px;
+            z-index: 10;
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+            position: relative;
+            display: inline-block;
+        }
+        .slide-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 6px;
+            background-color: #6B9F4D;
+            border-radius: 3px;
+        }
+        .subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        /* Content Area */
+        .content-container {
+            flex: 1;
+            display: flex;
+            padding: 20px 80px 50px 80px;
+            gap: 80px;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        /* Pyramid Visual */
+        .pyramid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 600px;
+            gap: 12px;
+        }
+        
+        .pyramid-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Pyramid Levels - Colors from palette */
+        .level-4 { /* Acceptance - Top */
+            width: 280px;
+            height: 65px;
+            background-color: #2D5016; 
+            z-index: 4;
+        }
+        .level-3 { /* System */
+            width: 380px;
+            height: 75px;
+            background-color: #4A7C2F; 
+            z-index: 3;
+        }
+        .level-2 { /* Integration */
+            width: 480px;
+            height: 85px;
+            background-color: #6B9F4D; 
+            z-index: 2;
+        }
+        .level-1 { /* Unit - Bottom */
+            width: 580px;
+            height: 95px;
+            background-color: #A8D08D; 
+            z-index: 1;
+            color: #1a330b; /* Dark text for contrast on light green */
+        }
+
+        .level-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 22px;
+        }
+
+        /* Side Note Box */
+        .note-box {
+            width: 380px;
+            background-color: #F8FCF5;
+            border-left: 6px solid #2D5016;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .note-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #2D5016;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .note-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        /* Indicators on the left of pyramid */
+        .indicator-container {
+            position: absolute; 
+            left: -120px; 
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            padding: 20px 0;
+        }
+        
+        .indicator-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            text-align: right;
+        }
+        
+        .indicator-line {
+            height: 100%; 
+            border-left: 2px dashed #bbb; 
+            margin-left: auto; 
+            margin-right: -15px;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decoration -->
+<div class="corner-accent"></div>
+<div class="bottom-accent"></div>
+<!-- Header -->
+<div class="header-section">
+<h1 class="slide-title">Klasifikasi Berdasarkan Level</h1>
+<p class="subtitle">Berdasarkan level sistem yang diuji</p>
+</div>
+<!-- Main Content -->
+<div class="content-container">
+<!-- Pyramid Visualization -->
+<div class="pyramid-container" style="position: relative;">
+<!-- Scope Indicator -->
+<div class="indicator-container">
+<div class="indicator-text">
+<span>High Level<br/>(Business Focus)</span>
+</div>
+<div class="indicator-line"></div>
+<div class="indicator-text">
+<span>Low Level<br/>(Code Focus)</span>
+</div>
+</div>
+<!-- Acceptance Testing (Top) -->
+<div class="pyramid-level level-4">
+<div class="level-content">
+<i class="fas fa-clipboard-check"></i>
+<span>Acceptance Testing</span>
+</div>
+</div>
+<!-- System Testing -->
+<div class="pyramid-level level-3">
+<div class="level-content">
+<i class="fas fa-cubes"></i>
+<span>System Testing</span>
+</div>
+</div>
+<!-- Integration Testing -->
+<div class="pyramid-level level-2">
+<div class="level-content">
+<i class="fas fa-project-diagram"></i>
+<span>Integration Testing</span>
+</div>
+</div>
+<!-- Unit Testing (Bottom) -->
+<div class="pyramid-level level-1">
+<div class="level-content">
+<i class="fas fa-code"></i>
+<span>Unit Testing</span>
+</div>
+</div>
+</div>
+<!-- Note Box -->
+<div class="note-box">
+<div class="note-title">
+<i class="fas fa-lightbulb"></i>
+<span>Catatan Penting</span>
+</div>
+<p class="note-text">
+                    Level testing melihat tingkatan struktur sistem yang diuji, mulai dari unit terkecil kode program hingga sistem utuh yang siap digunakan oleh pengguna.
+                </p>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">3</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 2.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 4.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

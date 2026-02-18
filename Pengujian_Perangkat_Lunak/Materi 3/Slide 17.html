@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Studi Kasus E-Commerce</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        
+        .bg-circle {
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background-color: #F1F8E9;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .bg-grid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background-image: radial-gradient(#A8D08D 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 40px 60px 20px 60px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .header-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #2D5016;
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+            line-height: 1.1;
+        }
+        
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            color: #666;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            flex: 1;
+            padding: 10px 60px 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        /* Steps Grid */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 25px;
+            height: 100%;
+        }
+
+        .step-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid #A8D08D;
+            transition: transform 0.2s;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(45, 80, 22, 0.15);
+        }
+
+        /* Card Colors based on type */
+        .card-unit { border-top-color: #81C784; }
+        .card-integration { border-top-color: #66BB6A; }
+        .card-system { border-top-color: #4CAF50; }
+        .card-acceptance { border-top-color: #43A047; }
+        .card-perf { border-top-color: #2E7D32; }
+        .card-sec { border-top-color: #1B5E20; }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .icon-unit { background-color: #81C784; }
+        .icon-integration { background-color: #66BB6A; }
+        .icon-system { background-color: #4CAF50; }
+        .icon-acceptance { background-color: #43A047; }
+        .icon-perf { background-color: #2E7D32; }
+        .icon-sec { background-color: #1B5E20; }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .scenario-box {
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            padding: 10px;
+            border-left: 3px solid #ddd;
+        }
+        
+        .scenario-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #888;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .scenario-text {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .step-number {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 40px;
+            font-weight: 900;
+            color: #f0f0f0;
+            z-index: 0;
+            line-height: 1;
+        }
+
+        /* Flow Arrows */
+        .arrow-right {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #A8D08D;
+            font-size: 24px;
+            z-index: 5;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="top-bar"></div>
+<div class="bg-circle"></div>
+<div class="bg-grid"></div>
+<!-- Header -->
+<div class="header-section">
+<div class="header-icon">
+<i class="fas fa-shopping-cart"></i>
+</div>
+<div>
+<h1 class="slide-title">Contoh Studi Kasus: E-Commerce</h1>
+<p class="slide-subtitle">Penerapan Berbagai Jenis Pengujian dalam Satu Sistem</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<div class="steps-container">
+<!-- Step 1: Unit -->
+<div class="step-card card-unit">
+<span class="step-number">1</span>
+<div class="card-header">
+<div class="card-icon icon-unit"><i class="fas fa-code"></i></div>
+<h3 class="card-title">Unit Testing</h3>
+</div>
+<div class="card-content">
+<p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Level Terkecil (Code)</p>
+<div class="scenario-box" style="border-left-color: #81C784;">
+<span class="scenario-label">Skenario</span>
+<p class="scenario-text">Menguji fungsi perhitungan <strong>Total Belanja = (Harga x Qty) - Diskon</strong>.</p>
+</div>
+</div>
+<i class="fas fa-chevron-right arrow-right"></i>
+</div>
+<!-- Step 2: Integration -->
+<div class="step-card card-integration">
+<span class="step-number">2</span>
+<div class="card-header">
+<div class="card-icon icon-integration"><i class="fas fa-puzzle-piece"></i></div>
+<h3 class="card-title">Integration Testing</h3>
+</div>
+<div class="card-content">
+<p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Interaksi Modul</p>
+<div class="scenario-box" style="border-left-color: #66BB6A;">
+<span class="scenario-label">Skenario</span>
+<p class="scenario-text">Memastikan modul <strong>Checkout</strong> dapat mengirim data ke <strong>Payment Gateway</strong>.</p>
+</div>
+</div>
+<i class="fas fa-chevron-right arrow-right"></i>
+</div>
+<!-- Step 3: System -->
+<div class="step-card card-system">
+<span class="step-number">3</span>
+<div class="card-header">
+<div class="card-icon icon-system"><i class="fas fa-laptop-code"></i></div>
+<h3 class="card-title">System Testing</h3>
+</div>
+<div class="card-content">
+<p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Fungsi Menyeluruh</p>
+<div class="scenario-box" style="border-left-color: #4CAF50;">
+<span class="scenario-label">Skenario</span>
+<p class="scenario-text">Menguji alur lengkap: <strong>Login → Cari Barang → Add to Cart → Bayar</strong>.</p>
+</div>
+</div>
+</div>
+<!-- Step 4: Acceptance -->
+<div class="step-card card-acceptance">
+<span class="step-number">4</span>
+<div class="card-header">
+<div class="card-icon icon-acceptance"><i class="fas fa-user-check"></i></div>
+<h3 class="card-title">Acceptance Testing</h3>
+</div>
+<div class="card-content">
+<p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Validasi User</p>
+<div class="scenario-box" style="border-left-color: #43A047;">
+<span class="scenario-label">Skenario</span>
+<p class="scenario-text">Client/User asli mencoba aplikasi untuk memastikan <strong>kebutuhan bisnis</strong> terpenuhi.</p>
+</div>
+</div>
+</div>
+<!-- Step 5: Performance -->
+<div class="step-card card-perf">
+<span class="step-number">5</span>
+<div class="card-header">
+<div class="card-icon icon-perf"><i class="fas fa-tachometer-alt"></i></div>
+<h3 class="card-title">Performance</h3>
+</div>
+<div class="card-content">
+<p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Non-Functional (Load)</p>
+<div class="scenario-box" style="border-left-color: #2E7D32;">
+<span class="scenario-label">Skenario</span>
+<p class="scenario-text">Simulasi <strong>10.000 user</strong> akses bersamaan saat Harbolnas (Flash Sale).</p>
+</div>
+</div>
+</div>
+<!-- Step 6: Security -->
+<div class="step-card card-sec">
+<span class="step-number">6</span>
+<div class="card-header">
+<div class="card-icon icon-sec"><i class="fas fa-shield-alt"></i></div>
+<h3 class="card-title">Security</h3>
+</div>
+<div class="card-content">
+<p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Non-Functional (Safety)</p>
+<div class="scenario-box" style="border-left-color: #1B5E20;">
+<span class="scenario-label">Skenario</span>
+<p class="scenario-text">Menguji celah keamanan pada <strong>transaksi kartu kredit</strong> dan data pribadi.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">17</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 16.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 18.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

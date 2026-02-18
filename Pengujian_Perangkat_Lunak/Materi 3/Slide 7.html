@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Acceptance Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background-color: #E8F5E9;
+            border-bottom-left-radius: 100%;
+            z-index: 0;
+        }
+        .left-accent {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            width: 8px;
+            height: 100px;
+            background-color: #2D5016;
+            border-radius: 0 4px 4px 0;
+        }
+        .dot-pattern {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            width: 150px;
+            height: 150px;
+            background-image: radial-gradient(#A8D08D 2px, transparent 2px);
+            background-size: 20px 20px;
+            z-index: 0;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 50px 80px 20px 80px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .title-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #2D5016;
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 8px rgba(45, 80, 22, 0.3);
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+            line-height: 1.1;
+        }
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            color: #555;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            flex: 1;
+            padding: 20px 80px 60px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            z-index: 10;
+        }
+
+        /* Definition Card */
+        .def-card {
+            background-color: #fff;
+            border-left: 6px solid #4A7C2F;
+            padding: 25px 30px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            position: relative;
+        }
+        .def-icon {
+            color: #4A7C2F;
+            font-size: 28px;
+            margin-top: 5px;
+        }
+        .def-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 22px;
+            color: #333;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Types Container */
+        .types-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .type-card {
+            flex: 1;
+            background-color: white;
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            border-top: 5px solid #6B9F4D;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .type-icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: #F1F8E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #2D5016;
+            font-size: 24px;
+        }
+        
+        .type-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #2D5016;
+            margin-bottom: 8px;
+        }
+        
+        .type-desc {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Goal Box */
+        .goal-box {
+            background-color: #2D5016;
+            border-radius: 12px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            color: white;
+            box-shadow: 0 6px 15px rgba(45, 80, 22, 0.25);
+            margin-top: auto;
+        }
+        
+        .goal-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+        
+        .goal-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decoration -->
+<div class="top-shape"></div>
+<div class="left-accent"></div>
+<div class="dot-pattern"></div>
+<!-- Header -->
+<div class="header-section">
+<div class="header-content">
+<div class="title-icon">
+<i class="fas fa-clipboard-check"></i>
+</div>
+<div>
+<h1 class="slide-title">Acceptance Testing</h1>
+<p class="slide-subtitle">Validasi Akhir oleh Pengguna</p>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Definition -->
+<div class="def-card">
+<i class="fas fa-quote-left def-icon"></i>
+<p class="def-text">
+                    Pengujian yang dilakukan oleh <strong>pengguna atau client</strong> untuk memastikan sistem telah sesuai dengan kebutuhan bisnis (Business Requirements) yang disepakati.
+                </p>
+</div>
+<!-- Types Grid -->
+<div class="types-container">
+<!-- UAT -->
+<div class="type-card">
+<div class="type-icon-box">
+<i class="fas fa-user-check"></i>
+</div>
+<h3 class="type-title">UAT</h3>
+<p class="type-desc">User Acceptance Testing. Dilakukan di lingkungan khusus oleh klien.</p>
+</div>
+<!-- Alpha -->
+<div class="type-card">
+<div class="type-icon-box">
+<i class="fas fa-vial"></i>
+</div>
+<h3 class="type-title">Alpha Testing</h3>
+<p class="type-desc">Pengujian internal oleh tim pengembang sebelum dirilis ke publik.</p>
+</div>
+<!-- Beta -->
+<div class="type-card">
+<div class="type-icon-box">
+<i class="fas fa-users"></i>
+</div>
+<h3 class="type-title">Beta Testing</h3>
+<p class="type-desc">Pengujian oleh sejumlah pengguna nyata di lingkungan produksi.</p>
+</div>
+</div>
+<!-- Goal -->
+<div class="goal-box">
+<div class="goal-label">Tujuan Utama</div>
+<p class="goal-text">Menentukan apakah sistem siap digunakan secara resmi (Go Live).</p>
+<i class="fas fa-check-circle" style="font-size: 24px; margin-left: auto; color: #A8D08D;"></i>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">7</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 6.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 8.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

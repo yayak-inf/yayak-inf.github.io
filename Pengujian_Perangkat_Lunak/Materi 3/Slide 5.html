@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Integration Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        .bg-puzzle {
+            position: absolute;
+            top: 50px;
+            right: -50px;
+            font-size: 400px;
+            color: rgba(168, 208, 141, 0.1);
+            transform: rotate(-15deg);
+            z-index: 0;
+        }
+        .bottom-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 150px;
+            background-color: #E8F5E9;
+            border-top-right-radius: 100%;
+            z-index: 0;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 50px 80px 20px 80px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background-color: #2D5016;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(45, 80, 22, 0.3);
+        }
+        .icon-wrapper i {
+            font-size: 40px;
+            color: #ffffff;
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+        }
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            padding: 20px 80px 50px 80px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            z-index: 10;
+        }
+
+        /* Definition Card */
+        .def-card {
+            background-color: #fff;
+            border-left: 8px solid #4A7C2F;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-right: 1px solid #eee;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .def-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #4A7C2F;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .def-text {
+            font-size: 22px;
+            color: #333;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Split Section */
+        .split-section {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+
+        /* Goal Box (Left) */
+        .goal-box {
+            flex: 1;
+            background: linear-gradient(135deg, #2D5016 0%, #4A7C2F 100%);
+            border-radius: 16px;
+            padding: 30px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(45, 80, 22, 0.2);
+        }
+        .goal-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #A8D08D;
+        }
+        .goal-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .goal-desc {
+            font-size: 20px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* Example Box (Right) */
+        .example-box {
+            flex: 1.5;
+            background-color: #F8FCF5;
+            border-radius: 16px;
+            border: 2px dashed #A8D08D;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        .example-header {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #2D5016;
+            font-size: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #E8F5E9;
+        }
+        
+        /* Diagram Styling */
+        .diagram-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .module-node {
+            background-color: white;
+            border: 3px solid #4A7C2F;
+            border-radius: 12px;
+            padding: 20px;
+            width: 160px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 2;
+        }
+        .node-icon {
+            font-size: 32px;
+            color: #2D5016;
+            margin-bottom: 10px;
+        }
+        .node-label {
+            font-weight: 700;
+            color: #333;
+            font-size: 16px;
+        }
+        .connection-line {
+            height: 4px;
+            width: 80px;
+            background-color: #6B9F4D;
+            position: relative;
+            z-index: 1;
+        }
+        .connection-line::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: -6px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid #6B9F4D;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+        .interaction-status {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2D5016;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .success-check {
+            width: 40px;
+            height: 40px;
+            background-color: #2D5016;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 3px #A8D08D;
+            z-index: 5;
+            margin: 0 -10px;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Background -->
+<div class="top-bar"></div>
+<i class="fas fa-puzzle-piece bg-puzzle"></i>
+<div class="bottom-shape"></div>
+<!-- Header -->
+<div class="header-section">
+<div class="icon-wrapper">
+<i class="fas fa-puzzle-piece"></i>
+</div>
+<div>
+<h1 class="slide-title">Integration Testing</h1>
+<p class="slide-subtitle">Pengujian Interaksi Antar Modul</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Definition -->
+<div class="def-card">
+<div class="def-title">
+<i class="fas fa-book-open"></i> DEFINISI
+            </div>
+<p class="def-text">
+                Integration Testing adalah pengujian untuk memastikan modul-modul yang telah diuji secara terpisah dapat bekerja dengan baik ketika digabungkan.
+            </p>
+</div>
+<!-- Split Content -->
+<div class="split-section">
+<!-- Goal Section -->
+<div class="goal-box">
+<i class="fas fa-bullseye goal-icon"></i>
+<div class="goal-title">Tujuan Utama</div>
+<p class="goal-desc">Mendeteksi error atau bug yang terjadi pada <strong>interaksi &amp; komunikasi data</strong> antar modul yang berbeda.</p>
+</div>
+<!-- Example Section -->
+<div class="example-box">
+<div class="example-header">
+<i class="fas fa-laptop-code"></i>
+<span>Contoh Penerapan</span>
+</div>
+<div class="diagram-container">
+<!-- Module 1 -->
+<div class="module-node">
+<i class="fas fa-user-lock node-icon"></i>
+<div class="node-label">Modul Login</div>
+</div>
+<!-- Connection -->
+<div class="connection-line">
+<div class="interaction-status">Request Data</div>
+</div>
+<!-- Success Check -->
+<div class="success-check">
+<i class="fas fa-check"></i>
+</div>
+<!-- Connection -->
+<div class="connection-line" style="transform: rotate(180deg);">
+</div>
+<!-- Module 2 -->
+<div class="module-node">
+<i class="fas fa-database node-icon"></i>
+<div class="node-label">Database User</div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 15px; color: #555; font-size: 16px;">
+<p>Memastikan Modul Login sukses mengambil data dari Database User.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">5</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 4.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 6.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

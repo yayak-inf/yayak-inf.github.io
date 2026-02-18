@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Performance Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-stripe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        .right-accent {
+            position: absolute;
+            top: 0;
+            right: 40px;
+            width: 100px;
+            height: 140px;
+            background-color: #F1F8E9;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+        .right-accent i {
+            font-size: 60px;
+            color: #C5E1A5;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 50px 80px 20px 80px;
+            z-index: 10;
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            color: #666;
+            margin-top: 5px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .subtitle-badge {
+            background-color: #E8F5E9;
+            color: #4A7C2F;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            flex: 1;
+            padding: 10px 80px 40px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 10;
+        }
+
+        /* Definition Card */
+        .definition-box {
+            background-color: white;
+            border-left: 8px solid #6B9F4D;
+            padding: 20px 25px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .def-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background-color: #F1F8E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .def-icon-wrapper i {
+            color: #4A7C2F;
+            font-size: 24px;
+        }
+        .def-text {
+            font-size: 20px;
+            color: #333;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Subtypes Container */
+        .subtypes-container {
+            display: flex;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .subtype-card {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .subtype-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+        
+        /* Card Variants */
+        .card-load::before { background-color: #8BC34A; }
+        .card-stress::before { background-color: #F57F17; } /* Orange accent for stress */
+        .card-volume::before { background-color: #2D5016; }
+
+        .subtype-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .icon-load { background-color: #F1F8E9; color: #4A7C2F; }
+        .icon-stress { background-color: #FFF3E0; color: #F57F17; }
+        .icon-volume { background-color: #E8F5E9; color: #2D5016; }
+
+        .subtype-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtype-desc {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Example Section */
+        .example-section {
+            background-color: #2D5016;
+            color: white;
+            border-radius: 12px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 20px rgba(45, 80, 22, 0.2);
+            margin-top: 10px;
+        }
+
+        .example-text-group {
+            flex: 1;
+        }
+        .example-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: #A8D08D;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .example-content {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .example-visual {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        .user-group {
+            display: flex;
+            gap: -5px;
+        }
+        .user-group i {
+            color: #fff;
+            font-size: 20px;
+        }
+        .connection-arrow {
+            color: #A8D08D;
+            font-size: 18px;
+        }
+        .server-icon {
+            color: #fff;
+            font-size: 32px;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="top-stripe"></div>
+<div class="right-accent">
+<i class="fas fa-tachometer-alt"></i>
+</div>
+<!-- Header -->
+<div class="header-section">
+<h1 class="slide-title">Performance Testing</h1>
+<div class="slide-subtitle">
+<span class="subtitle-badge">Non-Functional</span>
+<span>Pengujian Kinerja Sistem</span>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Definition -->
+<div class="definition-box">
+<div class="def-icon-wrapper">
+<i class="fas fa-info"></i>
+</div>
+<p class="def-text">
+                Pengujian untuk mengukur <strong>kecepatan, stabilitas, dan respons</strong> sistem di bawah beban kerja tertentu untuk memastikan kualitas kinerja aplikasi.
+            </p>
+</div>
+<!-- Subtypes Cards -->
+<div class="subtypes-container">
+<!-- Load Testing -->
+<div class="subtype-card card-load">
+<div class="subtype-icon icon-load">
+<i class="fas fa-weight-hanging"></i>
+</div>
+<h3 class="subtype-title">Load Testing</h3>
+<p class="subtype-desc">Menguji sistem dengan beban pengguna yang diharapkan (normal) untuk melihat responnya.</p>
+</div>
+<!-- Stress Testing -->
+<div class="subtype-card card-stress">
+<div class="subtype-icon icon-stress">
+<i class="fas fa-bolt"></i>
+</div>
+<h3 class="subtype-title">Stress Testing</h3>
+<p class="subtype-desc">Menguji sistem di luar batas kapasitas normal hingga titik kerusakan (breaking point).</p>
+</div>
+<!-- Volume Testing -->
+<div class="subtype-card card-volume">
+<div class="subtype-icon icon-volume">
+<i class="fas fa-server"></i>
+</div>
+<h3 class="subtype-title">Volume Testing</h3>
+<p class="subtype-desc">Menguji kemampuan sistem dalam menangani sejumlah besar data (database).</p>
+</div>
+</div>
+<!-- Example Section -->
+<div class="example-section">
+<div class="example-text-group">
+<span class="example-label">Contoh Skenario Nyata</span>
+<div class="example-content">
+                    "Menguji stabilitas aplikasi saat diakses oleh 10.000 user secara bersamaan pada jam sibuk."
+                </div>
+</div>
+<div class="example-visual">
+<div class="user-group">
+<i class="fas fa-user"></i>
+<i class="fas fa-user"></i>
+<i class="fas fa-user"></i>
+<span style="color: white; font-weight: 700; margin-left: 5px; font-size: 14px;">10k</span>
+</div>
+<i class="fas fa-long-arrow-alt-right connection-arrow"></i>
+<i class="fas fa-server server-icon"></i>
+<div style="color: #A8D08D; font-size: 20px; font-weight: 700; margin-left: 10px;">
+                    OK <i class="fas fa-check-circle"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">10</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 9.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 11.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

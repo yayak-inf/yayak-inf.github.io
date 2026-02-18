@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Functional vs Non-Functional Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        
+        .circle-bg-left {
+            position: absolute;
+            top: 100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: #F1F8E9;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .circle-bg-right {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            background-color: #F9FAFB;
+            border-radius: 50%;
+            z-index: 0;
+            border: 50px solid #F1F8E9;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 50px 80px 20px 80px;
+            z-index: 10;
+            text-align: center;
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+            display: inline-block;
+            position: relative;
+        }
+        .slide-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background-color: #6B9F4D;
+            margin: 10px auto 0 auto;
+            border-radius: 3px;
+        }
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            flex: 1;
+            padding: 20px 80px 40px 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        /* Comparison Container */
+        .comparison-container {
+            display: flex;
+            flex: 1;
+            gap: 40px;
+            position: relative;
+            align-items: stretch;
+        }
+
+        /* VS Badge */
+        .vs-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background-color: #2D5016;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            z-index: 20;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Card Styles */
+        .compare-card {
+            flex: 1;
+            background-color: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 8px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-functional {
+            border-top-color: #4A7C2F;
+        }
+        
+        .card-non-functional {
+            border-top-color: #A8D08D;
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .icon-functional {
+            background-color: #E8F5E9;
+            color: #4A7C2F;
+        }
+        
+        .icon-non-functional {
+            background-color: #F1F8E9;
+            color: #6B9F4D;
+        }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #2D5016;
+            margin-bottom: 15px;
+        }
+
+        .card-desc {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .card-list {
+            width: 100%;
+            background-color: #F9FAFB;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: #444;
+            font-weight: 600;
+        }
+        .list-item:last-child {
+            margin-bottom: 0;
+        }
+        .check-icon {
+            color: #4A7C2F;
+            font-size: 14px;
+        }
+
+        /* Bottom Note */
+        .bottom-note {
+            background-color: #2D5016;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            box-shadow: 0 5px 15px rgba(45, 80, 22, 0.2);
+        }
+        
+        .note-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .note-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .note-text {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .divider-vertical {
+            width: 2px;
+            height: 30px;
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Background -->
+<div class="top-bar"></div>
+<div class="circle-bg-left"></div>
+<div class="circle-bg-right"></div>
+<!-- Header -->
+<div class="header-section">
+<h1 class="slide-title">Functional vs Non-Functional Testing</h1>
+<p class="slide-subtitle">Klasifikasi Pengujian Berdasarkan Tujuan Utama</p>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Comparison Cards -->
+<div class="comparison-container">
+<!-- VS Badge -->
+<div class="vs-badge">VS</div>
+<!-- Functional Card -->
+<div class="compare-card card-functional">
+<div class="card-icon icon-functional">
+<i class="fas fa-cogs"></i>
+</div>
+<h3 class="card-title">Functional Testing</h3>
+<div class="card-desc">
+<p>Pengujian untuk memverifikasi bahwa setiap fungsi aplikasi perangkat lunak beroperasi sesuai dengan <strong>spesifikasi kebutuhan (requirements)</strong>.</p>
+</div>
+<div class="card-list">
+<div class="list-item">
+<i class="fas fa-check check-icon"></i>
+<span>Fokus: Apa yang dilakukan sistem</span>
+</div>
+<div class="list-item">
+<i class="fas fa-check check-icon"></i>
+<span>Validasi Input &amp; Output</span>
+</div>
+<div class="list-item">
+<i class="fas fa-check check-icon"></i>
+<span>Berdasarkan Business Rules</span>
+</div>
+</div>
+</div>
+<!-- Non-Functional Card -->
+<div class="compare-card card-non-functional">
+<div class="card-icon icon-non-functional">
+<i class="fas fa-tachometer-alt"></i>
+</div>
+<h3 class="card-title">Non-Functional Testing</h3>
+<div class="card-desc">
+<p>Pengujian untuk memeriksa aspek <strong>kualitas sistem</strong> yang tidak terkait dengan fungsionalitas spesifik, seperti performa dan keamanan.</p>
+</div>
+<div class="card-list">
+<div class="list-item">
+<i class="fas fa-check check-icon"></i>
+<span>Fokus: Bagaimana sistem bekerja</span>
+</div>
+<div class="list-item">
+<i class="fas fa-check check-icon"></i>
+<span>Validasi Performance &amp; Security</span>
+</div>
+<div class="list-item">
+<i class="fas fa-check check-icon"></i>
+<span>User Experience (UX)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Note -->
+<div class="bottom-note">
+<div class="note-content">
+<div class="note-label">Functional</div>
+<span class="note-text">Menguji Fungsi Sistem</span>
+</div>
+<div class="divider-vertical"></div>
+<div class="note-content">
+<div class="note-label">Non-Functional</div>
+<span class="note-text">Menguji Kualitas Sistem</span>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">8</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 7.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 9.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>

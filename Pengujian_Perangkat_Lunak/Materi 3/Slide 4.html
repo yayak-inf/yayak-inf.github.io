@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Unit Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Open+Sans:wght@400;600&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Elements */
+        .top-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background-color: #2D5016;
+            z-index: 20;
+        }
+        .right-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: #E8F5E9;
+            clip-path: circle(70% at 100% 0);
+            z-index: 0;
+        }
+        .left-bottom-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(168, 208, 141, 0.2);
+            clip-path: circle(70% at 0% 100%);
+            z-index: 0;
+        }
+
+        /* Header */
+        .header-section {
+            padding: 50px 80px 20px 80px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .title-icon {
+            font-size: 42px;
+            color: #4A7C2F;
+            background: #F1F8E9;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D5016;
+            margin: 0;
+        }
+        .slide-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            padding: 10px 80px 50px 80px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            z-index: 10;
+        }
+
+        /* Definition Card */
+        .definition-card {
+            background-color: #fff;
+            border-left: 8px solid #2D5016;
+            padding: 25px 30px;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .def-label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: #2D5016;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            min-width: 100px;
+        }
+        .def-text {
+            font-size: 22px;
+            color: #333;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Bottom Columns */
+        .columns-container {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+
+        /* Left Column: Features */
+        .features-col {
+            flex: 1;
+            background-color: #F9FAFB;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #E5E7EB;
+        }
+        .col-header {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #2D5016;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #A8D08D;
+            padding-bottom: 10px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #E8F5E9;
+            color: #4A7C2F;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        .feature-text {
+            font-size: 18px;
+            color: #444;
+            font-weight: 600;
+        }
+
+        /* Right Column: Example */
+        .example-col {
+            flex: 1.2;
+            background-color: #2D5016;
+            border-radius: 16px;
+            padding: 30px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .example-col .col-header {
+            color: white;
+            border-bottom-color: #6B9F4D;
+        }
+        
+        .code-window {
+            background-color: #1a2e10;
+            border-radius: 8px;
+            overflow: hidden;
+            font-family: 'Fira Code', monospace;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .window-bar {
+            background-color: #3e5e26;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            gap: 6px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot-r { background-color: #ff5f56; }
+        .dot-y { background-color: #ffbd2e; }
+        .dot-g { background-color: #27c93f; }
+        
+        .code-content {
+            padding: 20px;
+            color: #e0e0e0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .keyword { color: #ff79c6; }
+        .function { color: #8be9fd; }
+        .string { color: #f1fa8c; }
+        .number { color: #bd93f9; }
+
+        .example-note {
+            background-color: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+        }
+        .page-number {
+            font-weight: 700;
+            color: #2D5016;
+            background: #E8F5E9;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decoration -->
+<div class="top-accent"></div>
+<div class="right-shape"></div>
+<div class="left-bottom-shape"></div>
+<!-- Header -->
+<div class="header-section">
+<div class="title-icon">
+<i class="fas fa-microchip"></i>
+</div>
+<div>
+<h1 class="slide-title">Unit Testing</h1>
+<p class="slide-subtitle">Pengujian Level Dasar (Low Level Testing)</p>
+</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Definition -->
+<div class="definition-card">
+<div class="def-label">Definisi</div>
+<p class="def-text">Unit Testing adalah pengujian pada bagian terkecil dari program, seperti fungsi (function) atau method secara terisolasi.</p>
+</div>
+<!-- Two Columns -->
+<div class="columns-container">
+<!-- Features -->
+<div class="features-col">
+<div class="col-header">
+<i class="fas fa-list-check"></i>
+<span>Ciri-Ciri Utama</span>
+</div>
+<ul class="feature-list">
+<li class="feature-item">
+<div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+<span class="feature-text">Dilakukan oleh Developer</span>
+</li>
+<li class="feature-item">
+<div class="feature-icon"><i class="fas fa-brain"></i></div>
+<span class="feature-text">Fokus pada Logika Program</span>
+</li>
+<li class="feature-item">
+<div class="feature-icon"><i class="fas fa-robot"></i></div>
+<span class="feature-text">Biasanya menggunakan Automation</span>
+</li>
+</ul>
+</div>
+<!-- Example -->
+<div class="example-col">
+<div class="col-header">
+<i class="fas fa-laptop-code"></i>
+<span>Contoh Penerapan</span>
+</div>
+<div class="code-window">
+<div class="window-bar">
+<span class="dot dot-r"></span>
+<span class="dot dot-y"></span>
+<span class="dot dot-g"></span>
+</div>
+<div class="code-content">
+<p><span class="keyword">function</span> <span class="function">hitungDiskon</span>(total) {</p>
+<p>  <span class="keyword">if</span> (total &gt; <span class="number">100000</span>) {</p>
+<p>    <span class="keyword">return</span> total * <span class="number">0.10</span>;</p>
+<p>  }</p>
+<p>  <span class="keyword">return</span> <span class="number">0</span>;</p>
+<p>}</p>
+</div>
+</div>
+<div class="example-note">
+<p><strong>Skenario:</strong> Memastikan fungsi memberikan diskon 10% jika total belanja &gt; 100.000, dan 0 jika sebaliknya.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-info">
+<span style="font-size: 14px; color: #888;">Jenis-Jenis Pengujian Perangkat Lunak</span>
+<div class="page-number">4</div>
+</div>
+</div>
+
+<!-- Navigation Buttons -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <!-- Previous Button -->
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <!-- Next Button -->
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-5 py-3 bg-brand-teal hover:bg-brand-teal-light rounded-xl text-green font-heading font-semibold transition shadow-lg"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+    function goPrev() {
+        window.location.href = "Slide 3.html"; // ganti sesuai file sebelumnya
+    }
+
+    function goNext() {
+        window.location.href = "Slide 5.html"; // ganti sesuai file berikutnya
+    }
+</script>
+</body>
+</html>
