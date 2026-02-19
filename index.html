@@ -2,101 +2,139 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Portal Mata Kuliah | Informatika</title>
+<title>Pengujian Perangkat Lunak</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="main.css">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.font-heading {
+    font-family: 'Poppins', sans-serif;
+}
+</style>
+
 </head>
-<body>
+<body class="text-white">
 
-<nav class="navbar">
-    <h2>📘 Informatika</h2>
-</nav>
-
-<header class="hero">
-    <h1>Portal Pembelajaran Informatika</h1>
-    <p>Klik mata kuliah untuk melihat daftar pertemuan</p>
+<!-- HEADER -->
+<header class="text-center py-16 px-6">
+    <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">
+        🧪 Pengujian Perangkat Lunak
+    </h1>
+    <p class="text-slate-300 max-w-2xl mx-auto text-lg">
+        Mata kuliah yang membahas teknik dan strategi untuk memastikan kualitas serta keandalan perangkat lunak melalui berbagai metode pengujian.
+    </p>
 </header>
 
-<main class="container">
+<!-- COURSE CARD -->
+<section class="max-w-6xl mx-auto px-6 pb-20">
 
-    <!-- CARD 1 -->
-    <div class="course">
-        <button class="course-btn">
-            📊 Kompleksitas Algoritma
-            <span>+</span>
-        </button>
+    <div class="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-white/10">
 
-        <div class="course-content">
-            <div class="meeting-grid">
-                <a href="Kompleksitas/Materi1/Slide 1.html">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a href="#">8</a>
-                <a href="#">9</a>
-                <a href="#">10</a>
-                <a href="#">11</a>
-                <a href="#">12</a>
-                <a href="#">13</a>
-                <a href="#">14</a>
-                <a href="#">15</a>
-                <a href="#">16</a>
+        <!-- TOP SECTION -->
+        <div class="grid md:grid-cols-2 gap-0">
+
+            <!-- IMAGE -->
+            <div class="relative group overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1581092919535-7146ff1b7c0b"
+                     class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+                <!-- Hover Overlay -->
+                <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center text-center p-6">
+                    <p class="text-sm text-slate-200">
+                        Mata kuliah ini mencakup Black-box Testing, White-box Testing, 
+                        teknik perancangan test case, automation testing, hingga manajemen pengujian.
+                    </p>
+                </div>
             </div>
+
+            <!-- DESCRIPTION -->
+            <div class="p-10 flex flex-col justify-center">
+                <h2 class="text-2xl font-heading font-bold mb-4 text-blue-300">
+                    Deskripsi Mata Kuliah
+                </h2>
+                <p class="text-slate-300 leading-relaxed">
+                    Pengujian Perangkat Lunak berfokus pada teknik sistematis untuk 
+                    menemukan kesalahan dalam sistem perangkat lunak guna menjamin 
+                    kualitas sebelum sistem digunakan oleh pengguna.
+                </p>
+
+                <div class="mt-6">
+                    <span class="inline-block bg-blue-500/20 text-blue-300 px-4 py-2 rounded-lg text-sm">
+                        Semester 4 • 3 SKS
+                    </span>
+                </div>
+            </div>
+
         </div>
+
+        <!-- MEETINGS SECTION -->
+        <div class="p-10 border-t border-white/10">
+
+            <h3 class="text-xl font-heading font-bold mb-6 text-center text-blue-300">
+                📚 Daftar Pertemuan
+            </h3>
+
+            <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
+
+                <!-- ITEM -->
+                <a href="Pengujian_Perangkat_Lunak/Materi 1/Slide 1.html"
+                   class="bg-white/5 hover:bg-blue-500/20 transition duration-300 p-5 rounded-xl border border-white/10 hover:scale-105 transform">
+
+                    <h4 class="font-heading font-semibold text-lg">Pertemuan 1</h4>
+                    <p class="text-sm text-slate-300 mt-2">Pengantar Pengujian</p>
+                </a>
+
+                <a href="Pengujian_Perangkat_Lunak/Materi 2/Slide 1.html"
+                   class="bg-white/5 hover:bg-blue-500/20 transition duration-300 p-5 rounded-xl border border-white/10 hover:scale-105 transform">
+
+                    <h4 class="font-heading font-semibold text-lg">Pertemuan 2</h4>
+                    <p class="text-sm text-slate-300 mt-2">Konsep Dasar Testing</p>
+                </a>
+
+                <a href="Pengujian_Perangkat_Lunak/Materi 3/Slide 1.html"
+                   class="bg-white/5 hover:bg-blue-500/20 transition duration-300 p-5 rounded-xl border border-white/10 hover:scale-105 transform">
+
+                    <h4 class="font-heading font-semibold text-lg">Pertemuan 3</h4>
+                    <p class="text-sm text-slate-300 mt-2">Black-box Testing</p>
+                </a>
+
+                <a href="Pengujian_Perangkat_Lunak/Materi 4/Slide 1.html"
+                   class="bg-white/5 hover:bg-blue-500/20 transition duration-300 p-5 rounded-xl border border-white/10 hover:scale-105 transform">
+
+                    <h4 class="font-heading font-semibold text-lg">Pertemuan 4</h4>
+                    <p class="text-sm text-slate-300 mt-2">Teknik Black-box</p>
+                </a>
+
+                <!-- Tambahan contoh -->
+                <div class="bg-white/5 p-5 rounded-xl border border-white/10 opacity-60">
+                    <h4 class="font-heading font-semibold text-lg">Pertemuan 5</h4>
+                    <p class="text-sm text-slate-300 mt-2">White-box Testing</p>
+                </div>
+
+                <div class="bg-white/5 p-5 rounded-xl border border-white/10 opacity-60">
+                    <h4 class="font-heading font-semibold text-lg">Pertemuan 6</h4>
+                    <p class="text-sm text-slate-300 mt-2">Automation Testing</p>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- CARD 2 -->
-    <div class="course">
-        <button class="course-btn">
-            🧪 Pengujian Perangkat Lunak
-            <span>+</span>
-        </button>
+</section>
 
-        <div class="course-content">
-            <div class="meeting-grid">
-                <a href="Pengujian_Perangkat_Lunak/Materi 1/Slide 1.html">1</a>
-                <a href="Pengujian_Perangkat_Lunak/Materi 2/Slide 1.html">2</a>
-                <a href="Pengujian_Perangkat_Lunak/Materi 3/Slide 1.html">3</a>
-                <a href="Pengujian_Perangkat_Lunak/Materi 4/Slide 1.html">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">7</a>
-                <a href="#">8</a>
-                <a href="#">9</a>
-                <a href="#">10</a>
-                <a href="#">11</a>
-                <a href="#">12</a>
-                <a href="#">13</a>
-                <a href="#">14</a>
-                <a href="#">15</a>
-                <a href="#">16</a>
-            </div>
-        </div>
-    </div>
-
-</main>
-
-<footer class="footer">
-    © 2026 Portal Informatika
+<!-- FOOTER -->
+<footer class="text-center py-6 text-slate-400 text-sm">
+    © 2026 • Portal Pengujian Perangkat Lunak
 </footer>
-
-<script>
-const buttons = document.querySelectorAll(".course-btn");
-
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const content = btn.nextElementSibling;
-        content.classList.toggle("active");
-
-        btn.classList.toggle("open");
-        btn.querySelector("span").textContent =
-            content.classList.contains("active") ? "−" : "+";
-    });
-});
-</script>
 
 </body>
 </html>
