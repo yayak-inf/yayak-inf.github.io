@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login Sistem</h2>
+
+    <div class="error" id="errorMessage"></div>
+
+    <input type="text" id="email" placeholder="Masukkan Email">
+    <input type="password" id="password" placeholder="Masukkan Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<script>
+function login() {
+    const validEmail = "admin@gmail.com";
+    const validPassword = "admin123";
+
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let errorMessage = document.getElementById("errorMessage");
+
+    errorMessage.innerText = "";
+
+    // TC-04: Kedua field kosong
+    if (email === "" && password === "") {
+        errorMessage.innerText = "Field wajib diisi";
+        return;
+    }
+
+    // TC-05: Password kosong
+    if (email !== "" && password === "") {
+        errorMessage.innerText = "Password wajib diisi";
+        return;
+    }
+
+    // TC-03: Format email tidak valid
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        errorMessage.innerText = "Format email tidak valid";
+        return;
+    }
+
+    // TC-02: Password salah
+    if (email === validEmail && password !== validPassword) {
+        errorMessage.innerText = "Password salah";
+        return;
+    }
+
+    // TC-01: Login berhasil
+    if (email === validEmail && password === validPassword) {
+        window.location.href = "dashboard.html";
+    }
+}
+</script>
+
+</body>
+</html>
