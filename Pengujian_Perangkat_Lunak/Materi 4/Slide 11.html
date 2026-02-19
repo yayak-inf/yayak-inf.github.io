@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gray-box Testing: Karakteristik</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+        body { margin: 0; padding: 0; background-color: #f3f4f6; }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        /* Custom Background Shape */
+        .slant-bg {
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+            background-color: #f8fafc; /* slate-50 - lighter for gray box theme */
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container shadow-2xl">
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 w-2/5 h-full slant-bg z-0"></div>
+<!-- Decorative Pattern (Dots) -->
+<svg class="absolute bottom-0 right-0 w-96 h-96 opacity-10 z-0 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="24" id="dots" patternunits="userSpaceOnUse" width="24">
+<circle cx="2" cy="2" fill="#475569" r="2"></circle>
+</pattern>
+</defs>
+<rect fill="url(#dots)" height="100%" width="100%"></rect>
+</svg>
+<!-- Header Section -->
+<div class="px-16 pt-12 pb-4 z-10 relative">
+<div class="flex items-center space-x-3 mb-3">
+<div class="h-1.5 w-12 bg-slate-600 rounded-full"></div>
+<p class="text-slate-600 font-bold tracking-widest text-sm uppercase">Pertemuan 4</p>
+</div>
+<h1 class="font-heading text-5xl font-bold text-slate-800 leading-tight">
+                Karakteristik <span class="text-slate-600">Gray-box Testing</span>
+</h1>
+<p class="font-body text-slate-500 mt-4 text-lg max-w-2xl">
+                Ciri-ciri utama dan contoh penerapan teknik pengujian hybrid.
+            </p>
+</div>
+<!-- Main Content Section -->
+<div class="flex-1 px-16 pb-12 flex items-center justify-between relative z-10">
+<!-- List of Characteristics (Left Side) -->
+<div class="w-[62%] flex flex-col space-y-5">
+<!-- Characteristic 1 -->
+<div class="flex items-start p-4 bg-white rounded-xl border-l-8 border-blue-600 shadow-md transform transition-transform hover:scale-105 duration-300">
+<div class="w-14 h-14 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 mr-5 mt-1">
+<i class="fas fa-sitemap text-2xl"></i>
+</div>
+<div>
+<h3 class="font-heading text-lg font-bold text-slate-800 mb-1">Memahami Desain Sistem</h3>
+<p class="font-body text-slate-600 text-lg leading-relaxed">
+                            Tester memiliki pengetahuan tentang desain arsitektur tingkat tinggi dan diagram alur data, namun tidak mendalam hingga ke detail kode.
+                        </p>
+</div>
+</div>
+<!-- Characteristic 2 -->
+<div class="flex items-start p-4 bg-white rounded-xl border-l-8 border-slate-500 shadow-md transform transition-transform hover:scale-105 duration-300">
+<div class="w-14 h-14 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 mr-5 mt-1">
+<i class="fas fa-eye-slash text-2xl"></i>
+</div>
+<div>
+<h3 class="font-heading text-lg font-bold text-slate-800 mb-1">Akses Kode Terbatas</h3>
+<p class="font-body text-slate-600 text-lg leading-relaxed">
+                            Tidak harus mengetahui detail implementasi baris per baris, cukup memahami algoritma dan struktur data utama.
+                        </p>
+</div>
+</div>
+<!-- Characteristic 3 -->
+<div class="flex items-start p-4 bg-white rounded-xl border-l-8 border-indigo-500 shadow-md transform transition-transform hover:scale-105 duration-300">
+<div class="w-14 h-14 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0 mr-5 mt-1">
+<i class="fas fa-network-wired text-2xl"></i>
+</div>
+<div>
+<h3 class="font-heading text-lg font-bold text-slate-800 mb-1">Fokus Integrasi &amp; Alur</h3>
+<p class="font-body text-slate-600 text-lg leading-relaxed">
+                            Fokus pada pengujian integrasi antar modul, batas sistem (interfaces), dan validasi aliran data end-to-end.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Right Side Visual / Example -->
+<div class="w-[35%] h-full flex flex-col items-center justify-center relative pl-8">
+<!-- Example Card -->
+<div class="relative w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+<div class="bg-slate-700 p-4">
+<h3 class="font-heading text-white font-bold text-center uppercase tracking-wider text-sm">
+<i class="fas fa-lightbulb mr-2 text-yellow-400"></i> Contoh Penerapan
+                    </h3>
+</div>
+<div class="p-8 flex flex-col items-center text-center relative">
+<!-- Visual Illustration of API/DB -->
+<div class="flex items-center justify-center space-x-4 mb-6">
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+<i class="fas fa-globe text-blue-600 text-2xl"></i>
+</div>
+<span class="text-xs font-bold text-slate-500">API</span>
+</div>
+<div class="text-slate-300">
+<i class="fas fa-arrow-right text-xl"></i>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-2 border-2 border-slate-300 border-dashed">
+<i class="fas fa-database text-slate-600 text-2xl"></i>
+</div>
+<span class="text-xs font-bold text-slate-500">Database</span>
+</div>
+</div>
+<p class="font-body text-slate-700 text-lg leading-relaxed italic">
+                        "Menguji endpoint API dengan memahami struktur tabel database untuk memverifikasi apakah data tersimpan dengan benar."
+                    </p>
+</div>
+<!-- Decorative corner -->
+<div class="absolute bottom-0 right-0 w-16 h-16 bg-slate-100 rounded-tl-full opacity-50"></div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 10.html";
+}
+function goNext() {
+    window.location.href = "Slide 12.html";
+}
+</script>
+</div>
+</body>
+</html>

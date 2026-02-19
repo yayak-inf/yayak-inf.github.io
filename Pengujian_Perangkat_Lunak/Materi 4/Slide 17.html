@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perbandingan Manual vs Automated Testing</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { margin: 0; padding: 0; background-color: #f3f4f6; }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        /* Card Hover Effects */
+        .comparison-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Item Alignment */
+        .comparison-item {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .comparison-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Background Pattern */
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Section -->
+<div class="px-16 pt-12 pb-4 z-10 bg-white">
+<div class="flex items-center space-x-3 mb-2">
+<div class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Bagian 3</div>
+<span class="text-slate-400 text-sm font-medium tracking-wide">|</span>
+<span class="text-slate-500 text-sm font-medium tracking-wide">Perbandingan Metode</span>
+</div>
+<h1 class="font-heading text-4xl font-bold text-slate-800">
+                Manual <span class="text-slate-300 font-light mx-2">vs</span> <span class="text-blue-600">Automated Testing</span>
+</h1>
+<p class="font-body text-slate-500 mt-2 text-lg">
+                Memilih pendekatan yang tepat berdasarkan karakteristik eksekusi dan efisiensi.
+            </p>
+</div>
+<!-- Main Content -->
+<div class="flex-1 px-16 pb-12 flex space-x-8 relative z-10">
+<!-- Manual Column -->
+<div class="flex-1 comparison-card bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden flex flex-col">
+<!-- Header -->
+<div class="bg-slate-50 p-6 flex items-center justify-between border-b border-slate-200 border-t-8 border-t-slate-500">
+<div>
+<h2 class="font-heading text-2xl font-bold text-slate-700">Manual Testing</h2>
+<p class="text-xs text-slate-500 font-body uppercase tracking-wider mt-1">Human-Driven</p>
+</div>
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+<i class="fas fa-user text-slate-600 text-xl"></i>
+</div>
+</div>
+<!-- Content Rows -->
+<div class="p-6 flex-1 flex flex-col">
+<!-- Row 1: Execution -->
+<div class="comparison-item">
+<div class="mr-4 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+<i class="fas fa-hand-pointer text-slate-500"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-slate-700 text-lg">Dilakukan Manusia</h4>
+<p class="font-body text-slate-500 text-sm mt-1">Tester berinteraksi langsung dengan aplikasi seperti pengguna nyata.</p>
+</div>
+</div>
+<!-- Row 2: Speed -->
+<div class="comparison-item">
+<div class="mr-4 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+<i class="fas fa-hourglass-half text-slate-500"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-slate-700 text-lg">Lambat</h4>
+<p class="font-body text-slate-500 text-sm mt-1">Tidak efisien untuk pengujian berulang atau skala besar.</p>
+</div>
+</div>
+<!-- Row 3: Best Use -->
+<div class="comparison-item">
+<div class="mr-4 w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+<i class="fas fa-compass text-slate-500"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-slate-700 text-lg">Cocok untuk Exploratory</h4>
+<p class="font-body text-slate-500 text-sm mt-1">Ideal untuk menemukan bug visual dan usabilitas (UX).</p>
+</div>
+</div>
+</div>
+</div>
+<!-- VS Badge -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+<div class="w-16 h-16 bg-white rounded-full shadow-xl flex items-center justify-center border-4 border-slate-50">
+<span class="font-heading font-black text-slate-300 text-xl italic">VS</span>
+</div>
+</div>
+<!-- Automated Column -->
+<div class="flex-1 comparison-card bg-white rounded-2xl border border-blue-100 shadow-lg overflow-hidden flex flex-col">
+<!-- Header -->
+<div class="bg-blue-50 p-6 flex items-center justify-between border-b border-blue-100 border-t-8 border-t-blue-600">
+<div>
+<h2 class="font-heading text-2xl font-bold text-blue-700">Automated Testing</h2>
+<p class="text-xs text-blue-400 font-body uppercase tracking-wider mt-1">Script-Driven</p>
+</div>
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+<i class="fas fa-robot text-blue-600 text-xl"></i>
+</div>
+</div>
+<!-- Content Rows -->
+<div class="p-6 flex-1 flex flex-col">
+<!-- Row 1: Execution -->
+<div class="comparison-item">
+<div class="mr-4 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+<i class="fas fa-code text-blue-600"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-slate-700 text-lg">Menggunakan Script</h4>
+<p class="font-body text-slate-500 text-sm mt-1">Dijalankan oleh tools &amp; kode program secara otomatis.</p>
+</div>
+</div>
+<!-- Row 2: Speed -->
+<div class="comparison-item">
+<div class="mr-4 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+<i class="fas fa-tachometer-alt text-blue-600"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-slate-700 text-lg">Cepat &amp; Efisien</h4>
+<p class="font-body text-slate-500 text-sm mt-1">Eksekusi ribuan tes dalam waktu singkat tanpa lelah.</p>
+</div>
+</div>
+<!-- Row 3: Best Use -->
+<div class="comparison-item">
+<div class="mr-4 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+<i class="fas fa-sync text-blue-600"></i>
+</div>
+<div>
+<h4 class="font-heading font-bold text-slate-700 text-lg">Cocok untuk Regression</h4>
+<p class="font-body text-slate-500 text-sm mt-1">Ideal untuk tes berulang setelah update kode.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Elements -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-blue-50 opacity-30 z-0"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-slate-100 rounded-tr-full opacity-50 z-0"></div>
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 16.html";
+}
+function goNext() {
+    window.location.href = "Slide 18.html";
+}
+</script>
+</div>
+</body>
+</html>

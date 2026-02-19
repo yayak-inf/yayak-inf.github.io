@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Studi Kasus: Aplikasi E-commerce</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; background-color: #f3f4f6; }
+    .slide-container {
+        width: 1280px;
+        height: 720px;
+        background-color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .font-heading { font-family: 'Poppins', sans-serif; }
+    .font-body { font-family: 'Inter', sans-serif; }
+    
+    /* Central Laptop Mockup */
+    .laptop-mockup {
+        width: 500px;
+        height: 320px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border: 1px solid #e2e8f0;
+        position: relative;
+        z-index: 10;
+        overflow: hidden;
+    }
+    .laptop-base {
+        width: 600px;
+        height: 20px;
+        background-color: #cbd5e1;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    /* Screen Glare */
+    .screen-glare {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+        pointer-events: none;
+        z-index: 20;
+    }
+
+    /* Info Cards */
+    .info-card {
+        width: 260px;
+        background: white;
+        padding: 14px;
+        border-radius: 8px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        position: absolute;
+        z-index: 20;
+        transition: transform 0.3s ease;
+    }
+    .info-card:hover {
+        transform: scale(1.02);
+        z-index: 30;
+    }
+    
+    /* Connector Dots & Lines */
+    .connector-dot {
+        width: 14px;
+        height: 14px;
+        background-color: #3b82f6;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 30;
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px #3b82f6;
+    }
+
+    /* Animation */
+    .pulse-ring {
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+    }
+    
+    /* Specific Colors for Dots */
+    .dot-manual { background-color: #10b981; box-shadow: 0 0 0 2px #10b981; }
+    .pulse-manual { animation: pulse-manual 2s infinite; }
+    @keyframes pulse-manual { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+
+    .dot-black { background-color: #1e293b; box-shadow: 0 0 0 2px #1e293b; }
+    .pulse-black { animation: pulse-black 2s infinite; }
+    @keyframes pulse-black { 0% { box-shadow: 0 0 0 0 rgba(30, 41, 59, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(30, 41, 59, 0); } 100% { box-shadow: 0 0 0 0 rgba(30, 41, 59, 0); } }
+
+    .dot-white { background-color: #2563eb; box-shadow: 0 0 0 2px #2563eb; }
+    
+    .dot-auto { background-color: #f59e0b; box-shadow: 0 0 0 2px #f59e0b; }
+    .pulse-auto { animation: pulse-auto 2s infinite; }
+    @keyframes pulse-auto { 0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } }
+
+    .dot-gray { background-color: #64748b; box-shadow: 0 0 0 2px #64748b; }
+    .pulse-gray { animation: pulse-gray 2s infinite; }
+    @keyframes pulse-gray { 0% { box-shadow: 0 0 0 0 rgba(100, 116, 139, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(100, 116, 139, 0); } 100% { box-shadow: 0 0 0 0 rgba(100, 116, 139, 0); } }
+
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="px-16 pt-10 pb-2 z-10 bg-white shadow-sm">
+<div class="flex items-center space-x-3 mb-2">
+<div class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Bagian 3</div>
+<span class="text-slate-400 text-sm font-medium tracking-wide">|</span>
+<span class="text-slate-500 text-sm font-medium tracking-wide">Studi Kasus Real-World</span>
+</div>
+<h1 class="font-heading text-4xl font-bold text-slate-800">
+            Aplikasi <span class="text-blue-600">E-commerce</span>
+</h1>
+<p class="font-body text-slate-500 mt-1 text-lg">
+            Integrasi berbagai teknik pengujian dalam satu ekosistem aplikasi belanja online.
+        </p>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 relative flex items-center justify-center bg-slate-50 overflow-hidden">
+<!-- SVG Connections Layer (Background) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-0">
+<defs>
+<marker id="arrowhead" markerheight="7" markerwidth="10" orient="auto" refx="9" refy="3.5">
+<polygon fill="#94a3b8" points="0 0, 10 3.5, 0 7"></polygon>
+</marker>
+</defs>
+<!-- Manual (Top Left) to Banner -->
+<path d="M 300,230 Q 420,230 460,300" fill="none" opacity="0.5" stroke="#10b981" stroke-dasharray="4,4" stroke-width="2"></path>
+<!-- Black Box (Bottom Left) to Checkout -->
+<path d="M 300,520 Q 420,520 700,520" fill="none" opacity="0.5" stroke="#1e293b" stroke-dasharray="4,4" stroke-width="2"></path>
+<!-- Gray Box (Top Center) to API -->
+<path d="M 640,190 L 640,320" fill="none" opacity="0.5" stroke="#64748b" stroke-dasharray="4,4" stroke-width="2"></path>
+<!-- White Box (Top Right) to Code -->
+<path d="M 980,230 Q 860,230 800,280" fill="none" opacity="0.5" stroke="#2563eb" stroke-dasharray="4,4" stroke-width="2"></path>
+<!-- Automated (Bottom Right) to Grid -->
+<path d="M 980,520 Q 860,520 750,420" fill="none" opacity="0.5" stroke="#f59e0b" stroke-dasharray="4,4" stroke-width="2"></path>
+</svg>
+<!-- Central Mockup -->
+<div class="relative transform translate-y-4">
+<div class="laptop-mockup flex flex-col">
+<!-- Browser Bar -->
+<div class="h-8 bg-slate-100 border-b border-slate-200 flex items-center px-4 space-x-2">
+<div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+<div class="flex-1 bg-white h-5 rounded mx-4 border border-slate-200 text-[9px] flex items-center px-2 text-slate-400 font-mono">
+<i class="fas fa-lock text-[8px] mr-1"></i> secure | shop.example.com
+                    </div>
+</div>
+<!-- App Content -->
+<div class="flex-1 bg-white p-5 flex flex-col overflow-hidden relative">
+<!-- Banner (Manual Test Target) -->
+<div class="h-28 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg mb-4 flex items-center justify-between px-6 border border-blue-100 relative shadow-sm">
+<div>
+<p class="font-heading font-bold text-blue-800 text-lg">FLASHSALE</p>
+<p class="text-xs text-blue-600 font-body">Diskon Hingga 70%</p>
+<div class="mt-2 px-3 py-1 bg-blue-600 text-white text-[10px] rounded inline-block">Beli Sekarang</div>
+</div>
+<i class="fas fa-shopping-bag text-4xl text-blue-200"></i>
+<!-- Target Dot -->
+<div class="connector-dot dot-manual pulse-manual" style="top: 10px; left: 10px;"></div>
+</div>
+<!-- Product List (Automated Test Target) -->
+<div class="grid grid-cols-3 gap-3 mb-4">
+<div class="h-24 bg-slate-50 rounded border border-slate-100 flex flex-col p-2">
+<div class="w-full h-12 bg-slate-200 rounded mb-2"></div>
+<div class="w-16 h-2 bg-slate-200 rounded mb-1"></div>
+<div class="w-10 h-2 bg-slate-200 rounded"></div>
+</div>
+<div class="h-24 bg-slate-50 rounded border border-slate-100 flex flex-col p-2 relative">
+<div class="w-full h-12 bg-slate-200 rounded mb-2"></div>
+<div class="w-16 h-2 bg-slate-200 rounded mb-1"></div>
+<div class="w-10 h-2 bg-slate-200 rounded"></div>
+<!-- Target Dot -->
+<div class="connector-dot dot-auto pulse-auto" style="bottom: 10px; right: 10px;"></div>
+</div>
+<div class="h-24 bg-slate-50 rounded border border-slate-100 flex flex-col p-2">
+<div class="w-full h-12 bg-slate-200 rounded mb-2"></div>
+<div class="w-16 h-2 bg-slate-200 rounded mb-1"></div>
+<div class="w-10 h-2 bg-slate-200 rounded"></div>
+</div>
+</div>
+<!-- Checkout Bar (Blackbox Test Target) -->
+<div class="mt-auto border-t border-slate-100 pt-3 flex justify-between items-center">
+<div class="text-xs">
+<p class="text-slate-400">Total Pembayaran:</p>
+<p class="font-bold text-slate-800 text-sm">Rp 1.250.000</p>
+</div>
+<div class="px-5 py-2 bg-slate-800 text-white text-xs font-bold rounded shadow-lg relative">
+                            Checkout
+                            <!-- Target Dot -->
+<div class="connector-dot dot-black pulse-black" style="top: 50%; right: -20px; transform: translateY(-50%);"></div>
+</div>
+</div>
+<!-- Code Overlay (White Box Target) -->
+<div class="absolute top-12 right-6 bg-slate-900 bg-opacity-95 p-3 rounded-lg shadow-xl border border-slate-700 w-36 transform rotate-6 z-10">
+<div class="flex items-center space-x-1 mb-2 border-b border-slate-700 pb-1">
+<div class="w-2 h-2 rounded-full bg-red-500"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+<div class="text-[8px] text-slate-400 ml-1">discount.js</div>
+</div>
+<div class="space-y-1">
+<div class="h-1 w-20 bg-pink-400 rounded"></div>
+<div class="h-1 w-16 bg-purple-400 rounded ml-2"></div>
+<div class="h-1 w-24 bg-blue-400 rounded ml-2"></div>
+<div class="h-1 w-12 bg-green-400 rounded"></div>
+</div>
+<!-- Target Dot -->
+<div class="connector-dot dot-white pulse-ring" style="top: -7px; left: -7px;"></div>
+</div>
+<!-- API/DB Overlay (Gray Box Target) -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
+<i class="fas fa-network-wired text-8xl text-slate-100 opacity-50"></i>
+<!-- Target Dot -->
+<div class="connector-dot dot-gray pulse-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px;"></div>
+</div>
+</div>
+<div class="screen-glare"></div>
+</div>
+<div class="laptop-base"></div>
+</div>
+<!-- CARDS -->
+<!-- 1. Manual Testing (Top Left) -->
+<div class="info-card border-l-4 border-emerald-500" style="top: 15%; left: 5%;">
+<div class="flex items-center space-x-2 mb-2">
+<div class="w-6 h-6 rounded bg-emerald-100 flex items-center justify-center">
+<i class="fas fa-hand-pointer text-emerald-600 text-xs"></i>
+</div>
+<h3 class="font-heading font-bold text-emerald-700 text-sm">Manual Testing</h3>
+</div>
+<p class="font-body text-xs text-slate-600 leading-snug">
+<span class="font-bold">Uji Tampilan UI:</span> Tester mengecek visual banner, font, dan layout secara manual untuk memastikan kenyamanan pengguna (UX).
+            </p>
+</div>
+<!-- 2. Black-box Testing (Bottom Left) -->
+<div class="info-card border-l-4 border-slate-800" style="bottom: 12%; left: 5%;">
+<div class="flex items-center space-x-2 mb-2">
+<div class="w-6 h-6 rounded bg-slate-200 flex items-center justify-center">
+<i class="fas fa-box text-slate-800 text-xs"></i>
+</div>
+<h3 class="font-heading font-bold text-slate-800 text-sm">Black-box Testing</h3>
+</div>
+<p class="font-body text-xs text-slate-600 leading-snug">
+<span class="font-bold">Uji Fitur Checkout:</span> Memasukkan input barang dan memastikan total bayar benar tanpa peduli proses di belakangnya.
+            </p>
+</div>
+<!-- 3. Gray-box Testing (Top Center) -->
+<div class="info-card border-l-4 border-slate-500 flex flex-col items-center text-center" style="top: 8%; left: 50%; transform: translateX(-50%); width: 240px;">
+<div class="flex items-center space-x-2 mb-1">
+<div class="w-6 h-6 rounded bg-slate-200 flex items-center justify-center">
+<i class="fas fa-layer-group text-slate-600 text-xs"></i>
+</div>
+<h3 class="font-heading font-bold text-slate-700 text-sm">Gray-box Testing</h3>
+</div>
+<p class="font-body text-xs text-slate-600 leading-snug">
+<span class="font-bold">Uji API Pembayaran:</span> Menguji integrasi gateway pembayaran dengan sedikit pemahaman struktur database.
+            </p>
+</div>
+<!-- 4. White-box Testing (Top Right) -->
+<div class="info-card border-l-4 border-blue-600" style="top: 15%; right: 5%;">
+<div class="flex items-center space-x-2 mb-2">
+<div class="w-6 h-6 rounded bg-blue-100 flex items-center justify-center">
+<i class="fas fa-code text-blue-600 text-xs"></i>
+</div>
+<h3 class="font-heading font-bold text-blue-800 text-sm">White-box Testing</h3>
+</div>
+<p class="font-body text-xs text-slate-600 leading-snug">
+<span class="font-bold">Uji Logika Diskon:</span> Developer memeriksa kode <code>if (total &gt; 1jt) discount = 10%</code> untuk memastikan logika benar.
+            </p>
+</div>
+<!-- 5. Automated Testing (Bottom Right) -->
+<div class="info-card border-l-4 border-amber-500" style="bottom: 12%; right: 5%;">
+<div class="flex items-center space-x-2 mb-2">
+<div class="w-6 h-6 rounded bg-amber-100 flex items-center justify-center">
+<i class="fas fa-robot text-amber-600 text-xs"></i>
+</div>
+<h3 class="font-heading font-bold text-amber-700 text-sm">Automated Testing</h3>
+</div>
+<p class="font-body text-xs text-slate-600 leading-snug">
+<span class="font-bold">Regression Testing:</span> Script otomatis menjalankan ribuan skenario pencarian produk untuk memastikan update tidak merusak fitur lama.
+            </p>
+</div>
+</div>
+<!-- Decorative Corner -->
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-slate-100 rounded-tl-full -z-10 opacity-50"></div>
+<div class="absolute top-0 left-0 w-32 h-32 bg-blue-50 rounded-br-full -z-10 opacity-50"></div>
+
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 17.html";
+}
+function goNext() {
+    window.location.href = "Slide 19.html";
+}
+</script>
+</div>
+</body>
+</html>

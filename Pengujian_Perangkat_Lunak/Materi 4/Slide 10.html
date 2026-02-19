@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gray-box Testing: Definisi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+
+
+
+<style>
+        body { margin: 0; padding: 0; background-color: #f3f4f6; }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .box-shadow-custom {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Pattern for the semi-transparent box */
+        .pattern-grid {
+            background-image: linear-gradient(#cbd5e1 1px, transparent 1px), linear-gradient(90deg, #cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Section -->
+<div class="px-16 pt-12 pb-4 z-10">
+<div class="flex items-center space-x-3 mb-2">
+<div class="w-2 h-8 bg-slate-500 rounded-full"></div>
+<p class="text-slate-500 font-bold tracking-widest text-sm uppercase">Bagian 1: Pendekatan Pengujian</p>
+</div>
+<h1 class="font-heading text-4xl font-bold text-slate-800">
+                Gray-box <span class="text-slate-500">Testing</span>
+</h1>
+<p class="font-body text-slate-500 mt-2 text-lg w-2/3">
+                Pendekatan hybrid yang menggabungkan perspektif fungsional dan struktural.
+            </p>
+</div>
+<!-- Main Content Layout -->
+<div class="flex-1 px-16 pb-12 flex flex-row items-center space-x-12 z-10">
+<!-- Left Column: Content -->
+<div class="w-1/2 flex flex-col justify-center space-y-8">
+<!-- Definition Box -->
+<div class="bg-slate-50 border-l-4 border-slate-500 p-6 rounded-r-xl">
+<h3 class="font-heading text-lg font-bold text-slate-700 mb-2">Definisi</h3>
+<p class="font-body text-slate-700 leading-relaxed text-lg">
+                        Metode pengujian perangkat lunak yang merupakan <span class="font-bold text-slate-900">gabungan</span> dari Black-box dan White-box Testing, di mana tester memiliki <span class="font-bold text-slate-900">pengetahuan terbatas</span> tentang struktur internal sistem.
+                    </p>
+</div>
+<!-- Key Focus Points -->
+<div class="space-y-4">
+<p class="font-heading text-slate-800 font-semibold text-lg border-b border-slate-200 pb-2 mb-4">Karakteristik Utama:</p>
+<div class="flex items-center space-x-4 group">
+<div class="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-slate-600 group-hover:text-white transition-colors duration-300">
+<i class="fas fa-layer-group text-xl"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-slate-700">Hybrid Approach</p>
+<p class="font-body text-slate-500 text-sm">Gabungan metode fungsional &amp; struktural</p>
+</div>
+</div>
+<div class="flex items-center space-x-4 group">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<i class="fas fa-eye-low-vision text-xl"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-slate-700">Limited Access</p>
+<p class="font-body text-slate-500 text-sm">Akses parsial ke kode/struktur internal</p>
+</div>
+</div>
+<div class="flex items-center space-x-4 group">
+<div class="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+<i class="fas fa-project-diagram text-xl"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-slate-700">High-Level Focus</p>
+<p class="font-body text-slate-500 text-sm">Fokus pada alur data &amp; arsitektur</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Illustration -->
+<div class="w-1/2 h-full flex items-center justify-center">
+<div class="relative w-full h-80 bg-white rounded-2xl p-6 box-shadow-custom border border-slate-100 flex flex-col items-center justify-center">
+<!-- Diagram Header -->
+<div class="absolute top-0 left-0 w-full bg-slate-50 rounded-t-2xl py-2 px-4 border-b border-slate-200">
+<p class="font-mono text-xs text-slate-500 text-center font-bold">GRAY BOX CONCEPT</p>
+</div>
+<!-- The Diagram -->
+<div class="flex items-center justify-center w-full mt-6 space-x-4">
+<!-- Black Box Component -->
+<div class="flex flex-col items-center">
+<div class="w-32 h-32 bg-slate-800 rounded-lg flex items-center justify-center relative shadow-lg z-10">
+<i class="fas fa-cube text-white text-3xl opacity-50"></i>
+<div class="absolute bottom-2 text-xs text-slate-400 font-mono">BLACK BOX</div>
+</div>
+<div class="mt-2 text-center">
+<p class="font-heading text-xs font-bold text-slate-700">INPUT / OUTPUT</p>
+</div>
+</div>
+<!-- Plus Sign -->
+<div class="text-2xl text-slate-400 font-bold">+</div>
+<!-- White Box Component -->
+<div class="flex flex-col items-center">
+<div class="w-32 h-32 bg-white border-2 border-slate-300 rounded-lg flex items-center justify-center relative shadow-lg z-10 overflow-hidden">
+<div class="absolute inset-0 p-2 font-mono text-[8px] text-slate-300 leading-tight overflow-hidden">
+                                    public void test() {<br/>
+                                    if(x) return y;<br/>
+                                    while(true) {<br/>
+                                    doSomething();<br/>
+                                    }<br/>
+                                    }
+                                </div>
+<i class="fas fa-code text-slate-800 text-3xl z-20"></i>
+<div class="absolute bottom-2 text-xs text-slate-500 font-mono z-20 font-bold">WHITE BOX</div>
+</div>
+<div class="mt-2 text-center">
+<p class="font-heading text-xs font-bold text-slate-700">LOGIC / CODE</p>
+</div>
+</div>
+<!-- Equals Sign -->
+<div class="text-2xl text-slate-400 font-bold">=</div>
+<!-- Gray Box Component (Result) -->
+<div class="flex flex-col items-center">
+<div class="w-36 h-36 bg-slate-200 bg-opacity-80 rounded-xl flex items-center justify-center relative shadow-xl border-4 border-slate-400 z-20">
+<!-- Semi-transparent overlay effect -->
+<div class="absolute inset-0 bg-slate-500 opacity-10 pattern-grid rounded-lg"></div>
+<!-- Internal structure visible but obscured -->
+<div class="absolute inset-0 flex items-center justify-center opacity-30">
+<i class="fas fa-cogs text-6xl text-slate-800"></i>
+</div>
+<!-- Overlay Icon -->
+<div class="z-30 bg-white p-3 rounded-full shadow-md">
+<i class="fas fa-eye text-2xl text-slate-600"></i>
+</div>
+<div class="absolute bottom-3 text-xs text-slate-700 font-mono font-bold z-30 bg-white px-2 py-0.5 rounded shadow-sm">GRAY BOX</div>
+</div>
+<div class="mt-2 text-center">
+<p class="font-heading text-xs font-bold text-slate-800 bg-slate-200 px-2 py-1 rounded">PARTIAL KNOWLEDGE</p>
+</div>
+</div>
+</div>
+<!-- Bottom Explanation -->
+<div class="mt-6 w-full bg-slate-50 p-3 rounded border border-slate-200">
+<div class="flex items-center space-x-2">
+<i class="fas fa-lightbulb text-yellow-500"></i>
+<p class="font-body text-xs text-slate-600">
+<span class="font-bold">Contoh:</span> Menguji API web (fungsional) sambil memahami struktur database (struktural) untuk merancang test case yang lebih efektif.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute bottom-0 left-0 w-full h-2 bg-slate-100 z-0">
+<div class="w-1/3 h-full bg-slate-500 ml-auto mr-auto"></div>
+</div>
+<!-- Background Circle Decoration -->
+<div class="absolute top-1/2 right-[-100px] w-96 h-96 bg-slate-100 rounded-full opacity-50 z-0 pointer-events-none"></div>
+
+
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 9.html";
+}
+function goNext() {
+    window.location.href = "Slide 11.html";
+}
+</script>
+
+</div>
+</body>
+</html>

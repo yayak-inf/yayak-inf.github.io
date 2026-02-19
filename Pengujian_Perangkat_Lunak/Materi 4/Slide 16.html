@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perbandingan: Black vs White vs Gray Box</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { margin: 0; padding: 0; background-color: #f3f4f6; }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        /* Table Styles */
+        .comparison-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+        .comparison-table th {
+            padding: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .comparison-table td {
+            padding: 24px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 16px;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Column Specific Styles */
+        .col-header-black { background-color: #1e293b; color: white; border-top-left-radius: 12px; }
+        .col-header-white { background-color: #2563eb; color: white; }
+        .col-header-gray { background-color: #64748b; color: white; border-top-right-radius: 12px; }
+        
+        .col-black { background-color: #f8fafc; color: #334155; }
+        .col-white { background-color: #eff6ff; color: #1e3a8a; }
+        .col-gray { background-color: #f1f5f9; color: #475569; }
+
+        /* Highlight feature */
+        .highlight-row:hover td {
+            background-color: #fef08a !important; /* yellow-200 */
+            transition: background-color 0.3s ease;
+            color: #854d0e;
+        }
+        
+        /* Icon box styles */
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Section -->
+<div class="px-16 pt-12 pb-4 z-10 bg-white">
+<div class="flex items-center space-x-3 mb-2">
+<div class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Bagian 3</div>
+<span class="text-slate-400 text-sm font-medium tracking-wide">|</span>
+<span class="text-slate-500 text-sm font-medium tracking-wide">Perbandingan</span>
+</div>
+<h1 class="font-heading text-4xl font-bold text-slate-800">
+                Perbandingan <span class="text-blue-600">Teknik Pengujian</span>
+</h1>
+<p class="font-body text-slate-500 mt-2 text-lg">
+                Analisis komparatif antara Black-box, White-box, dan Gray-box Testing.
+            </p>
+</div>
+<!-- Main Content -->
+<div class="flex-1 px-16 pb-8 pt-4 flex flex-col z-10">
+<div class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200 flex-1 flex flex-col">
+<table class="comparison-table flex-1">
+<thead>
+<tr>
+<th class="w-1/4 bg-slate-50 text-slate-500 text-left pl-8 border-b border-r border-slate-200">Aspek Perbandingan</th>
+<th class="w-1/4 col-header-black text-center">
+<div class="flex flex-col items-center">
+<div class="icon-box bg-slate-700 text-white">
+<i class="fas fa-box"></i>
+</div>
+                                    Black-box
+                                </div>
+</th>
+<th class="w-1/4 col-header-white text-center">
+<div class="flex flex-col items-center">
+<div class="icon-box bg-blue-500 text-white">
+<i class="fas fa-code"></i>
+</div>
+                                    White-box
+                                </div>
+</th>
+<th class="w-1/4 col-header-gray text-center">
+<div class="flex flex-col items-center">
+<div class="icon-box bg-slate-500 text-white">
+<i class="fas fa-layer-group"></i>
+</div>
+                                    Gray-box
+                                </div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="highlight-row">
+<td class="font-heading font-bold text-slate-700 pl-8 bg-slate-50 border-r border-slate-200">
+<div class="flex items-center space-x-3">
+<i class="fas fa-eye text-blue-400"></i>
+<span>Akses Kode</span>
+</div>
+</td>
+<td class="col-black text-center border-r border-slate-200">
+<span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold uppercase">Tidak Ada</span>
+<p class="text-sm mt-2 text-slate-500">Hanya antarmuka luar</p>
+</td>
+<td class="col-white text-center border-r border-blue-100">
+<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase">Penuh</span>
+<p class="text-sm mt-2 text-blue-800">Akses seluruh source code</p>
+</td>
+<td class="col-gray text-center">
+<span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold uppercase">Sebagian</span>
+<p class="text-sm mt-2 text-slate-500">Terbatas pada struktur internal</p>
+</td>
+</tr>
+<tr class="highlight-row">
+<td class="font-heading font-bold text-slate-700 pl-8 bg-slate-50 border-r border-slate-200">
+<div class="flex items-center space-x-3">
+<i class="fas fa-crosshairs text-blue-400"></i>
+<span>Fokus Utama</span>
+</div>
+</td>
+<td class="col-black text-center border-r border-slate-200">
+<p class="font-bold">Fungsionalitas</p>
+<p class="text-sm mt-1 text-slate-500">Input &amp; Output Eksternal</p>
+</td>
+<td class="col-white text-center border-r border-blue-100">
+<p class="font-bold">Struktur Kode</p>
+<p class="text-sm mt-1 text-blue-800">Logic, Branch, Path</p>
+</td>
+<td class="col-gray text-center">
+<p class="font-bold">Integrasi &amp; Desain</p>
+<p class="text-sm mt-1 text-slate-500">Alur Data Antar Modul</p>
+</td>
+</tr>
+<tr class="highlight-row">
+<td class="font-heading font-bold text-slate-700 pl-8 bg-slate-50 border-r border-slate-200">
+<div class="flex items-center space-x-3">
+<i class="fas fa-user text-blue-400"></i>
+<span>Pelaksana</span>
+</div>
+</td>
+<td class="col-black text-center border-r border-slate-200">
+<p class="font-body">QA Tester / End User</p>
+</td>
+<td class="col-white text-center border-r border-blue-100">
+<p class="font-body">Developer</p>
+</td>
+<td class="col-gray text-center">
+<p class="font-body">QA Tester Teknis / Developer</p>
+</td>
+</tr>
+<tr class="highlight-row">
+<td class="font-heading font-bold text-slate-700 pl-8 bg-slate-50 border-r border-slate-200">
+<div class="flex items-center space-x-3">
+<i class="fas fa-lightbulb text-blue-400"></i>
+<span>Pengetahuan</span>
+</div>
+</td>
+<td class="col-black text-center border-r border-slate-200">
+<p class="font-body">Low Level</p>
+<p class="text-xs text-slate-400 mt-1">(Tidak perlu skill coding)</p>
+</td>
+<td class="col-white text-center border-r border-blue-100">
+<p class="font-body">High Level</p>
+<p class="text-xs text-blue-400 mt-1">(Wajib paham coding)</p>
+</td>
+<td class="col-gray text-center">
+<p class="font-body">Medium Level</p>
+<p class="text-xs text-slate-400 mt-1">(Paham algoritma/query)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full opacity-50 blur-3xl -z-10"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-slate-100 rounded-full opacity-50 blur-3xl -z-10"></div>
+<!-- Footer Info -->
+<div class="h-10 bg-white border-t border-slate-200 flex items-center justify-between px-16 z-20">
+<p class="font-body text-xs text-slate-400">Teknik Pengujian Perangkat Lunak - Pertemuan 4</p>
+<div class="flex items-center space-x-2">
+<span class="text-xs text-slate-400 font-medium">Next: Manual vs Automated</span>
+<i class="fas fa-chevron-right text-xs text-slate-400"></i>
+</div>
+</div>
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 15.html";
+}
+function goNext() {
+    window.location.href = "Slide 17.html";
+}
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manual Testing: Definisi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { margin: 0; padding: 0; background-color: #f3f4f6; }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .box-shadow-custom {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Checklist Animation */
+        @keyframes check-mark {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-check {
+            animation: check-mark 0.8s ease-out forwards;
+        }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1.0s; }
+        .delay-3 { animation-delay: 1.5s; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Section -->
+<div class="px-16 pt-12 pb-4 z-10">
+<div class="flex items-center space-x-3 mb-2">
+<div class="w-2 h-8 bg-blue-600 rounded-full"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Bagian 2: Cara Pelaksanaan</p>
+</div>
+<h1 class="font-heading text-4xl font-bold text-slate-800">
+                Manual <span class="text-blue-600">Testing</span>
+</h1>
+<p class="font-body text-slate-500 mt-2 text-lg w-2/3">
+                Pendekatan pengujian langsung oleh manusia untuk memastikan kualitas perangkat lunak.
+            </p>
+</div>
+<!-- Main Content Layout -->
+<div class="flex-1 px-16 pb-12 flex flex-row items-center space-x-12 z-10">
+<!-- Left Column: Content -->
+<div class="w-1/2 flex flex-col justify-center space-y-8">
+<!-- Definition Box -->
+<div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl">
+<h3 class="font-heading text-lg font-bold text-blue-800 mb-2">Definisi</h3>
+<p class="font-body text-slate-700 leading-relaxed text-lg">
+                        Pengujian perangkat lunak yang dilakukan <span class="font-bold text-slate-900">secara langsung oleh tester</span> (manusia) tanpa bantuan skrip atau tools otomatis, di mana setiap kasus uji dieksekusi satu per satu seolah-olah menjadi pengguna akhir.
+                    </p>
+</div>
+<!-- Key Focus Points -->
+<div class="space-y-4">
+<p class="font-heading text-slate-800 font-semibold text-lg border-b border-slate-200 pb-2 mb-4">Karakteristik Utama:</p>
+<div class="flex items-center space-x-4 group">
+<div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300">
+<i class="fas fa-user text-xl"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-slate-700">Interaksi Manusia</p>
+<p class="font-body text-slate-500 text-sm">Menilai tampilan dan pengalaman pengguna (UX)</p>
+</div>
+</div>
+<div class="flex items-center space-x-4 group">
+<div class="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+<i class="fas fa-search text-xl"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-slate-700">Exploratory</p>
+<p class="font-body text-slate-500 text-sm">Fleksibilitas untuk mencoba skenario tak terduga</p>
+</div>
+</div>
+<div class="flex items-center space-x-4 group">
+<div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+<i class="fas fa-list-check text-xl"></i>
+</div>
+<div>
+<p class="font-heading font-bold text-slate-700">Step-by-Step</p>
+<p class="font-body text-slate-500 text-sm">Eksekusi test case secara berurutan dan manual</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Illustration -->
+<div class="w-1/2 h-full flex items-center justify-center">
+<div class="relative w-full h-96 bg-white rounded-2xl p-8 box-shadow-custom border border-slate-100 flex items-center justify-center overflow-hidden">
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full z-0"></div>
+<div class="absolute bottom-0 left-0 w-24 h-24 bg-orange-50 rounded-tr-full z-0"></div>
+<!-- Diagram Container -->
+<div class="relative z-10 flex items-center justify-center space-x-8">
+<!-- The Tester -->
+<div class="flex flex-col items-center">
+<div class="relative">
+<div class="w-24 h-24 bg-slate-800 rounded-full flex items-center justify-center border-4 border-slate-200 shadow-lg z-20">
+<i class="fas fa-user-astronaut text-4xl text-white"></i>
+</div>
+<!-- Thought Bubble -->
+<div class="absolute -top-4 -right-8 bg-white border border-slate-200 px-3 py-1 rounded-lg shadow-sm animate-bounce">
+<i class="fas fa-bug text-red-500 text-sm"></i>
+<span class="text-xs font-bold text-slate-600">Bug?</span>
+</div>
+</div>
+<div class="mt-4 bg-slate-100 px-4 py-1 rounded-full text-slate-600 font-bold text-sm">QA Tester</div>
+</div>
+<!-- Interaction Arrow -->
+<div class="flex flex-col items-center justify-center space-y-1">
+<div class="w-16 h-1 bg-slate-300 rounded-full"></div>
+<i class="fas fa-hand-pointer text-slate-400 transform rotate-90 text-xl"></i>
+<span class="text-xs font-mono text-slate-400 mt-1">CLICK &amp; TYPE</span>
+</div>
+<!-- The System/Screen -->
+<div class="relative">
+<div class="w-48 h-32 bg-white border-4 border-slate-800 rounded-lg shadow-md flex flex-col overflow-hidden">
+<!-- Browser Header -->
+<div class="h-6 bg-slate-100 border-b border-slate-200 flex items-center px-2 space-x-1">
+<div class="w-2 h-2 rounded-full bg-red-400"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-400"></div>
+<div class="w-2 h-2 rounded-full bg-green-400"></div>
+</div>
+<!-- Screen Content -->
+<div class="flex-1 p-3 space-y-2 bg-slate-50">
+<div class="w-3/4 h-2 bg-slate-300 rounded"></div>
+<div class="w-1/2 h-2 bg-slate-300 rounded"></div>
+<div class="flex space-x-2 mt-2">
+<div class="w-8 h-8 bg-blue-100 rounded border border-blue-200"></div>
+<div class="w-8 h-8 bg-blue-100 rounded border border-blue-200"></div>
+</div>
+<div class="mt-2 w-full h-6 bg-blue-600 rounded flex items-center justify-center">
+<span class="text-[8px] text-white font-bold">LOGIN</span>
+</div>
+</div>
+</div>
+<!-- Base of monitor -->
+<div class="w-16 h-4 bg-slate-800 mx-auto rounded-b-lg"></div>
+<div class="w-24 h-1 bg-slate-300 mx-auto mt-[1px] rounded-full shadow-sm"></div>
+</div>
+<!-- The Checklist Board (Floating) -->
+<div class="absolute -right-4 -bottom-2 bg-yellow-50 border-2 border-yellow-200 p-4 rounded-lg shadow-xl transform rotate-3 w-40">
+<div class="flex items-center space-x-2 border-b border-yellow-200 pb-2 mb-2">
+<i class="fas fa-clipboard-list text-yellow-600"></i>
+<span class="font-bold text-sm text-yellow-800">Test Case</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-600">Login Form</span>
+<i class="fas fa-check text-green-500 opacity-0 animate-check delay-1"></i>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-600">Invalid Pwd</span>
+<i class="fas fa-check text-green-500 opacity-0 animate-check delay-2"></i>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-600">Error Msg</span>
+<i class="fas fa-check text-green-500 opacity-0 animate-check delay-3"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Footer Line -->
+<div class="absolute bottom-0 left-0 w-full h-2 bg-slate-100 z-0">
+<div class="w-1/2 h-full bg-blue-600"></div>
+</div>
+<!-- Background Circle Decoration -->
+<div class="absolute top-20 right-[-50px] w-64 h-64 bg-blue-50 rounded-full opacity-50 z-0 pointer-events-none"></div>
+
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 11.html";
+}
+function goNext() {
+    window.location.href = "Slide 13.html";
+}
+</script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Automated Testing: Definisi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { margin: 0; padding: 0; background-color: #f3f4f6; }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .box-shadow-custom {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Robot arm animation simulation (static for export safety) */
+        .robot-arm {
+            transform-origin: bottom center;
+        }
+        
+        /* Code typing effect simulation */
+        .code-line {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .code-line.short { width: 40%; }
+        .code-line.medium { width: 70%; }
+        .code-line.long { width: 90%; }
+        
+        .tool-badge {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Section -->
+<div class="px-16 pt-12 pb-4 z-10">
+<div class="flex items-center space-x-3 mb-2">
+<div class="w-2 h-8 bg-blue-600 rounded-full"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Bagian 2: Cara Pelaksanaan</p>
+</div>
+<h1 class="font-heading text-4xl font-bold text-slate-800">
+                Automated <span class="text-blue-600">Testing</span>
+</h1>
+<p class="font-body text-slate-500 mt-2 text-lg w-2/3">
+                Efisiensi pengujian melalui penggunaan script dan perangkat lunak otomatis.
+            </p>
+</div>
+<!-- Main Content Layout -->
+<div class="flex-1 px-16 pb-12 flex flex-row items-center space-x-12 z-10">
+<!-- Left Column: Content -->
+<div class="w-1/2 flex flex-col justify-center space-y-8">
+<!-- Definition Box -->
+<div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl">
+<h3 class="font-heading text-lg font-bold text-blue-800 mb-2">Definisi</h3>
+<p class="font-body text-slate-700 leading-relaxed text-lg">
+                        Metode pengujian perangkat lunak yang menggunakan <span class="font-bold text-slate-900">tools atau script khusus</span> untuk menjalankan test case secara otomatis, membandingkan hasil aktual dengan hasil yang diharapkan tanpa intervensi manusia secara langsung.
+                    </p>
+</div>
+<!-- Popular Tools Section -->
+<div class="space-y-4">
+<p class="font-heading text-slate-800 font-semibold text-lg border-b border-slate-200 pb-2 mb-4">Contoh Tools Populer:</p>
+<div class="grid grid-cols-2 gap-4">
+<!-- Tool 1: Selenium -->
+<div class="flex items-center space-x-3 bg-white border border-slate-200 p-3 rounded-lg shadow-sm tool-badge">
+<div class="w-10 h-10 rounded bg-green-100 flex items-center justify-center text-green-600 font-bold text-xs border border-green-200">
+                                    SE
+                                </div>
+<div>
+<p class="font-heading font-bold text-slate-700 text-sm">Selenium</p>
+<p class="font-body text-slate-500 text-xs">Web Apps Testing</p>
+</div>
+</div>
+<!-- Tool 2: JUnit -->
+<div class="flex items-center space-x-3 bg-white border border-slate-200 p-3 rounded-lg shadow-sm tool-badge">
+<div class="w-10 h-10 rounded bg-red-100 flex items-center justify-center text-red-600 font-bold text-xs border border-red-200">
+                                    JU
+                                </div>
+<div>
+<p class="font-heading font-bold text-slate-700 text-sm">JUnit</p>
+<p class="font-body text-slate-500 text-xs">Java Unit Testing</p>
+</div>
+</div>
+<!-- Tool 3: Cypress -->
+<div class="flex items-center space-x-3 bg-white border border-slate-200 p-3 rounded-lg shadow-sm tool-badge">
+<div class="w-10 h-10 rounded bg-slate-800 flex items-center justify-center text-white font-bold text-xs border border-slate-600">
+                                    CY
+                                </div>
+<div>
+<p class="font-heading font-bold text-slate-700 text-sm">Cypress</p>
+<p class="font-body text-slate-500 text-xs">Modern Web Testing</p>
+</div>
+</div>
+<!-- Tool 4: Appium -->
+<div class="flex items-center space-x-3 bg-white border border-slate-200 p-3 rounded-lg shadow-sm tool-badge">
+<div class="w-10 h-10 rounded bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xs border border-purple-200">
+                                    AP
+                                </div>
+<div>
+<p class="font-heading font-bold text-slate-700 text-sm">Appium</p>
+<p class="font-body text-slate-500 text-xs">Mobile Automation</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Illustration -->
+<div class="w-1/2 h-full flex items-center justify-center relative">
+<!-- Robot / Automation Illustration Container -->
+<div class="relative w-full h-80 flex items-center justify-center">
+<!-- Background Code Editor Window -->
+<div class="absolute w-64 h-72 bg-slate-800 rounded-lg shadow-xl right-10 top-0 border border-slate-600 overflow-hidden transform rotate-3 z-0">
+<div class="bg-slate-900 px-3 py-2 flex space-x-1.5 border-b border-slate-700">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+</div>
+<div class="p-4 space-y-2 opacity-80">
+<div class="flex space-x-2">
+<div class="code-line short bg-purple-400"></div>
+<div class="code-line medium bg-blue-400"></div>
+</div>
+<div class="code-line long bg-slate-600"></div>
+<div class="code-line medium bg-slate-600"></div>
+<div class="flex space-x-2 ml-4">
+<div class="code-line short bg-green-400"></div>
+<div class="code-line medium bg-yellow-400"></div>
+</div>
+<div class="code-line short ml-4 bg-slate-600"></div>
+<div class="code-line long bg-slate-600"></div>
+<div class="flex space-x-2">
+<div class="code-line short bg-purple-400"></div>
+<div class="code-line medium bg-blue-400"></div>
+</div>
+<div class="code-line long bg-slate-600"></div>
+<div class="flex space-x-2 ml-4">
+<div class="code-line short bg-green-400"></div>
+<div class="code-line medium bg-yellow-400"></div>
+</div>
+</div>
+<!-- Success Badge Overlay -->
+<div class="absolute bottom-4 right-4 bg-green-500 text-white px-3 py-1 rounded text-xs font-bold shadow-lg flex items-center">
+<i class="fas fa-check-circle mr-1"></i> PASS
+                        </div>
+</div>
+<!-- Robot Arm Graphic -->
+<div class="absolute left-10 bottom-0 z-10">
+<div class="relative w-48 h-64">
+<!-- Base -->
+<div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-slate-700 rounded-t-lg border-t border-l border-r border-slate-500"></div>
+<!-- Arm Segment 1 -->
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-16 h-24 bg-blue-600 rounded-xl border-2 border-blue-400 shadow-lg flex items-center justify-center">
+<div class="w-8 h-8 rounded-full border-4 border-white opacity-30"></div>
+</div>
+<!-- Joint -->
+<div class="absolute bottom-32 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-slate-800 rounded-full border-4 border-slate-600 z-20 shadow-md"></div>
+<!-- Arm Segment 2 -->
+<div class="absolute bottom-36 left-1/2 transform -translate-x-1/2 origin-bottom w-10 h-24 bg-blue-500 rounded-xl border-2 border-blue-300 shadow-lg rotate-12 z-10"></div>
+<!-- Claw/Hand -->
+<div class="absolute top-0 right-[-40px] w-16 h-12 bg-slate-700 rounded-lg flex items-center justify-center border border-slate-500 shadow-lg z-30">
+<i class="fas fa-search text-yellow-400 text-xl"></i>
+</div>
+<!-- Motion Lines -->
+<div class="absolute top-10 right-[-60px] text-blue-400 text-2xl">
+<i class="fas fa-bolt"></i>
+</div>
+</div>
+</div>
+<!-- Process Connection -->
+<div class="absolute bottom-10 right-20 bg-white p-3 rounded-lg shadow-lg border border-slate-100 z-20 w-48">
+<div class="flex items-center space-x-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+<i class="fas fa-cog fa-spin"></i>
+</div>
+<div>
+<p class="font-heading text-xs font-bold text-slate-800">Test Execution</p>
+<p class="font-body text-[10px] text-slate-500">Running script...</p>
+</div>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-blue-500 h-full w-2/3 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute bottom-0 left-0 w-full h-2 bg-slate-100 z-0">
+<div class="w-2/3 h-full bg-blue-600 ml-auto"></div>
+</div>
+<!-- Background Circle Decoration -->
+<div class="absolute bottom-10 right-10 w-64 h-64 bg-blue-50 rounded-full opacity-60 z-0 pointer-events-none mix-blend-multiply"></div>
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 13.html";
+}
+function goNext() {
+    window.location.href = "Slide 15.html";
+}
+</script>
+</div>
+</body>
+</html>

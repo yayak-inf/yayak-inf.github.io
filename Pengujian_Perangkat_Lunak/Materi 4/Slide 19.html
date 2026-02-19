@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kesimpulan</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { margin: 0; padding: 0; background-color: #f3f4f6; }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .check-icon-wrapper {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #dbeafe; /* blue-100 */
+            color: #2563eb; /* blue-600 */
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .conclusion-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+        .conclusion-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+            border-color: #bfdbfe;
+        }
+        .conclusion-card:hover .check-icon-wrapper {
+            background-color: #2563eb;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Left Sidebar (Title) -->
+<div class="w-1/3 bg-slate-900 text-white flex flex-col justify-center px-12 relative overflow-hidden">
+<!-- Background Decoration -->
+<div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+<i class="fas fa-tasks absolute -bottom-10 -right-10 text-[350px]"></i>
+</div>
+<div class="relative z-10">
+<div class="w-20 h-2 bg-blue-500 mb-8 rounded-full"></div>
+<h1 class="font-heading text-5xl font-bold leading-tight mb-6">
+                    Kesimpulan<br/>
+<span class="text-blue-400">Materi</span>
+</h1>
+<p class="font-body text-slate-300 text-lg leading-relaxed">
+                    Rangkuman poin-poin kunci mengenai teknik pengujian perangkat lunak yang telah dibahas.
+                </p>
+<div class="mt-16 flex items-center space-x-3 text-sm text-slate-400 font-body border-t border-slate-700 pt-6">
+<i class="fas fa-graduation-cap"></i>
+<span>Pengujian Perangkat Lunak - Pertemuan 4</span>
+</div>
+</div>
+</div>
+<!-- Right Content (Points) -->
+<div class="w-2/3 bg-white p-16 flex flex-col justify-center relative">
+<!-- Background Pattern -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full opacity-60 z-0 pointer-events-none"></div>
+<div class="space-y-6 z-10">
+<!-- Point 1 -->
+<div class="conclusion-card flex items-start space-x-6 p-6 rounded-2xl border border-slate-100 bg-white shadow-sm">
+<div class="check-icon-wrapper">
+<i class="fas fa-check text-2xl"></i>
+</div>
+<div>
+<h3 class="font-heading text-xl font-bold text-slate-800 mb-2">Karakteristik Unik</h3>
+<p class="font-body text-slate-600 text-base leading-relaxed">
+                            Setiap teknik (Black-box, White-box, Gray-box) memiliki tujuan spesifik dan keunggulan masing-masing dalam mendeteksi jenis error tertentu.
+                        </p>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="conclusion-card flex items-start space-x-6 p-6 rounded-2xl border border-slate-100 bg-white shadow-sm">
+<div class="check-icon-wrapper">
+<i class="fas fa-check text-2xl"></i>
+</div>
+<div>
+<h3 class="font-heading text-xl font-bold text-slate-800 mb-2">Tidak Ada Teknik Sempurna</h3>
+<p class="font-body text-slate-600 text-base leading-relaxed">
+                            Tidak ada satu metode pun yang bisa menjamin 100% bebas bug. Mengandalkan satu teknik saja akan meninggalkan celah risiko.
+                        </p>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="conclusion-card flex items-start space-x-6 p-6 rounded-2xl border border-slate-100 bg-white shadow-sm">
+<div class="check-icon-wrapper">
+<i class="fas fa-check text-2xl"></i>
+</div>
+<div>
+<h3 class="font-heading text-xl font-bold text-slate-800 mb-2">Integrasi untuk Kualitas</h3>
+<p class="font-body text-slate-600 text-base leading-relaxed">
+                            Praktik terbaik di industri adalah <strong>menggabungkan berbagai teknik</strong> (Manual &amp; Automated) secara strategis untuk mencapai kualitas sistem yang optimal.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-8 right-12">
+<p class="font-heading font-bold text-slate-200 text-7xl select-none">19</p>
+</div>
+</div>
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 18.html";
+}
+function goNext() {
+    window.location.href = "Slide 20.html";
+}
+</script>
+</div>
+</body>
+</html>

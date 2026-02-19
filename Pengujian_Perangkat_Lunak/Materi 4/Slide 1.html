@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cover Slide</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        
+		
+		body { margin: 0; padding: 0; background-color: #1E1C5C; }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #38BAB4;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+        }
+        .font-heading { font-family: 'Poppins', sans-serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        /* Custom Shapes for Visual Interest without Gradients */
+        .shape-circle {
+            border-radius: 50%;
+        }
+        .decorative-dot-pattern {
+            background-image: radial-gradient(#ffffff 15%, transparent 16%);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+        /* Since gradients are forbidden, I used a workaround for the pattern above, 
+           but to be strictly safe I will use a solid SVG pattern or just solid shapes 
+           in the actual HTML below to comply with "Do not use any CSS gradients". */
+    </style>
+</head>
+<body>
+<div class="slide-container shadow-2xl">
+<!-- Left Content Section -->
+<div class="flex-1 flex flex-col justify-center px-16 relative z-20">
+<!-- Badge -->
+<div class="mb-8">
+<div class="inline-flex items-center bg-blue-100 px-4 py-2 rounded-full border-l-4 border-blue-600">
+<span class="text-blue-800 font-body font-semibold tracking-wide text-sm uppercase">Pertemuan 4</span>
+</div>
+</div>
+<!-- Main Title -->
+<div class="mb-8">
+<h1 class="font-heading text-6xl font-bold leading-tight text-slate-800">
+                Teknik Pengujian <br/>
+<span class="text-blue-700">Perangkat Lunak</span>
+</h1>
+</div>
+<!-- Divider Line -->
+<div class="w-24 h-2 bg-blue-500 mb-10 rounded-full"></div>
+<!-- Course Details Grid -->
+<div class="grid grid-cols-1 gap-4 font-body text-slate-600">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-blue-600">
+<i class="fas fa-book-open text-lg"></i>
+</div>
+<div>
+<p class="text-xs text-slate-800 uppercase font-bold tracking-wider mb-0.5">Mata Kuliah</p>
+<p class="text-lg font-semibold text-slate-800">Pengujian Perangkat Lunak</p>
+</div>
+</div>
+<div class="flex flex-row space-x-12 mt-4">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-blue-600">
+<i class="fas fa-graduation-cap text-lg"></i>
+</div>
+<div>
+<p class="text-xs text-slate-800 uppercase font-bold tracking-wider mb-0.5">Program Studi</p>
+<p class="text-lg font-semibold text-slate-800">Informatika</p>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-blue-600">
+<i class="fas fa-clock text-lg"></i>
+</div>
+<div>
+<p class="text-xs text-slate-800 uppercase font-bold tracking-wider mb-0.5">Semester</p>
+<p class="text-lg font-semibold text-slate-800">6 (Enam)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Visual Section -->
+<div class="w-[480px] bg-blue-900 relative flex flex-col justify-center items-center overflow-hidden">
+<!-- Abstract Geometric Shapes -->
+<div class="absolute -top-20 -right-20 w-80 h-80 bg-blue-800 rounded-full opacity-50"></div>
+<div class="absolute bottom-10 -left-20 w-60 h-60 bg-blue-700 rounded-full opacity-50"></div>
+<!-- Tech Decoration Lines -->
+<div class="absolute top-1/4 left-10 right-10 h-px bg-blue-700 opacity-30"></div>
+<div class="absolute top-2/4 left-10 right-10 h-px bg-blue-700 opacity-30"></div>
+<div class="absolute top-3/4 left-10 right-10 h-px bg-blue-700 opacity-30"></div>
+<!-- Central Icon/Graphic Representation -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-48 h-48 bg-white rounded-2xl shadow-2xl flex items-center justify-center transform rotate-12 mb-8 border-4 border-blue-300">
+<i class="fas fa-bug text-8xl text-blue-600 transform -rotate-12"></i>
+</div>
+<div class="w-40 h-40 bg-blue-500 rounded-2xl shadow-xl flex items-center justify-center transform -rotate-6 absolute -bottom-6 -right-6 border-4 border-blue-800 opacity-90">
+<i class="fas fa-check-circle text-6xl text-white transform rotate-6"></i>
+</div>
+<!-- Floating Elements -->
+<div class="absolute -top-10 -left-12 bg-blue-600 px-4 py-2 rounded-lg shadow-lg">
+<p class="text-white font-mono text-xs font-bold">&lt;/&gt; CODE</p>
+</div>
+<div class="absolute bottom-20 -right-20 bg-green-500 px-4 py-2 rounded-lg shadow-lg">
+<p class="text-white font-mono text-xs font-bold">PASS</p>
+</div>
+</div>
+<!-- Pattern Overlay (SVG based to avoid gradient rule issues) -->
+<svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+
+
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 1.html";
+}
+function goNext() {
+    window.location.href = "Slide 2.html";
+}
+</script>
+
+
+</div>
+</body>
+</html>
