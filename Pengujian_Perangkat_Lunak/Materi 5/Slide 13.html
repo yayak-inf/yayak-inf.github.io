@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kesimpulan & Penutup</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body{
+    margin:0;
+    width:1280px;
+    height:720px;
+    overflow:hidden;
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(135deg,#F8FAFC,#EEF2F7);
+}
+
+.slide-container{
+    width:1280px;
+    height:720px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+}
+
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#0F766E,#14B8A6);
+    padding:28px 60px;
+    color:white;
+    box-shadow:0 6px 14px rgba(0,0,0,.15);
+}
+
+/* SOFT BACKGROUND GLOW */
+.glow{
+    position:absolute;
+    width:420px;
+    height:420px;
+    background:#14B8A6;
+    opacity:.08;
+    border-radius:50%;
+    filter:blur(80px);
+    top:-120px;
+    right:-100px;
+}
+
+/* CONTENT */
+.content{
+    flex:1;
+    padding:35px 60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* POINT CARD */
+.point{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    background:white;
+    padding:16px 22px;
+    border-radius:14px;
+    margin-bottom:14px;
+    box-shadow:0 6px 14px rgba(0,0,0,.06);
+    transition:.25s;
+    border-left:6px solid #14B8A6;
+}
+.point:hover{
+    transform:translateX(8px);
+    border-left-color:#FACC15;
+}
+
+/* ICON */
+.icon{
+    width:46px;
+    height:46px;
+    border-radius:12px;
+    background:#CCFBF1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#0F766E;
+    font-size:20px;
+}
+
+/* DISCUSSION BOX */
+.discussion{
+    margin-top:10px;
+    background:linear-gradient(135deg,#FFFBEB,#FEF3C7);
+    border:2px dashed #F59E0B;
+    border-radius:16px;
+    padding:22px;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    box-shadow:0 8px 18px rgba(0,0,0,.06);
+}
+
+/* FOOTER */
+.footer{
+    height:60px;
+    background:white;
+    border-top:1px solid #E2E8F0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 60px;
+}
+.nav button{
+    background:#16A34A;
+    color:white;
+    padding:8px 16px;
+    border-radius:8px;
+    font-weight:600;
+    margin-left:10px;
+}
+.nav button:hover{
+    background:#15803D;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<div class="glow"></div>
+
+<!-- HEADER -->
+<div class="header">
+<h1 class="text-4xl font-bold font-[Montserrat] flex items-center gap-4">
+<i class="fas fa-clipboard-check text-yellow-300"></i>
+Kesimpulan & Penutup
+</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<div class="point">
+<div class="icon"><i class="fas fa-check"></i></div>
+<p class="text-xl">
+Unit Testing → Fokus menguji <b class="text-teal-700">bagian terkecil sistem</b>
+</p>
+</div>
+
+<div class="point">
+<div class="icon"><i class="fas fa-check"></i></div>
+<p class="text-xl">
+Integration Testing → Menguji <b class="text-teal-700">interaksi antar komponen</b>
+</p>
+</div>
+
+<div class="point">
+<div class="icon"><i class="fas fa-code"></i></div>
+<p class="text-xl">
+Gunakan <span class="bg-blue-100 px-2 rounded text-blue-800 font-semibold">JUnit</span>
+untuk Unit Test Java
+</p>
+</div>
+
+<div class="point">
+<div class="icon"><i class="fas fa-globe"></i></div>
+<p class="text-xl">
+Gunakan <span class="bg-green-100 px-2 rounded text-green-800 font-semibold">Selenium</span>
+untuk automation testing web
+</p>
+</div>
+
+<div class="point">
+<div class="icon"><i class="fas fa-bug"></i></div>
+<p class="text-xl">
+Semakin awal bug ditemukan →
+<b class="text-red-600">biaya perbaikan semakin murah</b>
+</p>
+</div>
+
+<!-- DISCUSSION -->
+<div class="discussion">
+<div class="icon bg-amber-200 text-amber-700">
+<i class="fas fa-comments"></i>
+</div>
+
+<div>
+<h3 class="text-lg font-bold text-amber-800 mb-1">
+Diskusi Kelas
+</h3>
+<p class="text-lg italic text-slate-700">
+“Di proyek Anda, bagian mana paling membutuhkan Unit Test?
+Dan bagian mana paling kritis untuk Integration Test?”
+</p>
+</div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+
+<p class="text-slate-600 font-medium">
+MK Pengujian Perangkat Lunak
+</p>
+
+<div class="nav">
+<button onclick="location.href='Slide 12.html'">
+<i class="fa-solid fa-arrow-left"></i> Back
+</button>
+
+<button onclick="location.href='Slide 13.html'">
+Next <i class="fa-solid fa-arrow-right"></i>
+</button>
+</div>
+
+<p class="text-slate-400 font-medium">
+Slide 13
+</p>
+
+</div>
+
+</div>
+</body>
+</html>

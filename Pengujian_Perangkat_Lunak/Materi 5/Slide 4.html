@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Karakteristik Unit Testing</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #F8FAFC; /* Slate 50 */
+            font-family: 'Inter', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .header-bg {
+            background-color: #0F766E; /* Teal 700 */
+            height: 120px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+        .accent-bar {
+            background-color: #FACC15; /* Yellow 400 */
+            height: 8px;
+            width: 100%;
+        }
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        /* Left Column Styles - Based on Template */
+        .list-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: white;
+            padding: 14px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 6px solid #14B8A6; /* Teal 500 */
+            transition: transform 0.2s;
+        }
+        .list-item:hover {
+            transform: translateX(10px);
+            border-left-color: #FACC15; /* Yellow 400 */
+        }
+        .check-icon {
+            color: #0F766E;
+            font-size: 20px;
+            margin-right: 16px;
+            background: #CCFBF1; /* Teal 100 */
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        /* Right Column Styles - Custom for Examples */
+        .example-box {
+            background-color: #F1F5F9; /* Slate 100 */
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid #E2E8F0;
+        }
+        .example-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            background: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 6px solid #FACC15; /* Yellow 400 */
+        }
+        .example-card:last-child {
+            margin-bottom: 0;
+        }
+        .example-icon {
+            color: #B45309; /* Amber 700 */
+            font-size: 18px;
+            margin-right: 16px;
+            background: #FEF3C7; /* Amber 100 */
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0F766E;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .footer {
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            color: #64748B;
+            font-size: 14px;
+            border-top: 1px solid #E2E8F0;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Section -->
+<div class="header-bg">
+<h1 class="text-4xl font-bold text-white font-montserrat tracking-wide">
+<i class="fas fa-list-check mr-4 text-yellow-300"></i>Karakteristik Unit Testing
+        </h1>
+</div>
+<div class="accent-bar"></div>
+<!-- Main Content -->
+<div class="content-area">
+<div class="grid grid-cols-2 gap-12 h-full">
+<!-- Left Column: Characteristics -->
+<div class="flex flex-col justify-center">
+<h2 class="section-title">
+<span class="border-b-4 border-teal-500 pb-1">Karakteristik Utama</span>
+</h2>
+<div class="list-item">
+<div class="check-icon">
+<i class="fas fa-user-code"></i>
+</div>
+<div>
+<p class="text-xl text-slate-800 font-medium">Dilakukan oleh <span class="text-teal-700 font-bold">Programmer</span></p>
+</div>
+</div>
+<div class="list-item">
+<div class="check-icon">
+<i class="fas fa-microchip"></i>
+</div>
+<div>
+<p class="text-xl text-slate-800 font-medium">Fokus pada <span class="text-teal-700 font-bold">Logika Internal</span></p>
+</div>
+</div>
+<div class="list-item">
+<div class="check-icon">
+<i class="fas fa-bolt"></i>
+</div>
+<div>
+<p class="text-xl text-slate-800 font-medium">Eksekusi <span class="text-teal-700 font-bold">Cepat &amp; Otomatis</span></p>
+</div>
+</div>
+<div class="list-item">
+<div class="check-icon">
+<i class="fas fa-cube"></i>
+</div>
+<div>
+<p class="text-xl text-slate-800 font-medium">Menggunakan <span class="text-teal-700 font-bold">Framework Testing</span></p>
+</div>
+</div>
+</div>
+<!-- Right Column: Examples -->
+<div class="flex flex-col justify-center pl-4">
+<div class="example-box">
+<h2 class="section-title text-slate-700">
+<i class="fas fa-laptop-code mr-3 text-yellow-500"></i>Contoh Pengujian
+                    </h2>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-plus"></i>
+</div>
+<div>
+<p class="text-lg text-slate-800 font-bold">Fungsi Penjumlahan</p>
+<p class="text-sm text-slate-500">Memastikan input 2 + 3 menghasilkan 5</p>
+</div>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-key"></i>
+</div>
+<div>
+<p class="text-lg text-slate-800 font-bold">Validasi Login</p>
+<p class="text-sm text-slate-500">Cek format email &amp; kekuatan password</p>
+</div>
+</div>
+<div class="example-card">
+<div class="example-icon">
+<i class="fas fa-percentage"></i>
+</div>
+<div>
+<p class="text-lg text-slate-800 font-bold">Perhitungan Diskon</p>
+<p class="text-sm text-slate-500">Logika potongan harga berdasarkan total belanja</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<!-- Footer -->
+<div class="footer flex justify-between items-center px-8">
+    <!-- Kiri: Nama MK -->
+    <p class="text-slate-600 font-medium">MK Pengujian Perangkat Lunak</p>
+
+    <!-- Tengah: Navigation Buttons -->
+    <div class="flex gap-4">
+        <button onclick="window.location.href='Slide 3.html'"
+            class="flex items-center gap-2 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition shadow-md">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+        <button onclick="window.location.href='Slide 5.html'"
+            class="flex items-center gap-2 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition shadow-md">
+            Next
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Kanan: Label Slide -->
+    <p class="text-slate-400 font-medium">Slide 4</p>
+</div>
+</div>
+</body>
+</html>

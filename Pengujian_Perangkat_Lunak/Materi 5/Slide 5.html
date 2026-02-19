@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contoh Unit Testing Sederhana</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Montserrat:wght@500;700;800&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        /* Header */
+        .header-bg {
+            background-color: #FFFFFF;
+            height: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            border-bottom: 6px solid #0F766E; /* Teal 700 */
+        }
+        
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .panels-wrapper {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+            margin-bottom: 24px;
+        }
+
+        .code-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .panel-header {
+            padding: 12px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .header-app {
+            background-color: #0F766E; /* Teal 700 */
+            color: white;
+        }
+
+        .header-test {
+            background-color: #D97706; /* Amber 600 */
+            color: white;
+        }
+
+        .code-block {
+            background-color: #1E293B; /* Slate 800 */
+            flex: 1;
+            padding: 24px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #E2E8F0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Syntax Highlighting */
+        .kw { color: #C084FC; font-weight: bold; } /* Purple - Keywords */
+        .type { color: #FACC15; font-weight: bold; } /* Yellow - Types/Classes */
+        .func { color: #60A5FA; } /* Blue - Functions */
+        .str { color: #4ADE80; } /* Green - Strings */
+        .num { color: #F87171; } /* Red - Numbers */
+        .anno { color: #94A3B8; font-style: italic; } /* Gray - Annotations */
+        .import { color: #F472B6; } /* Pink - Imports */
+
+        /* Note Box */
+        .note-box {
+            background-color: #FFFBEB; /* Amber 50 */
+            border-left: 6px solid #F59E0B; /* Amber 500 */
+            padding: 16px 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            color: #92400E; /* Amber 800 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            font-size: 18px;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            color: #64748B;
+            font-size: 14px;
+            border-top: 1px solid #E2E8F0;
+        }
+        
+        .code-line {
+            display: block;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bg">
+<h1 class="text-4xl font-bold text-teal-800 font-montserrat tracking-tight flex items-center">
+<span class="bg-teal-100 p-2 rounded-lg mr-4 text-teal-700"><i class="fas fa-code"></i></span>
+            Contoh Unit Testing Sederhana (Java)
+        </h1>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<div class="panels-wrapper">
+<!-- Left Panel: Application Code -->
+<div class="code-panel">
+<div class="panel-header header-app">
+<span><i class="fas fa-file-code mr-2"></i>Kalkulator.java</span>
+<span class="opacity-75 text-xs">SOURCE CODE</span>
+</div>
+<div class="code-block">
+<div class="code-line"><span class="kw">public class</span> <span class="type">Kalkulator</span> {</div>
+<div class="code-line"> <span class="kw">public int</span> <span class="func">tambah</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) {</div>
+<div class="code-line"> <span class="kw">return</span> a + b;</div>
+<div class="code-line">    }</div>
+<div class="code-line">}</div>
+</div>
+</div>
+<!-- Right Panel: Test Code -->
+<div class="code-panel">
+<div class="panel-header header-test">
+<span><i class="fas fa-vial mr-2"></i>KalkulatorTest.java</span>
+<span class="opacity-75 text-xs">JUNIT TEST</span>
+</div>
+<div class="code-block">
+<div class="code-line"><span class="import">import static</span> org.junit.jupiter.api.Assertions.*;</div>
+<div class="code-line"><span class="import">import</span> org.junit.jupiter.api.Test;</div>
+<div class="code-line"> </div>
+<div class="code-line"><span class="kw">class</span> <span class="type">KalkulatorTest</span> {</div>
+<div class="code-line"> </div>
+<div class="code-line"> <span class="anno">@Test</span></div>
+<div class="code-line"> <span class="kw">void</span> <span class="func">testTambah</span>() {</div>
+<div class="code-line"> <span class="type">Kalkulator</span> k = <span class="kw">new</span> <span class="type">Kalkulator</span>();</div>
+<div class="code-line"> <span class="comment">// Memastikan 2 + 3 = 5</span></div>
+<div class="code-line"> <span class="func">assertEquals</span>(<span class="num">5</span>, k.<span class="func">tambah</span>(<span class="num">2</span>, <span class="num">3</span>));</div>
+<div class="code-line">    }</div>
+<div class="code-line">}</div>
+</div>
+</div>
+</div>
+<!-- Bottom Note -->
+<div class="note-box">
+<i class="fas fa-exclamation-triangle text-amber-500 text-2xl mr-4"></i>
+<p>Logika Pengujian: Jika hasil kembalian metode <code class="bg-amber-100 px-1 rounded text-amber-700 font-mono text-sm">tambah(2, 3)</code> tidak sama dengan <span class="font-bold">5</span>, maka unit test dianggap <span class="text-red-600 font-bold">GAGAL (FAILED)</span>.</p>
+</div>
+</div>
+<!-- Footer -->
+<!-- Footer -->
+<div class="footer flex justify-between items-center px-8">
+    <!-- Kiri: Nama MK -->
+    <p class="text-slate-600 font-medium">MK Pengujian Perangkat Lunak</p>
+
+    <!-- Tengah: Navigation Buttons -->
+    <div class="flex gap-4">
+        <button onclick="window.location.href='Slide 4.html'"
+            class="flex items-center gap-2 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition shadow-md">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+        <button onclick="window.location.href='Slide 6.html'"
+            class="flex items-center gap-2 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition shadow-md">
+            Next
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Kanan: Label Slide -->
+    <p class="text-slate-400 font-medium">Slide 5</p>
+</div>
+</div>
+</body>
+</html>

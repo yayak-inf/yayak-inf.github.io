@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contoh Integration Testing</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Montserrat:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #F8FAFC; /* Slate 50 */
+            font-family: 'Inter', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        /* Header */
+        .header-bg {
+            background-color: #FFFFFF;
+            height: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            border-bottom: 6px solid #0F766E; /* Teal 700 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+        }
+
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #F1F5F9;
+        }
+
+        /* Flow Chart Section */
+        .flow-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        /* Connecting Line Background */
+        .flow-line {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background-color: #CBD5E1; /* Slate 300 */
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+
+        .step-card {
+            background-color: white;
+            border-radius: 16px;
+            width: 220px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-bottom: 6px solid #0F766E; /* Teal 700 */
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Step Colors */
+        .step-1 { border-bottom-color: #0F766E; } /* Teal */
+        .step-2 { border-bottom-color: #0891B2; } /* Cyan */
+        .step-3 { border-bottom-color: #2563EB; } /* Blue */
+        .step-4 { border-bottom-color: #7C3AED; } /* Violet */
+
+        .step-badge {
+            position: absolute;
+            top: -15px;
+            background-color: #FACC15; /* Yellow 400 */
+            color: #713F12;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            border: 3px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .step-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #475569;
+        }
+
+        .step-1 .step-icon { color: #0F766E; }
+        .step-2 .step-icon { color: #0891B2; }
+        .step-3 .step-icon { color: #2563EB; }
+        .step-4 .step-icon { color: #7C3AED; }
+
+        .step-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1E293B;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: #64748B;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .arrow-connector {
+            color: #94A3B8;
+            font-size: 24px;
+            z-index: 1;
+            background-color: #F1F5F9;
+            padding: 0 10px;
+        }
+
+        /* Checklist Section */
+        .checklist-box {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 8px solid #FACC15; /* Yellow 400 */
+        }
+
+        .checklist-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #1E293B;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            background-color: #F0FDFA; /* Teal 50 */
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: #334155;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .check-circle {
+            width: 24px;
+            height: 24px;
+            background-color: #10B981; /* Emerald 500 */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            color: #64748B;
+            font-size: 14px;
+            border-top: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bg">
+<h1 class="text-4xl font-bold text-teal-800 font-montserrat tracking-tight flex items-center">
+<span class="bg-teal-100 p-2 rounded-lg mr-4 text-teal-700"><i class="fas fa-network-wired"></i></span>
+            Contoh Integration Testing (Sistem Login)
+        </h1>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Process Flow -->
+<div class="flow-wrapper">
+<div class="flow-line"></div>
+<!-- Step 1 -->
+<div class="step-card step-1">
+<div class="step-badge">1</div>
+<i class="fas fa-user-circle step-icon"></i>
+<p class="step-title">Form Login</p>
+<p class="step-desc">Input Username &amp; Password</p>
+</div>
+<i class="fas fa-chevron-right arrow-connector"></i>
+<!-- Step 2 -->
+<div class="step-card step-2">
+<div class="step-badge">2</div>
+<i class="fas fa-shield-alt step-icon"></i>
+<p class="step-title">Validasi</p>
+<p class="step-desc">Cek format &amp; kelengkapan data</p>
+</div>
+<i class="fas fa-chevron-right arrow-connector"></i>
+<!-- Step 3 -->
+<div class="step-card step-3">
+<div class="step-badge">3</div>
+<i class="fas fa-database step-icon"></i>
+<p class="step-title">Database</p>
+<p class="step-desc">Query cek kredensial user</p>
+</div>
+<i class="fas fa-chevron-right arrow-connector"></i>
+<!-- Step 4 -->
+<div class="step-card step-4">
+<div class="step-badge">4</div>
+<i class="fas fa-tachometer-alt step-icon"></i>
+<p class="step-title">Dashboard</p>
+<p class="step-desc">Redirect jika sukses login</p>
+</div>
+</div>
+<!-- Checklist Section -->
+<div class="checklist-box">
+<div class="checklist-header">
+<i class="fas fa-clipboard-check text-2xl text-yellow-500 mr-3"></i>
+<h3 class="text-xl font-bold font-montserrat">Poin Integrasi yang Harus Dipastikan:</h3>
+</div>
+<div class="checklist-grid">
+<div class="check-item">
+<div class="check-circle"><i class="fas fa-check"></i></div>
+<p>Form UI terhubung dengan benar ke Backend API</p>
+</div>
+<div class="check-item">
+<div class="check-circle"><i class="fas fa-check"></i></div>
+<p>Backend berhasil mengirim query ke Database</p>
+</div>
+<div class="check-item">
+<div class="check-circle"><i class="fas fa-check"></i></div>
+<p>Logika validasi menolak data kosong/salah</p>
+</div>
+<div class="check-item">
+<div class="check-circle"><i class="fas fa-check"></i></div>
+<p>Alur sukses mengarahkan user ke halaman Dashboard</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<!-- Footer -->
+<div class="footer flex justify-between items-center px-8">
+    <!-- Kiri: Nama MK -->
+    <p class="text-slate-600 font-medium">MK Pengujian Perangkat Lunak</p>
+
+    <!-- Tengah: Navigation Buttons -->
+    <div class="flex gap-4">
+        <button onclick="window.location.href='Slide 8.html'"
+            class="flex items-center gap-2 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition shadow-md">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+        <button onclick="window.location.href='Slide 10.html'"
+            class="flex items-center gap-2 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition shadow-md">
+            Next
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Kanan: Label Slide -->
+    <p class="text-slate-400 font-medium">Slide 9</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Selenium untuk Integration/UI Testing</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Montserrat:wght@500;700;800&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        /* Header */
+        .header-bg {
+            background-color: #FFFFFF;
+            height: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            border-bottom: 6px solid #0F766E; /* Teal 700 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+        }
+
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Top Section: Features */
+        .features-container {
+            display: flex;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .intro-box {
+            flex: 1;
+            background-color: #F0FDFA; /* Teal 50 */
+            border-left: 6px solid #0F766E;
+            padding: 24px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-grid {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .feature-item {
+            background-color: white;
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            border: 1px solid #E2E8F0;
+        }
+
+        .feature-icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #CCFBF1; /* Teal 100 */
+            color: #0F766E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 16px;
+        }
+
+        /* Bottom Section: Code */
+        .code-window {
+            flex: 1;
+            background-color: #1E293B; /* Slate 800 */
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .window-bar {
+            background-color: #334155; /* Slate 700 */
+            height: 36px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-bottom: 1px solid #475569;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background-color: #EF4444; }
+        .dot-yellow { background-color: #F59E0B; }
+        .dot-green { background-color: #10B981; }
+
+        .window-title {
+            flex: 1;
+            text-align: center;
+            color: #94A3B8;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            margin-right: 50px; /* Offset for dots to center title roughly */
+        }
+
+        .code-content {
+            padding: 24px 30px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 18px;
+            color: #E2E8F0;
+            line-height: 1.6;
+            overflow-y: auto;
+        }
+
+        /* Syntax Highlighting */
+        .kw { color: #C084FC; font-weight: bold; } /* Purple - Keywords */
+        .type { color: #FACC15; font-weight: bold; } /* Yellow - Types */
+        .str { color: #4ADE80; } /* Green - Strings */
+        .func { color: #60A5FA; } /* Blue - Methods */
+        .var { color: #E2E8F0; } /* White - Variables */
+        .comment { color: #94A3B8; font-style: italic; }
+
+        /* Footer */
+        .footer {
+            height: 50px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            color: #64748B;
+            font-size: 14px;
+            border-top: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bg">
+<h1 class="text-4xl font-bold text-teal-800 font-montserrat tracking-tight flex items-center">
+<span class="bg-teal-100 p-2 rounded-lg mr-4 text-teal-700"><i class="fas fa-robot"></i></span>
+                Selenium untuk Integration/UI Testing
+            </h1>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Top Section: Features -->
+<div class="features-container">
+<div class="intro-box">
+<h2 class="text-2xl font-bold text-teal-900 mb-3 font-montserrat">Apa itu Selenium?</h2>
+<p class="text-slate-700 leading-relaxed text-lg">
+                        Framework open-source untuk mengotomatisasi pengujian aplikasi web. Selenium mensimulasikan interaksi pengguna nyata di browser.
+                    </p>
+</div>
+<div class="feature-grid">
+<div class="feature-item">
+<div class="feature-icon-box"><i class="fas fa-mouse-pointer"></i></div>
+<div>
+<p class="font-bold text-slate-800">Simulasi Klik</p>
+<p class="text-sm text-slate-500">Tombol &amp; Link</p>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon-box"><i class="fas fa-keyboard"></i></div>
+<div>
+<p class="font-bold text-slate-800">Input Form</p>
+<p class="text-sm text-slate-500">Ketik data &amp; submit</p>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon-box"><i class="fas fa-compass"></i></div>
+<div>
+<p class="font-bold text-slate-800">Navigasi</p>
+<p class="text-sm text-slate-500">Pindah halaman/URL</p>
+</div>
+</div>
+<div class="feature-item">
+<div class="feature-icon-box"><i class="fas fa-eye"></i></div>
+<div>
+<p class="font-bold text-slate-800">Validasi Tampilan</p>
+<p class="text-sm text-slate-500">Cek elemen muncul</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Code -->
+<div class="code-window">
+<div class="window-bar">
+<div class="window-dots">
+<div class="dot dot-red"></div>
+<div class="dot dot-yellow"></div>
+<div class="dot dot-green"></div>
+</div>
+<div class="window-title">LoginTest.java</div>
+</div>
+<div class="code-content">
+<div>
+<span class="type">WebDriver</span> <span class="var">driver</span> = <span class="kw">new</span> <span class="type">ChromeDriver</span>();
+                    </div>
+<div class="mt-2">
+<span class="comment">// 1. Buka halaman login</span>
+</div>
+<div>
+<span class="var">driver</span>.<span class="func">get</span>(<span class="str">"http://localhost/login"</span>);
+                    </div>
+<div class="mt-2">
+<span class="comment">// 2. Input username &amp; password</span>
+</div>
+<div>
+<span class="var">driver</span>.<span class="func">findElement</span>(<span class="type">By</span>.<span class="func">id</span>(<span class="str">"username"</span>)).<span class="func">sendKeys</span>(<span class="str">"admin"</span>);
+                    </div>
+<div>
+<span class="var">driver</span>.<span class="func">findElement</span>(<span class="type">By</span>.<span class="func">id</span>(<span class="str">"password"</span>)).<span class="func">sendKeys</span>(<span class="str">"1234"</span>);
+                    </div>
+<div class="mt-2">
+<span class="comment">// 3. Klik tombol login</span>
+</div>
+<div>
+<span class="var">driver</span>.<span class="func">findElement</span>(<span class="type">By</span>.<span class="func">id</span>(<span class="str">"login"</span>)).<span class="func">click</span>();
+                    </div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer flex justify-between items-center px-8">
+    <!-- Kiri: Nama MK -->
+    <p class="text-slate-600 font-medium">MK Pengujian Perangkat Lunak</p>
+
+    <!-- Tengah: Navigation Buttons -->
+    <div class="flex gap-4">
+        <button onclick="window.location.href='Slide 9.html'"
+            class="flex items-center gap-2 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition shadow-md">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+
+        <button onclick="window.location.href='Slide 11.html'"
+            class="flex items-center gap-2 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition shadow-md">
+            Next
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Kanan: Label Slide -->
+    <p class="text-slate-400 font-medium">Slide 10</p>
+</div>
+</div>
+</body>
+</html>
