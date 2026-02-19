@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contoh Test Case - Black Box</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body { margin: 0; padding: 0; background-color: #f3f4f6; }
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.font-heading { font-family: 'Poppins', sans-serif; }
+.font-body { font-family: 'Inter', sans-serif; }
+
+.test-table th {
+    padding: 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.test-table td {
+    padding: 16px 14px;
+    font-size: 14px;
+}
+
+.test-table tr:hover td {
+    background-color: #fef9c3;
+    transition: 0.3s;
+}
+</style>
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- HEADER -->
+<div class="px-16 pt-12 pb-4">
+    <div class="flex items-center space-x-3 mb-3">
+        <div class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            Bagian 4
+        </div>
+        <span class="text-slate-400 text-sm">|</span>
+        <span class="text-slate-500 text-sm">Black-box Testing</span>
+    </div>
+
+    <h1 class="font-heading text-4xl font-bold text-slate-800">
+        Contoh <span class="text-blue-600">Test Case Table</span>
+    </h1>
+
+    <p class="font-body text-slate-500 mt-2 text-lg">
+        Studi kasus: Pengujian Form Login menggunakan metode Black-box Testing.
+    </p>
+</div>
+
+<!-- TABLE SECTION -->
+<div class="flex-1 px-16 pb-10">
+
+<div class="bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+
+<table class="w-full border-collapse test-table">
+
+<thead class="bg-slate-800 text-white">
+<tr>
+    <th class="w-[10%] text-left">ID</th>
+    <th class="w-[25%] text-left">Langkah Uji</th>
+    <th class="w-[20%] text-left">Input Data</th>
+    <th class="w-[20%] text-left">Output Harapan</th>
+    <th class="w-[15%] text-center">Aktual</th>
+    <th class="w-[10%] text-center">Status</th>
+</tr>
+</thead>
+
+<tbody class="font-body text-slate-700">
+
+<tr class="border-b">
+    <td class="font-semibold">TC-01</td>
+    <td>Masukkan email & password valid, klik Login</td>
+    <td>Email: user@test.com<br>Password: 123456</td>
+    <td>Berhasil login ke Dashboard</td>
+    <td class="text-center">Sesuai</td>
+    <td class="text-center">
+        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">PASS</span>
+    </td>
+</tr>
+
+<tr class="border-b">
+    <td class="font-semibold">TC-02</td>
+    <td>Email valid, password salah</td>
+    <td>Email: user@test.com<br>Password: 111111</td>
+    <td>Muncul pesan "Password salah"</td>
+    <td class="text-center">Sesuai</td>
+    <td class="text-center">
+        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">PASS</span>
+    </td>
+</tr>
+
+<tr class="border-b">
+    <td class="font-semibold">TC-03</td>
+    <td>Email tidak valid, password diisi</td>
+    <td>Email: usertest.com<br>Password: 123456</td>
+    <td>Pesan "Format email tidak valid"</td>
+    <td class="text-center">Sesuai</td>
+    <td class="text-center">
+        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">PASS</span>
+    </td>
+</tr>
+
+<tr class="border-b">
+    <td class="font-semibold">TC-04</td>
+    <td>Kedua field dikosongkan</td>
+    <td>Email: -<br>Password: -</td>
+    <td>Pesan "Field wajib diisi"</td>
+    <td class="text-center">Sesuai</td>
+    <td class="text-center">
+        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold">PASS</span>
+    </td>
+</tr>
+
+<tr>
+    <td class="font-semibold">TC-05</td>
+    <td>Password kosong</td>
+    <td>Email: user@test.com<br>Password: -</td>
+    <td>Pesan "Password wajib diisi"</td>
+    <td class="text-center">Sesuai</td>
+    <td class="text-center">
+        <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-bold">FAIL</span>
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="h-10 bg-white border-t border-slate-200 flex items-center justify-between px-16">
+    <p class="font-body text-xs text-slate-400">
+        Pengujian Perangkat Lunak - Pertemuan 4
+    </p>
+    <div class="flex items-center space-x-2 text-xs text-slate-400">
+        <span>Contoh Dokumentasi QA</span>
+        <i class="fas fa-clipboard-check"></i>
+    </div>
+</div>
+<!-- Navigation -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl">
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 6.html";
+}
+function goNext() {
+    window.location.href = "Slide 7.html";
+}
+</script>
+</div>
+</body>
+</html>
