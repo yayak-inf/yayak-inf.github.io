@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+function bayar(){
+    const nama = document.getElementById("nama").value;
+    const jumlah = document.getElementById("jumlah").value;
+
+    if(nama === "" || jumlah === ""){
+        alert("Data pembayaran belum lengkap!");
+        return;
+    }
+
+    document.getElementById("hasil").innerHTML =
+        "✅ Pembayaran berhasil atas nama <b>" + nama +
+        "</b> sebesar Rp " + jumlah;
+}
+</script>
+
+</head>
+
+<body class="bg-slate-100">
+
+<div class="bg-teal-700 text-white p-4 text-xl font-bold">
+Dashboard Pembayaran
+</div>
+
+<div class="p-8">
+
+<div class="bg-white p-6 rounded-xl shadow-md max-w-lg">
+
+<h2 class="text-xl font-bold mb-4">
+Form Pembayaran
+</h2>
+
+<input id="nama" type="text"
+placeholder="Nama Pelanggan"
+class="w-full border p-3 rounded mb-3">
+
+<input id="jumlah" type="number"
+placeholder="Jumlah Pembayaran"
+class="w-full border p-3 rounded mb-3">
+
+<button onclick="bayar()"
+class="bg-green-600 text-white px-5 py-3 rounded hover:bg-green-700">
+Proses Pembayaran
+</button>
+
+<p id="hasil" class="mt-4 font-semibold text-green-700"></p>
+
+</div>
+
+</div>
+
+</body>
+</html>
