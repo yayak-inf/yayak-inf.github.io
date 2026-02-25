@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Praktik PyTest — Operator Matematika</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body{
+margin:0;
+width:1280px;
+height:720px;
+overflow:hidden;
+background:#F8FAFC;
+font-family:'Inter',sans-serif;
+}
+
+.slide-container{
+width:1280px;
+height:720px;
+display:flex;
+flex-direction:column;
+}
+
+.header-bg{
+background:#FFFFFF;
+height:100px;
+display:flex;
+align-items:center;
+padding:0 60px;
+border-bottom:6px solid #0F766E;
+}
+
+.content-area{
+flex:1;
+padding:40px 60px;
+display:flex;
+flex-direction:column;
+gap:20px;
+overflow-y:auto;
+}
+
+/* Scroll */
+.content-area::-webkit-scrollbar{width:10px;}
+.content-area::-webkit-scrollbar-thumb{
+background:#0F766E;
+border-radius:10px;
+}
+
+.step-box{
+background:white;
+border-radius:12px;
+padding:20px 24px;
+box-shadow:0 8px 14px rgba(0,0,0,0.08);
+}
+
+.step-title{
+font-weight:700;
+color:#0F766E;
+margin-bottom:10px;
+font-size:20px;
+}
+
+.code{
+background:#1E293B;
+color:#E2E8F0;
+font-family:'Roboto Mono',monospace;
+padding:14px 16px;
+border-radius:8px;
+margin-top:10px;
+white-space:pre;
+}
+
+.result-pass{
+background:#ECFDF5;
+border-left:6px solid #22C55E;
+padding:18px;
+border-radius:10px;
+}
+
+.result-fail{
+background:#FEF2F2;
+border-left:6px solid #EF4444;
+padding:18px;
+border-radius:10px;
+}
+
+.footer{
+height:50px;
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 60px;
+border-top:1px solid #E2E8F0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<!-- HEADER -->
+<div class="header-bg">
+<h1 class="text-4xl font-bold text-teal-800 flex items-center">
+<span class="bg-teal-100 p-2 rounded-lg mr-4 text-teal-700">
+<i class="fas fa-calculator"></i>
+</span>
+Praktik PyTest — Operator Matematika
+</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="content-area">
+
+<div class="step-box">
+<div class="step-title">📁 Struktur Folder</div>
+<div class="code">project_pytest/
+│
+├── kalkulator.py
+└── test_kalkulator.py</div>
+</div>
+
+<div class="step-box">
+<div class="step-title">1️⃣ File Program — kalkulator.py</div>
+<div class="code">class Kalkulator:
+
+    def tambah(self, a, b):
+        return a + b
+
+    def kurang(self, a, b):
+        return a - b
+
+    def kali(self, a, b):
+        return a * b
+
+    def bagi(self, a, b):
+        if b == 0:
+            raise ValueError("Tidak bisa dibagi nol")
+        return a / b</div>
+
+<p class="mt-2 font-medium">👉 Ini adalah kode yang akan diuji (System Under Test).</p>
+</div>
+
+<div class="step-box">
+<div class="step-title">2️⃣ File Testing — test_kalkulator.py</div>
+
+<div class="code">from kalkulator import Kalkulator
+
+k = Kalkulator()
+
+def test_tambah():
+    assert k.tambah(2, 3) == 5
+
+def test_kurang():
+    assert k.kurang(10, 4) == 6
+
+def test_kali():
+    assert k.kali(3, 5) == 15
+
+def test_bagi():
+    assert k.bagi(10, 2) == 5
+
+def test_bagi_nol():
+    import pytest
+    with pytest.raises(ValueError):
+        k.bagi(5, 0)</div>
+</div>
+
+<div class="step-box">
+<div class="step-title">3️⃣ Jalankan Pengujian</div>
+<div class="code">pytest</div>
+</div>
+
+<!-- PASS -->
+<div class="result-pass">
+<h3 class="font-bold text-green-700 mb-2">
+✅ Contoh Output (Jika Benar)
+</h3>
+
+<div class="code">================ test session starts =================
+collected 5 items
+
+test_kalkulator.py .....      [100%]
+
+================ 5 passed in 0.02s =================</div>
+</div>
+
+<!-- FAIL -->
+<div class="result-fail">
+<h3 class="font-bold text-red-700 mb-2">
+❌ Jika Ada Error
+</h3>
+
+<p>Misalnya fungsi salah:</p>
+
+<div class="code">return a * b   # salah di tambah()</div>
+
+<div class="code">FAILED test_tambah
+assert 6 == 5</div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<p class="text-slate-600 font-medium">MK Pengujian Perangkat Lunak</p>
+
+<div class="flex gap-4">
+<button onclick="window.location.href='Slide Pytest.html'"
+class="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold">
+Back
+</button>
+
+<button onclick="window.location.href='Slide 7.html'"
+class="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold">
+Next
+</button>
+</div>
+
+<p class="text-slate-400 font-medium">Slide Latihan Pytest</p>
+</div>
+
+</div>
+</body>
+</html>

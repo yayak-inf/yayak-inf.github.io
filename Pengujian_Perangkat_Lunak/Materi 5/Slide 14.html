@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tugas Praktikum Mandiri</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body{
+margin:0;
+width:1280px;
+height:720px;
+overflow:hidden;
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#F8FAFC,#EEF2F7);
+}
+
+.slide-container{
+width:1280px;
+height:720px;
+display:flex;
+flex-direction:column;
+position:relative;
+}
+
+/* HEADER */
+.header{
+background:linear-gradient(135deg,#0F766E,#14B8A6);
+padding:28px 60px;
+color:white;
+box-shadow:0 6px 14px rgba(0,0,0,.15);
+}
+
+/* GLOW */
+.glow{
+position:absolute;
+width:420px;
+height:420px;
+background:#14B8A6;
+opacity:.08;
+border-radius:50%;
+filter:blur(80px);
+top:-120px;
+right:-100px;
+}
+
+/* CONTENT */
+
+.content{
+flex:1;
+padding:35px 60px;
+display:flex;
+flex-direction:column;
+gap:18px;
+overflow-y:auto;     /* AKTIFKAN SCROLL */
+overflow-x:hidden;
+}
+
+/* SCROLL */
+.content::-webkit-scrollbar{
+width:10px;
+}
+
+.content::-webkit-scrollbar-track{
+background:#E2E8F0;
+border-radius:10px;
+}
+
+.content::-webkit-scrollbar-thumb{
+background:#0F766E;
+border-radius:10px;
+}
+
+.content::-webkit-scrollbar-thumb:hover{
+background:#115E59;
+}
+
+/* TASK CARD */
+.task{
+display:flex;
+align-items:flex-start;
+gap:18px;
+background:white;
+padding:20px 24px;
+border-radius:14px;
+box-shadow:0 6px 14px rgba(0,0,0,.06);
+border-left:6px solid #14B8A6;
+transition:.25s;
+}
+
+.task:hover{
+transform:translateX(8px);
+border-left-color:#FACC15;
+}
+
+/* ICON */
+.icon{
+width:48px;
+height:48px;
+border-radius:12px;
+background:#CCFBF1;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#0F766E;
+font-size:22px;
+flex-shrink:0;
+}
+
+/* LINK BOX */
+.linkbox{
+background:#EFF6FF;
+border:2px dashed #3B82F6;
+padding:14px;
+border-radius:10px;
+margin-top:10px;
+font-weight:600;
+color:#1E40AF;
+}
+
+/* SUBMIT BOX */
+.submit{
+margin-top:10px;
+background:linear-gradient(135deg,#FFFBEB,#FEF3C7);
+border:2px dashed #F59E0B;
+border-radius:16px;
+padding:18px;
+display:flex;
+gap:15px;
+align-items:center;
+}
+
+/* FOOTER */
+.footer{
+height:60px;
+background:white;
+border-top:1px solid #E2E8F0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 60px;
+}
+
+.nav button{
+background:#16A34A;
+color:white;
+padding:8px 16px;
+border-radius:8px;
+font-weight:600;
+margin-left:10px;
+}
+.nav button:hover{
+background:#15803D;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+<div class="glow"></div>
+
+<!-- HEADER -->
+<div class="header">
+<h1 class="text-4xl font-bold font-[Montserrat] flex items-center gap-4">
+<i class="fas fa-tasks text-yellow-300"></i>
+Tugas Praktikum Mandiri
+</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<!-- TUGAS 1 -->
+<div class="task">
+<div class="icon"><i class="fas fa-globe"></i></div>
+
+<div>
+<h2 class="text-2xl font-bold text-teal-700 mb-2">
+Tugas 1 — Integration & UI Testing (Katalon)
+</h2>
+
+<p class="text-lg text-slate-700">
+Lakukan automation testing menggunakan <b>Katalon Recorder</b>
+untuk menguji fitur web berikut:
+</p>
+
+<div class="linkbox">
+🔗 Link Website Testing : <br>
+https://isi-link-website-anda-di-sini.com
+</div>
+
+<p class="mt-3 text-lg text-slate-700">
+Lakukan proses:
+Record → Replay → Validasi hasil PASS/FAIL.
+</p>
+</div>
+</div>
+
+<!-- TUGAS 2 -->
+<div class="task">
+<div class="icon"><i class="fas fa-code"></i></div>
+
+<div>
+<h2 class="text-2xl font-bold text-teal-700 mb-2">
+Tugas 2 — Unit Testing (PyTest)
+</h2>
+
+<p class="text-lg text-slate-700">
+Lakukan pengujian <b>Unit Testing menggunakan PyTest</b>
+pada script kode Python berikut ini:
+</p>
+
+
+<div class="linkbox">
+🔗 Link File Unit Testing : <br>
+https://isi-link-website-anda-di-sini.com
+</div>
+
+<p class="mt-2 text-lg text-slate-700">
+Pastikan seluruh fungsi diuji dan menghasilkan laporan PASS atau FAILED.
+</p>
+</div>
+</div>
+
+<!-- PENGUMPULAN -->
+<div class="submit">
+<div class="icon bg-amber-200 text-amber-700">
+<i class="fas fa-file-pdf"></i>
+</div>
+
+<div>
+<h3 class="text-xl font-bold text-amber-800">
+Pengumpulan Tugas
+</h3>
+
+<p class="text-lg text-slate-700">
+Gabungkan hasil pengujian dalam bentuk <b>Laporan PDF</b>
+(screen capture + penjelasan hasil testing),
+kemudian upload ke <b>LMS</b>.
+</p>
+</div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+
+<p class="text-slate-600 font-medium">
+MK Pengujian Perangkat Lunak
+</p>
+
+<div class="nav">
+<button onclick="location.href='Slide 13.html'">
+<i class="fa-solid fa-arrow-left"></i> Back
+</button>
+
+<button onclick="location.href='Slide 15.html'">
+Next <i class="fa-solid fa-arrow-right"></i>
+</button>
+</div>
+
+<p class="text-slate-400 font-medium">
+Slide Tugas
+</p>
+
+</div>
+
+</div>
+</body>
+</html>

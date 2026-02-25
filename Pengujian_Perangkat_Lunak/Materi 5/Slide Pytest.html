@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Latihan Unit Testing dengan PyTest</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body{
+margin:0;
+width:1280px;
+height:720px;
+overflow:hidden;
+background:#F8FAFC;
+font-family:'Inter',sans-serif;
+}
+
+.slide-container{
+width:1280px;
+height:720px;
+display:flex;
+flex-direction:column;
+}
+
+.header-bg{
+background:#FFFFFF;
+height:100px;
+display:flex;
+align-items:center;
+padding:0 60px;
+border-bottom:6px solid #0F766E;
+}
+
+.content-area{
+flex:1;
+padding:40px 60px;
+display:flex;
+flex-direction:column;
+gap:20px;
+overflow-y:auto;
+overflow-x:hidden;
+}
+
+/* Scrollbar */
+.content-area::-webkit-scrollbar{width:10px;}
+.content-area::-webkit-scrollbar-track{background:#E2E8F0;}
+.content-area::-webkit-scrollbar-thumb{
+background:#0F766E;
+border-radius:10px;
+}
+
+.step-box{
+background:white;
+border-radius:12px;
+padding:20px 24px;
+box-shadow:0 8px 14px rgba(0,0,0,0.08);
+}
+
+.step-title{
+font-weight:700;
+color:#0F766E;
+margin-bottom:10px;
+font-size:20px;
+}
+
+.code{
+background:#1E293B;
+color:#E2E8F0;
+font-family:'Roboto Mono',monospace;
+padding:12px 16px;
+border-radius:8px;
+margin-top:10px;
+white-space:pre;
+}
+
+/* RESULT BOX */
+.result-box{
+background:#ECFDF5;
+border-left:6px solid #22C55E;
+padding:18px 22px;
+border-radius:10px;
+box-shadow:0 6px 12px rgba(0,0,0,0.06);
+}
+
+.footer{
+height:50px;
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 60px;
+border-top:1px solid #E2E8F0;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<!-- HEADER -->
+<div class="header-bg">
+<h1 class="text-4xl font-bold text-teal-800 flex items-center">
+<span class="bg-teal-100 p-2 rounded-lg mr-4 text-teal-700">
+<i class="fas fa-vial"></i>
+</span>
+Latihan Unit Testing dengan PyTest
+</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="content-area">
+
+<div class="step-box">
+<div class="step-title">1️⃣ Pastikan Python Sudah Terinstal</div>
+<p>Pytest membutuhkan Python versi 3.6 atau lebih baru.</p>
+<div class="code">python --version
+atau
+python3 --version</div>
+</div>
+
+<div class="step-box">
+<div class="step-title">2️⃣ Instal PyTest Menggunakan pip</div>
+<div class="code">pip install pytest</div>
+<p class="mt-2">Linux / Mac:</p>
+<div class="code">pip3 install pytest</div>
+</div>
+
+<div class="step-box">
+<div class="step-title">3️⃣ Verifikasi Instalasi</div>
+<div class="code">pytest --version</div>
+</div>
+
+<div class="step-box">
+<div class="step-title">4️⃣ Menggunakan PyTest dalam Proyek</div>
+<p>Buat file <b>test_sample.py</b>:</p>
+
+<div class="code">def tambah(a, b):
+    return a + b
+
+def test_tambah():
+    assert tambah(2,3) == 5</div>
+
+<p class="mt-2">Jalankan pengujian:</p>
+<div class="code">pytest</div>
+</div>
+
+<!-- HASIL BERHASIL -->
+<div class="result-box">
+<h3 class="text-xl font-bold text-green-700 flex items-center mb-2">
+<i class="fa-solid fa-circle-check mr-2"></i>
+Hasil Pengujian Berhasil
+</h3>
+
+<div class="code">================ test session starts ================
+collected 1 item
+
+test_sample.py .                 [100%]
+
+================ 1 passed in 0.01s =================</div>
+
+<p class="mt-2 text-green-800 font-medium">
+Artinya fungsi berjalan dengan benar dan semua pengujian dinyatakan <b>PASSED</b>.
+</p>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<p class="text-slate-600 font-medium">MK Pengujian Perangkat Lunak</p>
+
+<div class="flex gap-4">
+<button onclick="window.location.href='Slide 6.html'"
+class="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold">
+Back
+</button>
+
+<button onclick="window.location.href='Slide Latihanpytest.html'"
+class="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold">
+Next
+</button>
+</div>
+
+<p class="text-slate-400 font-medium">Slide Pytest</p>
+</div>
+
+</div>
+</body>
+</html>
