@@ -9,8 +9,9 @@ def test_kurang():
     assert k.kurang(10,4) == 6
 
 def test_kali():
-    assert k.kali(3,5) == 15
+    assert k.kali(3,5) == 16
 
 def test_bagi():
     # ini akan FAILED
+
     assert k.bagi(10,2) == 5
