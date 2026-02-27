@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Testing vs Acceptance Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .comparison-row {
+            transition: all 0.3s ease;
+        }
+        .comparison-row:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+            position: relative;
+        }
+        .aspect-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container bg-slate-50">
+<!-- Background Elements -->
+<div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-700 to-green-600 z-20"></div>
+<div class="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-bl-full z-0 opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-green-50 rounded-tr-full z-0 opacity-50"></div>
+<!-- Header -->
+<div class="px-16 pt-10 pb-6 z-10 relative">
+<div class="flex items-center space-x-3 mb-2">
+<span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase tracking-wider rounded-full">Bagian 3</span>
+<span class="text-gray-500 text-sm font-medium">Perbandingan</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900 leading-tight">
+                System Testing <span class="text-gray-400 font-light px-2">vs</span> <span class="text-blue-700">Acceptance Testing</span>
+</h1>
+<p class="mt-2 text-gray-600 text-lg">
+                Memahami perbedaan mendasar dari kedua tahap pengujian kritis ini.
+            </p>
+</div>
+<!-- Main Content: Comparison Table -->
+<div class="flex-1 px-16 pb-12 flex flex-col justify-center z-10">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-4 mb-4 px-6">
+<div class="col-span-2 text-gray-400 font-bold uppercase text-xs tracking-wider flex items-end pb-2">Aspek</div>
+<div class="col-span-5 bg-blue-50 p-4 rounded-t-xl border-b-4 border-blue-500 text-center">
+<h3 class="text-xl font-bold text-blue-800">System Testing</h3>
+</div>
+<div class="col-span-5 bg-green-50 p-4 rounded-t-xl border-b-4 border-green-500 text-center">
+<h3 class="text-xl font-bold text-green-800">Acceptance Testing</h3>
+</div>
+</div>
+<!-- Table Rows Container -->
+<div class="space-y-3">
+<!-- Row 1: Pelaku -->
+<div class="comparison-row bg-white rounded-xl p-4 shadow-sm border border-gray-100 grid grid-cols-12 gap-4 items-center">
+<div class="col-span-2 flex items-center space-x-3">
+<div class="aspect-icon bg-gray-100 text-gray-600">
+<i class="fas fa-users"></i>
+</div>
+<p class="font-bold text-gray-700 text-sm">PELAKU</p>
+</div>
+<div class="col-span-5 pl-4 border-l border-gray-100">
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<p class="text-gray-800 font-medium text-lg">QA Tester</p>
+</div>
+<p class="text-gray-500 text-xs mt-1 pl-5">Tim pengembang atau spesialis QA</p>
+</div>
+<div class="col-span-5 pl-4 border-l border-gray-100">
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<p class="text-gray-800 font-medium text-lg">User / Client</p>
+</div>
+<p class="text-gray-500 text-xs mt-1 pl-5">Pengguna akhir atau pemangku kepentingan</p>
+</div>
+</div>
+<!-- Row 2: Fokus -->
+<div class="comparison-row bg-white rounded-xl p-4 shadow-sm border border-gray-100 grid grid-cols-12 gap-4 items-center">
+<div class="col-span-2 flex items-center space-x-3">
+<div class="aspect-icon bg-gray-100 text-gray-600">
+<i class="fas fa-microscope"></i>
+</div>
+<p class="font-bold text-gray-700 text-sm">FOKUS</p>
+</div>
+<div class="col-span-5 pl-4 border-l border-gray-100">
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<p class="text-gray-800 font-medium text-lg">Sistem (Teknis)</p>
+</div>
+<p class="text-gray-500 text-xs mt-1 pl-5">Integrasi antar modul &amp; fungsionalitas</p>
+</div>
+<div class="col-span-5 pl-4 border-l border-gray-100">
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<p class="text-gray-800 font-medium text-lg">Kebutuhan Bisnis</p>
+</div>
+<p class="text-gray-500 text-xs mt-1 pl-5">Kesesuaian dengan proses bisnis nyata</p>
+</div>
+</div>
+<!-- Row 3: Tujuan -->
+<div class="comparison-row bg-white rounded-xl p-4 shadow-sm border border-gray-100 grid grid-cols-12 gap-4 items-center">
+<div class="col-span-2 flex items-center space-x-3">
+<div class="aspect-icon bg-gray-100 text-gray-600">
+<i class="fas fa-bullseye"></i>
+</div>
+<p class="font-bold text-gray-700 text-sm">TUJUAN</p>
+</div>
+<div class="col-span-5 pl-4 border-l border-gray-100">
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<p class="text-gray-800 font-medium text-lg">Validasi Teknis</p>
+</div>
+<p class="text-gray-500 text-xs mt-1 pl-5">Memastikan sistem berjalan benar (Verified)</p>
+</div>
+<div class="col-span-5 pl-4 border-l border-gray-100">
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<p class="text-gray-800 font-medium text-lg">Persetujuan Pengguna</p>
+</div>
+<p class="text-gray-500 text-xs mt-1 pl-5">Memastikan sistem yang dibangun tepat (Validated)</p>
+</div>
+</div>
+<!-- Row 4: Waktu -->
+<div class="comparison-row bg-white rounded-xl p-4 shadow-sm border border-gray-100 grid grid-cols-12 gap-4 items-center">
+<div class="col-span-2 flex items-center space-x-3">
+<div class="aspect-icon bg-gray-100 text-gray-600">
+<i class="fas fa-clock"></i>
+</div>
+<p class="font-bold text-gray-700 text-sm">WAKTU</p>
+</div>
+<div class="col-span-5 pl-4 border-l border-gray-100">
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-blue-500"></span>
+<p class="text-gray-800 font-medium text-lg">Sebelum UAT</p>
+</div>
+<p class="text-gray-500 text-xs mt-1 pl-5">Setelah Unit &amp; Integration Testing selesai</p>
+</div>
+<div class="col-span-5 pl-4 border-l border-gray-100">
+<div class="flex items-center space-x-3">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<p class="text-gray-800 font-medium text-lg">Tahap Akhir</p>
+</div>
+<p class="text-gray-500 text-xs mt-1 pl-5">Langkah terakhir sebelum Go-Live</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-16 text-gray-400 text-sm font-medium">
+            System Testing dan Acceptance Testing
+        </div>
+		<!-- NAVIGATION BUTTONS (BOTTOM CENTER) -->
+<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+
+<button onclick="goPrev()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+<i class="fa-solid fa-arrow-left"></i>
+Previous
+</button>
+
+<button onclick="goNext()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+Next
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+
+</div>
+<script> 
+function goPrev(){
+ window.location.href="Slide 15.html"; 
+ } 
+ function goNext(){ 
+ window.location.href="Slide 17.html"; 
+ } 
+ </script>
+<!-- Slide Number -->
+<div class="absolute bottom-6 right-16 text-gray-400 font-mono text-xl font-bold opacity-50">
+            16
+        </div>
+</div>
+</body>
+</html>

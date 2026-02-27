@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Peran User dalam Acceptance Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .focus-card {
+            transition: all 0.3s ease;
+        }
+        .focus-card:hover {
+            transform: translateX(5px);
+            background-color: #f0fdf4; /* green-50 */
+            border-left-color: #16a34a; /* green-600 */
+        }
+        .not-focus-card {
+            transition: all 0.3s ease;
+        }
+        .not-focus-card:hover {
+            transform: translateX(5px);
+            background-color: #f1f5f9; /* slate-100 */
+            border-left-color: #64748b; /* slate-500 */
+            opacity: 0.8;
+        }
+        .vs-badge {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container bg-slate-50">
+<!-- Background Elements -->
+<div class="absolute top-0 left-0 w-full h-2 bg-blue-900 z-20"></div>
+<div class="absolute bottom-0 right-0 w-1/2 h-full bg-slate-50 z-0"></div> <!-- Right side bg -->
+<div class="absolute bottom-0 left-0 w-1/2 h-full bg-white z-0"></div> <!-- Left side bg -->
+<!-- Header -->
+<div class="px-16 pt-12 pb-4 z-10 w-full bg-white">
+<div class="flex items-center space-x-3 mb-2">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider rounded-full">Bagian 2</span>
+<span class="text-gray-500 text-sm font-medium">Acceptance Testing</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900 leading-tight">
+                Peran User dalam <span class="text-blue-700">Acceptance Testing</span>
+</h1>
+<p class="mt-2 text-gray-600 text-lg">
+                Memahami batasan dan area fokus saat melakukan pengujian penerimaan.
+            </p>
+</div>
+<!-- Main Content Split Layout -->
+<div class="flex-1 flex w-full relative z-10">
+<!-- Central Divider Line -->
+<div class="absolute left-1/2 top-4 bottom-12 w-px bg-gray-200 transform -translate-x-1/2"></div>
+<!-- VS Badge -->
+<div class="vs-badge w-12 h-12 rounded-full bg-white border-4 border-gray-100 flex items-center justify-center text-gray-400 font-bold text-sm">
+                VS
+            </div>
+<!-- Left Column: FOKUS (Positive) -->
+<div class="w-1/2 px-16 py-6 bg-white flex flex-col h-full">
+<div class="flex items-center space-x-3 mb-8 border-b border-green-100 pb-4">
+<div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-600 text-2xl">
+<i class="fas fa-bullseye"></i>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-800">Fokus User</h2>
+<p class="text-sm text-green-600 font-medium">Apa yang harus dinilai?</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="focus-card p-4 rounded-lg border-l-4 border-green-500 bg-white shadow-sm flex items-start space-x-4">
+<div class="mt-1 text-green-500 text-xl"><i class="fas fa-check-circle"></i></div>
+<div>
+<h3 class="font-bold text-gray-800 text-lg">Kemudahan Penggunaan</h3>
+<p class="text-gray-600 text-sm mt-1">Apakah antarmuka intuitif dan mudah dipahami tanpa panduan teknis yang rumit?</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="focus-card p-4 rounded-lg border-l-4 border-green-500 bg-white shadow-sm flex items-start space-x-4">
+<div class="mt-1 text-green-500 text-xl"><i class="fas fa-briefcase"></i></div>
+<div>
+<h3 class="font-bold text-gray-800 text-lg">Kesesuaian Bisnis</h3>
+<p class="text-gray-600 text-sm mt-1">Apakah fitur yang ada benar-benar menjawab kebutuhan operasional sehari-hari?</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="focus-card p-4 rounded-lg border-l-4 border-green-500 bg-white shadow-sm flex items-start space-x-4">
+<div class="mt-1 text-green-500 text-xl"><i class="fas fa-smile"></i></div>
+<div>
+<h3 class="font-bold text-gray-800 text-lg">Kenyamanan (UX)</h3>
+<p class="text-gray-600 text-sm mt-1">Apakah alur kerja terasa lancar dan efisien bagi pengguna akhir?</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: BUKAN FOKUS (Negative/Neutral) -->
+<div class="w-1/2 px-16 py-6 bg-slate-50 flex flex-col h-full border-l border-gray-100">
+<div class="flex items-center space-x-3 mb-8 border-b border-gray-200 pb-4">
+<div class="w-12 h-12 rounded-lg bg-gray-200 flex items-center justify-center text-gray-500 text-2xl">
+<i class="fas fa-ban"></i>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-gray-400">Bukan Fokus</h2>
+<p class="text-sm text-gray-400 font-medium">Apa yang diabaikan user?</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="not-focus-card p-4 rounded-lg border-l-4 border-gray-300 bg-white shadow-sm flex items-start space-x-4 opacity-70">
+<div class="mt-1 text-gray-400 text-xl"><i class="fas fa-code"></i></div>
+<div>
+<h3 class="font-bold text-gray-500 text-lg">Kode Program</h3>
+<p class="text-gray-400 text-sm mt-1">User tidak perlu tahu bagaimana logika <i>if-else</i> atau algoritma ditulis di belakang layar.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="not-focus-card p-4 rounded-lg border-l-4 border-gray-300 bg-white shadow-sm flex items-start space-x-4 opacity-70">
+<div class="mt-1 text-gray-400 text-xl"><i class="fas fa-cogs"></i></div>
+<div>
+<h3 class="font-bold text-gray-500 text-lg">Detail Teknis</h3>
+<p class="text-gray-400 text-sm mt-1">Implementasi database, API endpoint, atau struktur server bukan urusan user.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="not-focus-card p-4 rounded-lg border-l-4 border-gray-300 bg-white shadow-sm flex items-start space-x-4 opacity-70">
+<div class="mt-1 text-gray-400 text-xl"><i class="fas fa-sitemap"></i></div>
+<div>
+<h3 class="font-bold text-gray-500 text-lg">Arsitektur Internal</h3>
+<p class="text-gray-400 text-sm mt-1">Struktur kelas, modularitas, atau design pattern tidak relevan bagi pengujian penerimaan.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-16 text-gray-400 text-sm font-medium">
+            System Testing dan Acceptance Testing
+        </div>
+		
+		<!-- NAVIGATION BUTTONS (BOTTOM CENTER) -->
+<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+
+<button onclick="goPrev()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+<i class="fa-solid fa-arrow-left"></i>
+Previous
+</button>
+
+<button onclick="goNext()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+Next
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+
+</div>
+<script> 
+function goPrev(){
+ window.location.href="Slide 14.html"; 
+ } 
+ function goNext(){ 
+ window.location.href="Slide 16.html"; 
+ } 
+ </script>
+<!-- Slide Number -->
+<div class="absolute bottom-6 right-16 text-gray-400 font-mono text-xl font-bold opacity-50">
+            15
+        </div>
+</div>
+</body>
+</html>

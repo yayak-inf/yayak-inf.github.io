@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tantangan System Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .challenge-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .challenge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px -5px rgba(234, 88, 12, 0.15), 0 8px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #fdba74;
+        }
+        .icon-wrapper {
+            transition: all 0.3s ease;
+        }
+        .challenge-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            background-color: #fff7ed;
+            color: #ea580c;
+        }
+        .stripe-pattern {
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(234, 88, 12, 0.05),
+                rgba(234, 88, 12, 0.05) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+        .warning-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0.1;
+            transition: opacity 0.3s;
+        }
+        .challenge-card:hover .warning-badge {
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container bg-slate-50">
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-2/3 h-full bg-orange-50/30 z-0" style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 70% 100%);"></div>
+<div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-orange-600 to-orange-400 z-20"></div>
+<div class="absolute top-[-50px] right-[-50px] w-64 h-64 bg-orange-100 rounded-full blur-3xl opacity-40"></div>
+<div class="absolute bottom-20 left-10 w-32 h-32 border-4 border-orange-200 rounded-full z-0 opacity-30 dashed"></div>
+<!-- Header -->
+<div class="px-16 pt-12 pb-6 z-10 relative">
+<div class="flex items-center space-x-3 mb-2">
+<span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider rounded-full">Bagian 1</span>
+<span class="text-gray-500 text-sm font-medium">System Testing</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900 leading-tight">
+                Tantangan <span class="text-orange-600">System Testing</span>
+</h1>
+<p class="mt-2 text-gray-600 text-lg max-w-2xl">
+                Hambatan dan kendala utama yang sering dihadapi saat proses pengujian sistem.
+            </p>
+</div>
+<!-- Main Content -->
+<div class="flex-1 px-16 pb-12 flex items-center justify-center z-10 w-full">
+<div class="grid grid-cols-3 gap-8 w-full max-w-6xl">
+<!-- Card 1: Time -->
+<div class="challenge-card bg-white p-8 rounded-2xl shadow-sm border border-orange-100 flex flex-col h-full stripe-pattern">
+<div class="warning-badge text-6xl text-orange-600">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<div class="icon-wrapper w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 text-3xl mb-6 shadow-sm">
+<i class="fas fa-clock"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3 border-l-4 border-orange-500 pl-3">Waktu Lama</h3>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Pengujian menyeluruh (end-to-end) membutuhkan waktu eksekusi yang signifikan, terutama jika dilakukan secara manual untuk skenario kompleks.
+                    </p>
+</div>
+<!-- Card 2: Environment -->
+<div class="challenge-card bg-white p-8 rounded-2xl shadow-sm border border-orange-100 flex flex-col h-full stripe-pattern">
+<div class="warning-badge text-6xl text-orange-600">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<div class="icon-wrapper w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 text-3xl mb-6 shadow-sm">
+<i class="fas fa-server"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3 border-l-4 border-orange-500 pl-3">Environment Kompleks</h3>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Membangun dan memelihara lingkungan tes (staging) yang benar-benar mirip dengan produksi membutuhkan resource besar dan konfigurasi rumit.
+                    </p>
+</div>
+<!-- Card 3: Dependencies -->
+<div class="challenge-card bg-white p-8 rounded-2xl shadow-sm border border-orange-100 flex flex-col h-full stripe-pattern">
+<div class="warning-badge text-6xl text-orange-600">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<div class="icon-wrapper w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-500 text-3xl mb-6 shadow-sm">
+<i class="fas fa-project-diagram"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3 border-l-4 border-orange-500 pl-3">Banyak Dependensi</h3>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Ketergantungan tinggi antar modul internal maupun sistem pihak ketiga (API eksternal) sering menyebabkan kegagalan tes yang sulit diisolasi.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-16 text-gray-400 text-sm font-medium">
+            System Testing dan Acceptance Testing
+        </div>
+		<!-- NAVIGATION BUTTONS (BOTTOM CENTER) -->
+<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+
+<button onclick="goPrev()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+<i class="fa-solid fa-arrow-left"></i>
+Previous
+</button>
+
+<button onclick="goNext()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+Next
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+
+</div>
+<script> 
+function goPrev(){
+ window.location.href="Slide 9.html"; 
+ } 
+ function goNext(){ 
+ window.location.href="Slide 11.html"; 
+ } 
+ </script>
+<!-- Slide Number -->
+<div class="absolute bottom-6 right-16 text-gray-400 font-mono text-xl font-bold opacity-50">
+            10
+        </div>
+</div>
+</body>
+</html>

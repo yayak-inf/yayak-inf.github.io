@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jenis Pengujian dalam System Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .type-card {
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #e5e7eb;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.15);
+            border-color: #3b82f6;
+        }
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: transparent;
+            transition: background-color 0.3s;
+        }
+        .type-card:hover::before {
+            background-color: #3b82f6;
+        }
+        .icon-bg {
+            transition: all 0.3s;
+        }
+        .type-card:hover .icon-bg {
+            background-color: #eff6ff;
+            color: #2563eb;
+            transform: scale(1.1);
+        }
+        /* Specific layout for the 5th item */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .last-item {
+            grid-column: span 2;
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container bg-slate-50">
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-blue-50/50" style="clip-path: polygon(100% 0, 100% 100%, 40% 100%);"></div>
+<div class="absolute top-0 left-0 w-full h-2 bg-blue-900 z-20"></div>
+<div class="absolute bottom-10 left-10 w-32 h-32 bg-green-100 rounded-full mix-blend-multiply filter blur-2xl opacity-50"></div>
+<div class="absolute top-20 right-20 w-40 h-40 bg-blue-100 rounded-full mix-blend-multiply filter blur-2xl opacity-50"></div>
+<!-- Header -->
+<div class="px-16 pt-10 pb-4 z-10">
+<div class="flex items-center space-x-3 mb-2">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider rounded-full">Bagian 1</span>
+<span class="text-gray-500 text-sm font-medium">System Testing</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900 leading-tight">
+                Jenis Pengujian dalam <span class="text-blue-700">System Testing</span>
+</h1>
+<p class="mt-2 text-gray-600">
+                Lingkup pengujian mencakup berbagai aspek fungsional dan non-fungsional.
+            </p>
+</div>
+<!-- Main Content Grid -->
+<div class="flex-1 px-16 pb-8 flex items-center justify-center z-10 overflow-hidden">
+<div class="grid-layout">
+<!-- 1. Functional Testing -->
+<div class="type-card p-5 flex items-start space-x-4">
+<div class="icon-bg w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center text-gray-600 flex-shrink-0">
+<i class="fas fa-cogs text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Functional Testing</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                            Memverifikasi setiap fitur sistem berjalan sesuai dengan spesifikasi kebutuhan (Functional Requirements).
+                        </p>
+</div>
+</div>
+<!-- 2. Performance Testing -->
+<div class="type-card p-5 flex items-start space-x-4">
+<div class="icon-bg w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center text-gray-600 flex-shrink-0">
+<i class="fas fa-tachometer-alt text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Performance Testing</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                            Menguji responsivitas, kecepatan, stabilitas, dan skalabilitas sistem di bawah beban kerja tertentu.
+                        </p>
+</div>
+</div>
+<!-- 3. Security Testing -->
+<div class="type-card p-5 flex items-start space-x-4">
+<div class="icon-bg w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center text-gray-600 flex-shrink-0">
+<i class="fas fa-shield-alt text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Security Testing</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                            Memastikan sistem aman dari ancaman, kerentanan, dan akses tidak sah terhadap data sensitif.
+                        </p>
+</div>
+</div>
+<!-- 4. Usability Testing -->
+<div class="type-card p-5 flex items-start space-x-4">
+<div class="icon-bg w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center text-gray-600 flex-shrink-0">
+<i class="fas fa-hand-pointer text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Usability Testing</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                            Menilai kemudahan penggunaan antarmuka dan pengalaman pengguna (User Experience) saat berinteraksi.
+                        </p>
+</div>
+</div>
+<!-- 5. Compatibility Testing (Centered) -->
+<div class="type-card p-5 flex items-start space-x-4 last-item shadow-sm">
+<div class="icon-bg w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center text-gray-600 flex-shrink-0">
+<i class="fas fa-desktop text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Compatibility Testing</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                            Memastikan sistem berjalan baik di berbagai lingkungan (browser, OS, perangkat keras, jaringan).
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-16 text-gray-400 text-sm font-medium">
+            System Testing dan Acceptance Testing
+        </div>
+		
+		<!-- NAVIGATION BUTTONS (BOTTOM CENTER) -->
+<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+
+<button onclick="goPrev()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+<i class="fa-solid fa-arrow-left"></i>
+Previous
+</button>
+
+<button onclick="goNext()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+Next
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+
+</div>
+<script> 
+function goPrev(){
+ window.location.href="Slide 6.html"; 
+ } 
+ function goNext(){ 
+ window.location.href="Slide 8.html"; 
+ } 
+ </script>
+<!-- Slide Number -->
+<div class="absolute bottom-6 right-16 text-gray-400 font-mono text-xl font-bold opacity-50">
+            07
+        </div>
+</div>
+</body>
+</html>

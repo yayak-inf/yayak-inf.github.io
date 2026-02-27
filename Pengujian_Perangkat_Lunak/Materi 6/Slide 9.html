@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kelebihan System Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .pro-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 10;
+        }
+        .pro-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .check-icon-large {
+            filter: drop-shadow(0 4px 6px rgba(16, 185, 129, 0.3));
+        }
+        .card-number {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 80px;
+            font-weight: 900;
+            color: #f0fdf4;
+            line-height: 1;
+            z-index: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+        .accent-bar {
+            width: 60px;
+            height: 4px;
+            background-color: #10b981;
+            margin-bottom: 16px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container bg-slate-50">
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-blue-50 z-0" style="clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);"></div>
+<div class="absolute bottom-0 left-0 w-full h-2 bg-blue-900 z-20"></div>
+<div class="absolute top-20 left-20 w-32 h-32 bg-green-100 rounded-full blur-3xl opacity-60"></div>
+<!-- Header -->
+<div class="px-16 pt-12 pb-6 z-10">
+<div class="flex items-center space-x-3 mb-2">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider rounded-full">Bagian 1</span>
+<span class="text-gray-500 text-sm font-medium">System Testing</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900 leading-tight">
+            Kelebihan <span class="text-green-600">System Testing</span>
+</h1>
+<p class="mt-2 text-gray-600 text-lg max-w-2xl">
+            Manfaat utama menjalankan pengujian sistem secara menyeluruh.
+        </p>
+</div>
+<!-- Main Content -->
+<div class="flex-1 px-16 pb-12 flex items-center justify-center z-10 w-full">
+<div class="grid grid-cols-3 gap-8 w-full max-w-6xl">
+<!-- Card 1 -->
+<div class="pro-card bg-white p-8 rounded-2xl shadow-sm border border-green-100 flex flex-col items-start h-full">
+<div class="card-number">01</div>
+<div class="content-layer w-full">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 text-3xl">
+<i class="fas fa-bug"></i>
+</div>
+<div class="check-icon-large text-green-500 text-4xl">
+<i class="fas fa-check-circle"></i>
+</div>
+</div>
+<div class="accent-bar"></div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Menemukan Bug Integrasi</h3>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Mendeteksi masalah kritis yang muncul hanya ketika modul-modul digabungkan, yang seringkali terlewat saat Unit Testing.
+                    </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="pro-card bg-white p-8 rounded-2xl shadow-sm border border-green-100 flex flex-col items-start h-full">
+<div class="card-number">02</div>
+<div class="content-layer w-full">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 text-3xl">
+<i class="fas fa-desktop"></i>
+</div>
+<div class="check-icon-large text-green-500 text-4xl">
+<i class="fas fa-check-circle"></i>
+</div>
+</div>
+<div class="accent-bar bg-blue-500"></div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Pengujian Realistis</h3>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Menguji sistem dalam kondisi yang meniru lingkungan produksi sebenarnya, memberikan gambaran akurat tentang pengalaman pengguna nanti.
+                    </p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="pro-card bg-white p-8 rounded-2xl shadow-sm border border-green-100 flex flex-col items-start h-full">
+<div class="card-number">03</div>
+<div class="content-layer w-full">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center text-red-600 text-3xl">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="check-icon-large text-green-500 text-4xl">
+<i class="fas fa-check-circle"></i>
+</div>
+</div>
+<div class="accent-bar bg-red-500"></div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Mengurangi Risiko Rilis</h3>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Meminimalkan kemungkinan kegagalan fatal saat peluncuran (deployment) karena isu mayor sudah diselesaikan di tahap ini.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-16 text-gray-400 text-sm font-medium">
+        System Testing dan Acceptance Testing
+    </div>
+	<!-- NAVIGATION BUTTONS (BOTTOM CENTER) -->
+<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+
+<button onclick="goPrev()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+<i class="fa-solid fa-arrow-left"></i>
+Previous
+</button>
+
+<button onclick="goNext()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+Next
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+
+</div>
+<script> 
+function goPrev(){
+ window.location.href="Slide 8.html"; 
+ } 
+ function goNext(){ 
+ window.location.href="Slide 10.html"; 
+ } 
+ </script>
+<!-- Slide Number -->
+<div class="absolute bottom-6 right-16 text-gray-400 font-mono text-xl font-bold opacity-50">
+        09
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Posisi System Testing dalam SDLC</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Custom Flow Line */
+        .flow-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #e5e7eb;
+            z-index: 0;
+            transform: translateY(-50%);
+        }
+        /* Step Cards */
+        .step-card {
+            z-index: 10;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .step-card.active {
+            transform: scale(1.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        /* Pulse Animation for Active Step */
+        @keyframes subtle-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+        .pulse-ring {
+            animation: subtle-pulse 2s infinite;
+        }
+        .arrow-connector {
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container bg-slate-50">
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full z-0 opacity-60"></div>
+<div class="absolute bottom-0 left-0 w-full h-3 bg-blue-900 z-20"></div>
+<!-- Header -->
+<div class="px-16 pt-12 pb-6 z-10">
+<div class="flex items-center space-x-3 mb-2">
+<span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold uppercase tracking-wider rounded-full">Bagian 1</span>
+<span class="text-gray-500 text-sm font-medium">Konteks SDLC</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900">Posisi <span class="text-blue-700">System Testing</span> dalam SDLC</h1>
+<p class="mt-2 text-gray-600 text-lg">Dimana tahapan ini berada dalam siklus hidup pengembangan sistem?</p>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col justify-center items-center px-16 pb-12 relative w-full">
+<!-- Process Flow Container -->
+<div class="w-full max-w-6xl relative mt-4">
+<!-- Connecting Line Behind -->
+<div class="flow-line rounded-full"></div>
+<!-- Steps Flex Container -->
+<div class="flex justify-between items-center w-full relative">
+<!-- Step 1: Unit Testing -->
+<div class="step-card flex flex-col items-center group w-56">
+<div class="w-20 h-20 bg-white border-2 border-gray-200 rounded-2xl flex items-center justify-center text-gray-400 mb-4 group-hover:border-blue-300 group-hover:text-blue-400 transition-colors shadow-sm">
+<i class="fas fa-code text-3xl"></i>
+</div>
+<div class="text-center">
+<h3 class="font-bold text-gray-500 group-hover:text-gray-700">Unit Testing</h3>
+<p class="text-xs text-gray-400 mt-1">Modul Individual</p>
+</div>
+</div>
+<!-- Arrow -->
+<div class="arrow-connector z-10">
+<i class="fas fa-chevron-right text-2xl"></i>
+</div>
+<!-- Step 2: Integration Testing -->
+<div class="step-card flex flex-col items-center group w-56">
+<div class="w-20 h-20 bg-white border-2 border-gray-200 rounded-2xl flex items-center justify-center text-gray-400 mb-4 group-hover:border-blue-300 group-hover:text-blue-400 transition-colors shadow-sm">
+<i class="fas fa-puzzle-piece text-3xl"></i>
+</div>
+<div class="text-center">
+<h3 class="font-bold text-gray-500 group-hover:text-gray-700">Integration Testing</h3>
+<p class="text-xs text-gray-400 mt-1">Gabungan Modul</p>
+</div>
+</div>
+<!-- Arrow -->
+<div class="arrow-connector z-10">
+<i class="fas fa-chevron-right text-2xl text-blue-400"></i>
+</div>
+<!-- Step 3: System Testing (Active/Highlighted) -->
+<div class="step-card active flex flex-col items-center w-64 -mt-6">
+<!-- Badge -->
+<div class="absolute -top-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md z-20">
+                            FOKUS KITA
+                        </div>
+<div class="w-28 h-28 bg-blue-600 rounded-2xl flex items-center justify-center text-white mb-5 shadow-xl pulse-ring relative overflow-hidden">
+<div class="absolute inset-0 bg-blue-500 opacity-20 transform rotate-45 scale-150"></div>
+<i class="fas fa-server text-5xl relative z-10"></i>
+<!-- Checkmark overlay -->
+<div class="absolute bottom-2 right-2 bg-white rounded-full p-1 w-6 h-6 flex items-center justify-center">
+<i class="fas fa-check text-xs text-green-500"></i>
+</div>
+</div>
+<div class="text-center">
+<h3 class="text-2xl font-bold text-blue-800">System Testing</h3>
+<p class="text-sm text-blue-600 font-medium mt-1">Sistem Terintegrasi Penuh</p>
+</div>
+</div>
+<!-- Arrow -->
+<div class="arrow-connector z-10">
+<i class="fas fa-chevron-right text-2xl"></i>
+</div>
+<!-- Step 4: Acceptance Testing -->
+<div class="step-card flex flex-col items-center group w-56 opacity-60">
+<div class="w-20 h-20 bg-white border-2 border-dashed border-gray-300 rounded-2xl flex items-center justify-center text-gray-400 mb-4 shadow-sm">
+<i class="fas fa-users text-3xl"></i>
+</div>
+<div class="text-center">
+<h3 class="font-bold text-gray-500">Acceptance Testing</h3>
+<p class="text-xs text-gray-400 mt-1">Validasi User</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Context Note Box -->
+<div class="mt-16 bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-lg max-w-3xl w-full flex items-start space-x-4 shadow-sm">
+<div class="text-blue-500 mt-1">
+<i class="fas fa-info-circle text-2xl"></i>
+</div>
+<div>
+<h4 class="font-bold text-blue-900 text-lg">Poin Penting</h4>
+<p class="text-blue-800 mt-1">
+                        System Testing adalah gerbang terakhir pengujian teknis <span class="font-bold underline">sebelum</span> sistem diserahkan ke lingkungan pengguna (Production/UAT).
+                    </p>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-5 left-16 text-gray-400 text-sm">
+            System Testing dan Acceptance Testing
+        </div>
+		
+		<!-- NAVIGATION BUTTONS (BOTTOM CENTER) -->
+<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+
+<button onclick="goPrev()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+<i class="fa-solid fa-arrow-left"></i>
+Previous
+</button>
+
+<button onclick="goNext()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+Next
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+
+</div>
+<script> 
+function goPrev(){
+ window.location.href="Slide 3.html"; 
+ } 
+ function goNext(){ 
+ window.location.href="Slide 5.html"; 
+ } 
+ </script>
+<!-- Slide Number -->
+<div class="absolute bottom-5 right-16 text-gray-400 font-mono text-xl font-bold opacity-50">
+            04
+        </div>
+</div>
+</body>
+</html>

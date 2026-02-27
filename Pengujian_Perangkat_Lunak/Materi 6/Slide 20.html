@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Diskusi - System Testing dan Acceptance Testing</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .question-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .question-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .number-badge {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 50px;
+            height: 60px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 20;
+        }
+        .icon-bg {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+            transition: transform 0.4s ease;
+        }
+        .question-card:hover .icon-bg {
+            transform: rotate(0deg) scale(1.1);
+            opacity: 0.15;
+        }
+        /* Decor Elements */
+        .dot-pattern {
+            background-image: radial-gradient(#94a3b8 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container bg-slate-50">
+<!-- Background Decorations -->
+<div class="absolute inset-0 dot-pattern opacity-30 z-0"></div>
+<div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full z-0"></div>
+<div class="absolute bottom-0 left-0 w-80 h-80 bg-green-50 rounded-tr-full z-0"></div>
+<!-- Header -->
+<div class="px-16 pt-12 pb-2 z-10 relative">
+<div class="flex items-center space-x-3 mb-2">
+<span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs font-bold uppercase tracking-wider rounded-full">Sesi Interaktif</span>
+<span class="text-gray-500 text-sm font-medium">Pertemuan 6</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-900 leading-tight">
+            Diskusi <span class="text-blue-700">Kelas</span> 💬
+        </h1>
+<p class="mt-2 text-gray-600 text-lg">
+            Mari analisis dan diskusikan studi kasus berikut untuk memperdalam pemahaman.
+        </p>
+</div>
+<!-- Main Content: 3 Discussion Cards -->
+<div class="flex-1 px-16 pb-12 flex items-center justify-center z-10 w-full">
+<div class="grid grid-cols-3 gap-8 w-full max-w-6xl h-auto">
+<!-- Question 1: Developer Role -->
+<div class="question-card bg-white rounded-2xl p-8 pt-16 border-t-4 border-blue-500 shadow-lg flex flex-col h-full">
+<div class="number-badge bg-blue-500">1</div>
+<div class="icon-bg text-blue-600">
+<i class="fas fa-user-shield"></i>
+</div>
+<div class="mb-4">
+<div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 text-3xl mb-4">
+<i class="fas fa-user-slash"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-2 leading-snug">Independensi Pengujian</h3>
+</div>
+<div class="flex-1">
+<p class="text-gray-600 text-lg font-medium leading-relaxed">
+                        "Mengapa Acceptance Testing sebaiknya <span class="text-blue-600 font-bold">tidak dilakukan</span> oleh developer yang membuat sistem tersebut?"
+                    </p>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100">
+<p class="text-sm text-gray-400 font-medium flex items-center">
+<i class="fas fa-lightbulb mr-2 text-yellow-400"></i> Clue: Bias &amp; Perspektif
+                    </p>
+</div>
+</div>
+<!-- Question 2: System vs Acceptance Gap -->
+<div class="question-card bg-white rounded-2xl p-8 pt-16 border-t-4 border-green-500 shadow-lg flex flex-col h-full">
+<div class="number-badge bg-green-500">2</div>
+<div class="icon-bg text-green-600">
+<i class="fas fa-tasks"></i>
+</div>
+<div class="mb-4">
+<div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center text-green-600 text-3xl mb-4">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-2 leading-snug">Kesenjangan Hasil Uji</h3>
+</div>
+<div class="flex-1">
+<p class="text-gray-600 text-lg font-medium leading-relaxed">
+                        "Apakah mungkin sebuah sistem <span class="text-green-600 font-bold">lolos System Testing</span> secara teknis, tetapi kemudian <span class="text-red-500 font-bold">gagal saat Acceptance Testing</span>?"
+                    </p>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100">
+<p class="text-sm text-gray-400 font-medium flex items-center">
+<i class="fas fa-lightbulb mr-2 text-yellow-400"></i> Clue: Verifikasi vs Validasi
+                    </p>
+</div>
+</div>
+<!-- Question 3: Success Factor -->
+<div class="question-card bg-white rounded-2xl p-8 pt-16 border-t-4 border-purple-500 shadow-lg flex flex-col h-full">
+<div class="number-badge bg-purple-500">3</div>
+<div class="icon-bg text-purple-600">
+<i class="fas fa-balance-scale"></i>
+</div>
+<div class="mb-4">
+<div class="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center text-purple-600 text-3xl mb-4">
+<i class="fas fa-balance-scale-right"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-2 leading-snug">Penentu Keberhasilan</h3>
+</div>
+<div class="flex-1">
+<p class="text-gray-600 text-lg font-medium leading-relaxed">
+                        "Mana yang lebih krusial menentukan suksesnya software: <span class="text-purple-600 font-bold">Kesempurnaan Teknis</span> atau <span class="text-purple-600 font-bold">Kesesuaian Kebutuhan User</span>?"
+                    </p>
+</div>
+<div class="mt-6 pt-4 border-t border-gray-100">
+<p class="text-sm text-gray-400 font-medium flex items-center">
+<i class="fas fa-lightbulb mr-2 text-yellow-400"></i> Clue: Berikan contoh nyata
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-16 text-gray-400 text-sm font-medium z-20">
+            System Testing dan Acceptance Testing
+        </div>
+		
+				
+		<!-- NAVIGATION BUTTONS (BOTTOM CENTER) -->
+<div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-50">
+
+<button onclick="goPrev()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+<i class="fa-solid fa-arrow-left"></i>
+Previous
+</button>
+
+<button onclick="goNext()"
+class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold shadow-lg transition">
+Next
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+
+</div>
+<script> 
+function goPrev(){
+ window.location.href="Slide 19.html"; 
+ } 
+ function goNext(){ 
+ window.location.href="Slide 20.html"; 
+ } 
+ </script>
+<!-- Slide Number -->
+<div class="absolute bottom-6 right-16 text-gray-400 font-mono text-xl font-bold opacity-50 z-20">
+            20
+        </div>
+</div>
+</body>
+</html>
