@@ -46,11 +46,13 @@ body {
 .emerald { background: rgba(16,185,129,0.12); }
 .violet { background: rgba(139,92,246,0.12); }
 
+    
 </style>
 
 </head>
 <body class="text-white">
 
+<!-- HEADER -->
 <!-- HEADER -->
 <header class="text-center py-16 px-6">
     <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4">
@@ -59,40 +61,80 @@ body {
 
     <p class="text-slate-300 max-w-2xl mx-auto text-lg">
         Mata kuliah yang membahas teknik dan strategi untuk memastikan kualitas serta keandalan perangkat lunak melalui berbagai metode pengujian.
+       
     </p>
-
-    <!-- DOSEN -->
+  
+    <!-- DOSEN PENGAMPU -->
     <div class="mt-8 flex justify-center">
         <div class="relative group">
-            <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 rounded-xl blur opacity-60 group-hover:opacity-100 transition"></div>
+            
+            <!-- Gradient Border -->
+            <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-500"></div>
+            
+            <!-- Content -->
             <div class="relative bg-slate-900 px-8 py-4 rounded-xl border border-white/10 shadow-xl">
                 <p class="text-sm uppercase tracking-widest text-cyan-400 font-semibold">
                     Dosen Pengampu
                 </p>
-                <p class="font-heading text-lg font-bold mt-1">
+                <p class="font-heading text-lg font-bold text-white mt-1">
                     Yayak Kartika Sari, M.Kom
                 </p>
+                <p class="text-xs text-slate-400 mt-1">
+                    Dosen Prodi Informatika
+                </p>
             </div>
+
         </div>
     </div>
-</header>
 
-<!-- CONTENT -->
+</header>
+<!-- COURSE CARD -->
 <section class="max-w-6xl mx-auto px-6 pb-20">
 
     <div class="bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-white/10">
 
-        <!-- DESKRIPSI -->
-        <div class="p-10">
-            <h2 class="text-2xl font-heading font-bold mb-4 text-blue-300">
-                Deskripsi Mata Kuliah
-            </h2>
-            <p class="text-slate-300 leading-relaxed">
-                Pengujian Perangkat Lunak berfokus pada teknik sistematis untuk menemukan kesalahan dalam sistem perangkat lunak guna menjamin kualitas sebelum digunakan.
-            </p>
+        <!-- TOP SECTION -->
+        <div class="grid md:grid-cols-2 gap-0">
+
+            <!-- IMAGE -->
+            <div class="relative group overflow-hidden">
+                <img src="ppl.jpg"
+                     class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+
+                <!-- Hover Overlay -->
+                <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center text-center p-6">
+                    <p class="text-sm text-slate-200">
+                       </p>
+                    
+                </div>
+            </div>
+
+            <!-- DESCRIPTION -->
+            <div class="p-10 flex flex-col justify-center">
+                <h2 class="text-2xl font-heading font-bold mb-4 text-blue-300">
+                    Deskripsi Mata Kuliah
+                </h2>
+                <p class="text-slate-300 leading-relaxed">
+                    Pengujian Perangkat Lunak berfokus pada teknik sistematis untuk 
+                    menemukan kesalahan dalam sistem perangkat lunak guna menjamin 
+                    kualitas sebelum sistem digunakan oleh pengguna.
+                      Mata kuliah ini mencakup Black-box Testing, White-box Testing, 
+                        teknik perancangan test case, automation testing, hingga manajemen pengujian.
+                   
+     
+                    
+                </p>
+
+                <div class="mt-6">
+                    <span class="inline-block bg-blue-500/20 text-blue-300 px-4 py-2 rounded-lg text-sm">
+                        Semester 6 • 3 SKS
+                    </span>
+                </div>
+            </div>
+
         </div>
 
-        <!-- MATERI -->
+        <!-- MEETINGS SECTION -->
         <div class="p-10 border-t border-white/10">
 
             <h3 class="text-xl font-heading font-bold mb-6 text-center text-blue-300">
@@ -101,74 +143,153 @@ body {
 
             <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
 
-                <a href="#" class="card blue">
-                    <h4 class="font-heading font-semibold">Materi 1</h4>
+                <!-- ITEM -->
+                <a href="Pengujian_Perangkat_Lunak/Materi 1/Slide 1.html"
+                   class="card blue">
+                    <h4 class="font-heading font-semibold text-lg">Materi 1</h4>
                     <p class="text-sm text-slate-300 mt-2">Pengantar Pengujian</p>
                 </a>
 
-                <a href="#" class="card green">
-                    <h4 class="font-heading font-semibold">Materi 2</h4>
+                <a href="Pengujian_Perangkat_Lunak/Materi 2/Slide 1.html"
+                   class="card green">
+
+                    <h4 class="font-heading font-semibold text-lg">Materi 2</h4>
                     <p class="text-sm text-slate-300 mt-2">Konsep Dasar Testing</p>
                 </a>
 
-                <a href="#" class="card purple">
-                    <h4 class="font-heading font-semibold">Materi 3</h4>
-                    <p class="text-sm text-slate-300 mt-2">Jenis Pengujian</p>
+                <a href="Pengujian_Perangkat_Lunak/Materi 3/Slide 1.html"
+                   class="card purple">
+
+                    <h4 class="font-heading font-semibold text-lg">Materi 3</h4>
+                    <p class="text-sm text-slate-300 mt-2">Jenis-jenis Pengujian PL</p>
                 </a>
 
-                <a href="#" class="card pink">
-                    <h4 class="font-heading font-semibold">Materi 4</h4>
-                    <p class="text-sm text-slate-300 mt-2">Teknik Testing</p>
+                <a href="Pengujian_Perangkat_Lunak/Materi 4/Slide 1.html"
+                   class="card pink">
+
+                    <h4 class="font-heading font-semibold text-lg">Materi 4</h4>
+                    <p class="text-sm text-slate-300 mt-2">Teknik Pengujian PL</p>
                 </a>
 
-                <a href="#" class="card yellow">
-                    <h4 class="font-heading font-semibold">Materi 5</h4>
-                    <p class="text-sm text-slate-300 mt-2">Unit & Integrasi</p>
+                <a href="Pengujian_Perangkat_Lunak/Materi 5/Slide 1.html"
+                   class="card yellow">
+                    <h4 class="font-heading font-semibold text-lg">Materi 5</h4>
+                    <p class="text-sm text-slate-300 mt-2">Unit dan Integrasi Testing</p>
                 </a>
 
-                <a href="#" class="card indigo">
-                    <h4 class="font-heading font-semibold">Materi 6</h4>
-                    <p class="text-sm text-slate-300 mt-2">System Testing</p>
+                <a href="Pengujian_Perangkat_Lunak/Materi 6/Slide 1.html"
+                   class="card indigo">
+
+                    <h4 class="font-heading font-semibold text-lg">Materi 6</h4>
+                    <p class="text-sm text-slate-300 mt-2">System Testing dan Acceptance Testing</p>
                 </a>
 
-                <a href="#" class="card teal">
-                    <h4 class="font-heading font-semibold">Materi 7</h4>
-                    <p class="text-sm text-slate-300 mt-2">Automation</p>
+
+                <a href="Pengujian_Perangkat_Lunak/Materi 7/Slide 1.html"
+                   class="card teal">
+
+                 <h4 class="font-heading font-semibold text-lg">Materi 7</h4>
+                    <p class="text-sm text-slate-300 mt-2">Automated Testing</p>
+                </a>
+                              
+                <a href="Pengujian_Perangkat_Lunak/Materi 8/Slide 1.html"
+                   class="card orange">
+                 <h4 class="font-heading font-semibold text-lg">Materi 8</h4>
+                    <p class="text-sm text-slate-300 mt-2">Performance Testing</p>
                 </a>
 
-                <a href="#" class="card orange">
-                    <h4 class="font-heading font-semibold">Materi 8</h4>
-                    <p class="text-sm text-slate-300 mt-2">Performance</p>
+                <a href="Pengujian_Perangkat_Lunak/Materi 9/Slide 1.html"
+                   class="card cyan">
+                 <h4 class="font-heading font-semibold text-lg">Materi 9</h4>
+                    <p class="text-sm text-slate-300 mt-2">Security Testing</p>
                 </a>
 
-                <a href="#" class="card cyan">
-                    <h4 class="font-heading font-semibold">Materi 9</h4>
-                    <p class="text-sm text-slate-300 mt-2">Security</p>
+                <a href="Pengujian_Perangkat_Lunak/Materi 10/Slide 1.html"
+                   class="card rose">
+                 <h4 class="font-heading font-semibold text-lg">Materi 10</h4>
+                    <p class="text-sm text-slate-300 mt-2">Usability Testing dan UX</p>
                 </a>
 
-                <a href="#" class="card rose">
-                    <h4 class="font-heading font-semibold">Materi 10</h4>
-                    <p class="text-sm text-slate-300 mt-2">Usability & UX</p>
-                </a>
+                <a href="Pengujian_Perangkat_Lunak/Materi 11/Slide 1.html"
+                    class="card emerald">
+                 <h4 class="font-heading font-semibold text-lg">Materi 11</h4>
+                    <p class="text-sm text-slate-300 mt-2">Bug Tracking dan Manajemen Defect</p>
+                </a>      
 
-                <a href="#" class="card emerald">
-                    <h4 class="font-heading font-semibold">Materi 11</h4>
-                    <p class="text-sm text-slate-300 mt-2">Bug Tracking</p>
-                </a>
+                <a href="Pengujian_Perangkat_Lunak/Materi 12/Slide 1.html"
+                   class="card violet">
+                 <h4 class="font-heading font-semibold text-lg">Materi 12</h4>
+                    <p class="text-sm text-slate-300 mt-2">Test Plan dan Test Case Development</p>
+                </a>        
 
-                <a href="#" class="card violet">
-                    <h4 class="font-heading font-semibold">Materi 12</h4>
-                    <p class="text-sm text-slate-300 mt-2">Test Plan</p>
-                </a>
-
+             
             </div>
 
         </div>
 
     </div>
 
+<!-- EVALUASI MAHASISWA -->
+<div class="mt-12">
+
+    <h3 class="text-xl font-heading font-bold mb-6 text-center text-cyan-300">
+        🎯 Evaluasi Perkuliahan
+    </h3>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- PROJECT AKHIR -->
+        <a href="#"
+        class="relative group rounded-xl overflow-hidden p-6 text-center
+        bg-gradient-to-r from-indigo-500 to-blue-600
+        hover:scale-105 transition duration-300 shadow-xl">
+
+            <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+
+            <i class="fa-solid fa-laptop-code text-4xl mb-3"></i>
+            <h4 class="font-heading text-xl font-bold">Project Akhir</h4>
+            <p class="text-sm text-blue-100 mt-2">
+                Implementasi pengujian perangkat lunak pada studi kasus nyata.
+            </p>
+        </a>
+
+        <!-- UTS -->
+        <a href="#"
+        class="relative group rounded-xl overflow-hidden p-6 text-center
+        bg-gradient-to-r from-emerald-500 to-teal-600
+        hover:scale-105 transition duration-300 shadow-xl">
+
+            <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+
+            <i class="fa-solid fa-pen-to-square text-4xl mb-3"></i>
+            <h4 class="font-heading text-xl font-bold">UTS</h4>
+            <p class="text-sm text-emerald-100 mt-2">
+                Evaluasi pemahaman konsep dasar pengujian perangkat lunak.
+            </p>
+        </a>
+
+        <!-- UAS -->
+        <a href="#"
+        class="relative group rounded-xl overflow-hidden p-6 text-center
+        bg-gradient-to-r from-rose-500 to-pink-600
+        hover:scale-105 transition duration-300 shadow-xl">
+
+            <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition"></div>
+
+            <i class="fa-solid fa-graduation-cap text-4xl mb-3"></i>
+            <h4 class="font-heading text-xl font-bold">UAS</h4>
+            <p class="text-sm text-rose-100 mt-2">
+                Penilaian akhir kemampuan analisis dan praktik testing.
+            </p>
+        </a>
+
+    </div>
+</div>
+
+    
 </section>
 
+<!-- FOOTER -->
 <footer class="text-center py-6 text-slate-400 text-sm">
     © 2026 • Portal Pengujian Perangkat Lunak
 </footer>
