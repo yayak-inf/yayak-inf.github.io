@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+
+body {
+  margin: 0;
+  background: #0b1220;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  display: flex;
+  position: relative;
+}
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px);
+    }
+    .muted { color: rgba(255,255,255,0.78); }
+    .hairline { background: rgba(255,255,255,0.12); }
+  </style>
+</head>
+<body>
+<div class="slide">
+<!-- Decorative shapes (no gradients) -->
+<div style="position:absolute; inset:0; pointer-events:none;">
+<div style="position:absolute; left:-120px; top:-140px; width:520px; height:520px; border-radius:9999px; background:#0b3a8a; opacity:0.35;"></div>
+<div style="position:absolute; right:-160px; bottom:-180px; width:640px; height:640px; border-radius:9999px; background:#0a2a5f; opacity:0.55;"></div>
+<div style="position:absolute; left:0; top:0; width:1280px; height:720px;">
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; bottom:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1px; height:536px;"></div>
+<div class="hairline" style="position:absolute; right:88px; top:92px; width:1px; height:536px;"></div>
+</div>
+</div>
+<!-- Main layout -->
+<div class="flex-1 flex flex-col px-24 py-20 relative z-10">
+<!-- Top meta bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="card flex items-center justify-center" style="width:44px;height:44px;border-radius:12px;">
+<i class="fa-solid fa-gauge-high text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-semibold tracking-wide">Mata Kuliah: Pengujian Perangkat Lunak</p>
+<p class="muted text-xs">Program Studi: Informatika • Semester: 6 • Mareri : 8</p>
+</div>
+</div>
+
+
+<!-- NAVIGATION BUTTONS -->
+<div class="flex items-center gap-3">
+
+
+
+  <!-- Tombol Prev -->
+  <button onclick="goPrev()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <!-- Tombol Next -->
+  <button onclick="goNext()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 1.html";
+}
+
+function goNext() {
+    window.location.href = "Slide 2.html";
+}
+</script>
+
+
+
+</div>
+<!-- Hero title -->
+ <div class="flex-1 flex items-center">
+<div class="w-full">
+<div class="inline-flex items-center card px-4 py-2 mb-6" style="border-radius:12px;">
+<i class="fa-solid fa-stopwatch text-white mr-3" style="font-size:16px;"></i>
+<p class="text-white text-sm font-semibold tracking-wide">Topik: Performance Testing</p>
+</div>
+<p class="text-white font-extrabold leading-none" style="font-size:72px; letter-spacing:-0.02em;">
+            Performance<br/>Testing
+          </p>
+<p class="muted mt-5" style="font-size:20px; line-height:1.5; max-width:820px;">
+            Mengukur <span class="text-white font-semibold">kecepatan</span>, <span class="text-white font-semibold">stabilitas</span>, dan <span class="text-white font-semibold">ketahanan</span> sistem saat menghadapi beban.
+          </p>
+<!-- Key highlights -->
+<div class="mt-10 grid grid-cols-4 gap-4" style="max-width:1040px;">
+<div class="card p-4" style="border-radius:16px;">
+<div class="flex items-center space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:#0b3a8a; display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-bolt text-white" style="font-size:14px;"></i>
+</div>
+<div>
+<p class="text-white font-semibold text-sm">Response Time</p>
+<p class="muted text-xs">Kecepatan respon</p>
+</div>
+</div>
+</div>
+<div class="card p-4" style="border-radius:16px;">
+<div class="flex items-center space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:#0b3a8a; display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-arrows-rotate text-white" style="font-size:14px;"></i>
+</div>
+<div>
+<p class="text-white font-semibold text-sm">Throughput</p>
+<p class="muted text-xs">Request / detik</p>
+</div>
+</div>
+</div>
+<div class="card p-4" style="border-radius:16px;">
+<div class="flex items-center space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:#0b3a8a; display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-shield-halved text-white" style="font-size:14px;"></i>
+</div>
+<div>
+<p class="text-white font-semibold text-sm">Stability</p>
+<p class="muted text-xs">Tahan beban</p>
+</div>
+</div>
+</div>
+<div class="card p-4" style="border-radius:16px;">
+<div class="flex items-center space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:#0b3a8a; display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-users text-white" style="font-size:14px;"></i>
+</div>
+<div>
+<p class="text-white font-semibold text-sm">Concurrent Users</p>
+<p class="muted text-xs">User bersamaan</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:10px; height:10px; border-radius:9999px; background:#2dd4bf;"></div>
+<p class="muted text-sm">Materi perkuliahan — siap untuk praktikum menggunakan tools performance testing.</p>
+</div>
+<div class="flex items-center space-x-2">
+<p class="muted text-xs">MK: Pengujian Perangkat Lunak</p>
+<div style="width:6px;height:6px;border-radius:9999px;background:rgba(255,255,255,0.25);"></div>
+<p class="muted text-xs">Informatika S6</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+body {
+  margin: 0;
+  background: #0b1220;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  display: flex;
+  position: relative;
+}
+    .card{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px);
+    }
+    .muted{ color: rgba(255,255,255,0.78); }
+    .hairline{ background: rgba(255,255,255,0.12); }
+    .chip{
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    }
+    .toolBadge{
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+<!-- Decorative shapes (no gradients) -->
+<div style="position:absolute; inset:0; pointer-events:none;">
+<div style="position:absolute; left:-180px; top:-200px; width:560px; height:560px; border-radius:9999px; background:#0b3a8a; opacity:0.20;"></div>
+<div style="position:absolute; right:-240px; bottom:-260px; width:860px; height:860px; border-radius:9999px; background:#0a2a5f; opacity:0.62;"></div>
+<div style="position:absolute; left:0; top:0; width:1280px; height:720px;">
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; bottom:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1px; height:536px;"></div>
+<div class="hairline" style="position:absolute; right:88px; top:92px; width:1px; height:536px;"></div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col px-24 py-16 relative z-10">
+<!-- Top bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="card flex items-center justify-center" style="width:44px;height:44px;border-radius:12px;">
+<i class="fa-solid fa-toolbox text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-semibold tracking-wide">Mata Kuliah: Pengujian Perangkat Lunak</p>
+<p class="muted text-xs">Program Studi: Informatika • Semester: 6 • Materi 8</p>
+</div>
+</div>
+
+
+
+<!-- NAVIGATION BUTTONS -->
+<div class="flex items-center gap-3">
+
+  <!-- Label -->
+  <div class="chip px-4 py-2" style="border-radius:9999px;">
+    <p class="text-white text-sm font-semibold">Tools Performance Testing</p>
+  </div>
+
+  <!-- Tombol Prev -->
+  <button onclick="goPrev()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <!-- Tombol Next -->
+  <button onclick="goNext()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 12.html";
+}
+
+function goNext() {
+    window.location.href = "Slide 14.html";
+}
+</script>
+
+
+
+</div>
+<!-- Title -->
+<div class="mt-10">
+<p class="text-white font-extrabold" style="font-size:48px; letter-spacing:-0.02em;">Tools Performance Testing Populer</p>
+<p class="muted mt-2" style="font-size:18px; line-height:1.6; max-width:1040px;">
+          Pilih tools berdasarkan kebutuhan: jenis protokol, skala beban, kemudahan scripting, integrasi CI/CD, dan kebutuhan pelaporan.
+        </p>
+</div>
+<!-- Gallery -->
+<div class="flex-1 mt-10 grid grid-cols-2 gap-6">
+<!-- Apache JMeter -->
+<div class="card p-8 flex flex-col" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div style="width:60px;height:60px;border-radius:18px;background:rgba(245,158,11,0.14); border:1px solid rgba(245,158,11,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-mug-hot text-white" style="font-size:22px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:22px;">Apache JMeter</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.55;">
+                  Open-source untuk load/performance testing dan API testing (HTTP/HTTPS). Cocok untuk praktikum dan eksperimen cepat.
+                </p>
+</div>
+</div>
+<div class="toolBadge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">GUI + Report</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-3">
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-plug mr-2"></i>Plugin luas</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.5;">Banyak sampler &amp; listener untuk analisis.</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-code mr-2"></i>Scripting</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.5;">Dapat menggunakan Groovy/JSR223.</p>
+</div>
+</div>
+<div class="mt-5 chip p-4" style="border-radius:16px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Kapan dipakai?</p>
+<p class="muted text-xs mono">proyek akademik / QA</p>
+</div>
+<p class="muted mt-2" style="font-size:12px; line-height:1.55;">
+              Saat butuh skenario HTTP yang mudah dibuat, hasil bisa dilihat langsung, dan laporan cepat untuk dibandingkan antar iterasi.
+            </p>
+</div>
+</div>
+<!-- LoadRunner -->
+<div class="card p-8 flex flex-col" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div style="width:60px;height:60px;border-radius:18px;background:rgba(96,165,250,0.16); border:1px solid rgba(96,165,250,0.30); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-building text-white" style="font-size:22px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:22px;">LoadRunner</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.55;">
+                  Solusi enterprise untuk performance testing berskala besar dengan ekosistem tooling dan pelaporan yang matang.
+                </p>
+</div>
+</div>
+<div class="toolBadge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">Enterprise</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-3">
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-network-wired mr-2"></i>Protokol beragam</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.5;">Umumnya mendukung banyak tipe beban.</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-chart-pie mr-2"></i>Analitik &amp; report</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.5;">Fokus pada insight performa &amp; SLA.</p>
+</div>
+</div>
+<div class="mt-5 chip p-4" style="border-radius:16px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Kapan dipakai?</p>
+<p class="muted text-xs mono">organisasi besar</p>
+</div>
+<p class="muted mt-2" style="font-size:12px; line-height:1.55;">
+              Saat butuh testing terstandar, dukungan vendor, dan orkestrasi beban untuk lingkungan enterprise.
+            </p>
+</div>
+</div>
+<!-- Gatling -->
+<div class="card p-8 flex flex-col" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div style="width:60px;height:60px;border-radius:18px;background:rgba(45,212,191,0.14); border:1px solid rgba(45,212,191,0.30); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-rocket text-white" style="font-size:22px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:22px;">Gatling</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.55;">
+                  Tool performa berorientasi kode (Scala DSL). Cocok untuk tim yang nyaman dengan scripting dan versioning di Git.
+                </p>
+</div>
+</div>
+<div class="toolBadge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">Code-first</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-3">
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-code-branch mr-2"></i>Maintainable</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.5;">Skenario mudah di-review via PR.</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-file-lines mr-2"></i>Report otomatis</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.5;">Ringkasan latensi &amp; throughput.</p>
+</div>
+</div>
+<div class="mt-5 chip p-4" style="border-radius:16px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Kapan dipakai?</p>
+<p class="muted text-xs mono">CI/CD &amp; Dev team</p>
+</div>
+<p class="muted mt-2" style="font-size:12px; line-height:1.55;">
+              Saat performance test menjadi bagian pipeline dan skenario perlu dipelihara seperti kode aplikasi.
+            </p>
+</div>
+</div>
+<!-- k6 -->
+<div class="card p-8 flex flex-col" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div style="width:60px;height:60px;border-radius:18px;background:rgba(239,68,68,0.14); border:1px solid rgba(239,68,68,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-brands fa-js text-white" style="font-size:22px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:22px;">k6</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.55;">
+                  Tool modern yang developer-friendly dengan scripting JavaScript. Ringan untuk menjalankan load test dan integrasi otomatis.
+                </p>
+</div>
+</div>
+<div class="toolBadge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">JS scripts</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-3">
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-terminal mr-2"></i>CLI</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.5;">Cocok untuk otomatisasi dan container.</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-bullseye mr-2"></i>Threshold</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.5;">Definisikan target SLO sebagai “gates”.</p>
+</div>
+</div>
+<div class="mt-5 chip p-4" style="border-radius:16px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Kapan dipakai?</p>
+<p class="muted text-xs mono">API load test</p>
+</div>
+<p class="muted mt-2" style="font-size:12px; line-height:1.55;">
+              Saat Anda butuh skenario yang ringkas, mudah diparameterisasi, dan cocok dipasang di pipeline build/test.
+            </p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:10px; height:10px; border-radius:9999px; background:#60a5fa;"></div>
+<p class="muted text-sm">Praktikum pertemuan ini menggunakan <span class="text-white font-semibold">Apache JMeter</span> untuk uji login sederhana.</p>
+</div>
+<div class="flex items-center space-x-2">
+<p class="muted text-xs">Topik: Performance Testing</p>
+<div style="width:6px;height:6px;border-radius:9999px;background:rgba(255,255,255,0.25);"></div>
+<p class="muted text-xs">Slide 13/20</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

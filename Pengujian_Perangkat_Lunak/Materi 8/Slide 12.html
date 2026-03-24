@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+body {
+  margin: 0;
+  background: #0b1220;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  display: flex;
+  position: relative;
+}
+    .card{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px);
+    }
+    .muted{ color: rgba(255,255,255,0.78); }
+    .hairline{ background: rgba(255,255,255,0.12); }
+    .chip{
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+<!-- Decorative shapes (no gradients) -->
+<div style="position:absolute; inset:0; pointer-events:none;">
+<div style="position:absolute; left:-180px; top:-200px; width:560px; height:560px; border-radius:9999px; background:#0b3a8a; opacity:0.20;"></div>
+<div style="position:absolute; right:-240px; bottom:-260px; width:860px; height:860px; border-radius:9999px; background:#0a2a5f; opacity:0.62;"></div>
+<div style="position:absolute; left:0; top:0; width:1280px; height:720px;">
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; bottom:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1px; height:536px;"></div>
+<div class="hairline" style="position:absolute; right:88px; top:92px; width:1px; height:536px;"></div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col px-24 py-16 relative z-10">
+<!-- Top bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="card flex items-center justify-center" style="width:44px;height:44px;border-radius:12px;">
+<i class="fa-solid fa-bullseye text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-semibold tracking-wide">Mata Kuliah: Pengujian Perangkat Lunak</p>
+<p class="muted text-xs">Program Studi: Informatika • Semester: 6 • Materi 8</p>
+</div>
+</div>
+
+
+<!-- NAVIGATION BUTTONS -->
+<div class="flex items-center gap-3">
+
+  <!-- Label -->
+  <div class="chip px-4 py-2" style="border-radius:9999px;">
+    <p class="text-white text-sm font-semibold">Target Metrik</p>
+  </div>
+
+  <!-- Tombol Prev -->
+  <button onclick="goPrev()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <!-- Tombol Next -->
+  <button onclick="goNext()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 11.html";
+}
+
+function goNext() {
+    window.location.href = "Slide 13.html";
+}
+</script>
+
+
+</div>
+<!-- Title -->
+<div class="mt-10">
+<p class="text-white font-extrabold" style="font-size:48px; letter-spacing:-0.02em;">Contoh Target Metrik</p>
+<p class="muted mt-2" style="font-size:18px; line-height:1.6; max-width:1040px;">
+          Contoh <span class="text-white font-semibold">SLO</span> (Service Level Objective) sederhana untuk skenario
+          <span class="text-white font-semibold">pengujian login</span>. Sesuaikan angka dengan kebutuhan sistem dan kapasitas infrastruktur.
+        </p>
+</div>
+<!-- KPI Grid -->
+<div class="flex-1 mt-10 grid grid-cols-2 gap-6">
+<!-- Response Time -->
+<div class="card p-8 flex flex-col" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div style="width:56px;height:56px;border-radius:18px;background:rgba(45,212,191,0.16); border:1px solid rgba(45,212,191,0.30); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-stopwatch text-white" style="font-size:20px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:22px;">Response Time</p>
+<p class="muted" style="font-size:13px;">Target latensi untuk mayoritas pengguna</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">ms / s</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-3 gap-3">
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-percent mr-2"></i>P95</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">&lt; 3 detik</p>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-bolt mr-2"></i>Rata-rata</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">≤ 1.5 detik</p>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Timeout</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">≤ 10 detik</p>
+</div>
+</div>
+<div class="mt-6 chip p-5" style="border-radius:18px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Acceptance criteria</p>
+<p class="muted text-xs mono">P95 &lt; 3s</p>
+</div>
+<div class="mt-3" style="height:10px;border-radius:9999px;background:rgba(255,255,255,0.10); overflow:hidden;">
+<div style="height:10px;width:74%;background:#2dd4bf; opacity:0.95;"></div>
+</div>
+<p class="muted mt-3" style="font-size:12px; line-height:1.55;">Gunakan P95 untuk menangkap “pengalaman terburuk” mayoritas user saat beban meningkat.</p>
+</div>
+</div>
+<!-- Throughput -->
+<div class="card p-8 flex flex-col" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div style="width:56px;height:56px;border-radius:18px;background:rgba(96,165,250,0.16); border:1px solid rgba(96,165,250,0.30); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-arrows-rotate text-white" style="font-size:20px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:22px;">Throughput</p>
+<p class="muted" style="font-size:13px;">Target kapasitas request per detik</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">RPS</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-3 gap-3">
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-gauge mr-2"></i>Minimum</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">≥ 200 RPS</p>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-arrow-trend-up mr-2"></i>Stabil</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">Fluktuasi kecil</p>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-hand mr-2"></i>Tanpa drop</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">di beban target</p>
+</div>
+</div>
+<div class="mt-6 chip p-5" style="border-radius:18px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Acceptance criteria</p>
+<p class="muted text-xs mono">≥ 200 RPS</p>
+</div>
+<div class="mt-3" style="height:10px;border-radius:9999px;background:rgba(255,255,255,0.10); overflow:hidden;">
+<div style="height:10px;width:82%;background:#60a5fa; opacity:0.95;"></div>
+</div>
+<p class="muted mt-3" style="font-size:12px; line-height:1.55;">Pastikan throughput dipantau bersama latensi &amp; error. Throughput tinggi dengan error tinggi ≠ baik.</p>
+</div>
+</div>
+<!-- Error Rate -->
+<div class="card p-8 flex flex-col" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div style="width:56px;height:56px;border-radius:18px;background:rgba(239,68,68,0.14); border:1px solid rgba(239,68,68,0.28); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-circle-exclamation text-white" style="font-size:20px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:22px;">Error Rate</p>
+<p class="muted" style="font-size:13px;">Batas toleransi kegagalan request</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">%</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-3 gap-3">
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-square-xmark mr-2"></i>Total</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">&lt; 1%</p>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-server mr-2"></i>5xx</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">mendekati 0%</p>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-clock mr-2"></i>Timeout</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">&lt; 0.5%</p>
+</div>
+</div>
+<div class="mt-6 chip p-5" style="border-radius:18px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Acceptance criteria</p>
+<p class="muted text-xs mono">&lt; 1%</p>
+</div>
+<div class="mt-3" style="height:10px;border-radius:9999px;background:rgba(255,255,255,0.10); overflow:hidden;">
+<div style="height:10px;width:22%;background:#ef4444; opacity:0.95;"></div>
+</div>
+<p class="muted mt-3" style="font-size:12px; line-height:1.55;">Jika error meningkat di beban target, prioritaskan perbaikan bottleneck (DB, pool, rate limit, dsb.).</p>
+</div>
+</div>
+<!-- Concurrent Users -->
+<div class="card p-8 flex flex-col" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div style="width:56px;height:56px;border-radius:18px;background:rgba(245,158,11,0.14); border:1px solid rgba(245,158,11,0.28); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-users text-white" style="font-size:20px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:22px;">Concurrent Users</p>
+<p class="muted" style="font-size:13px;">Target user aktif bersamaan</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">VU</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-3 gap-3">
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-people-group mr-2"></i>Target</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">1000 VU</p>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-arrow-up mr-2"></i>Ramp-up</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">bertahap</p>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-shield-halved mr-2"></i>Stabil</p>
+<p class="muted mt-1 mono" style="font-size:12px; line-height:1.5;">tanpa crash</p>
+</div>
+</div>
+<div class="mt-6 chip p-5" style="border-radius:18px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Acceptance criteria</p>
+<p class="muted text-xs mono">1000 VU</p>
+</div>
+<div class="mt-3" style="height:10px;border-radius:9999px;background:rgba(255,255,255,0.10); overflow:hidden;">
+<div style="height:10px;width:68%;background:#f59e0b; opacity:0.95;"></div>
+</div>
+<p class="muted mt-3" style="font-size:12px; line-height:1.55;">Pada VU target, sistem harus mempertahankan latensi &amp; error dalam ambang batas yang ditetapkan.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:10px; height:10px; border-radius:9999px; background:#60a5fa;"></div>
+<p class="muted text-sm">Contoh angka bersifat ilustratif; tentukan target berdasarkan kebutuhan bisnis, baseline, dan kapasitas.</p>
+</div>
+<div class="flex items-center space-x-2">
+<p class="muted text-xs">Topik: Performance Testing</p>
+<div style="width:6px;height:6px;border-radius:9999px;background:rgba(255,255,255,0.25);"></div>
+<p class="muted text-xs">Slide 12/20</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

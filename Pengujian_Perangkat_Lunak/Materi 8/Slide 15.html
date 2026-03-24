@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+body {
+  margin: 0;
+  background: #0b1220;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  display: flex;
+  position: relative;
+}
+    .card{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px);
+    }
+    .muted{ color: rgba(255,255,255,0.78); }
+    .hairline{ background: rgba(255,255,255,0.12); }
+    .chip{
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .accent{
+      background: rgba(45,212,191,0.14);
+      border: 1px solid rgba(45,212,191,0.30);
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    }
+    .badge{
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+<!-- Decorative shapes (no gradients) -->
+<div style="position:absolute; inset:0; pointer-events:none;">
+<div style="position:absolute; left:-180px; top:-200px; width:560px; height:560px; border-radius:9999px; background:#0b3a8a; opacity:0.20;"></div>
+<div style="position:absolute; right:-240px; bottom:-260px; width:860px; height:860px; border-radius:9999px; background:#0a2a5f; opacity:0.62;"></div>
+<div style="position:absolute; left:0; top:0; width:1280px; height:720px;">
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; bottom:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1px; height:536px;"></div>
+<div class="hairline" style="position:absolute; right:88px; top:92px; width:1px; height:536px;"></div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col px-24 py-16 relative z-10">
+<!-- Top bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="card flex items-center justify-center" style="width:44px;height:44px;border-radius:12px;">
+<i class="fa-solid fa-flask text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-semibold tracking-wide">Mata Kuliah: Pengujian Perangkat Lunak</p>
+<p class="muted text-xs">Program Studi: Informatika • Semester: 6 • Materi 8</p>
+</div>
+</div>
+
+
+
+<!-- NAVIGATION BUTTONS -->
+<div class="flex items-center gap-3">
+
+  <!-- Label -->
+  <div class="chip px-4 py-2" style="border-radius:9999px;">
+    <p class="text-white text-sm font-semibold">Contoh Kasus</p>
+  </div>
+
+  <!-- Tombol Prev -->
+  <button onclick="goPrev()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <!-- Tombol Next -->
+  <button onclick="goNext()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 14.html";
+}
+
+function goNext() {
+    window.location.href = "Slide 16.html";
+}
+</script>
+
+
+</div>
+<!-- Title -->
+<div class="mt-10">
+<p class="text-white font-extrabold" style="font-size:48px; letter-spacing:-0.02em;">Studi Kasus: Website Login Sederhana</p>
+<p class="muted mt-2" style="font-size:18px; line-height:1.6; max-width:1040px;">
+          Fokus pada endpoint <span class="text-white font-semibold">login</span> untuk mengevaluasi
+          <span class="text-white font-semibold">stabilitas</span> dan <span class="text-white font-semibold">kinerja</span> saat diakses banyak pengguna secara bersamaan.
+        </p>
+</div>
+<!-- Main layout -->
+<div class="flex-1 mt-10 flex space-x-8">
+<!-- Left: Context + Object -->
+<div class="w-7/12 flex flex-col space-y-6">
+<!-- Context card -->
+<div class="card p-8" style="border-radius:22px;">
+<div class="flex items-start space-x-4">
+<div style="width:54px;height:54px;border-radius:18px;background:rgba(96,165,250,0.16); border:1px solid rgba(96,165,250,0.30); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-diagram-project text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:20px;">Objek Pengujian</p>
+<p class="muted mt-2" style="font-size:14px; line-height:1.7;">
+                  Menguji performa pada <span class="text-white font-semibold">halaman/form login</span> dan/atau
+                  <span class="text-white font-semibold">API login</span> (HTTP/HTTPS) yang memvalidasi kredensial pengguna.
+                </p>
+<div class="mt-5 grid grid-cols-2 gap-3">
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(45,212,191,0.14); border:1px solid rgba(45,212,191,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-right-to-bracket text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Endpoint</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">POST /login (contoh), request body + response.</p>
+</div>
+</div>
+</div>
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(245,158,11,0.14); border:1px solid rgba(245,158,11,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-database text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Dependensi</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">DB user, hashing password, session/token.</p>
+</div>
+</div>
+</div>
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(239,68,68,0.14); border:1px solid rgba(239,68,68,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-shield-halved text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Kualitas Kritis</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Tahan terhadap lonjakan, minim error/timeout.</p>
+</div>
+</div>
+</div>
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(147,197,253,0.14); border:1px solid rgba(147,197,253,0.24); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-gauge-high text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Metrik</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Response time, throughput, error rate.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Objective card -->
+<div class="accent p-8" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:42px;height:42px;border-radius:14px;background:rgba(45,212,191,0.18); border:1px solid rgba(45,212,191,0.35); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-bullseye text-white" style="font-size:16px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:18px;">Tujuan Pengujian</p>
+<p class="muted" style="font-size:12px;">Apa yang ingin dibuktikan dari sisi performa?</p>
+</div>
+</div>
+<div class="badge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">stability first</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-4">
+<div class="card p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(45,212,191,0.14); border:1px solid rgba(45,212,191,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-stopwatch text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Konsistensi latensi</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Menilai apakah response time stabil saat beban naik.</p>
+</div>
+</div>
+</div>
+<div class="card p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(96,165,250,0.14); border:1px solid rgba(96,165,250,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-arrows-rotate text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Kapasitas layanan</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Melihat throughput saat banyak user login bersamaan.</p>
+</div>
+</div>
+</div>
+<div class="card p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(239,68,68,0.14); border:1px solid rgba(239,68,68,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-circle-exclamation text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Error &amp; timeout</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Mengukur error rate saat beban tinggi (5xx/timeout).</p>
+</div>
+</div>
+</div>
+<div class="card p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(245,158,11,0.14); border:1px solid rgba(245,158,11,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-magnifying-glass-chart text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Indikasi bottleneck</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Menentukan titik lemah: aplikasi, DB, atau jaringan.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Expected results + mini diagram -->
+<div class="w-5/12 flex flex-col space-y-6">
+<!-- Mini flow diagram -->
+<div class="card p-7" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:42px;height:42px;border-radius:14px;background:rgba(96,165,250,0.16); border:1px solid rgba(96,165,250,0.30); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-route text-white" style="font-size:16px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:18px;">Alur Login (Konseptual)</p>
+<p class="muted" style="font-size:12px;">Request melewati beberapa komponen</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">flow</p>
+</div>
+</div>
+<div class="mt-6">
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">User → Web/App → Auth → Database → Response</p>
+<p class="muted text-xs mono">E2E</p>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="badge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-user mr-2"></i>User</p>
+</div>
+<i class="fa-solid fa-arrow-right muted" style="font-size:14px;"></i>
+<div class="badge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-globe mr-2"></i>App</p>
+</div>
+<i class="fa-solid fa-arrow-right muted" style="font-size:14px;"></i>
+<div class="badge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-key mr-2"></i>Auth</p>
+</div>
+<i class="fa-solid fa-arrow-right muted" style="font-size:14px;"></i>
+<div class="badge px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-database mr-2"></i>DB</p>
+</div>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-clock mr-2"></i>Latensi</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.45;">Dipengaruhi hashing, query user, dan I/O.</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Error</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.45;">Bisa muncul dari DB pool, timeout, rate limit.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Expected outcomes -->
+<div class="accent p-7" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:42px;height:42px;border-radius:14px;background:rgba(45,212,191,0.18); border:1px solid rgba(45,212,191,0.35); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-flag-checkered text-white" style="font-size:16px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:18px;">Hasil yang Diharapkan</p>
+<p class="muted" style="font-size:12px;">Kriteria sukses uji performa login</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold">Outcome</p>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="card p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(45,212,191,0.14); border:1px solid rgba(45,212,191,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-chart-line text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Waktu respon konsisten</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Tidak terjadi lonjakan besar pada P95/P99 saat user meningkat.</p>
+</div>
+</div>
+</div>
+<div class="card p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(239,68,68,0.14); border:1px solid rgba(239,68,68,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-circle-check text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Error minimal</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Error rate rendah; tidak dominan 5xx/timeout saat beban target.</p>
+</div>
+</div>
+</div>
+<div class="card p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:36px;height:36px;border-radius:12px;background:rgba(96,165,250,0.14); border:1px solid rgba(96,165,250,0.28); display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-server text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Server tidak kehabisan resource</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Tidak terjadi crash; aplikasi tetap melayani request secara stabil.</p>
+</div>
+</div>
+</div>
+<div class="chip p-4" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:34px;height:34px;border-radius:12px;background:#0b3a8a; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-note-sticky text-white" style="font-size:13px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:13px;">Catatan</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Angka target spesifik dibahas pada slide metrik; yang utama adalah tren stabil saat beban meningkat.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:10px; height:10px; border-radius:9999px; background:#2dd4bf;"></div>
+<p class="muted text-sm">Studi kasus ini akan dipakai sebagai dasar skenario uji 50/100/200 user pada JMeter.</p>
+</div>
+<div class="flex items-center space-x-2">
+<p class="muted text-xs">Topik: Performance Testing</p>
+<div style="width:6px;height:6px;border-radius:9999px;background:rgba(255,255,255,0.25);"></div>
+<p class="muted text-xs">Slide 15/20</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

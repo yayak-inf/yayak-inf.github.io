@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+body {
+  margin: 0;
+  background: #0b1220;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  display: flex;
+  position: relative;
+}
+    .card{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px);
+    }
+    .muted{ color: rgba(255,255,255,0.78); }
+    .hairline{ background: rgba(255,255,255,0.12); }
+    .chip{
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    }
+    .stepDot{
+      width:38px; height:38px;
+      border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      flex:0 0 auto;
+    }
+    .accentA{ background: rgba(45,212,191,0.14); border: 1px solid rgba(45,212,191,0.30); }
+    .accentB{ background: rgba(96,165,250,0.14); border: 1px solid rgba(96,165,250,0.30); }
+    .accentC{ background: rgba(245,158,11,0.14); border: 1px solid rgba(245,158,11,0.28); }
+    .accentD{ background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.24); }
+    .connector{
+      height:10px;
+      border-radius:9999px;
+      background: rgba(255,255,255,0.10);
+      position:relative;
+      overflow:hidden;
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+<!-- Decorative shapes (no gradients) -->
+<div style="position:absolute; inset:0; pointer-events:none;">
+<div style="position:absolute; left:-180px; top:-200px; width:560px; height:560px; border-radius:9999px; background:#0b3a8a; opacity:0.20;"></div>
+<div style="position:absolute; right:-240px; bottom:-260px; width:860px; height:860px; border-radius:9999px; background:#0a2a5f; opacity:0.62;"></div>
+<div style="position:absolute; left:0; top:0; width:1280px; height:720px;">
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; bottom:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1px; height:536px;"></div>
+<div class="hairline" style="position:absolute; right:88px; top:92px; width:1px; height:536px;"></div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col px-24 py-16 relative z-10">
+<!-- Top bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="card flex items-center justify-center" style="width:44px;height:44px;border-radius:12px;">
+<i class="fa-solid fa-list-ol text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-semibold tracking-wide">Mata Kuliah: Pengujian Perangkat Lunak</p>
+<p class="muted text-xs">Program Studi: Informatika • Semester: 6 • Materi 8</p>
+</div>
+</div>
+
+
+
+
+<!-- NAVIGATION BUTTONS -->
+<div class="flex items-center gap-3">
+
+  <!-- Label -->
+  <div class="chip px-4 py-2" style="border-radius:9999px;">
+    <p class="text-white text-sm font-semibold">Praktik Apache JMeter</p>
+  </div>
+
+  <!-- Tombol Prev -->
+  <button onclick="goPrev()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <!-- Tombol Next -->
+  <button onclick="goNext()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 16.html";
+}
+
+function goNext() {
+    window.location.href = "Slide 18.html";
+}
+</script>
+
+
+</div>
+<!-- Title -->
+<div class="mt-10">
+<p class="text-white font-extrabold" style="font-size:48px; letter-spacing:-0.02em;">Langkah-Langkah (JMeter)</p>
+<p class="muted mt-2" style="font-size:18px; line-height:1.6; max-width:1040px;">
+        Ikuti alur berikut untuk menyusun skenario <span class="text-white font-semibold">uji login</span> secara cepat. Struktur dibuat berurutan agar mudah direplikasi untuk level beban <span class="text-white font-semibold">50/100/200 users</span>.
+      </p>
+</div>
+<!-- Main -->
+<div class="flex-1 mt-10 flex space-x-8">
+<!-- Left: Flow -->
+<div class="w-8/12 flex flex-col space-y-6">
+<!-- Flow ribbon -->
+<div class="card p-7" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:42px;height:42px;border-radius:14px;background:rgba(96,165,250,0.16); border:1px solid rgba(96,165,250,0.30); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-route text-white" style="font-size:16px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:18px;">Visual Flow</p>
+<p class="muted" style="font-size:12px;">Dari menyiapkan thread hingga mengeksekusi test dan membaca hasil</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">6 steps</p>
+</div>
+</div>
+<div class="mt-6">
+<div class="connector">
+<div style="position:absolute; inset:0; display:flex;">
+<div style="width:16.7%; background:#2dd4bf; opacity:0.95;"></div>
+<div style="width:16.7%; background:#60a5fa; opacity:0.95;"></div>
+<div style="width:16.7%; background:#f59e0b; opacity:0.95;"></div>
+<div style="width:16.7%; background:#2dd4bf; opacity:0.95;"></div>
+<div style="width:16.7%; background:#60a5fa; opacity:0.95;"></div>
+<div style="width:16.5%; background:#f59e0b; opacity:0.95;"></div>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-play mr-2"></i>Setup</p>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-bolt mr-2"></i>Execute</p>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-chart-column mr-2"></i>Observe</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Steps grid -->
+<div class="grid grid-cols-2 gap-5">
+<!-- Step 1 -->
+<div class="card p-6" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div class="stepDot accentA">
+<p class="text-white font-extrabold mono" style="font-size:14px;">1</p>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Buka Apache JMeter</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">Jalankan aplikasi dan buat <span class="text-white font-semibold">Test Plan</span> baru.</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-desktop mr-2"></i>GUI</p>
+</div>
+</div>
+<div class="mt-4 chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold">Output</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Struktur awal test plan siap diisi komponen (Thread Group, Sampler, Listener).</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="card p-6" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div class="stepDot accentB">
+<p class="text-white font-extrabold mono" style="font-size:14px;">2</p>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Tambahkan Thread Group</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">Komponen untuk mensimulasikan <span class="text-white font-semibold">virtual users</span> dan pola eksekusi.</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-users mr-2"></i>VU</p>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold">Threads</p>
+<p class="muted mt-1 mono" style="font-size:12px;">Users (50/100/200)</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold">Loop</p>
+<p class="muted mt-1 mono" style="font-size:12px;">Iterasi (opsional)</p>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="card p-6" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div class="stepDot accentC">
+<p class="text-white font-extrabold mono" style="font-size:14px;">3</p>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Set Jumlah User</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">Tentukan <span class="text-white font-semibold">Number of Threads</span> sesuai skenario.</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">50/100/200</p>
+</div>
+</div>
+<div class="mt-4 chip p-4" style="border-radius:16px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold">Tips konfigurasi</p>
+<p class="muted text-xs mono">ramp-up</p>
+</div>
+<p class="muted mt-2" style="font-size:12px; line-height:1.55;">
+                Gunakan ramp-up bertahap agar beban tidak “meledak” di awal dan hasil lebih stabil untuk dianalisis.
+              </p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="card p-6" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div class="stepDot accentA">
+<p class="text-white font-extrabold mono" style="font-size:14px;">4</p>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Tambahkan HTTP Request</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">Konfigurasi endpoint login: URL, method, body, dan header.</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-globe mr-2"></i>HTTP</p>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold">Method</p>
+<p class="muted mt-1 mono" style="font-size:12px;">POST</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold">Path (contoh)</p>
+<p class="muted mt-1 mono" style="font-size:12px;">/login</p>
+</div>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="card p-6" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div class="stepDot accentB">
+<p class="text-white font-extrabold mono" style="font-size:14px;">5</p>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Tambahkan Listener</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">Gunakan <span class="text-white font-semibold">View Results Tree</span> untuk memeriksa request/response dan error.</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-eye mr-2"></i>Inspect</p>
+</div>
+</div>
+<div class="mt-4 chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold">Catatan</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">
+                Listener “berat” dapat memperlambat saat beban besar. Untuk skala tinggi, pertimbangkan report ringkas / summary.
+              </p>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="card p-6" style="border-radius:22px;">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div class="stepDot accentC">
+<p class="text-white font-extrabold mono" style="font-size:14px;">6</p>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Jalankan Test</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">Eksekusi skenario dan catat metrik: response time, throughput, dan error.</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-play mr-2"></i>Run</p>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-3">
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-stopwatch mr-2"></i>Latency</p>
+<p class="muted mt-1 mono" style="font-size:12px;">P95</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-arrows-rotate mr-2"></i>Throughput</p>
+<p class="muted mt-1 mono" style="font-size:12px;">RPS</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-circle-exclamation mr-2"></i>Error</p>
+<p class="muted mt-1 mono" style="font-size:12px;">% gagal</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom note -->
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div class="accentD" style="width:36px;height:36px;border-radius:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-circle-info text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white text-xs font-semibold">Prinsip eksekusi yang konsisten</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">
+                Jalankan test untuk setiap level user dengan konfigurasi yang sama (durasi, endpoint, data uji) agar perbandingan hasil valid.
+              </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Checklist + Mini UI mock -->
+<div class="w-4/12 flex flex-col space-y-6">
+<div class="card p-7" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:42px;height:42px;border-radius:14px;background:rgba(45,212,191,0.14); border:1px solid rgba(45,212,191,0.30); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-clipboard-check text-white" style="font-size:16px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:18px;">Checklist Konfigurasi</p>
+<p class="muted" style="font-size:12px;">Pastikan item ini sebelum Run</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold">Ready?</p>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="chip p-4" style="border-radius:16px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-check mr-2"></i>Thread Group terpasang</p>
+<p class="muted text-xs mono">step 2</p>
+</div>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Jumlah threads dan ramp-up sudah sesuai skenario.</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-check mr-2"></i>HTTP Request benar</p>
+<p class="muted text-xs mono">step 4</p>
+</div>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Host/port/path/method dan payload login sudah valid.</p>
+</div>
+<div class="chip p-4" style="border-radius:16px;">
+<div class="flex items-center justify-between">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-check mr-2"></i>Listener siap</p>
+<p class="muted text-xs mono">step 5</p>
+</div>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Pilih listener sesuai kebutuhan analisis (tree vs summary).</p>
+</div>
+</div>
+</div>
+<div class="card p-7" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:42px;height:42px;border-radius:14px;background:rgba(96,165,250,0.16); border:1px solid rgba(96,165,250,0.30); display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-window-maximize text-white" style="font-size:16px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:18px;">Mini Struktur Test Plan</p>
+<p class="muted" style="font-size:12px;">Gambaran komponen di panel kiri</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">tree</p>
+</div>
+</div>
+<div class="mt-6 chip p-5" style="border-radius:18px;">
+<div class="flex items-center space-x-3">
+<div class="accentB" style="width:34px;height:34px;border-radius:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-diagram-project text-white" style="font-size:13px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white text-xs font-semibold">Test Plan</p>
+<p class="muted text-xs">Root skenario</p>
+</div>
+</div>
+<div class="mt-4" style="padding-left:16px;">
+<div class="flex items-center space-x-3">
+<div class="accentA" style="width:30px;height:30px;border-radius:10px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-users text-white" style="font-size:12px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white text-xs font-semibold">Thread Group</p>
+<p class="muted text-xs mono">users + ramp-up</p>
+</div>
+</div>
+<div class="mt-3" style="padding-left:16px;">
+<div class="flex items-center space-x-3">
+<div class="accentC" style="width:28px;height:28px;border-radius:10px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-globe text-white" style="font-size:12px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white text-xs font-semibold">HTTP Request</p>
+<p class="muted text-xs mono">POST /login</p>
+</div>
+</div>
+<div class="mt-3 flex items-center space-x-3" style="padding-left:16px;">
+<div class="accentD" style="width:26px;height:26px;border-radius:9px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-eye text-white" style="font-size:11px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white text-xs font-semibold">Listener</p>
+<p class="muted text-xs">View Results Tree</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-5 chip p-4" style="border-radius:18px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-arrow-right mr-2"></i>Slide berikutnya</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.55;">Setelah test berjalan, kita fokus pada interpretasi hasil: latensi, error, throughput, dan indikasi bottleneck.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:10px; height:10px; border-radius:9999px; background:#2dd4bf;"></div>
+<p class="muted text-sm">Gunakan 6 langkah ini sebagai baseline workflow sebelum melakukan analisis hasil performa.</p>
+</div>
+<div class="flex items-center space-x-2">
+<p class="muted text-xs">Topik: Performance Testing</p>
+<div style="width:6px;height:6px;border-radius:9999px;background:rgba(255,255,255,0.25);"></div>
+<p class="muted text-xs">Slide 17/20</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

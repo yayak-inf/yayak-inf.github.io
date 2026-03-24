@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body {
+  margin: 0;
+  background: #0b1220;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  display: flex;
+  position: relative;
+}
+    .card{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px);
+    }
+    .muted{ color: rgba(255,255,255,0.78); }
+    .hairline{ background: rgba(255,255,255,0.12); }
+    .chip{
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .accentTeal{ background: rgba(45,212,191,0.14); border: 1px solid rgba(45,212,191,0.30); }
+    .accentBlue{ background: rgba(96,165,250,0.14); border: 1px solid rgba(96,165,250,0.30); }
+    .accentAmber{ background: rgba(245,158,11,0.14); border: 1px solid rgba(245,158,11,0.28); }
+    .accentRed{ background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.26); }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    }
+    .ringBox{
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+<div class="slide">
+<!-- Decorative shapes (no gradients) -->
+<div style="position:absolute; inset:0; pointer-events:none;">
+<div style="position:absolute; left:-180px; top:-200px; width:560px; height:560px; border-radius:9999px; background:#0b3a8a; opacity:0.20;"></div>
+<div style="position:absolute; right:-240px; bottom:-260px; width:860px; height:860px; border-radius:9999px; background:#0a2a5f; opacity:0.62;"></div>
+<div style="position:absolute; left:0; top:0; width:1280px; height:720px;">
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; bottom:92px; width:1104px; height:1px;"></div>
+<div class="hairline" style="position:absolute; left:88px; top:92px; width:1px; height:536px;"></div>
+<div class="hairline" style="position:absolute; right:88px; top:92px; width:1px; height:536px;"></div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col px-24 py-16 relative z-10">
+<!-- Top bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="card flex items-center justify-center" style="width:44px;height:44px;border-radius:12px;">
+<i class="fa-solid fa-circle-check text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-semibold tracking-wide">Mata Kuliah: Pengujian Perangkat Lunak</p>
+<p class="muted text-xs">Program Studi: Informatika • Semester: 6 • Materi 8</p>
+</div>
+</div>
+
+
+<!-- NAVIGATION BUTTONS -->
+<div class="flex items-center gap-3">
+
+  <!-- Label -->
+  <div class="chip px-4 py-2" style="border-radius:9999px;">
+    <p class="text-white text-sm font-semibold">Ringkasan Materi</p>
+  </div>
+
+  <!-- Tombol Prev -->
+  <button onclick="goPrev()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <!-- Tombol Next -->
+  <button onclick="goNext()"
+    class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm shadow">
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 18.html";
+}
+
+function goNext() {
+    window.location.href = "Slide 20.html";
+}
+</script>
+
+</div>
+<!-- Title -->
+<div class="mt-10">
+<p class="text-white font-extrabold" style="font-size:52px; letter-spacing:-0.02em;">Kesimpulan</p>
+<p class="muted mt-2" style="font-size:18px; line-height:1.65; max-width:1040px;">
+          Performance testing memastikan aplikasi tetap <span class="text-white font-semibold">siap dipakai</span> saat beban meningkat—bukan hanya “berjalan”, tetapi
+          <span class="text-white font-semibold">cepat</span>, <span class="text-white font-semibold">stabil</span>, dan <span class="text-white font-semibold">andal</span>.
+        </p>
+</div>
+<!-- Main -->
+<div class="flex-1 mt-10 flex space-x-8">
+<!-- Left: 4 key points -->
+<div class="w-8/12 flex flex-col space-y-6">
+<div class="card p-7" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="accentBlue" style="width:42px;height:42px;border-radius:14px; display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-bolt text-white" style="font-size:16px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:18px;">4 Poin Utama</p>
+<p class="muted" style="font-size:12px;">Apa yang dijamin oleh performance testing</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">takeaways</p>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-4">
+<!-- Speed -->
+<div class="chip p-6" style="border-radius:20px;">
+<div class="flex items-start space-x-4">
+<div class="accentTeal" style="width:48px;height:48px;border-radius:16px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-stopwatch text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Menjamin Kecepatan</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.6;">
+                      Memastikan <span class="text-white font-semibold">response time</span> tetap memenuhi target (mis. P95) saat beban bertambah.
+                    </p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="ringBox px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-gauge-high mr-2"></i>Latency</p>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">&lt; 3s (contoh)</p>
+</div>
+</div>
+</div>
+<!-- Stability -->
+<div class="chip p-6" style="border-radius:20px;">
+<div class="flex items-start space-x-4">
+<div class="accentBlue" style="width:48px;height:48px;border-radius:16px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-shield-halved text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Menjaga Stabilitas</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.6;">
+                      Mengurangi fluktuasi performa dan membantu menjaga pengalaman pengguna tetap konsisten.
+                    </p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="ringBox px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-wave-square mr-2"></i>Stability</p>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">trend stabil</p>
+</div>
+</div>
+</div>
+<!-- Avoid crash -->
+<div class="chip p-6" style="border-radius:20px;">
+<div class="flex items-start space-x-4">
+<div class="accentRed" style="width:48px;height:48px;border-radius:16px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-server text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Menghindari Crash</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.6;">
+                      Mengidentifikasi bottleneck sebelum produksi agar <span class="text-white font-semibold">downtime</span> dan <span class="text-white font-semibold">timeout</span> dapat dicegah.
+                    </p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="ringBox px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Error</p>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">&lt; 1% (contoh)</p>
+</div>
+</div>
+</div>
+<!-- Scale -->
+<div class="chip p-6" style="border-radius:20px;">
+<div class="flex items-start space-x-4">
+<div class="accentAmber" style="width:48px;height:48px;border-radius:16px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-users-gear text-white" style="font-size:18px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-bold" style="font-size:18px;">Penting untuk Skala Besar</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.6;">
+                      Membantu perencanaan kapasitas untuk traffic puncak (event, promo, periode registrasi, dan lainnya).
+                    </p>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<div class="ringBox px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold"><i class="fa-solid fa-people-group mr-2"></i>Capacity</p>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold mono">concurrent users</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Closing note -->
+<div class="chip p-6" style="border-radius:20px;">
+<div class="flex items-start space-x-4">
+<div class="accentTeal" style="width:40px;height:40px;border-radius:14px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-lightbulb text-white" style="font-size:16px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Inti praktikum pertemuan ini</p>
+<p class="muted mt-1" style="font-size:13px; line-height:1.65;">
+                  Jalankan uji login pada 50/100/200 user, lalu simpulkan apakah target performa tercapai berdasarkan <span class="text-white font-semibold">latensi</span>, <span class="text-white font-semibold">throughput</span>, dan <span class="text-white font-semibold">error</span>.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Impact panel -->
+<div class="w-4/12 flex flex-col space-y-6">
+<div class="card p-7" style="border-radius:22px;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="accentBlue" style="width:42px;height:42px;border-radius:14px; display:flex; align-items:center; justify-content:center;">
+<i class="fa-solid fa-chart-line text-white" style="font-size:16px;"></i>
+</div>
+<div>
+<p class="text-white font-bold" style="font-size:18px;">Dampak untuk Sistem</p>
+<p class="muted" style="font-size:12px;">Menghubungkan hasil uji ke keputusan teknis</p>
+</div>
+</div>
+<div class="chip px-3 py-2" style="border-radius:9999px;">
+<p class="text-white text-xs font-semibold">Outcome</p>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div class="accentTeal" style="width:36px;height:36px;border-radius:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-check text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Kesiapan rilis</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">
+                      Validasi performa sebelum deployment untuk mengurangi risiko insiden di produksi.
+                    </p>
+</div>
+</div>
+</div>
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div class="accentAmber" style="width:36px;height:36px;border-radius:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-screwdriver-wrench text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Arah optimasi</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">
+                      Menentukan prioritas perbaikan: query DB, caching, thread pool, atau scaling.
+                    </p>
+</div>
+</div>
+</div>
+<div class="chip p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div class="accentRed" style="width:36px;height:36px;border-radius:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-fire-extinguisher text-white" style="font-size:14px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Mitigasi risiko</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">
+                      Mengurangi potensi crash saat traffic puncak (mis. promo besar).
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-5 ringBox p-5" style="border-radius:18px;">
+<div class="flex items-start space-x-3">
+<div style="width:34px;height:34px;border-radius:12px;background:#0b3a8a; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-quote-left text-white" style="font-size:13px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:13px;">Kalimat kunci</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">
+                    “Aplikasi yang cepat pada 1 user belum tentu cepat pada 200 user—performance testing membuktikannya.”
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<div class="chip p-6" style="border-radius:20px;">
+<div class="flex items-start space-x-4">
+<div class="accentBlue" style="width:40px;height:40px;border-radius:14px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;">
+<i class="fa-solid fa-arrow-right text-white" style="font-size:16px;"></i>
+</div>
+<div class="flex-1">
+<p class="text-white font-semibold" style="font-size:14px;">Selanjutnya</p>
+<p class="muted mt-1" style="font-size:12px; line-height:1.6;">
+                  Kerjakan tugas praktikum: jalankan skenario di JMeter, ambil screenshot, buat grafik, dan tulis analisis singkat.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="mt-8 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div style="width:10px; height:10px; border-radius:9999px; background:#2dd4bf;"></div>
+<p class="muted text-sm">Ringkasan: ukur, bandingkan, temukan bottleneck, lalu rekomendasikan perbaikan.</p>
+</div>
+<div class="flex items-center space-x-2">
+<p class="muted text-xs">Topik: Performance Testing</p>
+<div style="width:6px;height:6px;border-radius:9999px;background:rgba(255,255,255,0.25);"></div>
+<p class="muted text-xs">Slide 19/20</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
