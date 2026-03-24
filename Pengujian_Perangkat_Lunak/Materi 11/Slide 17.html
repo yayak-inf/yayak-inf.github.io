@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perbedaan Severity &amp; Priority</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+   			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+           
+            display: flex;
+            flex-direction: column;
+        }
+        /* Header Consistency */
+        .header-bar {
+            height: 100px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 60px;
+            background-color: #F8FAFC;
+        }
+
+        /* Introduction */
+        .intro-box {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* Comparison Container */
+        .comparison-container {
+            display: flex;
+            gap: 30px;
+            height: 380px; /* Fixed height for main comparison */
+        }
+
+        /* Columns */
+        .col-card {
+            flex: 1;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #E2E8F0;
+        }
+
+        .col-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        .col-header h2 {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+            z-index: 2;
+        }
+
+        .header-icon {
+            margin-right: 15px;
+            font-size: 28px;
+        }
+
+        .col-body {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .compare-row {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .row-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #F1F5F9;
+            color: #64748B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .row-content h4 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: #94A3B8;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .row-content p {
+            margin: 0;
+            font-size: 16px;
+            color: #334155;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Severity Specifics */
+        .severity-theme .col-header { background-color: #DC2626; } /* Red */
+        .severity-theme .row-icon { background-color: #FEF2F2; color: #DC2626; }
+        
+        /* Priority Specifics */
+        .priority-theme .col-header { background-color: #F59E0B; } /* Amber */
+        .priority-theme .row-icon { background-color: #FFFBEB; color: #D97706; }
+
+        /* Examples Section */
+        .examples-section {
+            margin-top: 25px;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 15px 25px;
+            border: 1px dashed #CBD5E1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .example-box {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+        
+        .example-divider {
+            width: 1px;
+            height: 50px;
+            background-color: #E2E8F0;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .tag-high-sev { background-color: #FEE2E2; color: #991B1B; }
+        .tag-low-prio { background-color: #ECFCCB; color: #365314; }
+        
+        .tag-low-sev { background-color: #DCFCE7; color: #166534; }
+        .tag-high-prio { background-color: #FEF3C7; color: #92400E; }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Manajemen Defect</p>
+<h1 class="text-4xl font-bold text-white">Severity vs Priority</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<div class="intro-box">
+<p class="text-lg text-gray-600">
+                    Meskipun sering berkaitan, <strong>Severity</strong> dan <strong>Priority</strong> adalah dua konsep berbeda yang menentukan bagaimana bug ditangani.
+                </p>
+</div>
+<div class="comparison-container">
+<!-- Column 1: Severity -->
+<div class="col-card severity-theme">
+<div class="col-header">
+<i class="fas fa-radiation header-icon"></i>
+<h2>Severity</h2>
+<div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=');"></div>
+</div>
+<div class="col-body">
+<!-- Definition -->
+<div class="compare-row">
+<div class="row-icon"><i class="fas fa-book"></i></div>
+<div class="row-content">
+<h4>Definisi</h4>
+<p>Tingkat dampak kerusakan teknis bug terhadap fungsionalitas sistem.</p>
+</div>
+</div>
+<!-- Focus -->
+<div class="compare-row">
+<div class="row-icon"><i class="fas fa-crosshairs"></i></div>
+<div class="row-content">
+<h4>Fokus Utama</h4>
+<p>Standar kualitas, fungsionalitas fitur, dan integritas data.</p>
+</div>
+</div>
+<!-- Who Decides -->
+<div class="compare-row">
+<div class="row-icon"><i class="fas fa-user-tag"></i></div>
+<div class="row-content">
+<h4>Ditentukan Oleh</h4>
+<p>QA Engineer / Tester (Berdasarkan analisis teknis).</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Priority -->
+<div class="col-card priority-theme">
+<div class="col-header">
+<i class="fas fa-stopwatch header-icon"></i>
+<h2>Priority</h2>
+<div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDBMMjAgMTBMMTAgMjBMMCAxMFoiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=');"></div>
+</div>
+<div class="col-body">
+<!-- Definition -->
+<div class="compare-row">
+<div class="row-icon"><i class="fas fa-book"></i></div>
+<div class="row-content">
+<h4>Definisi</h4>
+<p>Tingkat urgensi atau seberapa cepat bug tersebut harus diperbaiki.</p>
+</div>
+</div>
+<!-- Focus -->
+<div class="compare-row">
+<div class="row-icon"><i class="fas fa-briefcase"></i></div>
+<div class="row-content">
+<h4>Fokus Utama</h4>
+<p>Kebutuhan bisnis, jadwal rilis, dan pengalaman pengguna.</p>
+</div>
+</div>
+<!-- Who Decides -->
+<div class="compare-row">
+<div class="row-icon"><i class="fas fa-user-tie"></i></div>
+<div class="row-content">
+<h4>Ditentukan Oleh</h4>
+<p>Product Manager / Client (Berdasarkan nilai bisnis).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Context Examples -->
+<div class="examples-section">
+<div class="example-box">
+<div class="flex flex-col">
+<div class="flex mb-1">
+<span class="tag tag-high-sev">High Severity</span>
+<span class="tag tag-low-prio">Low Priority</span>
+</div>
+<p class="text-sm text-gray-700 m-0">
+<strong>Kasus:</strong> Sistem crash pada modul laporan tahunan (legacy) yang sudah tidak digunakan user lagi.
+                        </p>
+</div>
+</div>
+<div class="example-divider"></div>
+<div class="example-box">
+<div class="flex flex-col items-end text-right w-full">
+<div class="flex mb-1">
+<span class="tag tag-low-sev">Low Severity</span>
+<span class="tag tag-high-prio">High Priority</span>
+</div>
+<p class="text-sm text-gray-700 m-0 w-full">
+<strong>Kasus:</strong> Typo pada nama perusahaan di halaman utama website (tidak merusak fungsi, tapi fatal untuk brand).
+                        </p>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-10">
+<p class="text-xs text-gray-400 font-bold">17</p>
+</div>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 16.html";
+}
+function goNext() {
+    window.location.href = "Slide 18.html";
+}
+</script>
+</div>
+</body>
+</html>

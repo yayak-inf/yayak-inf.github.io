@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tools Bug Tracking</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+     			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+            
+            display: flex;
+            flex-direction: column;
+        }
+        /* Header Consistency */
+        .header-bar {
+            height: 100px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 60px;
+            background-color: #F8FAFC;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 30px;
+            height: 100%;
+        }
+
+        .tool-card {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1);
+            border-color: #BFDBFE;
+        }
+
+        .tool-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-right: 25px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tool-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .tool-name {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1E293B;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tool-badge {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .tool-desc {
+            font-size: 15px;
+            color: #64748B;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .tool-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .feature-tag {
+            background-color: #F1F5F9;
+            color: #475569;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Jira Theme */
+        .jira-theme .tool-icon-wrapper { background-color: #EFF6FF; color: #0052CC; }
+        .jira-theme .tool-badge { background-color: #DBEAFE; color: #1E40AF; }
+        
+        /* Bugzilla Theme */
+        .bugzilla-theme .tool-icon-wrapper { background-color: #FEF2F2; color: #DC2626; }
+        .bugzilla-theme .tool-badge { background-color: #FEE2E2; color: #991B1B; }
+
+        /* Trello Theme */
+        .trello-theme .tool-icon-wrapper { background-color: #EFF6FF; color: #0079BF; }
+        .trello-theme .tool-badge { background-color: #E0F2FE; color: #0369A1; }
+
+        /* Redmine Theme */
+        .redmine-theme .tool-icon-wrapper { background-color: #FFF7ED; color: #C02F2F; }
+        .redmine-theme .tool-badge { background-color: #FFEDD5; color: #9A3412; }
+
+        .bg-pattern {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 120px;
+            opacity: 0.03;
+            z-index: 1;
+            transform: rotate(-15deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Manajemen Defect</p>
+<h1 class="text-4xl font-bold text-white">Tools Bug Tracking Populer</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<div class="tools-grid">
+<!-- Jira -->
+<div class="tool-card jira-theme">
+<div class="bg-pattern text-blue-900">
+<i class="fab fa-jira"></i>
+</div>
+<div class="tool-icon-wrapper">
+<i class="fab fa-jira"></i>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p>Jira <span class="tool-badge">Enterprise</span></p>
+</div>
+<p class="tool-desc">
+                        Standar industri untuk tim Agile. Menawarkan workflow yang sangat fleksibel dan integrasi luas.
+                    </p>
+<div class="tool-features">
+<span class="feature-tag">Scrum Boards</span>
+<span class="feature-tag">Custom Workflows</span>
+<span class="feature-tag">Reporting</span>
+</div>
+</div>
+</div>
+<!-- Bugzilla -->
+<div class="tool-card bugzilla-theme">
+<div class="bg-pattern text-red-900">
+<i class="fas fa-bug"></i>
+</div>
+<div class="tool-icon-wrapper">
+<i class="fas fa-bug"></i>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p>Bugzilla <span class="tool-badge">Open Source</span></p>
+</div>
+<p class="tool-desc">
+                        Salah satu sistem pelacakan bug tertua dan terkuat. Fokus pada pelacakan detil dan stabilitas.
+                    </p>
+<div class="tool-features">
+<span class="feature-tag">Advanced Search</span>
+<span class="feature-tag">Email Notifications</span>
+<span class="feature-tag">Security</span>
+</div>
+</div>
+</div>
+<!-- Trello -->
+<div class="tool-card trello-theme">
+<div class="bg-pattern text-blue-800">
+<i class="fab fa-trello"></i>
+</div>
+<div class="tool-icon-wrapper">
+<i class="fab fa-trello"></i>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p>Trello <span class="tool-badge">Kanban</span></p>
+</div>
+<p class="tool-desc">
+                        Alat manajemen visual berbasis kartu. Sangat sederhana dan cocok untuk tim kecil atau proyek ringan.
+                    </p>
+<div class="tool-features">
+<span class="feature-tag">Drag &amp; Drop</span>
+<span class="feature-tag">Simple UI</span>
+<span class="feature-tag">Power-Ups</span>
+</div>
+</div>
+</div>
+<!-- Redmine -->
+<div class="tool-card redmine-theme">
+<div class="bg-pattern text-red-800">
+<i class="fas fa-project-diagram"></i>
+</div>
+<div class="tool-icon-wrapper">
+<i class="fas fa-project-diagram"></i>
+</div>
+<div class="tool-content">
+<div class="tool-name">
+<p>Redmine <span class="tool-badge">Integrated</span></p>
+</div>
+<p class="tool-desc">
+                        Platform manajemen proyek open-source yang mencakup bug tracking, wiki, dan forum dalam satu tempat.
+                    </p>
+<div class="tool-features">
+<span class="feature-tag">Wiki Support</span>
+<span class="feature-tag">Gantt Charts</span>
+<span class="feature-tag">Multi-project</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-10">
+<p class="text-xs text-gray-400 font-bold">18</p>
+</div>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 17.html";
+}
+function goNext() {
+    window.location.href = "Slide 19.html";
+}
+</script>
+
+
+</div>
+</body>
+</html>
+
+
+
+

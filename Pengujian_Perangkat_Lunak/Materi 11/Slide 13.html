@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contoh Bug Report</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+         			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+          
+            display: flex;
+            flex-direction: column;
+        }
+        /* Header Consistency */
+        .header-bar {
+            height: 100px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 60px;
+            background-color: #F8FAFC;
+        }
+
+        /* Bug Report Card */
+        .bug-card {
+            width: 100%;
+            max-width: 1000px;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bug-header {
+            background-color: #F1F5F9;
+            padding: 20px 30px;
+            border-bottom: 1px solid #E2E8F0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bug-id-tag {
+            background-color: #3B82F6;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+
+        .bug-body {
+            display: flex;
+            padding: 30px;
+            gap: 40px;
+        }
+
+        .bug-column-left {
+            flex: 1;
+            border-right: 1px dashed #CBD5E1;
+            padding-right: 40px;
+        }
+
+        .bug-column-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Steps Styling */
+        .step-list {
+            margin-top: 15px;
+        }
+        
+        .step-item {
+            display: flex;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background-color: #EFF6FF;
+            color: #2563EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            border: 1px solid #BFDBFE;
+        }
+
+        /* Result Boxes */
+        .result-box {
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .result-box.expected {
+            background-color: #F0FDF4; /* Green 50 */
+            border-left: 5px solid #22C55E; /* Green 500 */
+        }
+
+        .result-box.actual {
+            background-color: #FEF2F2; /* Red 50 */
+            border-left: 5px solid #EF4444; /* Red 500 */
+        }
+
+        .result-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .expected .result-label { color: #15803D; }
+        .actual .result-label { color: #B91C1C; }
+
+        .bug-footer {
+            background-color: #FAFAFA;
+            border-top: 1px solid #E2E8F0;
+            padding: 15px 30px;
+            font-size: 13px;
+            color: #64748B;
+            display: flex;
+            gap: 30px;
+        }
+        
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Bug Report</p>
+<h1 class="text-4xl font-bold text-white">Contoh Bug Report</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<div class="bug-card">
+<!-- Card Header -->
+<div class="bug-header">
+<div class="flex items-center">
+<span class="bug-id-tag">BUG-1042</span>
+<h2 class="text-xl font-bold text-gray-800 m-0">Login gagal meskipun data kredensial benar</h2>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full uppercase">High Severity</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full uppercase">Open</span>
+</div>
+</div>
+<!-- Card Body -->
+<div class="bug-body">
+<!-- Left Column: Steps -->
+<div class="bug-column-left">
+<h3 class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-2 flex items-center">
+<i class="fas fa-list-ol mr-2"></i> Langkah Reproduksi
+                    </h3>
+<div class="step-list">
+<div class="step-item">
+<div class="step-number">1</div>
+<p class="text-gray-700 text-base m-0">Buka halaman login aplikasi pada browser (URL: /login).</p>
+</div>
+<div class="step-item">
+<div class="step-number">2</div>
+<p class="text-gray-700 text-base m-0">Masukkan email yang sudah terdaftar <strong>(user@contoh.com)</strong> dan password yang valid <strong>(123456)</strong>.</p>
+</div>
+<div class="step-item">
+<div class="step-number">3</div>
+<p class="text-gray-700 text-base m-0">Klik tombol <strong>"Masuk"</strong>.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Results -->
+<div class="bug-column-right">
+<!-- Expected Result -->
+<div class="result-box expected">
+<div class="result-label">
+<i class="fas fa-check-circle mr-2"></i> Expected Result
+                        </div>
+<p class="text-gray-800 text-base m-0 leading-relaxed">
+                            Sistem memvalidasi data, login berhasil, dan user diarahkan ke halaman <strong>Dashboard Utama</strong>.
+                        </p>
+</div>
+<!-- Actual Result -->
+<div class="result-box actual">
+<div class="result-label">
+<i class="fas fa-times-circle mr-2"></i> Actual Result
+                        </div>
+<p class="text-gray-800 text-base m-0 leading-relaxed">
+                            Muncul pesan error <strong>"Internal Server Error (500)"</strong> dan user tetap berada di halaman login.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Card Footer -->
+<div class="bug-footer">
+<div class="footer-item">
+<i class="fas fa-desktop text-gray-400"></i>
+<span><strong>Environment:</strong> Windows 11, Chrome v122</span>
+</div>
+<div class="footer-item">
+<i class="fas fa-code-branch text-gray-400"></i>
+<span><strong>Version:</strong> v2.1.0 (Staging)</span>
+</div>
+<div class="footer-item">
+<i class="fas fa-user-edit text-gray-400"></i>
+<span><strong>Reporter:</strong> QA Team A</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-10">
+<p class="text-xs text-gray-400 font-bold">13</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 12.html";
+}
+function goNext() {
+    window.location.href = "Slide 14.html";
+}
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tujuan Pembelajaran</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+           	margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;           
+            display: flex;
+            flex-direction: column;
+        }
+        .header-bar {
+            height: 120px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        .content-area {
+            flex: 1;
+            display: flex;
+            padding: 40px 60px;
+            position: relative;
+        }
+        .list-container {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            z-index: 5;
+        }
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .list-item {
+            background-color: #F8FAFC;
+            border-left: 6px solid #3B82F6;
+            padding: 18px 24px;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        .list-item-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #DBEAFE;
+            color: #1E40AF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .circle-decoration {
+            width: 300px;
+            height: 300px;
+            border: 20px solid #EFF6FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Section -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Pertemuan 11</p>
+<h1 class="text-4xl font-bold text-white">Tujuan Pembelajaran</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Background Decor -->
+<div class="bg-pattern"></div>
+<!-- Left Column: List -->
+<div class="list-container">
+<p class="text-gray-500 mb-4 text-lg">Setelah mengikuti pertemuan ini, mahasiswa diharapkan mampu:</p>
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-lightbulb"></i>
+</div>
+<p class="text-xl text-gray-800 font-medium">Memahami konsep bug dan defect</p>
+</div>
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-list-check"></i>
+</div>
+<p class="text-xl text-gray-800 font-medium">Menjelaskan proses bug tracking</p>
+</div>
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-arrows-spin"></i>
+</div>
+<p class="text-xl text-gray-800 font-medium">Memahami siklus hidup defect (Lifecycle)</p>
+</div>
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-laptop-code"></i>
+</div>
+<p class="text-xl text-gray-800 font-medium">Menggunakan tools bug tracking</p>
+</div>
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-file-contract"></i>
+</div>
+<p class="text-xl text-gray-800 font-medium">Membuat laporan bug yang baik dan terstruktur</p>
+</div>
+</div>
+<!-- Right Column: Visual -->
+<div class="visual-container">
+<div class="circle-decoration relative">
+<div class="absolute inset-0 flex items-center justify-center">
+<i class="fas fa-bullseye text-blue-200 text-9xl opacity-50"></i>
+</div>
+<div class="relative z-10 bg-white p-6 rounded-xl shadow-lg border border-blue-100 transform rotate-3">
+<div class="flex items-center space-x-3 mb-3">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+</div>
+<div class="space-y-2 w-48">
+<div class="h-2 bg-gray-200 rounded w-full"></div>
+<div class="h-2 bg-gray-200 rounded w-5/6"></div>
+<div class="h-2 bg-gray-200 rounded w-4/6"></div>
+<div class="mt-4 flex justify-between items-center">
+<div class="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xs"><i class="fas fa-check"></i></div>
+<div class="h-2 bg-blue-500 rounded w-16"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 1.html";
+}
+function goNext() {
+    window.location.href = "Slide 3.html";
+}
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Siklus Hidup Defect</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+      			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+           
+            display: flex;
+            flex-direction: column;
+        }
+        /* Header Consistency */
+        .header-bar {
+            height: 100px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: #F8FAFC;
+            position: relative;
+        }
+
+        /* Diagram Container */
+        .lifecycle-wrapper {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Central Hub */
+        .center-hub {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            text-align: center;
+            border: 2px dashed #E2E8F0;
+        }
+        
+        /* Nodes */
+        .node {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            transition: transform 0.3s ease;
+            border: 4px solid white;
+        }
+        
+        .node:hover {
+            transform: scale(1.1);
+            z-index: 20;
+        }
+
+        .node-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .node-label {
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Positioning Nodes in a Hexagon/Circle */
+        /* Center is (400, 250) */
+        /* Radius approx 220px */
+        
+        /* 1. New (Top Center) */
+        .node-new { top: 20px; left: 335px; border-color: #94A3B8; color: #64748B; }
+        .node-new .node-icon { color: #64748B; }
+        
+        /* 2. Assigned (Top Right) */
+        .node-assigned { top: 100px; right: 80px; border-color: #FBBF24; color: #D97706; }
+        .node-assigned .node-icon { color: #D97706; }
+        
+        /* 3. Open (Bottom Right) */
+        .node-open { bottom: 100px; right: 80px; border-color: #3B82F6; color: #2563EB; }
+        .node-open .node-icon { color: #2563EB; }
+
+        /* 4. Fixed (Bottom Center) */
+        .node-fixed { bottom: 20px; left: 335px; border-color: #10B981; color: #059669; }
+        .node-fixed .node-icon { color: #059669; }
+
+        /* 5. Retest (Bottom Left) */
+        .node-retest { bottom: 100px; left: 80px; border-color: #8B5CF6; color: #7C3AED; }
+        .node-retest .node-icon { color: #7C3AED; }
+
+        /* 6. Closed (Top Left) */
+        .node-closed { top: 100px; left: 80px; border-color: #1F2937; color: #111827; }
+        .node-closed .node-icon { color: #111827; }
+
+        /* Arrows SVG Layer */
+        .arrows-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 24px;
+            height: 24px;
+            background-color: #333;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        .description-box {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            max-width: 250px;
+            border-left: 4px solid #3B82F6;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Defect Life Cycle</p>
+<h1 class="text-4xl font-bold text-white">Siklus Hidup Defect</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<div class="lifecycle-wrapper">
+<!-- SVG Arrows -->
+<svg class="arrows-layer" viewbox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="arrowhead" markerheight="7" markerwidth="10" orient="auto" refx="9" refy="3.5">
+<polygon fill="#CBD5E1" points="0 0, 10 3.5, 0 7"></polygon>
+</marker>
+</defs>
+<!-- Paths connecting nodes roughly based on positions -->
+<!-- New to Assigned -->
+<path d="M465 85 Q 560 80 655 130" fill="none" marker-end="url(#arrowhead)" stroke="#CBD5E1" stroke-dasharray="8 4" stroke-width="3"></path>
+<!-- Assigned to Open -->
+<path d="M720 230 L 720 270" fill="none" marker-end="url(#arrowhead)" stroke="#CBD5E1" stroke-width="3"></path>
+<!-- Open to Fixed -->
+<path d="M655 370 Q 560 420 465 415" fill="none" marker-end="url(#arrowhead)" stroke="#CBD5E1" stroke-width="3"></path>
+<!-- Fixed to Retest -->
+<path d="M335 415 Q 240 420 145 370" fill="none" marker-end="url(#arrowhead)" stroke="#CBD5E1" stroke-width="3"></path>
+<!-- Retest to Closed -->
+<path d="M80 270 L 80 230" fill="none" marker-end="url(#arrowhead)" stroke="#CBD5E1" stroke-width="3"></path>
+<!-- Optional: Retest back to Open (Reopen) - Dotted line -->
+<path d="M145 300 Q 400 250 655 300" fill="none" opacity="0.4" stroke="#EF4444" stroke-dasharray="4 4" stroke-width="2"></path>
+</svg>
+<!-- Center Hub -->
+<div class="center-hub">
+<i class="fas fa-arrows-spin text-5xl text-blue-200 mb-2"></i>
+<p class="text-gray-500 font-bold text-sm uppercase tracking-wide">Flow</p>
+</div>
+<!-- Node 1: New -->
+<div class="node node-new">
+<div class="step-number bg-gray-500">1</div>
+<i class="fas fa-star node-icon"></i>
+<p class="node-label">New</p>
+</div>
+<!-- Node 2: Assigned -->
+<div class="node node-assigned">
+<div class="step-number bg-yellow-500">2</div>
+<i class="fas fa-user-tag node-icon"></i>
+<p class="node-label">Assigned</p>
+</div>
+<!-- Node 3: Open -->
+<div class="node node-open">
+<div class="step-number bg-blue-500">3</div>
+<i class="fas fa-folder-open node-icon"></i>
+<p class="node-label">Open</p>
+</div>
+<!-- Node 4: Fixed -->
+<div class="node node-fixed">
+<div class="step-number bg-green-500">4</div>
+<i class="fas fa-wrench node-icon"></i>
+<p class="node-label">Fixed</p>
+</div>
+<!-- Node 5: Retest -->
+<div class="node node-retest">
+<div class="step-number bg-purple-500">5</div>
+<i class="fas fa-vial node-icon"></i>
+<p class="node-label">Retest</p>
+</div>
+<!-- Node 6: Closed -->
+<div class="node node-closed">
+<div class="step-number bg-gray-800">6</div>
+<i class="fas fa-box-archive node-icon"></i>
+<p class="node-label">Closed</p>
+</div>
+</div>
+<!-- Context Box -->
+<div class="description-box">
+<p class="text-xs font-bold text-gray-400 uppercase mb-1">Catatan:</p>
+<p class="text-sm text-gray-600 leading-snug">
+                    Jika pada tahap <strong>Retest</strong> bug masih ditemukan, status akan kembali ke <strong>Open</strong> (Reopen).
+                </p>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-10">
+<p class="text-xs text-gray-400 font-bold">9</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 8.html";
+}
+function goNext() {
+    window.location.href = "Slide 10.html";
+}
+</script>
+</div>
+</body>
+</html>

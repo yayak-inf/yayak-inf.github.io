@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Penjelasan Siklus Defect</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+ 			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+           
+            display: flex;
+            flex-direction: column;
+        }
+        .header-bar {
+            height: 120px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        .content-area {
+            flex: 1;
+            display: flex;
+            padding: 30px 60px; /* Reduced padding slightly to fit 6 items */
+            position: relative;
+            gap: 40px;
+        }
+        .list-container {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px; /* Reduced gap for 6 items */
+            z-index: 5;
+        }
+        .visual-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .list-item {
+            background-color: #F8FAFC;
+            border-left: 6px solid #3B82F6;
+            padding: 12px 20px; /* Compact padding */
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        .list-item-icon {
+            width: 36px; /* Slightly smaller icon container */
+            height: 36px;
+            background-color: #DBEAFE;
+            color: #1E40AF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+       
+        .circle-decoration {
+            width: 300px;
+            height: 300px;
+            border: 20px solid #EFF6FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        /* Status Badge Styling for emphasis */
+        .status-badge {
+            background-color: #E0E7FF;
+            color: #1E40AF;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            min-width: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Section -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Pertemuan 11</p>
+<h1 class="text-4xl font-bold text-white">Penjelasan Siklus Defect</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Background Decor -->
+<div class="bg-pattern"></div>
+<!-- Left Column: List -->
+<div class="list-container">
+<!-- Item 1: New -->
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-plus"></i>
+</div>
+<div class="flex items-center w-full">
+<span class="status-badge">New</span>
+<p class="text-lg text-gray-700 font-medium">Bug baru ditemukan dan dicatat ke sistem.</p>
+</div>
+</div>
+<!-- Item 2: Assigned -->
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-user-tag"></i>
+</div>
+<div class="flex items-center w-full">
+<span class="status-badge">Assigned</span>
+<p class="text-lg text-gray-700 font-medium">Ditugaskan ke developer untuk diperbaiki.</p>
+</div>
+</div>
+<!-- Item 3: Open -->
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-laptop-code"></i>
+</div>
+<div class="flex items-center w-full">
+<span class="status-badge">Open</span>
+<p class="text-lg text-gray-700 font-medium">Developer sedang dalam proses perbaikan.</p>
+</div>
+</div>
+<!-- Item 4: Fixed -->
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-wrench"></i>
+</div>
+<div class="flex items-center w-full">
+<span class="status-badge bg-green-100 text-green-800" style="background-color: #dcfce7; color: #166534;">Fixed</span>
+<p class="text-lg text-gray-700 font-medium">Bug sudah diperbaiki oleh developer.</p>
+</div>
+</div>
+<!-- Item 5: Retest -->
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-magnifying-glass"></i>
+</div>
+<div class="flex items-center w-full">
+<span class="status-badge bg-yellow-100 text-yellow-800" style="background-color: #fef9c3; color: #854d0e;">Retest</span>
+<p class="text-lg text-gray-700 font-medium">QA/Tester menguji ulang hasil perbaikan.</p>
+</div>
+</div>
+<!-- Item 6: Closed -->
+<div class="list-item">
+<div class="list-item-icon">
+<i class="fas fa-check-double"></i>
+</div>
+<div class="flex items-center w-full">
+<span class="status-badge bg-gray-200 text-gray-800" style="background-color: #e5e7eb; color: #374151;">Closed</span>
+<p class="text-lg text-gray-700 font-medium">Bug terverifikasi selesai dan ditutup.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual -->
+<div class="visual-container">
+<div class="circle-decoration">
+<div class="absolute inset-0 flex items-center justify-center">
+<i class="fas fa-arrows-spin text-blue-200 text-9xl opacity-40"></i>
+</div>
+<!-- Central illustrative icon -->
+<div class="relative z-10 bg-white p-8 rounded-full shadow-lg border-4 border-blue-50 flex flex-col items-center justify-center h-48 w-48 text-center">
+<i class="fas fa-bug text-4xl text-blue-600 mb-2"></i>
+<p class="text-gray-600 font-semibold text-sm">Defect<br/>Lifecycle</p>
+</div>
+<!-- Orbiting dots visual -->
+<div class="absolute top-4 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full shadow-md"></div>
+<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full shadow-md"></div>
+<div class="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-yellow-500 rounded-full shadow-md"></div>
+<div class="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gray-400 rounded-full shadow-md"></div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 9.html";
+}
+function goNext() {
+    window.location.href = "Slide 11.html";
+}
+</script>
+</div>
+</body>
+</html>

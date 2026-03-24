@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tugas Praktikum Bug Tracking</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+          			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+           
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Consistency */
+        .header-bar {
+            height: 100px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            padding: 40px 60px;
+            background-color: #F8FAFC;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        /* Column Styles */
+        .col-card {
+            flex: 1;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .col-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #F1F5F9;
+        }
+
+        .header-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        .col-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1E293B;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        /* Instruction Items */
+        .instruction-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .instruction-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-badge {
+            width: 32px;
+            height: 32px;
+            background-color: #EFF6FF;
+            color: #2563EB;
+            border: 1px solid #BFDBFE;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .instruction-text h4 {
+            margin: 0 0 4px 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        .instruction-text p {
+            margin: 0;
+            font-size: 14px;
+            color: #64748B;
+            line-height: 1.5;
+        }
+
+        /* Checklist Items */
+        .checklist-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .checklist-item {
+            background-color: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .checklist-item:hover {
+            border-color: #10B981;
+            background-color: #F0FDF4;
+            transform: translateX(5px);
+        }
+
+        .check-box {
+            width: 24px;
+            height: 24px;
+            background-color: #FFFFFF;
+            border: 2px solid #CBD5E1;
+            border-radius: 6px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #10B981;
+            font-size: 14px;
+        }
+
+        .checklist-item:hover .check-box {
+            border-color: #10B981;
+        }
+
+        .checklist-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: #475569;
+        }
+        
+        .checklist-item:hover .checklist-text {
+            color: #065F46;
+        }
+
+        /* Specific Theme Colors */
+        .theme-blue .header-icon-box { background-color: #EFF6FF; color: #2563EB; }
+        .theme-green .header-icon-box { background-color: #ECFDF5; color: #059669; }
+
+        .note-box {
+            margin-top: auto;
+            background-color: #FFF7ED;
+            border: 1px dashed #FDBA74;
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .note-icon {
+            color: #EA580C;
+            margin-right: 10px;
+        }
+
+        .note-text {
+            font-size: 12px;
+            color: #9A3412;
+            font-weight: 500;
+        }
+
+        .bg-watermark {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 150px;
+            opacity: 0.03;
+            z-index: 0;
+            transform: rotate(-15deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Praktikum &amp; Evaluasi</p>
+<h1 class="text-4xl font-bold text-white">Tugas Praktikum: Bug Tracking</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Left Column: Instructions -->
+<div class="col-card theme-blue">
+<div class="bg-watermark text-blue-900">
+<i class="fas fa-laptop-code"></i>
+</div>
+<div class="col-header relative z-10">
+<div class="header-icon-box">
+<i class="fas fa-tasks"></i>
+</div>
+<h2 class="col-title">Instruksi Tugas</h2>
+</div>
+<div class="instruction-list relative z-10">
+<div class="instruction-item">
+<div class="step-badge">1</div>
+<div class="instruction-text">
+<h4>Pilih Aplikasi Target</h4>
+<p>Gunakan aplikasi open-source sederhana, website kampus, atau proyek tugas besar sebelumnya sebagai objek pengujian.</p>
+</div>
+</div>
+<div class="instruction-item">
+<div class="step-badge">2</div>
+<div class="instruction-text">
+<h4>Eksplorasi Bug (Testing)</h4>
+<p>Lakukan black-box testing untuk menemukan <strong>minimal 3 bug</strong> unik (fungsional atau UI/UX).</p>
+</div>
+</div>
+<div class="instruction-item">
+<div class="step-badge">3</div>
+<div class="instruction-text">
+<h4>Analisis &amp; Pelaporan</h4>
+<p>Analisis temuan bug tersebut dan susun ke dalam format Bug Report standar yang telah dipelajari.</p>
+</div>
+</div>
+</div>
+<div class="note-box relative z-10">
+<div class="note-icon"><i class="fas fa-exclamation-circle"></i></div>
+<p class="note-text">Pastikan bug yang dilaporkan dapat direproduksi (reproducible).</p>
+</div>
+</div>
+<!-- Right Column: Output Checklist -->
+<div class="col-card theme-green">
+<div class="bg-watermark text-green-900">
+<i class="fas fa-clipboard-check"></i>
+</div>
+<div class="col-header relative z-10">
+<div class="header-icon-box">
+<i class="fas fa-file-export"></i>
+</div>
+<h2 class="col-title">Output Wajib</h2>
+</div>
+<div class="checklist-group relative z-10">
+<!-- Item 1 -->
+<div class="checklist-item">
+<div class="check-box"><i class="fas fa-check"></i></div>
+<div class="checklist-text">Dokumentasi Bug (Judul, ID, Deskripsi)</div>
+</div>
+<!-- Item 2 -->
+<div class="checklist-item">
+<div class="check-box"><i class="fas fa-check"></i></div>
+<div class="checklist-text">Bukti Lampiran (Screenshot/Log Error)</div>
+</div>
+<!-- Item 3 -->
+<div class="checklist-item">
+<div class="check-box"><i class="fas fa-check"></i></div>
+<div class="checklist-text">Analisis Severity &amp; Priority (+Justifikasi)</div>
+</div>
+<!-- Item 4 -->
+<div class="checklist-item">
+<div class="check-box"><i class="fas fa-check"></i></div>
+<div class="checklist-text">Rekomendasi Perbaikan Teknis</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-gray-100 relative z-10">
+<p class="text-sm text-gray-500 font-medium mb-2">Format Pengumpulan:</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-gray-100 text-gray-600 rounded text-xs font-bold uppercase border border-gray-200">PDF</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-600 rounded text-xs font-bold uppercase border border-gray-200">DOCX</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-10">
+<p class="text-xs text-gray-400 font-bold">20</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 19.html";
+}
+function goNext() {
+    window.location.href = "Slide 20.html";
+}
+</script>
+</div>
+</body>
+</html>

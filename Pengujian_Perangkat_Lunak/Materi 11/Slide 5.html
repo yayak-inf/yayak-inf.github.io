@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Perbedaan Bug, Error, dan Failure</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+   			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+            
+            display: flex;
+            flex-direction: column;
+        }
+        .header-bar {
+            height: 100px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        .content-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 60px;
+            background-image: radial-gradient(#E0E7FF 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            position: relative;
+            height: 420px;
+        }
+        .card-header {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: absolute;
+            bottom: -40px;
+            z-index: 2;
+        }
+        .card-body {
+            padding: 50px 24px 24px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .arrow-connector {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #94A3B8;
+            font-size: 24px;
+        }
+        .source-tag {
+            margin-top: auto;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        /* Variants */
+        .variant-error .card-header { background-color: #FBBF24; } /* Amber 400 */
+        .variant-error .icon-circle { color: #D97706; }
+        .variant-error .source-tag { background-color: #FFFBEB; color: #D97706; }
+        
+        .variant-bug .card-header { background-color: #F87171; } /* Red 400 */
+        .variant-bug .icon-circle { color: #DC2626; }
+        .variant-bug .source-tag { background-color: #FEF2F2; color: #DC2626; }
+        
+        .variant-failure .card-header { background-color: #1E293B; } /* Slate 800 */
+        .variant-failure .icon-circle { color: #1E293B; }
+        .variant-failure .source-tag { background-color: #F1F5F9; color: #1E293B; }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Pengantar Bug &amp; Defect</p>
+<h1 class="text-4xl font-bold text-white">Perbedaan Bug, Error, dan Failure</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<div class="flex items-center justify-between w-full max-w-6xl">
+<!-- Card 1: Error -->
+<div class="card-container variant-error">
+<div class="card-header">
+<div class="absolute inset-0 opacity-20 bg-pattern-dots"></div>
+</div>
+<div class="icon-circle">
+<i class="fas fa-user-injured"></i>
+</div>
+<div class="card-body">
+<h2 class="text-2xl font-bold text-gray-800 mb-2">Error</h2>
+<p class="text-gray-500 text-sm mb-4 italic">(Mistake)</p>
+<p class="text-gray-700 leading-relaxed mb-4">
+                            Tindakan manusia yang menghasilkan hasil yang salah.
+                        </p>
+<div class="bg-yellow-50 p-3 rounded-lg border border-yellow-100 mb-4 w-full">
+<p class="text-xs text-yellow-800 font-medium">Contoh: Salah logika coding, salah desain.</p>
+</div>
+<div class="source-tag">Sumber: Manusia</div>
+</div>
+</div>
+<!-- Arrow -->
+<div class="arrow-connector">
+<div class="flex flex-col items-center">
+<p class="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">Menyebabkan</p>
+<i class="fas fa-arrow-right text-4xl text-gray-300"></i>
+</div>
+</div>
+<!-- Card 2: Bug -->
+<div class="card-container variant-bug">
+<div class="card-header"></div>
+<div class="icon-circle">
+<i class="fas fa-bug"></i>
+</div>
+<div class="card-body">
+<h2 class="text-2xl font-bold text-gray-800 mb-2">Bug</h2>
+<p class="text-gray-500 text-sm mb-4 italic">(Defect / Fault)</p>
+<p class="text-gray-700 leading-relaxed mb-4">
+                            Manifestasi dari error dalam kode atau dokumen.
+                        </p>
+<div class="bg-red-50 p-3 rounded-lg border border-red-100 mb-4 w-full">
+<p class="text-xs text-red-800 font-medium">Contoh: Loop tak berhenti, variabel null.</p>
+</div>
+<div class="source-tag">Sumber: Sistem</div>
+</div>
+</div>
+<!-- Arrow -->
+<div class="arrow-connector">
+<div class="flex flex-col items-center">
+<p class="text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wide">Menyebabkan</p>
+<i class="fas fa-arrow-right text-4xl text-gray-300"></i>
+</div>
+</div>
+<!-- Card 3: Failure -->
+<div class="card-container variant-failure">
+<div class="card-header"></div>
+<div class="icon-circle">
+<i class="fas fa-bomb"></i>
+</div>
+<div class="card-body">
+<h2 class="text-2xl font-bold text-gray-800 mb-2">Failure</h2>
+<p class="text-gray-500 text-sm mb-4 italic">(Kegagalan)</p>
+<p class="text-gray-700 leading-relaxed mb-4">
+                            Penyimpangan perilaku sistem dari yang diharapkan.
+                        </p>
+<div class="bg-gray-100 p-3 rounded-lg border border-gray-200 mb-4 w-full">
+<p class="text-xs text-gray-800 font-medium">Contoh: Aplikasi crash, hitungan salah.</p>
+</div>
+<div class="source-tag">Sumber: Eksekusi</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-10">
+<p class="text-xs text-gray-400 font-bold">5</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 4.html";
+}
+function goNext() {
+    window.location.href = "Slide 6.html";
+}
+</script>
+</div>
+</body>
+</html>

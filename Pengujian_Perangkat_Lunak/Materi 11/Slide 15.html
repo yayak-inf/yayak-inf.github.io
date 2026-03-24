@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Severity - Tingkat Keparahan</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+     			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+            
+            display: flex;
+            flex-direction: column;
+        }
+        /* Header Consistency */
+        .header-bar {
+            height: 100px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 60px;
+            background-color: #F8FAFC;
+        }
+
+        .definition-box {
+            background-color: #EFF6FF;
+            border-left: 5px solid #3B82F6;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+        }
+
+        /* Quadrant Grid */
+        .quadrant-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+        }
+
+        .severity-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+        
+        .severity-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .severity-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .severity-content {
+            flex: 1;
+        }
+
+        .severity-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .severity-desc {
+            font-size: 14px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* Critical Style */
+        .card-critical { border-top: 4px solid #DC2626; }
+        .card-critical .severity-icon-wrapper { background-color: #FEF2F2; color: #DC2626; }
+        .card-critical .severity-title { color: #DC2626; }
+
+        /* High Style */
+        .card-high { border-top: 4px solid #EA580C; }
+        .card-high .severity-icon-wrapper { background-color: #FFF7ED; color: #EA580C; }
+        .card-high .severity-title { color: #EA580C; }
+
+        /* Medium Style */
+        .card-medium { border-top: 4px solid #F59E0B; }
+        .card-medium .severity-icon-wrapper { background-color: #FFFBEB; color: #F59E0B; }
+        .card-medium .severity-title { color: #D97706; }
+
+        /* Low Style */
+        .card-low { border-top: 4px solid #10B981; }
+        .card-low .severity-icon-wrapper { background-color: #ECFDF5; color: #10B981; }
+        .card-low .severity-title { color: #059669; }
+
+        .severity-bg-icon {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-size: 80px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Klasifikasi Bug</p>
+<h1 class="text-4xl font-bold text-white">Severity (Tingkat Keparahan)</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Definition -->
+<div class="definition-box">
+<p class="text-lg text-gray-700 leading-relaxed">
+<strong>Definisi:</strong> Ukuran seberapa besar dampak atau kerusakan yang ditimbulkan oleh bug terhadap fungsionalitas sistem. Fokus pada aspek teknis dan pengaruhnya terhadap fitur.
+            </p>
+</div>
+<!-- 4 Quadrant Grid -->
+<div class="quadrant-grid">
+<!-- Critical -->
+<div class="severity-card card-critical">
+<div class="severity-bg-icon">
+<i class="fas fa-biohazard"></i>
+</div>
+<div class="severity-icon-wrapper">
+<i class="fas fa-radiation"></i>
+</div>
+<div class="severity-content relative z-10">
+<h3 class="severity-title">Critical</h3>
+<p class="severity-desc">
+                        Sistem mati total, data hilang, atau fungsi utama tidak berjalan sama sekali. Tidak ada work-around (solusi sementara).
+                        <br/>
+<span class="text-xs font-semibold mt-2 block text-red-600">Contoh: Server crash saat login, database terhapus.</span>
+</p>
+</div>
+</div>
+<!-- High -->
+<div class="severity-card card-high">
+<div class="severity-bg-icon">
+<i class="fas fa-exclamation-triangle"></i>
+</div>
+<div class="severity-icon-wrapper">
+<i class="fas fa-bug"></i>
+</div>
+<div class="severity-content relative z-10">
+<h3 class="severity-title">High</h3>
+<p class="severity-desc">
+                        Fitur utama bermasalah tetapi sistem masih bisa berjalan sebagian. Ada work-around yang sulit.
+                        <br/>
+<span class="text-xs font-semibold mt-2 block text-orange-600">Contoh: Fitur checkout gagal, kalkulasi diskon salah.</span>
+</p>
+</div>
+</div>
+<!-- Medium -->
+<div class="severity-card card-medium">
+<div class="severity-bg-icon">
+<i class="fas fa-clipboard-check"></i>
+</div>
+<div class="severity-icon-wrapper">
+<i class="fas fa-triangle-exclamation"></i>
+</div>
+<div class="severity-content relative z-10">
+<h3 class="severity-title">Medium</h3>
+<p class="severity-desc">
+                        Bug minor pada fungsionalitas, tidak menghambat proses bisnis utama. Solusi sementara mudah dilakukan.
+                        <br/>
+<span class="text-xs font-semibold mt-2 block text-yellow-600">Contoh: Link footer rusak, validasi form tidak konsisten.</span>
+</p>
+</div>
+</div>
+<!-- Low -->
+<div class="severity-card card-low">
+<div class="severity-bg-icon">
+<i class="fas fa-feather"></i>
+</div>
+<div class="severity-icon-wrapper">
+<i class="fas fa-info-circle"></i>
+</div>
+<div class="severity-content relative z-10">
+<h3 class="severity-title">Low</h3>
+<p class="severity-desc">
+                        Masalah kosmetik atau UI/UX yang tidak mempengaruhi fungsi sistem.
+                        <br/>
+<span class="text-xs font-semibold mt-2 block text-green-600">Contoh: Typo pada label tombol, warna font tidak sesuai.</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-10">
+<p class="text-xs text-gray-400 font-bold">15</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 14.html";
+}
+function goNext() {
+    window.location.href = "Slide 16.html";
+}
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Status Tambahan pada Defect</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+         			margin: 0;
+			background: #1a1a1a;
+			font-family: 'Inter', sans-serif;
+			overflow: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh; /* lebih aman */	
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFFFFF;
+            position: relative;
+            
+            display: flex;
+            flex-direction: column;
+        }
+        /* Header Consistency */
+        .header-bar {
+            height: 100px;
+            background-color: #1E3A8A; /* Blue 900 */
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .header-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #3B82F6; /* Blue 500 */
+        }
+        
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 60px;
+            background-color: #F8FAFC;
+            position: relative;
+            justify-content: center;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .status-card {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            width: 320px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-top-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+
+        .icon-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .status-pill {
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* Variant: Reopened (Orange) */
+        .variant-reopened .card-top-accent { background-color: #F97316; }
+        .variant-reopened .icon-badge { background-color: #FFF7ED; color: #F97316; }
+        .variant-reopened .status-pill { background-color: #FFEDD5; color: #9A3412; }
+
+        /* Variant: Rejected (Red) */
+        .variant-rejected .card-top-accent { background-color: #EF4444; }
+        .variant-rejected .icon-badge { background-color: #FEF2F2; color: #EF4444; }
+        .variant-rejected .status-pill { background-color: #FEE2E2; color: #991B1B; }
+
+        /* Variant: Deferred (Slate/Gray) */
+        .variant-deferred .card-top-accent { background-color: #64748B; }
+        .variant-deferred .icon-badge { background-color: #F1F5F9; color: #64748B; }
+        .variant-deferred .status-pill { background-color: #E2E8F0; color: #334155; }
+
+        .bg-circle-deco {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .variant-reopened .bg-circle-deco { background-color: #F97316; }
+        .variant-rejected .bg-circle-deco { background-color: #EF4444; }
+        .variant-deferred .bg-circle-deco { background-color: #64748B; }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="header-bar">
+<div>
+<p class="text-blue-300 text-sm font-bold tracking-wider uppercase mb-1">Defect Life Cycle</p>
+<h1 class="text-4xl font-bold text-white">Status Tambahan</h1>
+</div>
+<div class="header-accent"></div>
+</header>
+<!-- Main Content -->
+<div class="content-area">
+<div class="text-center mb-10">
+<p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                Selain status utama dalam siklus hidup bug, terdapat status khusus untuk kondisi tertentu yang memerlukan penanganan berbeda.
+            </p>
+</div>
+<div class="cards-container">
+<!-- Card 1: Reopened -->
+<div class="status-card variant-reopened">
+<div class="card-top-accent"></div>
+<div class="bg-circle-deco"></div>
+<div class="icon-badge">
+<i class="fas fa-rotate-left"></i>
+</div>
+<div class="status-pill">Reopened</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Bug Muncul Kembali</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                    Status ketika bug yang sudah ditandai <strong>Fixed</strong> ternyata masih ditemukan (gagal) saat tahap <strong>Retest</strong> oleh QA.
+                </p>
+<div class="mt-4 pt-4 border-t border-gray-100 w-full">
+<p class="text-xs font-semibold text-orange-600">Action: Kembali ke Developer</p>
+</div>
+</div>
+<!-- Card 2: Rejected -->
+<div class="status-card variant-rejected">
+<div class="card-top-accent"></div>
+<div class="bg-circle-deco"></div>
+<div class="icon-badge">
+<i class="fas fa-ban"></i>
+</div>
+<div class="status-pill">Rejected</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Laporan Tidak Valid</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                    Bug report ditolak karena duplikat, kesalahan user (bukan sistem), atau fitur berfungsi sesuai desain (Works as Designed).
+                </p>
+<div class="mt-4 pt-4 border-t border-gray-100 w-full">
+<p class="text-xs font-semibold text-red-600">Action: Closed tanpa perbaikan</p>
+</div>
+</div>
+<!-- Card 3: Deferred -->
+<div class="status-card variant-deferred">
+<div class="card-top-accent"></div>
+<div class="bg-circle-deco"></div>
+<div class="icon-badge">
+<i class="fas fa-clock"></i>
+</div>
+<div class="status-pill">Deferred</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Perbaikan Ditunda</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                    Bug valid tetapi perbaikannya ditunda ke rilis berikutnya karena prioritas rendah, risiko tinggi, atau waktu tidak cukup.
+                </p>
+<div class="mt-4 pt-4 border-t border-gray-100 w-full">
+<p class="text-xs font-semibold text-slate-600">Action: Masuk Backlog</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="absolute bottom-6 left-10 flex items-center space-x-2 opacity-50">
+<i class="fas fa-university text-gray-400 text-xs"></i>
+<p class="text-xs text-gray-500 font-semibold tracking-wide">PENGUJIAN PERANGKAT LUNAK - INFORMATIKA</p>
+</div>
+<!-- Page Number -->
+<div class="absolute bottom-6 right-10">
+<p class="text-xs text-gray-400 font-bold">11</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 10.html";
+}
+function goNext() {
+    window.location.href = "Slide 12.html";
+}
+</script>
+</div>
+</body>
+</html>
