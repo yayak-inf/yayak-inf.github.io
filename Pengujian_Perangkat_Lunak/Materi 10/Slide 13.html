@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>A/B Testing</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { 
+ margin: 0;
+  padding: 0;
+  background-color: #0b1220;
+  overflow: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+
+		}
+        .slide-container { position: relative; width: 1280px; height: 720px; background-color: #ffffff; }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Accents -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 640px; height: 720px; z-index: 1;">
+<div style="background-color: #f1f5f9; width: 100%; height: 100%;"></div>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 640px; top: 0px; width: 640px; height: 720px; z-index: 1;">
+<div style="background-color: #ffffff; width: 100%; height: 100%;"></div>
+</div>
+<!-- Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 0px; top: 40px; width: 1280px; height: 80px; z-index: 10; text-align: center;">
+<p style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 48px; color: #1e3a8a; margin: 0;">Metode A/B Testing</p>
+</div>
+<!-- Subheader/Goal -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 340px; top: 120px; width: 600px; height: 50px; z-index: 2;">
+<div style="background-color: #eff6ff; border: 1px solid #dbeafe; border-radius: 30px; width: 100%; height: 100%;"></div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 350px; top: 130px; width: 580px; height: 30px; z-index: 10; text-align: center;">
+<p style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; color: #3b82f6; margin: 0;">
+<i class="fa-solid fa-crosshairs" style="margin-right: 8px;"></i>
+                Tujuan: Memilih desain terbaik berdasarkan <strong>data</strong>
+</p>
+</div>
+<!-- Left Panel: Version A -->
+<!-- Card Frame -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 100px; top: 200px; width: 480px; height: 420px; z-index: 2;">
+<div style="background-color: #ffffff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 2px solid #e2e8f0; width: 100%; height: 100%; overflow: hidden;"></div>
+</div>
+<!-- Version Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 100px; top: 200px; width: 480px; height: 70px; z-index: 3;">
+<div style="background-color: #3b82f6; width: 100%; height: 100%;"></div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 215px; width: 440px; height: 40px; z-index: 10; text-align: center;">
+<p style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 28px; color: #ffffff; margin: 0;">Versi A</p>
+</div>
+<!-- Mockup Visual A (Simplified UI) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 180px; top: 300px; width: 320px; height: 200px; z-index: 4;">
+<div style="background-color: #f8fafc; border: 2px solid #cbd5e1; border-radius: 8px; width: 100%; height: 100%; display: flex; flex-direction: column; padding: 10px; box-sizing: border-box;">
+<div style="width: 40%; height: 8px; background-color: #cbd5e1; margin-bottom: 10px; border-radius: 4px;"></div>
+<div style="width: 100%; height: 100px; background-color: #e2e8f0; margin-bottom: 10px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-family: sans-serif; font-size: 12px;">Konten Standar</div>
+<div style="width: 100px; height: 30px; background-color: #94a3b8; border-radius: 4px; align-self: flex-start;"></div>
+</div>
+</div>
+<!-- Description A -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 120px; top: 520px; width: 440px; height: 60px; z-index: 10; text-align: center;">
+<p style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: 20px; color: #64748b; margin: 0;">Desain Eksisting / Control</p>
+<p style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; color: #94a3b8; margin: 5px 0 0 0;">Baseline performa saat ini</p>
+</div>
+<!-- Right Panel: Version B -->
+<!-- Card Frame -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 700px; top: 200px; width: 480px; height: 420px; z-index: 2;">
+<div style="background-color: #ffffff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 2px solid #e2e8f0; width: 100%; height: 100%; overflow: hidden;"></div>
+</div>
+<!-- Version Header -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 700px; top: 200px; width: 480px; height: 70px; z-index: 3;">
+<div style="background-color: #1e3a8a; width: 100%; height: 100%;"></div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 720px; top: 215px; width: 440px; height: 40px; z-index: 10; text-align: center;">
+<p style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 28px; color: #ffffff; margin: 0;">Versi B</p>
+</div>
+<!-- Mockup Visual B (Simplified UI - Variant) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 780px; top: 300px; width: 320px; height: 200px; z-index: 4;">
+<div style="background-color: #f8fafc; border: 2px solid #cbd5e1; border-radius: 8px; width: 100%; height: 100%; display: flex; flex-direction: column; padding: 10px; box-sizing: border-box;">
+<div style="width: 40%; height: 8px; background-color: #cbd5e1; margin-bottom: 10px; border-radius: 4px;"></div>
+<div style="width: 100%; height: 100px; background-color: #dbeafe; margin-bottom: 10px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #3b82f6; font-family: sans-serif; font-size: 12px; font-weight: bold;">Gambar Baru / Layout Baru</div>
+<div style="width: 100px; height: 30px; background-color: #3b82f6; border-radius: 4px; align-self: center;"></div>
+</div>
+</div>
+<!-- Description B -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 720px; top: 520px; width: 440px; height: 60px; z-index: 10; text-align: center;">
+<p style="font-family: 'Inter', sans-serif; font-weight: 500; font-size: 20px; color: #64748b; margin: 0;">Desain Baru / Variant</p>
+<p style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; color: #94a3b8; margin: 5px 0 0 0;">Perubahan satu variabel spesifik</p>
+</div>
+<!-- VS Badge in Center -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 610px; top: 380px; width: 60px; height: 60px; z-index: 20;">
+<div style="background-color: #ef4444; border-radius: 50%; width: 100%; height: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 4px solid #ffffff;"></div>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 610px; top: 395px; width: 60px; height: 30px; z-index: 21; text-align: center;">
+<p style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 20px; color: #ffffff; margin: 0;">VS</p>
+</div>
+<!-- Bottom Explanation -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 140px; top: 640px; width: 1000px; height: 50px; z-index: 10; text-align: center;">
+<p style="font-family: 'Inter', sans-serif; font-size: 16px; color: #64748b; margin: 0; line-height: 1.5;">
+                Traffic pengunjung dibagi secara acak ke dua versi ini. Versi dengan performa metrik (konversi, klik, waktu) lebih baik akan dipilih sebagai desain final.
+            </p>
+</div>
+<!-- Footer Page Number -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 1180px; top: 680px; width: 80px; height: 30px; z-index: 10; text-align: right;">
+<p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #94a3b8; margin: 0;">13</p>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div style="
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  display: flex;
+  gap: 16px;
+  z-index: 999;
+">
+
+    <button onclick="goPrev()" style="
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        background-color: #16a34a;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    "
+    onmouseover="this.style.backgroundColor='#15803d'"
+    onmouseout="this.style.backgroundColor='#16a34a'"
+    >
+        ← Previous
+    </button>
+
+    <button onclick="goNext()" style="
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        background-color: #16a34a;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    "
+    onmouseover="this.style.backgroundColor='#15803d'"
+    onmouseout="this.style.backgroundColor='#16a34a'"
+    >
+        Next →
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 12.html";
+}
+
+function goNext() {
+    window.location.href = "Slide 14.html";
+}
+</script>
+</div>
+</body>
+</html>
