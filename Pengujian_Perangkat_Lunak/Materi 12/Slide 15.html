@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Contoh Boundary Value</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .bullet-point {
+            transition: transform 0.2s ease;
+        }
+        .accent-shape {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.05;
+            color: #1e3a8a;
+        }
+        /* Custom visualization styles */
+        .range-bar {
+            background: #e2e8f0;
+            height: 8px;
+            width: 100%;
+            border-radius: 4px;
+            position: relative;
+            margin: 40px 0;
+        }
+        .range-valid {
+            background: #3b82f6;
+            height: 8px;
+            width: 80%;
+            position: absolute;
+            left: 10%;
+            border-radius: 0;
+        }
+        .marker {
+            position: absolute;
+            top: -25px;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .marker-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid #1e3a8a;
+            margin-bottom: 4px;
+            z-index: 10;
+        }
+        .marker-line {
+            height: 25px;
+            width: 2px;
+            background: #cbd5e1;
+            position: absolute;
+            top: 12px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration Line -->
+<div class="w-full h-2 bg-blue-800"></div>
+<!-- Main Container -->
+<div class="flex-1 flex flex-row relative p-12 overflow-hidden">
+<!-- Background Accents -->
+<div class="accent-shape -right-20 -top-20 text-[400px]">
+<i class="fa-solid fa-ruler-horizontal"></i>
+</div>
+<!-- Left Column: Content -->
+<div class="w-7/12 flex flex-col justify-center z-10 pr-8">
+<!-- Header Section -->
+<div class="mb-8 border-l-8 border-blue-600 pl-6">
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-1">Teknik Black Box Testing</p>
+<h1 class="text-5xl font-extrabold text-gray-900 leading-tight">
+                    Contoh <span class="text-academic-blue">Boundary Value</span>
+</h1>
+</div>
+<div class="pl-2 mb-6">
+<p class="text-xl text-gray-600 font-medium">
+                    Studi kasus untuk input dengan rentang valid <strong>0 hingga 100</strong>. Nilai uji kritis yang disarankan:
+                </p>
+</div>
+<!-- Bullet Points List -->
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-5">
+<span class="font-bold text-lg">0</span>
+</div>
+<div>
+<p class="text-lg text-gray-800 font-bold">Batas Bawah (Min)</p>
+<p class="text-sm text-gray-500">Nilai terendah yang masih valid.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 mr-5">
+<span class="font-bold text-lg">1</span>
+</div>
+<div>
+<p class="text-lg text-gray-800 font-bold">Tepi Atas Batas Bawah (Min + 1)</p>
+<p class="text-sm text-gray-500">Nilai valid tepat di atas minimum.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 mr-5">
+<span class="font-bold text-lg">99</span>
+</div>
+<div>
+<p class="text-lg text-gray-800 font-bold">Tepi Bawah Batas Atas (Max - 1)</p>
+<p class="text-sm text-gray-500">Nilai valid tepat di bawah maksimum.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-5">
+<span class="font-bold text-lg">100</span>
+</div>
+<div>
+<p class="text-lg text-gray-800 font-bold">Batas Atas (Max)</p>
+<p class="text-sm text-gray-500">Nilai tertinggi yang masih valid.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual/Graphic -->
+<div class="w-5/12 flex items-center justify-center relative z-10">
+<div class="relative w-full max-w-md">
+<!-- Decorative Back Card -->
+<div class="absolute top-4 left-4 w-full h-full bg-blue-200 rounded-2xl"></div>
+<!-- Main Visual Card -->
+<div class="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+<div class="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
+<div class="flex space-x-2">
+<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+<div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+</div>
+<p class="text-xs font-bold text-gray-400 uppercase">Visualisasi Rentang</p>
+</div>
+<div class="relative py-8">
+<!-- Range Graphic -->
+<div class="text-center mb-2 font-bold text-gray-400 text-xs tracking-widest">INVALID</div>
+<div class="flex items-center justify-center w-full mb-1">
+<!-- Visual representation of the boundary -->
+<div class="w-full relative h-16 flex items-center">
+<!-- Base Line -->
+<div class="w-full h-2 bg-red-100 rounded-full"></div>
+<!-- Valid Zone (Blue) -->
+<div class="absolute left-[15%] w-[70%] h-4 bg-blue-100 rounded-full border-2 border-blue-500 flex items-center justify-center z-10">
+<span class="text-blue-800 font-bold text-xs tracking-widest">VALID ZONE (0-100)</span>
+</div>
+<!-- Markers -->
+<!-- 0 Marker -->
+<div class="absolute left-[15%] top-8 flex flex-col items-center">
+<div class="w-4 h-4 bg-white border-4 border-blue-600 rounded-full z-20"></div>
+<div class="h-4 w-0.5 bg-blue-600"></div>
+<span class="text-sm font-bold text-gray-800 mt-1">0</span>
+<span class="text-[10px] text-gray-500 bg-gray-100 px-1 rounded">Min</span>
+</div>
+<!-- 1 Marker -->
+<div class="absolute left-[22%] -top-4 flex flex-col items-center">
+<span class="text-[10px] text-gray-500 bg-gray-100 px-1 rounded mb-1">Min+1</span>
+<span class="text-sm font-bold text-gray-600 mb-1">1</span>
+<div class="h-4 w-0.5 bg-gray-300"></div>
+<div class="w-2 h-2 bg-gray-400 rounded-full z-20"></div>
+</div>
+<!-- 99 Marker -->
+<div class="absolute right-[22%] -top-4 flex flex-col items-center">
+<span class="text-[10px] text-gray-500 bg-gray-100 px-1 rounded mb-1">Max-1</span>
+<span class="text-sm font-bold text-gray-600 mb-1">99</span>
+<div class="h-4 w-0.5 bg-gray-300"></div>
+<div class="w-2 h-2 bg-gray-400 rounded-full z-20"></div>
+</div>
+<!-- 100 Marker -->
+<div class="absolute right-[15%] top-8 flex flex-col items-center">
+<div class="w-4 h-4 bg-white border-4 border-blue-600 rounded-full z-20"></div>
+<div class="h-4 w-0.5 bg-blue-600"></div>
+<span class="text-sm font-bold text-gray-800 mt-1">100</span>
+<span class="text-[10px] text-gray-500 bg-gray-100 px-1 rounded">Max</span>
+</div>
+</div>
+</div>
+<div class="text-center mt-8 font-bold text-gray-400 text-xs tracking-widest">INVALID</div>
+</div>
+<div class="mt-8 bg-blue-50 p-4 rounded-lg border border-blue-100">
+<div class="flex items-start">
+<i class="fa-solid fa-circle-info text-blue-500 mt-1 mr-3"></i>
+<p class="text-sm text-gray-600">
+<span class="font-bold text-blue-800">Tips:</span> Kesalahan sering terjadi tepat di nilai batas (off-by-one error), bukan di tengah rentang nilai.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 15</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 14.html";
+}
+function goNext() {
+    window.location.href = "Slide 16.html";
+}
+</script>
+</div>
+</body>
+</html>

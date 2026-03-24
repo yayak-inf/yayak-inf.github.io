@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Contoh Equivalence Partitioning</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .bullet-point {
+            transition: transform 0.2s ease;
+        }
+        /* Geometric accent */
+        .accent-shape {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.05;
+            color: #1e3a8a;
+        }
+        .partition-bar {
+            position: relative;
+            height: 12px;
+            background-color: #e5e7eb;
+            border-radius: 6px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .partition-segment {
+            position: absolute;
+            height: 100%;
+            top: 0;
+        }
+        .marker {
+            position: absolute;
+            top: -25px;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: bold;
+            color: #4b5563;
+        }
+        .label-range {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration Line -->
+<div class="w-full h-2 bg-blue-800"></div>
+<!-- Main Container -->
+<div class="flex-1 flex flex-row relative p-12 overflow-hidden">
+<!-- Background Accents -->
+<div class="accent-shape -right-20 -top-20 text-[400px]">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+<!-- Left Column: Content -->
+<div class="w-7/12 flex flex-col justify-center z-10 pr-8">
+<!-- Header Section -->
+<div class="mb-8 border-l-8 border-blue-600 pl-6">
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-1">Teknik Testing</p>
+<h1 class="text-5xl font-extrabold text-gray-900 leading-tight">
+                    Contoh <span class="text-academic-blue">Equivalence Partitioning</span>
+</h1>
+</div>
+<div class="pl-2 mb-6">
+<p class="text-xl text-gray-600 font-medium">
+                    Studi kasus pada input form: <strong>Umur (18 - 60 tahun)</strong>
+</p>
+</div>
+<!-- Bullet Points List -->
+<div class="space-y-5">
+<!-- Item 1 -->
+<div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-5">
+<i class="fa-solid fa-check-circle text-xl"></i>
+</div>
+<div>
+<p class="text-lg text-gray-500 font-bold uppercase text-xs mb-1">Partition 1: Valid</p>
+<p class="text-xl text-gray-800 font-semibold">Rentang 18 – 60 tahun</p>
+<p class="text-sm text-gray-500 mt-1">Data uji contoh: 25, 40 (diterima sistem)</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-5">
+<i class="fa-solid fa-times-circle text-xl"></i>
+</div>
+<div>
+<p class="text-lg text-gray-500 font-bold uppercase text-xs mb-1">Partition 2: Invalid (Bawah)</p>
+<p class="text-xl text-gray-800 font-semibold">Kurang dari 18 tahun (&lt; 18)</p>
+<p class="text-sm text-gray-500 mt-1">Data uji contoh: 10, 17 (ditolak sistem)</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-5">
+<i class="fa-solid fa-times-circle text-xl"></i>
+</div>
+<div>
+<p class="text-lg text-gray-500 font-bold uppercase text-xs mb-1">Partition 3: Invalid (Atas)</p>
+<p class="text-xl text-gray-800 font-semibold">Lebih dari 60 tahun (&gt; 60)</p>
+<p class="text-sm text-gray-500 mt-1">Data uji contoh: 61, 75 (ditolak sistem)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual/Graphic -->
+<div class="w-5/12 flex items-center justify-center relative z-10">
+<div class="relative w-full max-w-md">
+<!-- Decorative Back Card -->
+<div class="absolute top-4 left-4 w-full h-full bg-blue-200 rounded-2xl"></div>
+<!-- Main Visual Card -->
+<div class="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-100 flex flex-col justify-center h-96">
+<div class="text-center mb-8">
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Visualisasi Partisi</h3>
+<p class="text-gray-500 text-sm">Pembagian area input data berdasarkan validitas</p>
+</div>
+<!-- Visualization Diagram -->
+<div class="w-full px-4">
+<div class="flex justify-between text-xs text-gray-400 font-bold mb-1 uppercase tracking-wider">
+<span>Invalid</span>
+<span>Valid</span>
+<span>Invalid</span>
+</div>
+<div class="w-full h-16 flex rounded-lg overflow-hidden border-2 border-gray-100 shadow-inner">
+<!-- Invalid Left -->
+<div class="w-1/4 bg-red-100 flex flex-col items-center justify-center border-r border-white relative group">
+<span class="text-red-600 font-bold text-lg">&lt; 18</span>
+<div class="absolute inset-0 bg-red-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+</div>
+<!-- Valid Middle -->
+<div class="w-2/4 bg-green-100 flex flex-col items-center justify-center border-r border-white relative group">
+<span class="text-green-700 font-bold text-lg">18 - 60</span>
+<div class="absolute -top-3 -right-3 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full shadow-sm z-10">Valid</div>
+<div class="absolute inset-0 bg-green-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+</div>
+<!-- Invalid Right -->
+<div class="w-1/4 bg-red-100 flex flex-col items-center justify-center relative group">
+<span class="text-red-600 font-bold text-lg">&gt; 60</span>
+<div class="absolute inset-0 bg-red-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+</div>
+</div>
+<!-- Axis Markers -->
+<div class="relative w-full h-8 mt-2">
+<div class="absolute left-[25%] -translate-x-1/2 flex flex-col items-center">
+<div class="h-3 w-0.5 bg-gray-400"></div>
+<span class="text-sm font-bold text-gray-600">18</span>
+</div>
+<div class="absolute left-[75%] -translate-x-1/2 flex flex-col items-center">
+<div class="h-3 w-0.5 bg-gray-400"></div>
+<span class="text-sm font-bold text-gray-600">60</span>
+</div>
+</div>
+<!-- Test Data Points Animation -->
+<div class="mt-6 flex justify-around">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center font-bold text-xs shadow-md mb-1">17</div>
+<p class="text-xs text-gray-400">Fail</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-xs shadow-md mb-1">25</div>
+<p class="text-xs text-gray-400">Pass</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-xs shadow-md mb-1">59</div>
+<p class="text-xs text-gray-400">Pass</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center font-bold text-xs shadow-md mb-1">61</div>
+<p class="text-xs text-gray-400">Fail</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 14</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 13.html";
+}
+function goNext() {
+    window.location.href = "Slide 15.html";
+}
+</script>
+</div>
+</body>
+</html>

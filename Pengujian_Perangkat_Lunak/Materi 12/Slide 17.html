@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Test Case Lengkap (Login)</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        /* Changed gradient to solid color for export compatibility */
+        .table-header {
+            background-color: #1e3a8a;
+        }
+        .table-row-hover:hover {
+            background-color: #f1f5f9;
+            transform: scale(1.005);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            position: relative;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration -->
+<div class="absolute top-0 left-0 w-full h-2 bg-blue-800 z-50"></div>
+<!-- Background Elements -->
+<div class="absolute top-20 right-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+<div class="absolute bottom-0 left-20 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+<!-- Header Section -->
+<div class="px-12 pt-10 pb-2 flex justify-between items-end">
+<div>
+<div class="flex items-center space-x-3 mb-2">
+<div class="h-1 w-10 bg-blue-500"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Implementasi</p>
+</div>
+<h1 class="text-4xl font-extrabold text-gray-900">
+                Test Case <span class="text-academic-blue">Lengkap</span>
+</h1>
+<p class="text-gray-500 mt-2 text-lg">Studi Kasus: Sistem Login</p>
+</div>
+<!-- Context Icon -->
+<div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+<i class="fa-solid fa-list-check text-3xl text-blue-600"></i>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 px-12 py-6 flex flex-col relative z-10">
+<!-- Table Container -->
+<div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="table-header text-white">
+<th class="p-5 font-bold text-sm uppercase tracking-wider w-32 border-r border-blue-400 border-opacity-30">ID Test</th>
+<th class="p-5 font-bold text-sm uppercase tracking-wider w-1/2 border-r border-blue-400 border-opacity-30">Langkah Pengujian</th>
+<th class="p-5 font-bold text-sm uppercase tracking-wider">Expected Result</th>
+</tr>
+</thead>
+<tbody class="text-gray-700">
+<!-- Row 1: TC-01 -->
+<tr class="border-b border-gray-100 table-row-hover bg-white transition-all">
+<td class="p-5 align-top">
+<span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded">TC-01</span>
+</td>
+<td class="p-5 align-top">
+<p class="font-bold text-gray-800 mb-1">Login Valid (Positive)</p>
+<div class="flex items-start space-x-2 text-sm text-gray-600">
+<i class="fa-solid fa-keyboard mt-1 text-gray-400"></i>
+<p>Masukkan email valid + password valid, lalu klik tombol <strong>Login</strong>.</p>
+</div>
+</td>
+<td class="p-5 align-top">
+<div class="flex items-start">
+<i class="fa-solid fa-circle-check text-green-500 mt-1 mr-2 text-sm"></i>
+<p>Berhasil login dan sistem menampilkan halaman <span class="font-semibold text-blue-700">Dashboard Pengguna</span>.</p>
+</div>
+</td>
+</tr>
+<!-- Row 2: TC-02 -->
+<tr class="border-b border-gray-100 table-row-hover bg-gray-50 transition-all">
+<td class="p-5 align-top">
+<span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded">TC-02</span>
+</td>
+<td class="p-5 align-top">
+<p class="font-bold text-gray-800 mb-1">Email Tidak Terdaftar (Negative)</p>
+<div class="flex items-start space-x-2 text-sm text-gray-600">
+<i class="fa-solid fa-keyboard mt-1 text-gray-400"></i>
+<p>Masukkan email yang tidak terdaftar + password acak, lalu klik tombol <strong>Login</strong>.</p>
+</div>
+</td>
+<td class="p-5 align-top">
+<div class="flex items-start">
+<i class="fa-solid fa-circle-xmark text-red-500 mt-1 mr-2 text-sm"></i>
+<p>Sistem menolak login dan menampilkan pesan error: <span class="italic text-red-600">"Email tidak terdaftar"</span>.</p>
+</div>
+</td>
+</tr>
+<!-- Row 3: TC-03 -->
+<tr class="border-b border-gray-100 table-row-hover bg-white transition-all">
+<td class="p-5 align-top">
+<span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded">TC-03</span>
+</td>
+<td class="p-5 align-top">
+<p class="font-bold text-gray-800 mb-1">Password Kosong (Negative)</p>
+<div class="flex items-start space-x-2 text-sm text-gray-600">
+<i class="fa-solid fa-keyboard mt-1 text-gray-400"></i>
+<p>Biarkan field password kosong (email valid), lalu klik tombol <strong>Login</strong>.</p>
+</div>
+</td>
+<td class="p-5 align-top">
+<div class="flex items-start">
+<i class="fa-solid fa-circle-exclamation text-yellow-500 mt-1 mr-2 text-sm"></i>
+<p>Muncul warning/validasi form: <span class="italic text-yellow-600">"Password wajib diisi"</span> dan proses login tidak dijalankan.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Note / Legend Area -->
+<div class="mt-6 flex space-x-6">
+<div class="glass-panel p-4 rounded-lg flex-1 flex items-start space-x-3 shadow-sm">
+<div class="bg-blue-100 p-2 rounded-full text-blue-600">
+<i class="fa-solid fa-lightbulb text-sm"></i>
+</div>
+<div>
+<h4 class="font-bold text-sm text-gray-800">Cakupan Pengujian</h4>
+<p class="text-xs text-gray-600 mt-1">Test case ini mencakup <strong>Positive Testing</strong> (TC-01) untuk memastikan sistem berjalan normal, dan <strong>Negative Testing</strong> (TC-02, TC-03) untuk menangani input yang salah.</p>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-lg flex-1 flex items-start space-x-3 shadow-sm">
+<div class="bg-purple-100 p-2 rounded-full text-purple-600">
+<i class="fa-solid fa-eye text-sm"></i>
+</div>
+<div>
+<h4 class="font-bold text-sm text-gray-800">Observasi</h4>
+<p class="text-xs text-gray-600 mt-1">Pastikan pesan error yang muncul sesuai dengan spesifikasi UI/UX yang telah ditentukan di Test Plan.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20 mt-auto">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pertemuan 12 | Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 17</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 16.html";
+}
+function goNext() {
+    window.location.href = "Slide 18.html";
+}
+</script>
+</div>
+</body>
+</html>

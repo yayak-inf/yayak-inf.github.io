@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Teknik Menyusun Test Case</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .component-card {
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            height: 100%;
+        }
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-left-color: #3b82f6; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration -->
+<div class="absolute top-0 left-0 w-full h-2 bg-blue-800 z-50"></div>
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full -z-10 opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-gray-100 rounded-tr-full -z-10 opacity-50"></div>
+<!-- Header Section -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center space-x-3 mb-2">
+<div class="h-1 w-10 bg-blue-500"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Test Case Design Techniques</p>
+</div>
+<h1 class="text-4xl font-extrabold text-gray-900">
+            Teknik Menyusun <span class="text-academic-blue">Test Case</span>
+</h1>
+<p class="text-gray-500 mt-2 text-lg">Metode standar industri untuk merancang skenario pengujian yang efektif dan efisien.</p>
+</div>
+<!-- Main Grid Content -->
+<div class="flex-1 px-12 pb-8 flex items-center justify-center">
+<div class="grid grid-cols-3 gap-8 w-full max-w-6xl">
+<!-- Card 1: Equivalence Partitioning -->
+<div class="component-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
+<div class="flex-shrink-0 w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 mb-6">
+<i class="fa-solid fa-layer-group text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Equivalence Partitioning</h3>
+<p class="text-sm text-gray-600 leading-relaxed px-2">
+                        Teknik membagi domain input data menjadi kelas-kelas data (partisi) yang setara. Test case dirancang untuk menguji perwakilan dari setiap kelas, mengurangi jumlah total tes yang diperlukan tanpa mengurangi cakupan.
+                    </p>
+</div>
+</div>
+<!-- Card 2: Boundary Value Analysis -->
+<div class="component-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
+<div class="flex-shrink-0 w-20 h-20 bg-teal-50 rounded-full flex items-center justify-center text-teal-600 mb-6">
+<i class="fa-solid fa-arrows-left-right-to-line text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Boundary Value Analysis</h3>
+<p class="text-sm text-gray-600 leading-relaxed px-2">
+                        Teknik pengujian yang berfokus pada nilai-nilai di batas (boundary) partisi ekuivalen. Kesalahan lebih sering terjadi di tepi rentang input (minimum, maksimum) daripada di tengah.
+                    </p>
+</div>
+</div>
+<!-- Card 3: Decision Table -->
+<div class="component-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center">
+<div class="flex-shrink-0 w-20 h-20 bg-rose-50 rounded-full flex items-center justify-center text-rose-600 mb-6">
+<i class="fa-solid fa-table-list text-3xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Decision Table</h3>
+<p class="text-sm text-gray-600 leading-relaxed px-2">
+                        Teknik untuk menangkap persyaratan sistem yang berisi kondisi logis yang kompleks. Menggunakan tabel untuk memetakan kombinasi kondisi input (sebab) dengan aksi yang sesuai (akibat).
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20 mt-auto">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pertemuan 12 | Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 13</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 12.html";
+}
+function goNext() {
+    window.location.href = "Slide 14.html";
+}
+</script>
+</div>
+</body>
+</html>

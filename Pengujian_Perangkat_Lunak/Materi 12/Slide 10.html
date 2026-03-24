@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Struktur Test Case</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .bullet-point {
+            transition: transform 0.2s ease;
+        }
+        /* Geometric accent */
+        .accent-shape {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.05;
+            color: #1e3a8a;
+        }
+        /* Custom scrollbar for list if needed, though we try to fit without scrolling */
+        .custom-list-spacing > :not([hidden]) ~ :not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-top: calc(0.6rem * calc(1 - var(--tw-space-y-reverse)));
+            margin-bottom: calc(0.6rem * var(--tw-space-y-reverse));
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration Line -->
+<div class="w-full h-2 bg-blue-800"></div>
+<!-- Main Container -->
+<div class="flex-1 flex flex-row relative p-12 overflow-hidden">
+<!-- Background Accents -->
+<div class="accent-shape -right-20 -top-20 text-[400px]">
+<i class="fa-solid fa-file-contract"></i>
+</div>
+<!-- Left Column: Content -->
+<div class="w-7/12 flex flex-col justify-center z-10 pr-4">
+<!-- Header Section -->
+<div class="mb-5 border-l-8 border-blue-600 pl-6">
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-1">Test Case Development</p>
+<h1 class="text-4xl font-extrabold text-gray-900 leading-tight">
+                Struktur <span class="text-academic-blue">Test Case</span>
+</h1>
+</div>
+<div class="pl-2 mb-4">
+<p class="text-lg text-gray-600 font-medium">
+                Setiap test case harus memuat komponen berikut:
+            </p>
+</div>
+<!-- Bullet Points List -->
+<div class="flex flex-col custom-list-spacing">
+<!-- Item 1 -->
+<div class="flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+<i class="fa-solid fa-fingerprint text-sm"></i>
+</div>
+<p class="text-lg text-gray-800 font-semibold">ID Test Case</p>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+<i class="fa-solid fa-tag text-sm"></i>
+</div>
+<p class="text-lg text-gray-800 font-semibold">Nama Test / Skenario</p>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+<i class="fa-solid fa-list-ol text-sm"></i>
+</div>
+<p class="text-lg text-gray-800 font-semibold">Langkah Pengujian</p>
+</div>
+<!-- Item 4 -->
+<div class="flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+<i class="fa-solid fa-keyboard text-sm"></i>
+</div>
+<p class="text-lg text-gray-800 font-semibold">Input Data</p>
+</div>
+<!-- Item 5 -->
+<div class="flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-4">
+<i class="fa-solid fa-eye text-sm"></i>
+</div>
+<p class="text-lg text-gray-800 font-semibold">Expected Result</p>
+</div>
+<!-- Item 6 -->
+<div class="flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 mr-4">
+<i class="fa-solid fa-magnifying-glass-chart text-sm"></i>
+</div>
+<p class="text-lg text-gray-800 font-semibold">Actual Result</p>
+</div>
+<!-- Item 7 -->
+<div class="flex items-center p-3 bg-white rounded-lg shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4">
+<i class="fa-solid fa-check-circle text-sm"></i>
+</div>
+<p class="text-lg text-gray-800 font-semibold">Status (Pass/Fail)</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual/Graphic -->
+<div class="w-5/12 flex items-center justify-center relative z-10 pl-6">
+<div class="relative w-full max-w-sm">
+<!-- Decorative Back Card -->
+<div class="absolute top-4 left-4 w-full h-full bg-blue-200 rounded-2xl transform rotate-2"></div>
+<!-- Main Visual Card representing a Test Case Form -->
+<div class="relative bg-white p-6 rounded-2xl shadow-xl border border-gray-200 transform -rotate-1">
+<div class="flex justify-between items-center mb-4 border-b border-gray-100 pb-3">
+<div class="flex items-center space-x-2">
+<i class="fa-solid fa-clipboard-check text-blue-600"></i>
+<p class="text-sm font-bold text-gray-700 uppercase">Dokumen Test Case</p>
+</div>
+<div class="text-xs font-mono text-gray-400">TC-001</div>
+</div>
+<div class="space-y-3">
+<!-- Visual representation of fields -->
+<div class="bg-gray-50 p-2 rounded border border-gray-100">
+<p class="text-xs text-blue-500 font-bold mb-1">ID &amp; Nama</p>
+<div class="h-2 w-3/4 bg-gray-200 rounded"></div>
+</div>
+<div class="bg-gray-50 p-2 rounded border border-gray-100">
+<p class="text-xs text-blue-500 font-bold mb-1">Langkah &amp; Input</p>
+<div class="h-2 w-full bg-gray-200 rounded mb-1"></div>
+<div class="h-2 w-2/3 bg-gray-200 rounded"></div>
+</div>
+<div class="flex space-x-2">
+<div class="flex-1 bg-green-50 p-2 rounded border border-green-100">
+<p class="text-xs text-green-600 font-bold mb-1">Expected</p>
+<div class="h-2 w-full bg-green-200 rounded"></div>
+</div>
+<div class="flex-1 bg-orange-50 p-2 rounded border border-orange-100">
+<p class="text-xs text-orange-500 font-bold mb-1">Actual</p>
+<div class="h-2 w-full bg-orange-200 rounded"></div>
+</div>
+</div>
+<div class="bg-blue-600 p-2 rounded text-center">
+<p class="text-xs text-white font-bold">Status: PASS</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 10</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 9.html";
+}
+function goNext() {
+    window.location.href = "Slide 11.html";
+}
+</script>
+</div>
+</body>
+</html>

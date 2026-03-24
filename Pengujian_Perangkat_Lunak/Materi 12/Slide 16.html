@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Studi Kasus: Sistem Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .step-card {
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .arrow-connector {
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            transform: translateY(-50%);
+            z-index: 0;
+            color: #cbd5e1;
+        }
+        .number-badge {
+            background: #1e3a8a;
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        /* No gradients allowed, using solid colors */
+        .header-decoration {
+            background-color: #1e3a8a;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration -->
+<div class="absolute top-0 left-0 w-full h-2 header-decoration z-50"></div>
+<!-- Background Patterns -->
+<div class="absolute top-20 left-10 text-gray-100 text-[200px] opacity-40 -z-10">
+<i class="fa-solid fa-laptop-code"></i>
+</div>
+<!-- Header Section -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center space-x-3 mb-2">
+<div class="h-1 w-10 bg-blue-500"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Implementasi</p>
+</div>
+<h1 class="text-4xl font-extrabold text-gray-900">
+            Studi Kasus: <span class="text-academic-blue">Sistem Login</span>
+</h1>
+<p class="text-gray-500 mt-2 text-lg">Analisis fitur utama yang akan diuji dalam skenario pengujian.</p>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 px-12 pb-8 flex items-center justify-center relative">
+<!-- Process Flow Container -->
+<div class="flex justify-between items-stretch w-full max-w-6xl gap-8 relative z-10">
+<!-- Step 1: Input Email -->
+<div class="w-1/3 relative group">
+<div class="step-card bg-white rounded-2xl p-8 shadow-lg border-t-4 border-blue-500 h-full flex flex-col items-center text-center relative z-10">
+<div class="absolute -top-6">
+<div class="number-badge">1</div>
+</div>
+<div class="mt-8 mb-6 bg-blue-50 p-6 rounded-full text-blue-600">
+<i class="fa-solid fa-envelope text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Input Email</h3>
+<div class="w-12 h-1 bg-blue-200 rounded mb-4"></div>
+<p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Kolom input untuk memasukkan alamat surel pengguna.
+                    </p>
+<div class="bg-gray-50 rounded-lg p-4 w-full mt-auto text-left border border-gray-100">
+<p class="text-xs font-bold text-gray-400 uppercase mb-2">Fokus Pengujian:</p>
+<ul class="text-sm text-gray-700 space-y-2">
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Format valid (@, domain)</li>
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Input kosong</li>
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Case sensitivity</li>
+</ul>
+</div>
+</div>
+<!-- Connector Arrow -->
+<div class="arrow-connector hidden lg:block">
+<i class="fa-solid fa-chevron-right text-4xl opacity-30"></i>
+</div>
+</div>
+<!-- Step 2: Input Password -->
+<div class="w-1/3 relative group">
+<div class="step-card bg-white rounded-2xl p-8 shadow-lg border-t-4 border-yellow-400 h-full flex flex-col items-center text-center relative z-10">
+<div class="absolute -top-6">
+<div class="number-badge bg-yellow-500 border-white">2</div>
+</div>
+<div class="mt-8 mb-6 bg-yellow-50 p-6 rounded-full text-yellow-600">
+<i class="fa-solid fa-key text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Input Password</h3>
+<div class="w-12 h-1 bg-yellow-200 rounded mb-4"></div>
+<p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Kolom input terenkripsi (masked) untuk kata sandi.
+                    </p>
+<div class="bg-gray-50 rounded-lg p-4 w-full mt-auto text-left border border-gray-100">
+<p class="text-xs font-bold text-gray-400 uppercase mb-2">Fokus Pengujian:</p>
+<ul class="text-sm text-gray-700 space-y-2">
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Masking character (*)</li>
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Batas panjang karakter</li>
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Kombinasi huruf/angka</li>
+</ul>
+</div>
+</div>
+<!-- Connector Arrow -->
+<div class="arrow-connector hidden lg:block">
+<i class="fa-solid fa-chevron-right text-4xl opacity-30"></i>
+</div>
+</div>
+<!-- Step 3: Tombol Login -->
+<div class="w-1/3 relative group">
+<div class="step-card bg-white rounded-2xl p-8 shadow-lg border-t-4 border-green-500 h-full flex flex-col items-center text-center relative z-10">
+<div class="absolute -top-6">
+<div class="number-badge bg-green-600 border-white">3</div>
+</div>
+<div class="mt-8 mb-6 bg-green-50 p-6 rounded-full text-green-600">
+<i class="fa-solid fa-arrow-right-to-bracket text-3xl"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Tombol Login</h3>
+<div class="w-12 h-1 bg-green-200 rounded mb-4"></div>
+<p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Pemicu aksi untuk memvalidasi kredensial ke server.
+                    </p>
+<div class="bg-gray-50 rounded-lg p-4 w-full mt-auto text-left border border-gray-100">
+<p class="text-xs font-bold text-gray-400 uppercase mb-2">Fokus Pengujian:</p>
+<ul class="text-sm text-gray-700 space-y-2">
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Fungsi klik</li>
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Redirect halaman</li>
+<li class="flex items-center"><i class="fa-solid fa-check text-green-500 text-xs mr-2"></i> Pesan error/sukses</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20 mt-auto">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pertemuan 12 | Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 16</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 15.html";
+}
+function goNext() {
+    window.location.href = "Slide 17.html";
+}
+</script>
+</div>
+</body>
+</html>

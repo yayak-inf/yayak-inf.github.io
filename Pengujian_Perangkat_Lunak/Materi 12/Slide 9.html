@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Contoh Sederhana Test Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .definition-card {
+            box-shadow: 0 10px 40px -10px rgba(30, 58, 138, 0.2);
+        }
+        .keyword-badge {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .keyword-badge:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration -->
+<div class="absolute top-0 left-0 w-full h-2 bg-blue-800 z-50"></div>
+<div class="absolute top-0 right-0 w-1/3 h-4 bg-blue-600 z-50"></div>
+<!-- Header Section -->
+<div class="px-12 pt-12 pb-6">
+<div class="flex items-center space-x-3 mb-2">
+<div class="h-1 w-10 bg-blue-500"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Implementasi</p>
+</div>
+<h1 class="text-5xl font-extrabold text-gray-900">
+            Contoh Sederhana <span class="text-academic-blue">Test Plan</span>
+</h1>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 px-12 pb-12 flex items-center justify-center relative">
+<!-- Abstract Background Element -->
+<div class="absolute top-10 right-20 text-gray-100 text-[300px] -z-10 transform rotate-12">
+<i class="fa-solid fa-laptop-code"></i>
+</div>
+<div class="flex w-full max-w-6xl gap-12 items-center">
+<!-- Left Side: Visual Anchor -->
+<div class="w-1/3 flex flex-col items-center justify-center">
+<div class="relative">
+<!-- Back Card -->
+<div class="w-64 h-80 bg-white border-2 border-gray-200 rounded-xl transform -rotate-6 absolute top-0 left-0 shadow-sm z-0"></div>
+<!-- Front Card -->
+<div class="w-64 h-80 bg-white border-2 border-blue-100 rounded-xl transform rotate-3 absolute top-0 left-0 shadow-md z-10 flex flex-col items-center justify-center p-8">
+<div class="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-6">
+<i class="fa-solid fa-right-to-bracket text-4xl"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 text-center mb-2">Sistem Login</h3>
+<p class="text-center text-gray-500 text-sm">Contoh kasus pengujian fungsional dasar</p>
+</div>
+</div>
+</div>
+<!-- Right Side: Content Card -->
+<div class="w-2/3">
+<div class="bg-academic-blue rounded-3xl p-10 text-white definition-card relative overflow-hidden">
+<!-- Decor -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500 rounded-full opacity-20 blur-2xl"></div>
+<div class="absolute bottom-0 left-0 w-full h-2 bg-yellow-400"></div>
+<div class="relative z-10">
+<div class="flex items-center mb-6">
+<div class="bg-blue-600 p-3 rounded-lg mr-4">
+<i class="fa-solid fa-globe text-white text-2xl"></i>
+</div>
+<div>
+<p class="text-blue-300 text-sm font-bold uppercase tracking-wider">Target Sistem</p>
+<h2 class="text-3xl font-bold text-white">Login Website</h2>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Point 1: Tujuan -->
+<div class="keyword-badge p-5 rounded-xl border border-blue-400 border-opacity-30 flex items-start">
+<div class="flex-shrink-0 mt-1">
+<i class="fa-solid fa-bullseye text-yellow-400 text-xl"></i>
+</div>
+<div class="ml-4">
+<p class="font-bold text-blue-200 text-sm uppercase tracking-wider mb-1">Tujuan Pengujian</p>
+<p class="text-xl font-semibold text-white">Menguji validasi dan otentikasi fungsi login user.</p>
+</div>
+</div>
+<!-- Point 2: Strategi -->
+<div class="keyword-badge p-5 rounded-xl border border-blue-400 border-opacity-30 flex items-start">
+<div class="flex-shrink-0 mt-1">
+<i class="fa-solid fa-chess-knight text-yellow-400 text-xl"></i>
+</div>
+<div class="ml-4">
+<p class="font-bold text-blue-200 text-sm uppercase tracking-wider mb-1">Strategi</p>
+<p class="text-xl font-semibold text-white">Black-box Testing (Fokus pada input &amp; output).</p>
+</div>
+</div>
+<!-- Point 3: Tools -->
+<div class="keyword-badge p-5 rounded-xl border border-blue-400 border-opacity-30 flex items-start">
+<div class="flex-shrink-0 mt-1">
+<i class="fa-brands fa-chrome text-yellow-400 text-xl"></i>
+</div>
+<div class="ml-4">
+<p class="font-bold text-blue-200 text-sm uppercase tracking-wider mb-1">Tools</p>
+<p class="text-xl font-semibold text-white">Web Browser (Chrome, Firefox, Edge).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pertemuan 12 | Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 9</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 8.html";
+}
+function goNext() {
+    window.location.href = "Slide 10.html";
+}
+</script>
+</div>
+</body>
+</html>

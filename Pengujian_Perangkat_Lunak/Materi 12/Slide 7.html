@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Komponen Test Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .component-card {
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+        }
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-left-color: #3b82f6; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration -->
+<div class="absolute top-0 left-0 w-full h-2 bg-blue-800 z-50"></div>
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-bl-full -z-10 opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-gray-100 rounded-tr-full -z-10 opacity-50"></div>
+<!-- Header Section -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center space-x-3 mb-2">
+<div class="h-1 w-10 bg-blue-500"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Test Plan Structure</p>
+</div>
+<h1 class="text-4xl font-extrabold text-gray-900">
+            Komponen <span class="text-academic-blue">Test Plan</span>
+</h1>
+<p class="text-gray-500 mt-2 text-lg">Elemen-elemen kunci yang wajib ada dalam dokumen perencanaan pengujian.</p>
+</div>
+<!-- Main Grid Content -->
+<div class="flex-1 px-12 pb-8 flex items-center justify-center">
+<div class="grid grid-cols-2 gap-x-8 gap-y-6 w-full max-w-6xl">
+<!-- Card 1: Tujuan -->
+<div class="component-card bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start">
+<div class="flex-shrink-0 w-14 h-14 bg-red-50 rounded-lg flex items-center justify-center text-red-500 mr-5">
+<i class="fa-solid fa-bullseye text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Tujuan Pengujian</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                        Menjelaskan sasaran utama yang ingin dicapai dari proses testing serta kriteria kesuksesan pengujian.
+                    </p>
+</div>
+</div>
+<!-- Card 2: Ruang Lingkup -->
+<div class="component-card bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start">
+<div class="flex-shrink-0 w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center text-blue-500 mr-5">
+<i class="fa-solid fa-expand text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Ruang Lingkup (Scope)</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                        Mendefinisikan fitur apa yang akan diuji (In-Scope) dan fitur apa yang tidak akan diuji (Out-Scope).
+                    </p>
+</div>
+</div>
+<!-- Card 3: Strategi -->
+<div class="component-card bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start">
+<div class="flex-shrink-0 w-14 h-14 bg-purple-50 rounded-lg flex items-center justify-center text-purple-500 mr-5">
+<i class="fa-solid fa-chess-knight text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Strategi Pengujian</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                        Pendekatan yang digunakan, level pengujian (unit, integrasi, sistem), dan tipe testing (manual/otomatis).
+                    </p>
+</div>
+</div>
+<!-- Card 4: Jadwal -->
+<div class="component-card bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start">
+<div class="flex-shrink-0 w-14 h-14 bg-green-50 rounded-lg flex items-center justify-center text-green-500 mr-5">
+<i class="fa-solid fa-calendar-days text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Jadwal (Schedule)</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                        Timeline pelaksanaan testing, tanggal mulai dan selesai, serta milestone penting pengujian.
+                    </p>
+</div>
+</div>
+<!-- Card 5: Tools -->
+<div class="component-card bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start">
+<div class="flex-shrink-0 w-14 h-14 bg-yellow-50 rounded-lg flex items-center justify-center text-yellow-600 mr-5">
+<i class="fa-solid fa-toolbox text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Tools &amp; Sumber Daya</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                        Daftar perangkat lunak (JIRA, Selenium), perangkat keras, dan SDM (tester) yang dibutuhkan.
+                    </p>
+</div>
+</div>
+<!-- Card 6: Risiko -->
+<div class="component-card bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex items-start">
+<div class="flex-shrink-0 w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center text-orange-500 mr-5">
+<i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-800 mb-1">Risiko &amp; Mitigasi</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                        Analisis potensi masalah yang mungkin menghambat pengujian serta rencana penanganannya.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20 mt-auto">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pertemuan 12 | Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 7</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 6.html";
+}
+function goNext() {
+    window.location.href = "Slide 8.html";
+}
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Slide Cover - Test Plan dan Test Case Development</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { 
+            font-family: 'Open Sans', sans-serif; 
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .pattern-overlay {
+            background-image: radial-gradient(#3b82f6 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .triangle-shape {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+        }
+    </style>
+</head>
+<body class="w-[1280px] h-[720px] bg-gray-50 flex items-center justify-center">
+<!-- Main Slide Container -->
+<div class="w-[1280px] h-[720px] bg-white relative shadow-2xl overflow-hidden flex">
+<!-- Left Section (Content) -->
+<div class="w-7/12 h-full flex flex-col justify-center px-20 z-20 relative">
+<!-- Header/Top Decor -->
+<div class="absolute top-12 left-20 flex items-center space-x-3">
+<div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+<div class="w-3 h-3 bg-blue-400 rounded-full"></div>
+<div class="w-3 h-3 bg-blue-200 rounded-full"></div>
+<p class="text-gray-400 font-semibold text-sm tracking-widest ml-4">PENGUJIAN PERANGKAT LUNAK</p>
+</div>
+<!-- Main Title Area -->
+<div class="mt-8">
+<div class="inline-block bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded mb-4 uppercase tracking-wider">
+                    Materi 12
+                </div>
+<h1 class="text-6xl font-extrabold text-gray-900 leading-none tracking-tight mb-2">
+                    Test Plan &amp;
+                </h1>
+<h1 class="text-6xl font-extrabold text-blue-800 leading-tight tracking-tight mb-8">
+                    Test Case Development
+                </h1>
+<!-- Divider -->
+<div class="w-24 h-2 bg-yellow-400 mb-8"></div>
+<!-- Subtitle / Details -->
+<div class="grid grid-cols-1 gap-4 text-gray-600">
+<div class="flex items-center group">
+<div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-blue-600 mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<i class="fa-solid fa-graduation-cap text-lg"></i>
+</div>
+<div>
+<p class="text-xs text-gray-400 uppercase font-bold">Program Studi</p>
+<p class="text-lg font-semibold text-gray-800">Informatika</p>
+</div>
+</div>
+<div class="flex items-center group">
+<div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-blue-600 mr-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+<i class="fa-regular fa-calendar-check text-lg"></i>
+</div>
+<div>
+<p class="text-xs text-gray-400 uppercase font-bold">Semester</p>
+<p class="text-lg font-semibold text-gray-800">Semester 6</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Note -->
+<div class="absolute bottom-12 left-20 text-gray-400 text-sm">
+<p>© 2026 Teknik Informatika - Universitas</p>
+</div>
+</div>
+<!-- Right Section (Visual & Background) -->
+<div class="w-6/12 h-full absolute right-0 top-0 bottom-0 bg-academic-blue triangle-shape flex flex-col items-center justify-center z-10 overflow-hidden">
+<!-- Abstract Pattern Overlay -->
+<div class="absolute inset-0 pattern-overlay"></div>
+<!-- Floating Decorative Circles -->
+<div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+<div class="absolute bottom-0 right-20 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+<!-- Central Visual Graphic -->
+<div class="relative z-20 transform translate-x-12 translate-y-6">
+<!-- Card Container -->
+<div class="glass-effect p-8 rounded-2xl shadow-2xl max-w-sm border-l-4 border-yellow-400 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg">
+<div class="flex justify-between items-start mb-6">
+<div class="text-white">
+<i class="fa-solid fa-list-check text-5xl mb-2"></i>
+<h3 class="text-2xl font-bold">Testing Strategy</h3>
+</div>
+<div class="bg-green-400 text-green-900 text-xs font-bold px-2 py-1 rounded">
+                            ACTIVE
+                        </div>
+</div>
+<!-- Mock Progress Bars -->
+<div class="space-y-4 w-64">
+<div>
+<div class="flex justify-between text-white text-xs mb-1">
+<span>Test Plan Design</span>
+<span>100%</span>
+</div>
+<div class="w-full bg-blue-900 bg-opacity-50 rounded-full h-1.5">
+<div class="bg-green-400 h-1.5 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-white text-xs mb-1">
+<span>Test Case Creation</span>
+<span>85%</span>
+</div>
+<div class="w-full bg-blue-900 bg-opacity-50 rounded-full h-1.5">
+<div class="bg-yellow-400 h-1.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-white text-xs mb-1">
+<span>Execution</span>
+<span>Pending</span>
+</div>
+<div class="w-full bg-blue-900 bg-opacity-50 rounded-full h-1.5">
+<div class="bg-gray-400 h-1.5 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Icon 2 -->
+<div class="absolute -bottom-16 -left-12 glass-effect p-4 rounded-xl shadow-lg flex items-center animate-bounce" style="animation-duration: 3s;">
+<div class="bg-red-500 rounded-full p-2 mr-3">
+<i class="fa-solid fa-bug text-white text-lg"></i>
+</div>
+<div>
+<p class="text-white text-xs font-bold">Bug Tracking</p>
+<p class="text-blue-200 text-xs">Zero Defects Goal</p>
+</div>
+</div>
+</div>
+</div>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 1.html";
+}
+function goNext() {
+    window.location.href = "Slide 2.html";
+}
+</script>
+</div>
+</body>
+</html>

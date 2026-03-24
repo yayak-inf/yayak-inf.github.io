@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Penjelasan Test Case</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .bullet-point {
+            transition: transform 0.2s ease;
+        }
+        .bullet-point:hover {
+            transform: translateX(10px);
+            border-color: #bfdbfe;
+        }
+        /* Geometric accent */
+        .accent-shape {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.05;
+            color: #1e3a8a;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration Line -->
+<div class="w-full h-2 bg-blue-800"></div>
+<!-- Main Container -->
+<div class="flex-1 flex flex-row relative p-12 overflow-hidden">
+<!-- Background Accents -->
+<div class="accent-shape -right-20 -top-20 text-[400px]">
+<i class="fa-solid fa-clipboard-check"></i>
+</div>
+<!-- Left Column: Content -->
+<div class="w-7/12 flex flex-col justify-center z-10 pr-8">
+<!-- Header Section -->
+<div class="mb-8 border-l-8 border-blue-600 pl-6">
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase mb-1">Test Case Development</p>
+<h1 class="text-5xl font-extrabold text-gray-900 leading-tight">
+                    Kriteria <span class="text-academic-blue">Test Case Baik</span>
+</h1>
+</div>
+<div class="pl-2 mb-6">
+<p class="text-xl text-gray-600 font-medium">
+                    Setiap test case yang berkualitas harus memenuhi standar berikut agar pengujian efektif:
+                </p>
+</div>
+<!-- Bullet Points List -->
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="flex items-start p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-5 mt-1">
+<i class="fa-solid fa-eye text-xl"></i>
+</div>
+<div>
+<p class="text-xl text-gray-800 font-bold">Jelas</p>
+<p class="text-gray-600 text-sm mt-1">Tujuan dan langkah pengujian terdefinisi dengan baik tanpa menimbulkan kebingungan.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-5 mt-1">
+<i class="fa-solid fa-book-open text-xl"></i>
+</div>
+<div>
+<p class="text-xl text-gray-800 font-bold">Mudah Dipahami</p>
+<p class="text-gray-600 text-sm mt-1">Menggunakan bahasa yang konsisten dan sederhana agar bisa dijalankan oleh siapa saja.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 mr-5 mt-1">
+<i class="fa-solid fa-rotate-right text-xl"></i>
+</div>
+<div>
+<p class="text-xl text-gray-800 font-bold">Bisa Diulang (Reproducible)</p>
+<p class="text-gray-600 text-sm mt-1">Menghasilkan output yang konsisten setiap kali dijalankan dengan kondisi yang sama.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex items-start p-4 bg-white rounded-xl shadow-sm border border-gray-100 bullet-point">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-5 mt-1">
+<i class="fa-solid fa-scale-balanced text-xl"></i>
+</div>
+<div>
+<p class="text-xl text-gray-800 font-bold">Tidak Ambigu</p>
+<p class="text-gray-600 text-sm mt-1">Hasil yang diharapkan (expected result) harus spesifik, terukur, dan pasti.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual/Graphic -->
+<div class="w-5/12 flex items-center justify-center relative z-10">
+<div class="relative w-full max-w-md">
+<!-- Decorative Back Card -->
+<div class="absolute top-4 left-4 w-full h-full bg-blue-200 rounded-2xl"></div>
+<!-- Main Visual Card -->
+<div class="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+<div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+<div class="flex space-x-2">
+<div class="w-3 h-3 bg-blue-400 rounded-full"></div>
+<div class="w-3 h-3 bg-indigo-400 rounded-full"></div>
+<div class="w-3 h-3 bg-purple-400 rounded-full"></div>
+</div>
+<p class="text-xs font-bold text-gray-400 uppercase">Dampak Kualitas</p>
+</div>
+<div class="space-y-6">
+<div class="flex items-center">
+<div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 text-2xl mr-4">
+<i class="fa-solid fa-bug-slash"></i>
+</div>
+<div>
+<p class="text-sm text-gray-500 font-bold uppercase">Akurasi</p>
+<p class="text-lg font-bold text-gray-800">Deteksi Bug Tepat</p>
+</div>
+</div>
+<div class="w-full h-px bg-gray-100"></div>
+<div class="flex items-center">
+<div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 text-2xl mr-4">
+<i class="fa-solid fa-stopwatch"></i>
+</div>
+<div>
+<p class="text-sm text-gray-500 font-bold uppercase">Efisiensi</p>
+<p class="text-lg font-bold text-gray-800">Waktu Testing Cepat</p>
+</div>
+</div>
+<div class="w-full h-px bg-gray-100"></div>
+<div class="flex items-center">
+<div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 text-2xl mr-4">
+<i class="fa-solid fa-file-signature"></i>
+</div>
+<div>
+<p class="text-sm text-gray-500 font-bold uppercase">Validitas</p>
+<p class="text-lg font-bold text-gray-800">Hasil Terpercaya</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 12</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 11.html";
+}
+function goNext() {
+    window.location.href = "Slide 13.html";
+}
+</script>
+</div>
+</body>
+</html>

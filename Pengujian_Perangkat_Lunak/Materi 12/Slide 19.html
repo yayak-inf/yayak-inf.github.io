@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Kesimpulan</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .header-decoration {
+            background-color: #1e3a8a;
+        }
+        .summary-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .summary-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .card-number {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            font-weight: 800;
+            color: #f1f5f9;
+            z-index: 0;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+        }
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration -->
+<div class="absolute top-0 left-0 w-full h-2 header-decoration z-50"></div>
+<!-- Header Section -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center space-x-3 mb-2">
+<div class="h-1 w-10 bg-blue-500"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Penutup</p>
+</div>
+<h1 class="text-4xl font-extrabold text-gray-900">
+            Kesimpulan <span class="text-academic-blue">Utama</span>
+</h1>
+<p class="text-gray-500 mt-2 text-lg">Tiga poin penting dari pertemuan hari ini.</p>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 px-12 pb-12 flex items-center justify-center">
+<div class="grid grid-cols-3 gap-8 w-full max-w-6xl">
+<!-- Card 1: Perencanaan -->
+<div class="summary-card bg-white rounded-2xl p-8 shadow-md border-b-8 border-blue-600 flex flex-col items-center text-center h-full">
+<div class="card-number text-blue-50">1</div>
+<div class="content-layer w-full flex flex-col items-center h-full">
+<div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-6">
+<i class="fa-solid fa-map-location-dot text-4xl"></i>
+</div>
+<h3 class="text-xl font-extrabold text-gray-800 mb-3 uppercase tracking-wide">Perencanaan</h3>
+<p class="text-blue-600 font-semibold mb-4 text-sm">Test Plan</p>
+<div class="w-12 h-1 bg-gray-200 rounded mb-4"></div>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Dokumen strategis yang menjadi fondasi. Tanpa perencanaan, pengujian akan kehilangan arah, boros sumber daya, dan berisiko melewatkan fitur kritis.
+                    </p>
+</div>
+</div>
+<!-- Card 2: Eksekusi -->
+<div class="summary-card bg-white rounded-2xl p-8 shadow-md border-b-8 border-green-600 flex flex-col items-center text-center h-full">
+<div class="card-number text-green-50">2</div>
+<div class="content-layer w-full flex flex-col items-center h-full">
+<div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6">
+<i class="fa-solid fa-play text-4xl pl-1"></i>
+</div>
+<h3 class="text-xl font-extrabold text-gray-800 mb-3 uppercase tracking-wide">Eksekusi</h3>
+<p class="text-green-600 font-semibold mb-4 text-sm">Test Case</p>
+<div class="w-12 h-1 bg-gray-200 rounded mb-4"></div>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Instruksi teknis yang detail. Test case memastikan setiap fitur diuji dengan langkah yang konsisten, terukur, dan dapat diulang (reproducible).
+                    </p>
+</div>
+</div>
+<!-- Card 3: Kualitas -->
+<div class="summary-card bg-white rounded-2xl p-8 shadow-md border-b-8 border-yellow-500 flex flex-col items-center text-center h-full">
+<div class="card-number text-yellow-50">3</div>
+<div class="content-layer w-full flex flex-col items-center h-full">
+<div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 mb-6">
+<i class="fa-solid fa-award text-4xl"></i>
+</div>
+<h3 class="text-xl font-extrabold text-gray-800 mb-3 uppercase tracking-wide">Kualitas</h3>
+<p class="text-yellow-600 font-semibold mb-4 text-sm">Sinergi Keduanya</p>
+<div class="w-12 h-1 bg-gray-200 rounded mb-4"></div>
+<p class="text-gray-600 leading-relaxed text-sm">
+                        Kombinasi strategi yang matang dan eksekusi yang disiplin adalah kunci utama untuk menjamin kualitas perangkat lunak yang handal dan bebas bug.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20 mt-auto">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pertemuan 12 | Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 19</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 18.html";
+}
+function goNext() {
+    window.location.href = "Slide 20.html";
+}
+</script>
+</div>
+</body>
+</html>

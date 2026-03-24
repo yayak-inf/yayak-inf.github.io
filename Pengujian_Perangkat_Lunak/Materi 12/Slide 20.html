@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Tugas Praktikum</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 720px;
+            overflow: auto;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-academic-blue {
+            color: #1e3a8a;
+        }
+        .bg-academic-blue {
+            background-color: #1e3a8a;
+        }
+        .header-decoration {
+            background-color: #1e3a8a;
+        }
+        .task-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .task-card:hover {
+            transform: translateY(-5px);
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .option-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            background-color: #f0f9ff;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+        }
+        .deliverable-box {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .circle-accent {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 relative">
+<!-- Top Decoration -->
+<div class="absolute top-0 left-0 w-full h-2 header-decoration z-50"></div>
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-bl-full -z-10 opacity-60"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-gray-100 rounded-tr-full -z-10"></div>
+<!-- Header Section -->
+<div class="px-12 pt-10 pb-4">
+<div class="flex items-center space-x-3 mb-2">
+<div class="h-1 w-10 bg-blue-500"></div>
+<p class="text-blue-600 font-bold tracking-widest text-sm uppercase">Assessment</p>
+</div>
+<h1 class="text-4xl font-extrabold text-gray-900">
+            Tugas <span class="text-academic-blue">Praktikum</span>
+</h1>
+<p class="text-gray-500 mt-2 text-lg">Implementasi konsep Test Plan dan Test Case pada studi kasus nyata.</p>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 px-12 pb-8 flex items-stretch gap-8">
+<!-- Left Column: Instructions & Options -->
+<div class="w-7/12 flex flex-col gap-6">
+<!-- Main Instruction Card -->
+<div class="task-card p-6 border-l-8 border-blue-600">
+<div class="flex items-start mb-4">
+<div class="bg-blue-100 p-3 rounded-lg mr-4 text-blue-600">
+<i class="fa-solid fa-list-check text-2xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-bold text-gray-800">Instruksi Pengerjaan</h3>
+<p class="text-gray-500 text-sm mt-1">Lakukan langkah-langkah berikut secara berurutan</p>
+</div>
+</div>
+<div class="space-y-3">
+<div class="checklist-item bg-gray-50 rounded-lg">
+<div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mr-4">1</div>
+<p class="text-gray-700 font-medium">Buat dokumen <span class="text-blue-700 font-bold">Test Plan Sederhana</span> (mencakup Tujuan, Scope, &amp; Strategi).</p>
+</div>
+<div class="checklist-item bg-gray-50 rounded-lg">
+<div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mr-4">2</div>
+<p class="text-gray-700 font-medium">Rancang minimal <span class="text-blue-700 font-bold">5 Test Case</span> yang mencakup skenario positif dan negatif.</p>
+</div>
+<div class="checklist-item bg-gray-50 rounded-lg">
+<div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold mr-4">3</div>
+<p class="text-gray-700 font-medium">Lakukan pengujian (eksekusi) dan catat hasil <span class="italic">Actual Result</span>.</p>
+</div>
+</div>
+</div>
+<!-- System Options Card -->
+<div class="task-card p-6 border-l-8 border-green-500 flex-1">
+<div class="flex items-start mb-4">
+<div class="bg-green-100 p-3 rounded-lg mr-4 text-green-600">
+<i class="fa-solid fa-server text-2xl"></i>
+</div>
+<div>
+<h3 class="text-xl font-bold text-gray-800">Pilihan Sistem</h3>
+<p class="text-gray-500 text-sm mt-1">Pilih salah satu sistem berikut sebagai objek pengujian:</p>
+</div>
+</div>
+<div class="flex flex-wrap content-start mt-2">
+<div class="option-badge">
+<i class="fa-solid fa-lock mr-2"></i> Sistem Login &amp; Register
+                </div>
+<div class="option-badge">
+<i class="fa-solid fa-cart-shopping mr-2"></i> E-commerce (Checkout)
+                </div>
+<div class="option-badge">
+<i class="fa-solid fa-graduation-cap mr-2"></i> Sistem Akademik (KRS)
+                </div>
+<div class="option-badge">
+<i class="fa-solid fa-book mr-2"></i> Perpustakaan Digital
+                </div>
+</div>
+</div>
+</div>
+<!-- Right Column: Deliverables -->
+<div class="w-5/12 flex flex-col">
+<div class="deliverable-box h-full flex flex-col justify-center shadow-xl">
+<!-- Decorative Circles -->
+<div class="circle-accent w-64 h-64 -top-20 -right-20"></div>
+<div class="circle-accent w-32 h-32 bottom-10 left-10"></div>
+<div class="relative z-10 text-center mb-8">
+<div class="inline-block p-4 rounded-full bg-white bg-opacity-20 mb-4 backdrop-filter backdrop-blur-sm border border-white border-opacity-30">
+<i class="fa-solid fa-file-arrow-up text-4xl text-white"></i>
+</div>
+<h3 class="text-2xl font-bold text-white mb-2">Output Dikumpulkan</h3>
+<p class="text-blue-100 text-sm">Format PDF dikirim via E-Learning</p>
+</div>
+<div class="relative z-10 space-y-4 px-4">
+<div class="bg-white bg-opacity-10 rounded-lg p-4 border border-white border-opacity-20 flex items-center">
+<i class="fa-regular fa-file-lines text-yellow-300 text-xl mr-4"></i>
+<div>
+<p class="text-white font-bold">Dokumen Test Plan</p>
+<p class="text-blue-200 text-xs">Struktur lengkap sesuai materi</p>
+</div>
+</div>
+<div class="bg-white bg-opacity-10 rounded-lg p-4 border border-white border-opacity-20 flex items-center">
+<i class="fa-solid fa-table text-green-300 text-xl mr-4"></i>
+<div>
+<p class="text-white font-bold">Tabel Test Case</p>
+<p class="text-blue-200 text-xs">Min. 5 kasus uji (Input, Expected, Actual)</p>
+</div>
+</div>
+<div class="bg-white bg-opacity-10 rounded-lg p-4 border border-white border-opacity-20 flex items-center">
+<i class="fa-solid fa-chart-pie text-purple-300 text-xl mr-4"></i>
+<div>
+<p class="text-white font-bold">Analisis Hasil</p>
+<p class="text-blue-200 text-xs">Kesimpulan Pass/Fail &amp; rekomendasi</p>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-8 text-center relative z-10">
+<p class="text-blue-200 text-xs font-semibold uppercase tracking-widest">Deadline: Minggu Depan</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="bg-white h-16 flex items-center px-12 justify-between border-t border-gray-200 z-20 mt-auto">
+<div class="flex items-center space-x-2">
+<div class="h-4 w-1 bg-blue-600 rounded-full"></div>
+<p class="text-gray-500 text-sm font-semibold">Pertemuan 12 | Pengujian Perangkat Lunak</p>
+</div>
+<p class="text-gray-400 text-sm">Slide 20</p>
+<!-- NAVIGATION BUTTONS -->
+<div class="absolute bottom-6 right-8 flex gap-4 z-50">
+
+    <button
+        onclick="goPrev()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        <i class="fa-solid fa-arrow-left"></i>
+        Previous
+    </button>
+
+    <button
+        onclick="goNext()"
+        class="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-heading font-semibold transition duration-300 shadow-lg hover:shadow-xl"
+    >
+        Next
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+
+</div>
+
+<script>
+function goPrev() {
+    window.location.href = "Slide 19.html";
+}
+function goNext() {
+    window.location.href = "Slide 20.html";
+}
+</script>
+</div>
+</body>
+</html>
